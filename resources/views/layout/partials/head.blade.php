@@ -102,6 +102,8 @@
         <link href="{{ asset('assets/css/swiper.css/') }}" rel="stylesheet" type="text/css" >
         <link href="{{ asset('assets/css/style.css/') }}" rel="stylesheet" type="text/css" >
         <link href="{{ asset('assets/css/coloring.css/') }}" rel="stylesheet" type="text/css" >
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
         <!-- color scheme -->
         <link id="colors" href="{{ asset('assets/css/colors/scheme-02.css/') }}" rel="stylesheet" type="text/css" >
     
