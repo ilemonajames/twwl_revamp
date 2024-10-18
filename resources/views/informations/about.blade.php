@@ -2,12 +2,28 @@
 
 @section('content')
 
-    <!-- Call to Action -->
-    <section class="py-5 mb-5"> <!-- Added mb-5 for margin-bottom -->
-        <div class="container">
-            <h1 class="display-4 font-weight-bold text-left mt-5">About Us</h1>
+<!-- content begin -->
+<div id="content" class="no-top no-bottom">
+    <div id="top"></div>
+    <!-- section begin -->
+    <section class="mt80 mt-sm-60 pt20 pb20 bg-color text-light">
+        <div class="container relative z-index-1000">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h3 class="mb-0">About Us</h3>
+                </div>
+
+                <div class="col-lg-6 text-lg-end">
+                    <ul class="crumb">
+                        <li><a href="/">Home</a></li>
+                        <li class="active">About Us</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
+    <!-- section close -->
+
     
     <!-- /Call to Action -->
 
@@ -19,7 +35,7 @@
                 <div class="col-lg-5 mb-4">
                     <figure class="figure">
 						<div class="position-relative overflow-hidden rounded shadow-lg">
-                        <img src="{{ asset('assets/img/we-always.png') }}" class="img-fluid rounded" alt="Elizabeth Hall">
+                        <img src="{{ asset('assets/img/we-always.png') }}" class="img-fluid" alt="Elizabeth Hall">
 						</div>
                         <figcaption class="figure-caption text-center">
                             <h3>Elizabeth Hall</h3>
@@ -30,6 +46,7 @@
                 <!-- About Text -->
 				<div class="col-lg-6">
 					<h2 class="mb-4">Who is Elizabeth Hall?</h2>
+                    <p class="text-justify mb-4 text-lead">Elizabeth Hall is a dedicated mental health professional with a Master of Arts in Clinical Mental Health Counseling and a Bachelor's Degree in Psychology. She is a Certified Clinical Hypnotherapist (CCH) and holds the National Certified Counselor (NCC) credential from the National Board for Certified Counselors (NBCC). At the core of her work is a commitment to mental health and well-being, She believes that a person-centered approach is essential in any therapeutic relationship. By respecting the autonomy of her clients and working collaboratively with them, I tailor treatment to meet their unique needs. My approach is holistic and considers the mind, body, and spirit connection, ensuring that my clients receive compassionate, individualized care. </p>
 					<p class="text-muted mb-3">Specializing in couples and family therapy, Elizabeth’s educational background equips her to provide systemic and relational therapeutic services for individuals, couples, and families. She integrates her training as a transpersonal hypnotherapist for clients dealing with stress-related issues, utilizing tools like guided imagery to promote deep relaxation and mental well-being.
 					</p>
 					<p class="text-justify">
@@ -44,7 +61,7 @@
     <!-- /About Section -->
 
     <!-- Stats Section -->
-    <section class=""style="background-color: #C2A03D; padding: 50px 0; text-white text-center py-3" >
+    <section class="bg-color-2 section-dark text-light text-center pt60 pb50 jarallax" style="background-color: #C2A03D; padding: 50px 0; text-white text-center py-3 " >
         <div class="container">
             <div class="row">
                 <div class="col-md-3">

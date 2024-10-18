@@ -174,7 +174,12 @@
 				<!-- page preloader close -->
 		
 				<!-- header begin -->
+				@if(Route::is(['/','home']))
 				<header class="transparent scroll-light">
+
+@else
+					<header class="transparent header-light">
+						@endif
 					<div class="container">
 						<div class="row">
 							<div class="col-md-12">
@@ -193,7 +198,7 @@
 									</div>
 									<div class="de-flex-col header-col-mid">
 										<ul id="mainmenu">
-											<li><a class="menu-item" href="index.html">Home</a>
+											<li><a class="menu-item" href="/">Home</a>
 												{{-- <ul>
 													<li><a class="menu-item" href="index.html">Homepage One</a></li>
 													<li><a class="menu-item" href="homepage-2.html">Homepage Two</a></li>
@@ -201,7 +206,7 @@
 													<li><a class="menu-item" href="homepage-4.html">Homepage Four</a></li>
 												</ul> --}}
 											</li>
-											<li><a class="menu-item" href="#">Services</a>
+											<li><a class="menu-item" href="/services">Services</a>
 												{{-- <ul>
 													<li><a class="menu-item" href="services.html">Services Style 1</a></li>
 													<li><a class="menu-item" href="services-2.html">Services Style 2</a></li>
