@@ -2,56 +2,84 @@
 @section('title') Our Programs @endsection
 
 @section('content')
-    <div class="breadcrumb-bar">
-        <div class="container-fluid">
-            <div class="row align-items-center">
-                <div class="col-md-12 col-12">
-                    <nav aria-label="breadcrumb" class="page-breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ route('home')}}">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Programs</li>
-                        </ol>
-                    </nav>
-                    <h2 class="breadcrumb-title">Programs</h2>
+   
+    <!-- /Breadcrumb -->
+    
+      <!-- content begin -->
+      <div class="no-bottom no-top" id="content">
+        <div id="top"></div>
+        <!-- section begin -->
+        <section class="mt80 mt-sm-60 pt20 pb20 bg-color text-light">
+            <div class="container relative z-index-1000">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h3 class="mb-0">Our Packages</h3>
+                    </div>
+
+                    <div class="col-lg-6 text-lg-end">
+                        <ul class="crumb">
+                            <li><a href="/">Home</a></li>
+                            <li class="active">Programs</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- /Breadcrumb -->
-    <!-- Blog -->
-    <section class="section section-blog">
-        <div class="container">
-            <div class="row">
-                @if(count($programs)>0)
+        </section>
+        <!-- section close -->
+
+        <section>
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-3">
+                        <ul id="filters" class="s2">
+                            @php
+                            $sn =1;
+                            @endphp
+                            <li><a href="#" data-filter="*" class="selected">All services</a></li>
+
+                            @foreach ($services as $service)
+                            <li><a href="#" data-filter=".service-{{$sn++}}">{{ $service->service_title }}</a></li>  
+                            @endforeach
+                            {{-- <li><a href="#" data-filter="*" class="selected">All services</a></li>
+                            <li><a href="#" data-filter=".service-1">Individual Therapy</a></li>
+                            <li><a href="#" data-filter=".service-2">Couples Counseling</a></li>
+                            <li><a href="#" data-filter=".service-3">Career Counseling</a></li>
+                            <li><a href="#" data-filter=".service-4">Stress management</a></li>
+                            <li><a href="#" data-filter=".service-5">Anxiety Treatment</a></li>
+                            <li><a href="#" data-filter=".service-6">Depression Therapy</a></li> --}}
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-9">
+                        <div id="gallery" class="row g-4">
+                            @php
+                            $sn =1;
+                            @endphp
+                            @if(count($programs)>0)
                 @foreach ($programs as $program)
-                <div class="col-md-4 col-sm-12">
-
-                    <!-- Blog Post -->
-                    <div class="blog grid-blog">
-                        <div class="blog-image">
-                            <a href="blog-details"><img class="img-fluid" src="{{ asset('/guest/images/uploads/' . $program->program_image) }}" alt="Post Image"></a>
-                        </div>
-                        <div class="blog-content">
-                            <ul class="entry-meta meta-item">
-
-                                <li><i class="far fa-clock"></i> {{ $program->created_at->format('d M Y')}}</li>
-                            </ul>
-                            <h3 class="blog-title"><a href="blog-details">{{ $program->program_title }}</a></h3>
-                            <p class="mb-0">{!! Str::limit(strip_tags($program->program_description), 100) !!}</p>
-                            <div class="row mt-3 ml-2">
-                                <a class="btn btn-primary btn-sm"
-                                href="{{ route('client.book')}}">Book Now</a> || <a class="btn btn-success btn-sm"
-                                    href="{{ route('programs.details', $program->id) }}">Learn more</a>
+                            <div class="item service-{{$sn++}} col-lg-4 text-center">
+                                <a href="/" class="d-block hover">
+                                    <div class="relative overflow-hidden rounded-20px">
+                                        <div class="absolute start-0 w-100 abs-middle fs-36 text-white text-center">
+                                            <span class="btn-main hover-scale-in-2">Read More</span>
+                                        </div>
+                                        <img src="{{ asset('/guest/images/uploads/' . $program->program_image) }}" class="img-fluid hover-scale-1-2" alt="">
+                                    </div>
+                                </a>
+                                <h4 class="mt-3 mb-0">{{ $program->program_title }}</h4>
+                                <p class="mb-2">{!! Str::limit(strip_tags($program->program_description), 40) !!}</p>
                             </div>
-                            {{-- <br><a href="{{ route('blogs.details', $blog->id) }}">Learn more</a></p> --}}
+                            @endforeach
+                            @endif
+                          
+                           
                         </div>
                     </div>
-                    <!-- /Blog Post -->
-
+                    
                 </div>
-                @endforeach
-                @endif
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
+    <!-- content close -->
+   
 @endsection
