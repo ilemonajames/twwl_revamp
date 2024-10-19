@@ -17,7 +17,7 @@
                 <div class="col-lg-6 text-lg-end">
                     <ul class="crumb">
                         <li><a href="/">Home</a></li>
-                        <li class="active">Services</li>
+                        <li class="active">Services - {{$service->service_title}}</li>
                     </ul>
                 </div>
             </div>
@@ -36,22 +36,22 @@
 
                     <div class="fs-14 text-dark fw-500">Start from</div>
                     <div class="mb-3">
-                        <h2 class="d-inline id-color-2">$150</h2><span class="fs-14">/session</span>
+                        <h2 class="d-inline id-color-2">${{ number_format($service->service_price)}}</h2><span class="fs-14">/session</span>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <img src="{{asset('assets/images/misc/6.webp')}}" class="img-fluid rounded-20px" alt="">
+                    <img src="{{asset('assets/images/services/'.$service->service_image)}}" class="img-fluid rounded-20px" alt="">
                 </div>
             </div>
         </div>
     </section>
 
     <section class="section-dark text-light jarallax">
-        <img src="images/background/3.webp" class="jarallax-img" alt="">
+        <img src="{{asset('assets/images/background/3.webp')}}" class="jarallax-img" alt="">
         <div class="container">
 
             <div class="row g-4">
-                <div class="col-lg-4">
+                {{-- <div class="col-lg-4">
                     <div class="rounded-10px padding30 h-100" data-bgcolor="rgba(32, 32, 32, .75)">
                         <h4 class="id-color-2">Initial Assessment</h4>
                         <p>The therapist and client start with an initial assessment session where they get to know each other. The therapist asks questions to understand the client's presenting concerns, personal history, current life circumstances, and goals for therapy. This helps in establishing a therapeutic alliance and creating a treatment plan tailored to the client's needs.</p>
@@ -92,7 +92,7 @@
                         <p>Throughout the therapy process, the therapist and client regularly review progress towards the established goals. Adjustments to the treatment plan may be made based on the client's evolving needs and progress.</p>
                     </div>
                 </div>
-                
+                 --}}
             </div>
         </div>
     </section>
@@ -111,42 +111,21 @@
                 <div class="col-lg-12">
                     <div class="accordion s2 wow fadeInUp">
                         <div class="accordion-section">
-                            <div class="accordion-section-title" data-tab="#accordion-a1">
-                                What kind of therapy services do you offer?
+                            @php
+                            $sn=1;
+                            @endphp
+
+                            @foreach ($faqs as $faq)
+                            <div class="accordion-section-title" data-tab="#accordion-a{{$sn}}">
+                            <p>{{$faq->question}}
+                            </div></p>   
+                            <div class="accordion-section-content" id="accordion-a{{$sn}}">
+                                <p>{{$faq->answer}}</p>
                             </div>
-                            <div class="accordion-section-content" id="accordion-a1">
-                                <p>We provide a range of therapy services, including individual, couples, and group therapy sessions tailored to your needs.</p>
-                            </div>
-                            <div class="accordion-section-title" data-tab="#accordion-a2">
-                                Do you offer online therapy options?
-                            </div>
-                            <div class="accordion-section-content" id="accordion-a2">
-                                <p>Yes, we offer virtual therapy sessions for your convenience and comfort, ensuring you can access support from anywhere.</p>
-                            </div>                                        
-                            <div class="accordion-section-title" data-tab="#accordion-a3">
-                                How can I schedule an appointment?
-                            </div>
-                            <div class="accordion-section-content" id="accordion-a3">
-                                <p>You can easily schedule an appointment by contacting our office via phone or email, or by filling out our online appointment request form.</p>
-                            </div>
-                            <div class="accordion-section-title" data-tab="#accordion-a4">
-                                Are your services covered by insurance?
-                            </div>
-                            <div class="accordion-section-content" id="accordion-a4">
-                                <p>We accept a variety of insurance plans, and our team can help you navigate the process to ensure you receive the coverage you are entitled to.</p>
-                            </div>
-                            <div class="accordion-section-title" data-tab="#accordion-a5">
-                                Do you offer specialized therapy for specific issues?
-                            </div>
-                            <div class="accordion-section-content" id="accordion-a5">
-                                <p>Our psychologists have expertise in various areas, such as anxiety, depression, trauma, and more, offering specialized therapy tailored to your unique needs.</p>
-                            </div>
-                            <div class="accordion-section-title" data-tab="#accordion-a6">
-                                Can I choose my therapist?
-                            </div>
-                            <div class="accordion-section-content" id="accordion-a6">
-                                <p>We strive to match you with a therapist who best fits your preferences and needs, ensuring a strong therapeutic alliance for effective treatment.</p>
-                            </div>
+                            <div class="counter" style="display: none">{{ $sn++ }}</div>
+                            @endforeach
+                           
+                            
                         </div>
                     </div>
                 </div>

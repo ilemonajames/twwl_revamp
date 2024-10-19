@@ -14,7 +14,7 @@ class BookingController extends Controller
         $programs = Program::all();
         $services = Service::all();
         //dd($programs); // Get all available programs
-        return view('booking.booking', ['programs' => $programs], ['services' => $services]); // Return the view for the booking form'); // Return the view for the booking form
+        return view('booking.book', ['programs' => $programs], ['services' => $services]); // Return the view for the booking form'); // Return the view for the booking form
     }
 
     // Handle booking as a guest

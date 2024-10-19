@@ -95,11 +95,11 @@
 					<div class="col-md-6 col-lg-3">
 						<div class="team-member">
 							<img src="{{ asset('assets/img/we-always.png') }}" class="img-fluid rounded" alt="Jeffery Mussman">
-							<h4 class="font-weight-bold">Jeffery Mussman</h4>
-							<p>Psychologist</p>
+							<h4 class="font-weight-bold">Elizabeth Hall</h4>
+							<p>CEO/Founder</p>
 						</div>
 					</div>
-					<div class="col-md-6 col-lg-3">
+					{{-- <div class="col-md-6 col-lg-3">
 						<div class="team-member">
 							<img src="{{ asset('assets/img/we-always.png') }}" class="img-fluid rounded" alt="Jeffery Mussman">
 							<h4 class="font-weight-bold">Jeffery Mussman</h4>
@@ -119,51 +119,43 @@
 							<h4 class="font-weight-bold">Jeffery Mussman</h4>
 							<p>Psychologist</p>
 						</div>
-					</div>
+					</div> --}}
 				</div>
                 <!-- Repeat for other specialists -->
             </div>
         </div>
     </section>
 	
-	<section class="vision-mission-section py-6 mb-6"> <!-- Increased padding and margin -->
+	<section class="jarallax overflow-hidden"> <!-- Increased padding and margin -->
         <div class="container">
-            <h2 class="fw-bold mb-4 text-center">Vision & Mission</h2>
-            <div class="row align-items-start">
-                <!-- Vision -->
-                <div class="col-md-6">
-                    <div class="vision text-center"> <!-- Added text-center class -->
-                        <h3 class="fw-bold">Our Vision</h3>
-                        <p class="mb-0">We envision a world where clients attain mental well-being through self-care practices,
-                            value-driven relationships, and nurturing bonds. By fostering secure connections and
-                            balance, we guide our clients toward relationships that are not only fulfilling but also
-                            deeply satisfying..</p>
-                    </div>
+            <div class="row g-4 gx-5">
+                <div class="col-lg-12 text-center">
+                    <div class="subtitle text-dark wow fadeInUp mb-3">Vision &amp; Mission</div>
+                    <h2>Vision &amp; Mission</h2>
                 </div>
-                
-                 {{-- Mission  --}}
-                <div class="col-md-6">
-                    <div class="mission text-center"> <!-- Added text-center class -->
-                        <h3 class="fw-bold">Our Mission</h3>
-                        <p class="mb-0">At "The Way we Love Relationship Counseling," our mission is to foster mental health,
-                            strengthen relationships, and empower individuals, couples, and families to achieve
-                            deeper connection and lasting relationship satisfaction.</p>
-                    </div>
+
+                <div class="col-lg-6">
+                    <h4 class="mb-4 wow fadeInRight">Our Vision</h4>
+                    <p class="fs-24 fw-600 lh-1-4 wow fadeInUp">We envision a world where clients attain mental well-being through self-care practices, value-driven relationships, and nurturing bonds. By fostering secure connections and balance, we guide our clients toward relationships that are not only fulfilling but also deeply satisfying</p>
+                    <h4 class="mb-4 wow fadeInRight">Our Mission</h4>
+                    <p class="fs-24 fw-600 lh-1-4 wow fadeInUp"> At "The Way we Love Relationship Counseling," our mission is to foster mental health, strengthen relationships, and empower individuals, couples, and families to achieve deeper connection and lasting relationship satisfaction.</p>
                 </div>
-                {{-- Core values --}}
-                <div class="feature-content mb-3">
-                    <div class="text-center">
-                        <h3 class="fw-bold">Core Values</h3>
-                    </div>
-                    <p class="mb-0 text-center">
-                        Empathy.
-                        Growth.
-                        Balance.
-                    </div>
+
+                <div class="col-lg-6">
+                    <h4 class="mb-4 wow fadeInRight">Our Values</h4>
+                    <ol class="ol-style-1">
+                        <li class="wow fadeInUp" data-wow-delay=".2s"><span class="fw-bold id-color">Empathy:</span>   We believe in providing a safe, non-judgmental space where clients can explore
+                            their emotions and challenges.</li>
+                        <li class="wow fadeInUp" data-wow-delay=".4s"><span class="fw-bold id-color">   Growth :</span> We are dedicated to fostering personal and relational growth through
+                            evidence-based methods and individualized support.</li>
+                        <li class="wow fadeInUp" data-wow-delay=".6s"><span class="fw-bold id-color">Balance :</span> We help clients find balance in their lives and relationships, focusing on
+                            self-care, communication, and connection. </li>
+                    </ol>
+                </div>
             </div>
         </div>
     </section>
-    
+            
     
     
 
@@ -179,12 +171,13 @@
                 <!-- Location -->
                 <div class="col-md-4 mb-3">
                     <h5 class="fw-bold">Location:</h5>
-                    <p>789 Elm Avenue<br>Brooklyn, NY 11201</p>
+                    <p>205 ½ E Broadway
+                        <br>, Suite F & G Hopewell VA. 23860</p>
                 </div>
                 <!-- Contact -->
                 <div class="col-md-4">
                     <h5 class="fw-bold">Contact:</h5>
-                    <p>+929 333 9296<br><a href="mailto:contact@mindthera.com" class="text-white">contact@mindthera.com</a></p>
+                    <p>+929 333 9296<br><a href="mailto:contact@thewaywelove.com" class="text-white">contact@thewaywelove.com</a></p>
                 </div>
             </div>
         </div>

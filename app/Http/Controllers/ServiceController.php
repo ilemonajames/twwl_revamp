@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Service;
 use App\Models\ProgramFee;
 use App\Models\Appointment;
+use App\Models\Faq;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -119,8 +120,10 @@ class ServiceController extends Controller
         return redirect()->route('services.index')->with('success', 'Service created successfully.');
     }
     public function show(Service $service)
+
     {
-        return view('services.show', compact('service'));
+        $faqs = Faq::all();
+        return view('services.show', compact('service', 'faqs' ));
     }
 
     public function edit(Service $service)
