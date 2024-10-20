@@ -85,7 +85,7 @@ Route::get('/about', function () {
 })->name('about');
 
 Route::get('/contact', function () {
-    return view('informations.contact');
+    return view('informations.contactnew');
 })->name('contact');
 Route::post('/contact-us',[ ContactController::class,'sendMessage'])->name('sendMessage');
 
