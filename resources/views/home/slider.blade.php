@@ -14,7 +14,7 @@
 
                                 <div class="col-lg-6 offset-lg-6">     
                                     <div class="spacer-single"></div>
-                                    <div class="sw-text-wrapper subtitle p-4 opacity-80">
+                                    <div class="sw-text-wrapper  p-4" style="background-color: #ccfcfc39; opacity: 0.9; border-radius: 10px; padding: 20px;">
                                         <div class="subtitle s2 mb-2">The Way We Love</div>
                                         <h1 class="slider-title mb-3">Transform The Way <span class="d-block alt-font fw-500 id-color-2 fs-72">We Love</span></h1>
                                         <div class="col-lg-8">
@@ -62,7 +62,7 @@
 
                                 <div class="col-lg-6 offset-lg-6">     
                                     <div class="spacer-single"></div>
-                                    <div class="sw-text-wrapper subtitle p-4 opacity-80">
+                                    <div class="sw-text-wrapper  p-4 opacity-80" style="background-color: #ccfcfc39; opacity: 0.9; border-radius: 10px; padding: 20px; ">
                                         <div class="subtitle s2 mb-2">The Way We Love</div>
                                         <h1 class="slider-title mb-3">Begin Your <span class="d-block alt-font fw-500 id-color-2 fs-72">Inner Peace Journey</span></h1>
                                         <div class="col-lg-8">
