@@ -154,7 +154,7 @@
                 <div class="col-lg-4 col-md-4">
                     <div class="relative p-4 bg-color-3 text-dark">
                         <i class="d-block fs-40 mb-2 icofont-phone"></i>
-                        +929 333 9296<br>
+                        +(804) 721-0983<br>
                         contact@mindthera.com
                     </div>
                 </div>

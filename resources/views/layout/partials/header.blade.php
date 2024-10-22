@@ -36,29 +36,25 @@
 									</div>
 									<div class="de-flex-col header-col-mid">
 										<ul id="mainmenu">
-											<li><a class="menu-item" href="/">Home</a>
+											<li><a class="menu-item {{ Request::is('home') ? 'active' : '' }}" href="/">Home</a>
 												
 											</li>
-											<li class="{{ Request::is('about') ? 'active' : '' }} menu-item">
-												<a href="{{ route('about') }}"><b>About Us</b></a>
+											<li><a class="{{ Request::is('about') ? 'active' : '' }} menu-item"href="{{ route('about') }}">About Us</a>
 											</li>
-											<li><a class="menu-item" href="/services">Services</a>
+											<li><a class="menu-item {{ Request::is('services') ? 'active' : '' }}" href="/services">Services</a>
 												
 											</li>
 											
-											<li class="{{ Request::is('programs') ? 'active' : '' }} menu-item">
-												<a href="{{ route('programs.all')}}"><b>Program</b></a>
+											<li><a class="{{ Request::is('programs') ? 'active' : '' }} menu-item" href="{{ route('programs.all')}}"><b>Program</b></a>
 											</li>
 											
-											<li class="{{ Request::is('blogs') ? 'active' : '' }} menu-item">
-												<a href="/blogs"><b>Blog</b></a>
+											<li><a class="{{ Request::is('blogs') ? 'active' : '' }} menu-item"  href="/blogs"><b>Blog</b></a>
 												<ul>
-													<li><a class="menu-item" href="/podcasts">Podcast</a></li>
-													<li><a class="menu-item" href="/videos">Vidoes</a></li>
+													<li><a class="menu-item {{ Request::is('blogs') ? 'active' : '' }}" href="/podcasts">Podcast</a></li>
+													<li><a class="menu-item {{ Request::is('blogs') ? 'active' : '' }}" href="/videos">Vidoes</a></li>
 												</ul>
 											</li>
-											<li class="{{ Request::is('contact') ? 'active' : '' }} menu-item">
-												<a href="{{ route('contact') }}"><b>Contact</b></a>
+											<li> <a class="{{ Request::is('contact') ? 'active' : '' }} menu-item" href="{{ route('contact') }}">Contact</a>
 											</li>
 											{{-- <li class="login-link menu-item">
 												<a href="login">Login / Signup</a>

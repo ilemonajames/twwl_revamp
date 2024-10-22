@@ -177,7 +177,7 @@
                 <!-- Contact -->
                 <div class="col-md-4">
                     <h5 class="fw-bold">Contact:</h5>
-                    <p>+929 333 9296<br><a href="mailto:contact@thewaywelove.com" class="text-white">contact@thewaywelove.com</a></p>
+                    <p>+(804) 721-0983<br><a href="mailto:contact@thewaywelove.com" class="text-white">contact@thewaywelove.com</a></p>
                 </div>
             </div>
         </div>
