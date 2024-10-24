@@ -104,12 +104,12 @@
 						<div class="widget">
 							<h5>Our Services</h5>
 							<ul>
-								<li><a href="#">About Us</a></li>
-								<li><a href="#">Our Services</a></li>
-								<li><a href="#">Study Case</a></li>
-								<li><a href="#">Blog</a></li>
-								<li><a href="#">Contact Us</a></li>
-								<li><a href="#">Testimonials</a></li>
+								<li><a href="/about">About Us</a></li>
+								<li><a href="/services">Our Services</a></li>
+								<li><a href="/programs">Packages</a></li>
+								<li><a href="/blog">Blog</a></li>
+								<li><a href="/contact">Contact Us</a></li>
+								{{-- <li><a href="#">Testimonials</a></li> --}}
 							</ul>
 						</div>
 					</div>
@@ -131,7 +131,7 @@
 					<div class="social-icons mb-sm-30">
 						<a href="#"><i class="fa-brands fa-facebook-f"></i></a>
 						<a href="#"><i class="fa-brands fa-twitter"></i></a>
-						<a href="#"><i class="fa-brands fa-discord"></i></a>
+						{{-- <a href="#"><i class="fa-brands fa-discord"></i></a> --}}
 						<a href="#"><i class="fa-brands fa-tiktok"></i></a>
 						<a href="#"><i class="fa-brands fa-youtube"></i></a>
 					</div>
@@ -149,8 +149,8 @@
 							© 2024 The Way We Love Relationship Counseling
 						</div>
 						<ul class="menu-simple">
-							<li><a href="#">Terms &amp; Conditions</a></li>
-							<li><a href="#">Privacy Policy</a></li>
+							<li><a href="/terms">Terms &amp; Conditions</a></li>
+							<li><a href="/privacy">Privacy Policy</a></li>
 						</ul>
 					</div>
 				</div>

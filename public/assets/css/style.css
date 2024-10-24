@@ -17354,3 +17354,31 @@ img {
   }
 }
 
+.about-section {
+  margin: 20px;
+}
+
+.collapsible {
+  background-color: #f1f1f1;
+  color: #444;
+  cursor: pointer;
+  padding: 10px;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.content {
+  padding: 0 18px;
+  display: none; /* Hidden by default */
+  overflow: hidden;
+  background-color: #f9f9f9;
+}
+
+button{
+  background-color: rgba(var(--primary-color-rgb), .1);
+  color: white;
+  padding: 14px 20px;
+}
+

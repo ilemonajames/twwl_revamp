@@ -47,12 +47,38 @@
 				<div class="col-lg-6">
 					<h2 class="mb-4">Who is Elizabeth Hall?</h2>
                     <p class="text-justify mb-4 text-lead">Elizabeth Hall is a dedicated mental health professional with a Master of Arts in Clinical Mental Health Counseling and a Bachelor's Degree in Psychology. She is a Certified Clinical Hypnotherapist (CCH) and holds the National Certified Counselor (NCC) credential from the National Board for Certified Counselors (NBCC). At the core of her work is a commitment to mental health and well-being, She believes that a person-centered approach is essential in any therapeutic relationship. By respecting the autonomy of her clients and working collaboratively with them, I tailor treatment to meet their unique needs. My approach is holistic and considers the mind, body, and spirit connection, ensuring that my clients receive compassionate, individualized care. </p>
-					<p class="text-muted mb-3">Specializing in couples and family therapy, Elizabeth’s educational background equips her to provide systemic and relational therapeutic services for individuals, couples, and families. She integrates her training as a transpersonal hypnotherapist for clients dealing with stress-related issues, utilizing tools like guided imagery to promote deep relaxation and mental well-being.
-					</p>
-					<p class="text-justify">
-                        Elizabeth is also certified by the Virginia Board of Counseling as a Qualified Mental Health Professional for adults and children (QMHP-A/C) and is currently registered with the Board as a Resident in Counseling and Marriage & Family Therapy. At the core of Elizabeth’s work is a commitment to mental health and well-being, and she believes that a person-centered approach is essential in any therapeutic relationship.
+					
+					
+
+                            <div class="about-section">
+                                <p class="text-muted mb-3">Specializing in couples and family therapy, Elizabeth’s educational background equips her to provide systemic and relational therapeutic services for individuals, couples, and families. She integrates her training as a transpersonal hypnotherapist for clients dealing with stress-related issues, utilizing tools like guided imagery to promote deep relaxation and mental well-being.
+                                </p>
+                                
+                                
+                                <button class="collapsible btn btn-primary px-4 py-2 mb-3">Read More</button>
+                                <div class="content">
+                                    <p class="text-muted mb-3">
+                                        Elizabeth is also certified by the Virginia Board of Counseling as a Qualified Mental Health Professional for adults and children (QMHP-A/C) and is currently registered with the Board as a Resident in Counseling and Marriage & Family Therapy. At the core of Elizabeth’s work is a commitment to mental health and well-being, and she believes that a person-centered approach is essential in any therapeutic relationship...</p>
+                                    
+                                    <h2>Personal beliefs</h2>
+                                <p>I believe in empowering the individuals and organizations I serve to achieve mental, emotional, and spiritual well-being...</p>
+                                    <p>My work is centered on fostering mental health through a holistic lifestyle of self-care that connects mind, body, and spirit.</p>
+                                    <p>For individuals, couples, and families, I emphasize the importance of self-care...</p>
+                                    <p>When working with organizations, I focus on developing customized curricula tailored to their unique needs...</p>
+                                    <ul>
+                                        <li><strong>Physical:</strong> Engaging in activities that promote physical health.</li>
+                                        <li><strong>Psychological:</strong> Maintaining mental clarity and emotional balance.</li>
+                                        <li><strong>Emotional:</strong> Understanding and regulating one’s emotional life.</li>
+                                        <li><strong>Spiritual:</strong> Exploring deeper meaning and purpose.</li>
+                                        <li><strong>Personal:</strong> Fostering individual growth and self-awareness.</li>
+                                        <li><strong>Professional:</strong> Balancing career demands with personal well-being.</li>
+                                    </ul>
+                                    <p>By addressing self-care in these diverse areas, I believe individuals can achieve balance, maintain healthy relationships, and lead fulfilling lives.</p>
+                                </div>
+                            </div>
+                            
                     </p>
-					<a href="{{ url('/about') }}" class="btn btn-primary px-4 py-2">Learn More</a>
+					{{-- <a href="{{ url('/about') }}" >Learn More</a> --}}
 				</div>
                 
             </div>
