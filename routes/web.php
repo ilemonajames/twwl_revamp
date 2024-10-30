@@ -87,6 +87,14 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('informations.contactnew');
 })->name('contact');
+
+Route::get('/hypnotheraphy', function(){
+    return view('informations.hypnotherapy');
+})->name('hypnotherapy');
+
+// Route::get('/events', function () {
+//     return view('informations.events');
+// })->name('events');
 Route::post('/contact-us',[ ContactController::class,'sendMessage'])->name('sendMessage');
 
 

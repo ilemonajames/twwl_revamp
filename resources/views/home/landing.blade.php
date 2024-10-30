@@ -23,7 +23,7 @@
             <div class="col-lg-4 col-md-4">
                 <div class="relative p-4 bg-color-3 text-dark">
                     <i class="d-block fs-40 mb-2 icofont-phone"></i>
-                    +804-721-0983<br>
+                    804-721-0983<br>
                     contact@thewaywelove.com
                 </div>
             </div>
@@ -47,7 +47,7 @@
                 <h2 class="wow fadeInUp">Introducing Who We Are</h2>
                 <p class="wow fadeInUp">{{$aboutUsText}}</p>
                 <div class="spacer-10"></div>
-                <a class="btn-main wow fadeInUp" href="about.html">About Us</a>
+                <a class="btn-main wow fadeInUp" href="/about">About Us</a>
             </div>
         </div>
         
@@ -129,7 +129,7 @@
         <img src="{{(asset("assets/images/services/".$sn++.".webp"))}}" class="img-fluid circle mb-4 w-30 mt-50 shadow-soft wow scaleIn" data-wow-delay=".2s" alt="" class="img-fluid circle mb-4 w-30 mt-50 shadow-soft wow scaleIn" data-wow-delay=".6s" alt="">
         <h4>{{$program->program_title}}</h4>
         <p class="no-bottom">{{$program->program_description}}</p>
-        <a class="btn-main btn-main btn-light-trans mt-3" href="/services">Our Services</a>
+        <a class="btn-main btn-main btn-light-trans mt-3" href="">Our Services</a>
     </div>
 </div>
 @endforeach
@@ -361,7 +361,7 @@
     <div class="container-fluid">
         <div class="row g-0">
             <div class="col-lg-2 text-center">
-                <a href="case-details.html" class="d-block hover">
+                <a href="/" class="d-block hover">
                     <div class="relative overflow-hidden">
                         <div class="absolute start-0 w-100 abs-middle fs-36 text-white text-center">
                             <i class="icofont-plus hover-scale-in-3"></i>
@@ -372,7 +372,7 @@
             </div>
 
             <div class="col-lg-2 text-center">
-                <a href="case-details.html" class="d-block hover">
+                <a href="/" class="d-block hover">
                     <div class="relative overflow-hidden">
                         <div class="absolute start-0 w-100 abs-middle fs-36 text-white text-center">
                             <i class="icofont-plus hover-scale-in-3"></i>
@@ -383,7 +383,7 @@
             </div>
 
             <div class="col-lg-2 text-center">
-                <a href="case-details.html" class="d-block hover">
+                <a href="/" class="d-block hover">
                     <div class="relative overflow-hidden">
                         <div class="absolute start-0 w-100 abs-middle fs-36 text-white text-center">
                             <i class="icofont-plus hover-scale-in-3"></i>
@@ -394,7 +394,7 @@
             </div>
 
             <div class="col-lg-2 text-center">
-                <a href="case-details.html" class="d-block hover">
+                <a href="/" class="d-block hover">
                     <div class="relative overflow-hidden">
                         <div class="absolute start-0 w-100 abs-middle fs-36 text-white text-center">
                             <i class="icofont-plus hover-scale-in-3"></i>
@@ -405,7 +405,7 @@
             </div>
 
             <div class="col-lg-2 text-center">
-                <a href="case-details.html" class="d-block hover">
+                <a href="/" class="d-block hover">
                     <div class="relative overflow-hidden">
                         <div class="absolute start-0 w-100 abs-middle fs-36 text-white text-center">
                             <i class="icofont-plus hover-scale-in-3"></i>
@@ -416,7 +416,7 @@
             </div>
 
             <div class="col-lg-2 text-center">
-                <a href="case-details.html" class="d-block hover">
+                <a href="/" class="d-block hover">
                     <div class="relative overflow-hidden">
                         <div class="absolute start-0 w-100 abs-middle fs-36 text-white text-center">
                             <i class="icofont-plus hover-scale-in-3"></i>

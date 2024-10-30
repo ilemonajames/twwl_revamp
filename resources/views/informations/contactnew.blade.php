@@ -110,8 +110,8 @@
                     <div class="relative p-5 text-center h-100 bg-color text-light">
                         <i class="d-block fs-40 mb-2 icofont-clock-time"></i>
                         <h3>Schedule Your Appointment Today!</h3>
-                        Mon - Sat: 8AM - 9PM<br>
-                        Sunday: 10AM - 8PM<br>
+                        {{-- Mon - Sat: 8AM - 9PM<br>
+                        Sunday: 10AM - 8PM<br> --}}
                         <a class="btn-main btn-light-trans text-light mt-3" href="appointment.html">Book an Appointment</a>
                     </div>
                 </div>
@@ -123,7 +123,7 @@
                         205 ½ E Broadway, 
                         <br>
                         Suite F & G Hopewell VA. 23860.
-                                                <a class="btn-main btn-light-trans text-light mt-3" href="#">Get Direction</a>
+                                                <a class="btn-main btn-light-trans text-light mt-3" href="/contact">Get Direction</a>
                     </div>
                 </div>
                 

@@ -73,7 +73,7 @@
 			</footer>
 			<!-- /Footer --> --}}
 <!-- footer begin -->
-<footer class="footer-light">
+<footer class="footer-black">
 	<div class="container relative z-1000">
 		<div class="row gx-5">
 			<div class="col-lg-4 col-sm-6">
@@ -93,7 +93,7 @@
 							<ul>                                        
 								<li><a href="#">Individual Therapy</a></li>
 								<li><a href="#">Couples Counseling</a></li>
-								<li><a href="#">Career Counseling</a></li>
+								{{-- <li><a href="#">Career Counseling</a></li> --}}
 								<li><a href="#">Stress management</a></li>
 								<li><a href="#">Anxiety Treatment</a></li>
 								<li><a href="#">Depression Therapy</a></li>

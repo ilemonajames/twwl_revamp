@@ -68,7 +68,7 @@
 										<div class="menu_side_area">
 											<div class="h-phone sm-hide">
 												<i class="icofont-headphone-alt"></i>
-												<span>Phone</span>+(804) 721-0983
+												<span>Phone</span>(804) 721-0983
 											</div>                                    
 											<a href="/booking" class="btn-main">Book an Appointment</a>
 											<span id="menu-btn"></span>

@@ -102,7 +102,7 @@
                             
                             <div class="g-recaptcha" data-sitekey="6LdW03QgAAAAAJko8aINFd1eJUdHlpvT4vNKakj6"></div>
                             <div id='submit' class="mt20">
-                                <input type='submit' id='send_message' value='Send Appointment' class="btn-main">
+                                <input type='submit' id='send_message' value='Book Appointment' class="btn-main">
                             </div>
 
                             <div id="success_message" class='success'>
@@ -126,8 +126,8 @@
                     <div class="relative p-5 text-center h-100 bg-color text-light">
                         <i class="d-block fs-40 mb-2 icofont-clock-time"></i>
                         <h3>Schedule Your Appointment Today!</h3>
-                        Mon - Sat: 8AM - 9PM<br>
-                        Sunday: 10AM - 8PM<br>
+                        {{-- Mon - Sat: 8AM - 9PM<br>
+                        Sunday: 10AM - 8PM<br> --}}
                         <a class="btn-main btn-light-trans text-light mt-3" href="appointment.html">Book an Appointment</a>
                     </div>
                 </div>
@@ -136,9 +136,8 @@
                     <div class="relative p-5 text-center h-100 bg-color-2 text-light">
                         <i class="d-block fs-40 mb-2 icofont-location-pin"></i>
                         <h3>Visit Our Clinic</h3>
-                        205 ½ E Broadway
-<br>
-, Suite F & G Hopewell VA. 23860<br>
+                        205 ½ E Broadway,
+<br>Suite F & G Hopewell VA. 23860<br>
                         <a class="btn-main btn-light-trans text-light mt-3" href="#">Get Direction</a>
                     </div>
                 </div>
