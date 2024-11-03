@@ -157,7 +157,7 @@
 <div>@include('livewire.website-admin.events.crop-image-modal.thumbnail_croper')</div>
 </div>
 @push('scripts')
-    <script src="https://cdn.tiny.cloud/1/cvjfkxqlo8ylwqn3xgo15h2bd4xl6n7m6k5d0avjcq93c1i7/tinymce/6/tinymce.min.js"
+    <script src="https://cdn.tiny.cloud/1/nj0xmn8wlit9vmuxcmuqyyzmb5id877iibdnqixmgxsyino2/tinymce/6/tinymce.min.js"
         referrerpolicy="origin"></script>
 
     <script>
