@@ -261,7 +261,7 @@
                         <img src="{{(asset('assets/images/services/2.webp'))}}" class="absolute circle mb-4 w-80px end-0 me-4 shadow-soft wow scaleIn" data-wow-delay=".4s" alt="">
                         <div class="fs-14 text-dark fw-500">Start from</div>
                         <div class="mb-3">
-                            <h2 class="d-inline id-color-2">$180</h2><span class="fs-14">/session</span>
+                            <h2 class="d-inline id-color-2">$175</h2><span class="fs-14">/session</span>
                         </div>
                         <p><p>Our goal is to help couples navigate the complexities of their relationships, improve
                             communication, resolve conflicts, and foster a secure emotional connection..
@@ -291,7 +291,7 @@
                         <img src="{{(asset('assets/images/services/3.webp'))}}" class="absolute circle mb-4 w-80px end-0 me-4 shadow-soft wow scaleIn" data-wow-delay=".6s" alt="">
                         <div class="fs-14 text-dark fw-500">Start from</div>
                         <div class="mb-3">
-                            <h2 class="d-inline id-color-2">$190</h2><span class="fs-14">/session</span>
+                            <h2 class="d-inline id-color-2">$120</h2><span class="fs-14">/session</span>
                         </div>
                         <p>We provide support for individuals dealing with:
                             <ul class="ul-style-2 fw-600 text-dark mb-3">
@@ -309,6 +309,35 @@
                     </div>
                 </div>
             </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="relative bg-white h-100 rounded-10px overflow-hidden wow fadeInUp" data-wow-delay=".6s">
+                    <h4 class="bg-color-2 text-light p-3">Group Counseling</h4>
+                    <div class="p-3 px-4 mb-4 relative">
+                        <img src="{{(asset('assets/images/services/4.webp'))}}" class="absolute circle mb-4 w-80px end-0 me-4 shadow-soft wow scaleIn" data-wow-delay=".8s" alt="">
+                        <div class="fs-14 text-dark fw-500">Start from</div>
+                        <div class="mb-3">
+                            <h2 class="d-inline id-color-2">$1200</h2><span class="fs-14">/session</span>
+                        </div>
+                        <p>We provide support for groups of people dealing with:
+                            <ul class="ul-style-2 fw-600 text-dark mb-3">
+                         <li>Stress</li>
+                            <li>Anxiety</li>
+                            <li>Depression</li>
+                            <li>PTSD and trauma-related challenges</li>
+                            <li>Stress management</li>
+                            <li>Relationship issues</li>
+                            <li>Grief and loss</li>
+                                                </ul>
+
+                        <a class="btn-main btn-light-trans w-100" href="appointment.html">
+                            Book an Appointment
+                        </a>
+                    </div>
+                </div>
+            </div>
+     
+
+
         </div>
     </div>
 </section>
@@ -465,7 +494,7 @@
     </div>
 </section>
 
-<section class="text-light section-dark jarallax">
+{{-- <section class="text-light section-dark jarallax">
     <img src="{{(asset('assets/images/background/1.webp'))}}" class="jarallax-img" alt="">
     <div class="container">
         <div class="row g-4 gx-5 relative z-index-1000">
@@ -479,7 +508,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 
 </div>
 <!-- content close -->

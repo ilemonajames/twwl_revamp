@@ -2,7 +2,28 @@
 @extends('layout.mainlayout')
 @section('content')
 <!-- Breadcrumb -->
-			<div class="breadcrumb-bar">
+<div class="no-bottom no-top" id="content">
+	<div id="top"></div>
+	<!-- section begin -->
+	<section class="mt80 mt-sm-60 pt20 pb20 bg-color text-light">
+		<div class="container relative z-index-1000">
+			<div class="row align-items-center">
+				<div class="col-lg-6">
+					<h3 class="mb-0">Study Case</h3>
+				</div>
+
+				<div class="col-lg-6 text-lg-end">
+					<ul class="crumb">
+						<li><a href="index.html">Home</a></li>
+						<li class="active">Study Case</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- section close -->
+
+			{{-- <div class="breadcrumb-bar">
 				<div class="container-fluid">
 					<div class="row align-items-center">
 						<div class="col-md-12 col-12">
@@ -16,11 +37,11 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> --}}
 			<!-- /Breadcrumb -->
 
 			<!-- Page Content -->
-			<div class="content">
+			<section>
 				<div class="container">
 
 					<div class="row">
@@ -152,5 +173,5 @@
 
 			</div>
 			<!-- /Page Content -->
-			</div>
+		</section>
 	   @endsection

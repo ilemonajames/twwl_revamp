@@ -92,6 +92,10 @@ Route::get('/hypnotheraphy', function(){
     return view('informations.hypnotherapy');
 })->name('hypnotherapy');
 
+Route::get('/privacy-policy', function(){
+    return view('informations.privacy');
+})->name('privacypolicy');
+
 // Route::get('/events', function () {
 //     return view('informations.events');
 // })->name('events');

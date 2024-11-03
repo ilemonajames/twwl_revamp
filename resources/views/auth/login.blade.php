@@ -3,40 +3,47 @@
     Please login or create an account to continue on The Way we Love
 @endsection
 
+
 @section('content')
-    <!-- Breadcrumb --><br>
-    <div class="breadcrumb-bar">
-        <div class="container-fluid">
+<div class="no-bottom no-top" id="content">
+    <div id="top"></div>
+    <!-- section begin -->
+    <section class="mt80 mt-sm-60 pt20 pb20 bg-color text-light">
+        <div class="container relative z-index-1000">
             <div class="row align-items-center">
-                <div class="col-md-12 col-12">
-                    <nav aria-label="breadcrumb" class="page-breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item active" aria-current="page"></li>
-                        </ol>
-                    </nav>
-                    <h2 class="breadcrumb-title">Authorized Access</h2>
+                <div class="col-lg-6">
+                    <h3 class="mb-0">Authorized Access</h3>
+                </div>
+
+                <div class="col-lg-6 text-lg-end">
+                    <ul class="crumb">
+                        <li><a href="/">Home</a></li>
+                        <li class="active">Login</li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- /Breadcrumb -->
+    </section>
+    <!-- section close -->
 
-    <div class="content">
+    
+
+    <section>
         <div class="container">
             <div class="row">
                 <!-- Blog Sidebar -->
                 <div class="col-lg-6 col-md-12">
                     <div class="contact-img" align="center">
-                        <img src="{{ asset('assets/images/login.png') }}" width="70%" class="" alt="about-img">
+                        <img src="{{ asset('assets/images/login.png') }}" width="100%" class="" alt="about-img">
                     </div>
                 </div>
-                <div class="col-lg-5 col-md-12">
+                <div class="col-lg-6 col-md-12">
                     <div class="card new-comment clearfix">
                         <div class="card-header">
                             <h4 class="card-title"><b>Authorized Access</b></h4>
                         </div>
-                        <div class="card-body">
-                            <form method="post" action="{{ route('login')}}">
+                        <div class="p-4 bg-grey rounded-10px">
+                            <form method="post" class="position-relative z1000" action="{{ route('login')}}">
                                 @csrf
                                 <div class="form-group">
                                     <label>Email Address <span class="text-danger">*</span></label>
@@ -52,8 +59,8 @@
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
-                                <div class="submit-section">
-                                    <button class="btn btn-primary submit-btn"
+                                <div class="submit-section form-group mt-4">
+                                    <button class="form-control btn btn-primary submit-btn"
                                         type="submit">Login</button>  or  <a href="{{ route('register')}}">Create Account </a>
                                 </div>
                             </form>
@@ -63,5 +70,5 @@
 
             </div>
         </div>
-    </div>
+    </section>
 @endsection

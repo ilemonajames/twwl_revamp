@@ -77,7 +77,7 @@
 	<div class="container relative z-1000">
 		<div class="row gx-5">
 			<div class="col-lg-4 col-sm-6">
-				<img src="{{asset('assets/images/logo-black.png')}}" alt="" class="mb-3">
+				<img src="{{asset('assets/images/logo.png')}}" alt="" class="mb-3" width="260px" height="65px">
 				<div class="spacer-20"></div>
 				{{-- <h5>About Us</h5> --}}
 				<p>The Way We Love Relationship Counseling
@@ -150,7 +150,7 @@
 						</div>
 						<ul class="menu-simple">
 							<li><a href="/terms">Terms &amp; Conditions</a></li>
-							<li><a href="/privacy">Privacy Policy</a></li>
+							<li><a href="/privacy-policy">Privacy Policy</a></li>
 						</ul>
 					</div>
 				</div>

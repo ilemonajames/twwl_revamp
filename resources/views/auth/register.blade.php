@@ -5,23 +5,29 @@
 
 @section('content')
     <!-- Breadcrumb --><br>
-    <div class="breadcrumb-bar">
-        <div class="container-fluid">
-            <div class="row align-items-center">
-                <div class="col-md-12 col-12">
-                    <nav aria-label="breadcrumb" class="page-breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item active" aria-current="page"></li>
-                        </ol>
-                    </nav>
-                    <h2 class="breadcrumb-title">Sign up</h2>
+        <section class="mt80 mt-sm-60 pt20 pb20 bg-color text-light">
+            <div class="container relative z-index-1000">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h3 class="mb-0">Authorized Access</h3>
+                    </div>
+    
+                    <div class="col-lg-6 text-lg-end">
+                        <ul class="crumb">
+                            <li><a href="/">Home</a></li>
+                            <li class="active">Login</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- /Breadcrumb -->
-
-    <div class="content">
+        </section>
+        <!-- section close -->
+    
+        
+    
+        <section>
+            <div class="container">
+                <div class="row">
         <div class="container">
             <div class="row">
                 <!-- Blog Sidebar -->
@@ -94,7 +100,7 @@
                                     </div>
                                 </div>
                                 <div class="submit-section">
-                                    <button class="btn btn-primary submit-btn"
+                                    <button class="btn btn-primary submit-btn form-control mt-4"
                                         type="submit">Sign up</button>  Already have account?  <a href="{{ route('login')}}">Login </a>
                                 </div>
                             </form>
@@ -104,5 +110,7 @@
 
             </div>
         </div>
-    </div>
+    </section>
+        
+        
 @endsection
