@@ -34,7 +34,7 @@ class NewProgramComponent extends Component
         $this->validate([
             'title'=> ['required', 'string', 'max:255','unique:programs,program_title'],
             'description'=> ['required', 'string'],
-            'photo' => 'required|mimes:jpeg,png,gif',
+            'photo' => 'required|mimes:jpeg,jpg,png,gif',
             // 'program_icon' => 'required|mimes:png',
         ],$this->message);
         
