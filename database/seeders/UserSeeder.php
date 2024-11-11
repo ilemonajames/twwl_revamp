@@ -30,11 +30,11 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-            'surname' => 'Ugbon',
-            'othernames' => 'Ember',
-            'email' => 'emberugbon@gmail.com',
-            'phoneno' => '08031841291',
-            'password' => Hash::make('Luvday@1994'),
+            'surname' => 'Elizabeth',
+            'othernames' => 'Hall',
+            'email' => 'thewayweloverelationshipcounselling@gmail.com',
+            'phoneno' => '08134305556',
+            'password' => Hash::make('Twwl@1991'),
             'user_type' => 'Website Admin',
             'status' => "Active",
             'resident_address' => "Abuja"

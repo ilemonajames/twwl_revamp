@@ -185,4 +185,18 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
+    'disks' => [
+    // Other disk configurations...
+
+    'do' => [
+        'driver' => 'local', // or any other driver like 'local'
+        'key' => env('DO_SPACES_KEY'), // Example for DigitalOcean Spaces
+        'secret' => env('DO_SPACES_SECRET'),
+        'region' => env('DO_SPACES_REGION'),
+        'bucket' => env('DO_SPACES_BUCKET'),
+        'endpoint' => env('DO_SPACES_ENDPOINT'),
+    ],
+],
+
+
 ];

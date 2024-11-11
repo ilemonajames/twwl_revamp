@@ -58,7 +58,7 @@
                             @if(count($programs)>0)
                 @foreach ($programs as $program)
                             <div class="item service-{{$sn++}} col-lg-4 text-center">
-                                <a href="/" class="d-block hover">
+                                <a href="{{ route('programs.details', $program->id) }}" class="d-block hover">
                                     <div class="relative overflow-hidden rounded-20px">
                                         <div class="absolute start-0 w-100 abs-middle fs-36 text-white text-center">
                                             <span class="btn-main hover-scale-in-2">Read More</span>

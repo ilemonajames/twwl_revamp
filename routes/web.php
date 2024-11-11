@@ -128,11 +128,11 @@ Route::get('appointments/{appointment}/edit', [AppointmentController::class, 'ed
 Route::post('payments', [PaymentController::class, 'store'])->name('payments.store');
 
 // Program Routes
-Route::resource('programs', ProgramController::class)->except(['index', 'create', 'show', 'edit']);
-Route::get('programs', [ProgramController::class, 'index'])->name('programs.index');
-Route::get('programs/create', [ProgramController::class, 'create'])->name('programs.create');
-Route::get('programs/{program}', [ProgramController::class, 'show'])->name('programs.show');
-Route::get('programs/{program}/edit', [ProgramController::class, 'edit'])->name('programs.edit');
+// Route::resource('programs', ProgramController::class)->except(['index', 'create', 'show', 'edit']);
+// Route::get('programs', [ProgramController::class, 'index'])->name('programs.index');
+// Route::get('programs/create', [ProgramController::class, 'create'])->name('programs.create');
+// Route::get('programs/{program}', [ProgramController::class, 'show'])->name('programs.show');
+// Route::get('programs/{program}/edit', [ProgramController::class, 'edit'])->name('programs.edit');
 
 // Service Routes
 Route::resource('services', ServiceController::class)->except(['index', 'create', 'show', 'edit']);
@@ -153,7 +153,7 @@ Route::get('programs', [ProgramController::class, 'all_programs'])->name('progra
 
 // Booking Routes
 Route::get('/booking', [BookingController::class, 'showBookingForm'])->name('booking.form');
-Route::post('/booking', [BookingController::class, 'bookAsGuest'])->name('booking.submit');
+Route::post('/booking', [BookingController::class, 'bookAsGuest'])->name('book.appointment');
 Route::get('/booking-success', [BookingController::class, 'bookingSuccessPage'])->name('booking.success');
 
 // Pages route

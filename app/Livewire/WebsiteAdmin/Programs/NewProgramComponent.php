@@ -37,6 +37,7 @@ class NewProgramComponent extends Component
             'photo' => 'required|mimes:jpeg,png,gif',
             // 'program_icon' => 'required|mimes:png',
         ],$this->message);
+        
 
         $servicePhoto  = $this->uploadProductImage($formData['croped_image']);
         // $serviceIcon = $this->uploadIcon();

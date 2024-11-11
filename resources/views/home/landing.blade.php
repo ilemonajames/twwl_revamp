@@ -129,7 +129,7 @@
         <img src="{{(asset("assets/images/services/".$sn++.".webp"))}}" class="img-fluid circle mb-4 w-30 mt-50 shadow-soft wow scaleIn" data-wow-delay=".2s" alt="" class="img-fluid circle mb-4 w-30 mt-50 shadow-soft wow scaleIn" data-wow-delay=".6s" alt="">
         <h4>{{$program->program_title}}</h4>
         <p class="no-bottom">{{$program->program_description}}</p>
-        <a class="btn-main btn-main btn-light-trans mt-3" href="">Our Services</a>
+        <a class="btn-main btn-main btn-light-trans mt-3" href="{{ route('programs.details', $program->id) }}">Our programs</a>
     </div>
 </div>
 @endforeach

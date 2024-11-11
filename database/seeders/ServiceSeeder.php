@@ -16,7 +16,7 @@ class ServiceSeeder extends Seeder
         Service::create([
             'service_icon' => 'counceling.png',
             'service_image' => 'counceling.jpg',
-            'service_title' => 'Individuals, Couples, and Families',
+            'service_title' => 'Individuals',
             'service_description' => "We provide tailored counseling and coaching to support individuals, couples, and families in navigating life's challenges. Whether you are seeking personal growth, relationship improvement, or family support, we help you develop tools to foster mental well-being and stronger connections.
             <h4>Couples Counseling & Coaching</h4>
             <p>We serve all couples, including:</p>
@@ -53,6 +53,12 @@ class ServiceSeeder extends Seeder
             'service_description' => "Our services extend to organizations seeking to support their teams' mental health and well-being. We offer workshops, coaching, and curriculum development focused on improving workplace dynamics, team cohesion, and emotional wellness."
         ]);
 
+        Service::create([
+            'service_icon' => 'organization.png',
+            'service_image' => 'organization.jpg',
+            'service_title' => 'Couples & Families',
+            'service_description' => "Our services extend to organizations seeking to support their teams' mental health and well-being. We offer workshops, coaching, and curriculum development focused on improving workplace dynamics, team cohesion, and emotional wellness."
+        ]);
         // Service 4: Workshops & Seminars for Organizations
         Service::create([
             'service_icon' => 'workshops.png',

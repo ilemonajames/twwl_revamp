@@ -31,8 +31,8 @@
 
                 <div class="col-lg-8 offset-lg-4">
                     <div class="p-4 bg-white rounded-10px">
-                        <form name="contactForm" id="contact_form" class="position-relative z1000" method="post" action="#">
-                            
+                        <form name="appointment_form" id="appointment_form" class="position-relative z1000" method="post" action="/booking">
+                            {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-lg-12">
                                     <h5>Select Service</h5>
@@ -52,7 +52,7 @@
                                     <h5>Select Date</h5>
                                     <div id="date" class="relative input-group date" data-date-format="mm-dd-yyyy">
                                         <i class="absolute top-0 end-0 id-color pt-3 pe-3 icofont-calendar"></i>
-                                        <input class="form-control bg-grey no-border" type="text" readonly />
+                                        <input name="date" class="form-control bg-grey no-border" type="text" readonly />
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                                     </div>
                                 </div>
@@ -80,12 +80,12 @@
 
                                 <div class="col-lg-4">
                                     <h5>Name</h5>
-                                    <input type="text" name="Name" id="name" class="form-control bg-grey no-border" placeholder="" required>
+                                    <input type="text" name="name" id="name" class="form-control bg-grey no-border" placeholder="" required>
                                 </div>
 
                                 <div class="col-lg-4">
                                     <h5>Email</h5>
-                                    <input type="text" name="Email" id="email" class="form-control bg-grey no-border" placeholder="" required>
+                                    <input type="text" name="email" id="email" class="form-control bg-grey no-border" placeholder="" required>
                                 </div>
 
                                 <div class="col-lg-4">
@@ -101,13 +101,13 @@
                                 
                             
                             <div class="g-recaptcha" data-sitekey="6LdW03QgAAAAAJko8aINFd1eJUdHlpvT4vNKakj6"></div>
-                            <div id='submit' class="mt20">
-                                <input type='submit' id='send_message' value='Book Appointment' class="btn-main">
+                            <div id="appointment_form" class="mt20 form-group">
+                                <input type='submit'  value='Book Appointment' class="btn-main"> 
                             </div>
 
-                            <div id="success_message" class='success'>
+                             <div id="success_message" class='success'>
                                 Your message has been sent successfully. Refresh this page if you want to send more messages.
-                            </div>
+                            </div> 
                             <div id="error_message" class='error'>
                                 Sorry there was an error sending your form.
                             </div>

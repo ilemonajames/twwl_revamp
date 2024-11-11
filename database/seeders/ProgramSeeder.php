@@ -68,7 +68,7 @@ class ProgramSeeder extends Seeder
 
         Program::create([
                 'id' => Str::uuid(),
-                'program_image' => 'path/to/group_therapy_image.jpg',
+                'program_image' => 'group_therapy_image.jpg',
                 'icon_class' => 'fas fa-comments', // Font Awesome icon class
                 'program_title' => 'Group Therapy Program',
                 'program_description' => 'Weekly online group therapy sessions providing emotional support and coping strategies for trauma and PTSD.',
