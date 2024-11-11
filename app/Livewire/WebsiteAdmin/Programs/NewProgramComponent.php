@@ -29,31 +29,54 @@ class NewProgramComponent extends Component
 
 
     //create new service
-    public function newService($formData){
+    // public function newService($formData){
 
-        $this->validate([
-            'title'=> ['required', 'string', 'max:255','unique:programs,program_title'],
-            'description'=> ['required', 'string'],
-            'photo' => 'required|mimes:jpeg,jpg,png,gif',
-            // 'program_icon' => 'required|mimes:png',
-        ],$this->message);
+    //     $this->validate([
+    //         'title'=> ['required', 'string', 'max:255','unique:programs,program_title'],
+    //         'description'=> ['required', 'string'],
+    //         'photo' => 'required|mimes:jpeg,jpg,png,gif',
+    //         // 'program_icon' => 'required|mimes:png',
+    //     ],$this->message);
         
 
-        $servicePhoto  = $this->uploadProductImage($formData['croped_image']);
-        // $serviceIcon = $this->uploadIcon();
+    //     $servicePhoto  = $this->uploadProductImage($formData['croped_image']);
+    //     // $serviceIcon = $this->uploadIcon();
 
-        Program::create([
-            'program_title' => $this->title,
-            'program_description' => $this->description,
-            'program_image' => $servicePhoto,
-            // 'program_icon' => $serviceIcon,
-        ]);
+    //     Program::create([
+    //         'program_title' => $this->title,
+    //         'program_description' => $this->description,
+    //         'program_image' => $servicePhoto,
+    //         // 'program_icon' => $serviceIcon,
+    //     ]);
 
-        $this->reset();
-        $this->dispatch('feedback', feedback: "Program successfully added");
+    //     $this->reset();
+    //     $this->dispatch('feedback', feedback: "Program successfully added");
+    // }
+
+    public function newService($formData){
+        try {
+            $this->validate([
+                'title'=> ['required', 'string', 'max:255','unique:programs,program_title'],
+                'description'=> ['required', 'string'],
+                'photo' => 'required|mimes:jpeg,jpg,png,gif',
+            ], $this->message);
+    
+            $servicePhoto  = $this->uploadProductImage($formData['croped_image']);
+    
+            Program::create([
+                'program_title' => $this->title,
+                'program_description' => $this->description,
+                'program_image' => $servicePhoto,
+            ]);
+    
+            $this->reset();
+            $this->dispatch('feedback', feedback: "Program successfully added");
+        } catch (\Exception $e) {
+            \Log::error($e->getMessage());
+            $this->dispatch('feedback', feedback: "An error occurred: " . $e->getMessage());
+        }
     }
-
-
+    
     //upload service icon
     // public function uploadIcon(){
     //     $photoName = Carbon::now()->timestamp. '.' . $this->program_icon->getClientOriginalName();//generate name for image
