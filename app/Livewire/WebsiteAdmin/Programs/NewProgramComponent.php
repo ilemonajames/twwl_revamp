@@ -61,23 +61,33 @@ class NewProgramComponent extends Component
     }
 
     public function uploadProductImage($image)
-    {
-        try {
-            // Decode base64 image
-            $image_parts = explode(";base64,", $image);
-            $image_base64 = base64_decode($image_parts[1]);
-            $postImage = Carbon::now()->timestamp . '_service.jpg';
-
-            // Resize and save image
-            $img = Image::make($image_base64)->encode('jpg', 60);
-            Storage::put("guest/images/uploads/{$postImage}", $img->stream()->__toString());
-
-            return $postImage;
-        } catch (\Exception $e) {
-            Log::error("Image upload failed: " . $e->getMessage());
-            throw new \Exception("Failed to upload image.");
+{
+    try {
+        // Decode the base64 image
+        $image_parts = explode(";base64,", $image);
+        if (count($image_parts) < 2) {
+            throw new \Exception("Invalid image data.");
         }
+        
+        $image_base64 = base64_decode($image_parts[1]);
+        if ($image_base64 === false) {
+            throw new \Exception("Image decoding failed.");
+        }
+
+        // Process image using Intervention Image
+        $postImageName = Carbon::now()->timestamp . '_service.jpg';
+        $img = Image::make($image_base64)->encode('jpg', 60);
+
+        // Save the image to storage using Laravel Storage
+        Storage::put("guest/images/uploads/{$postImageName}", $img->stream());
+
+        return $postImageName;
+    } catch (\Exception $e) {
+        Log::error("Image upload failed: " . $e->getMessage());
+        throw new \Exception("Failed to upload image.");
     }
+}
+
 
     public function render()
     {
