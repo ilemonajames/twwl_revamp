@@ -2,104 +2,86 @@
 
 namespace App\Livewire\WebsiteAdmin\Programs;
 
-use Image;
 use Carbon\Carbon;
 use Livewire\Component;
 use App\Models\Program;
 use Livewire\WithFileUploads;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class NewProgramComponent extends Component
 {
-
     public $description;
     public $title;
     public $photo;
-    public $program_icon;
     use WithFileUploads;
 
-
-    public $message = [
+    protected $messages = [
         'title.required' => "Please enter your program title",
-        'content.description' => "Please enter your program description",
+        'description.required' => "Please enter your program description",
         'photo.required' => "Please upload a program image",
-        'photo.dimensions' => "image must have a minimum of 860 width and 500 height",
+        'photo.dimensions' => "Image must have a minimum width of 860px and height of 500px",
+        'photo.mimes' => "Only jpeg, jpg, png, and gif formats are allowed",
     ];
 
-
-    //create new service
-    // public function newService($formData){
-
-    //     $this->validate([
-    //         'title'=> ['required', 'string', 'max:255','unique:programs,program_title'],
-    //         'description'=> ['required', 'string'],
-    //         'photo' => 'required|mimes:jpeg,jpg,png,gif',
-    //         // 'program_icon' => 'required|mimes:png',
-    //     ],$this->message);
-        
-
-    //     $servicePhoto  = $this->uploadProductImage($formData['croped_image']);
-    //     // $serviceIcon = $this->uploadIcon();
-
-    //     Program::create([
-    //         'program_title' => $this->title,
-    //         'program_description' => $this->description,
-    //         'program_image' => $servicePhoto,
-    //         // 'program_icon' => $serviceIcon,
-    //     ]);
-
-    //     $this->reset();
-    //     $this->dispatch('feedback', feedback: "Program successfully added");
-    // }
-
-    public function newService($formData){
+    public function newService($formData)
+    {
         try {
+            // Log MIME type of the photo to help with debugging if needed
+            if ($this->photo) {
+                Log::info('Photo MIME type: ' . $this->photo->getMimeType());
+            }
+
+            // Validate input fields
             $this->validate([
-                'title'=> ['required', 'string', 'max:255','unique:programs,program_title'],
-                'description'=> ['required', 'string'],
-                'photo' => 'required|mimes:jpeg,jpg,png,gif',
-            ], $this->message);
-    
-            $servicePhoto  = $this->uploadProductImage($formData['croped_image']);
-    
+                'title' => ['required', 'string', 'max:255', 'unique:programs,program_title'],
+                'description' => ['required', 'string'],
+                'photo' => 'required|mimetypes:image/jpeg,image/png,image/gif|dimensions:min_width=860,min_height=500',
+            ], $this->messages);
+
+            // Process the uploaded image
+            $servicePhoto = $this->uploadProductImage($formData['croped_image']);
+
+            // Create new Program
             Program::create([
                 'program_title' => $this->title,
                 'program_description' => $this->description,
                 'program_image' => $servicePhoto,
             ]);
-    
+
+            // Reset inputs and dispatch success feedback
             $this->reset();
-            $this->dispatch('feedback', feedback: "Program successfully added");
+            $this->dispatch('feedback', ['feedback' => "Program successfully added"]);
+
         } catch (\Exception $e) {
-            \Log::error($e->getMessage());
-            $this->dispatch('feedback', feedback: "An error occurred: " . $e->getMessage());
+            Log::error($e);
+            $this->dispatch('feedback', ['feedback' => "An error occurred: " . $e->getMessage()]);
         }
     }
-    
-    //upload service icon
-    // public function uploadIcon(){
-    //     $photoName = Carbon::now()->timestamp. '.' . $this->program_icon->getClientOriginalName();//generate name for image
-    //     $this->program_icon->storeAs('/services',$photoName);
-    //     return $photoName;
-    // }
 
-    //upload service image
-    public function uploadProductImage($image){
-        $img =$image;
-        $image_parts = explode(";base64,", $img);
-        $image_type_aux = explode("image/", $image_parts[0]);
-        $image_type = $image_type_aux[1];
-        $image_base64 = base64_decode($image_parts[1]);
-        $postImage = Carbon::now()->timestamp.'service';//generate name for image
-        $img = Image::make($image_base64)->encode('jpg', 60);
-        file_put_contents('guest/images/uploads/'.$postImage, $img->stream()->__toString());
+    public function uploadProductImage($image)
+    {
+        try {
+            // Decode base64 image
+            $image_parts = explode(";base64,", $image);
+            $image_base64 = base64_decode($image_parts[1]);
+            $postImage = Carbon::now()->timestamp . '_service.jpg';
 
-        return $postImage;
+            // Resize and save image
+            $img = Image::make($image_base64)->encode('jpg', 60);
+            Storage::put("guest/images/uploads/{$postImage}", $img->stream()->__toString());
+
+            return $postImage;
+        } catch (\Exception $e) {
+            Log::error("Image upload failed: " . $e->getMessage());
+            throw new \Exception("Failed to upload image.");
+        }
     }
 
     public function render()
     {
-        return view('livewire.website-admin.programs.new-program-component')->layout('livewire.website-admin.layouts.app');
+        return view('livewire.website-admin.programs.new-program-component')
+            ->layout('livewire.website-admin.layouts.app');
     }
 }
