@@ -126,7 +126,7 @@
 <div class="col-lg-4 col-sm-6">
     <div class="relative p-4 pb-0 text-center bg-white mt-5 h-100 rounded-10px">
         {{-- <div class="alt-font absolute end-0 pe-4 fw-bold fs-24 id-color">06</div> --}}
-        <img src="{{(asset("assets/images/services/".$sn++.".webp"))}}" class="img-fluid circle mb-4 w-30 mt-50 shadow-soft wow scaleIn" data-wow-delay=".2s" alt="" class="img-fluid circle mb-4 w-30 mt-50 shadow-soft wow scaleIn" data-wow-delay=".6s" alt="">
+        <img src="{{ asset('/guest/images/uploads/' . $program->program_image) }}" class="img-fluid circle mb-4 w-30 mt-50 shadow-soft wow scaleIn" data-wow-delay=".2s" alt="" data-wow-delay=".2s" >
         <h4>{{$program->program_title}}</h4>
         <p class="no-bottom">{{$program->program_description}}</p>
         <a class="btn-main btn-main btn-light-trans mt-3" href="{{ route('programs.details', $program->id) }}">Our programs</a>

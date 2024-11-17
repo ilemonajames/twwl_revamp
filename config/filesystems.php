@@ -56,7 +56,12 @@ return [
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
             'throw' => false,
         ],
-
+        'do' => [  // Make sure this exists!
+            'driver' => 'local', // Or 's3', 'ftp', etc.
+            'root' => storage_path('app/do'), // Correct path
+            'url' => env('APP_URL').'/do', // If needed
+            'visibility' => 'public', // Or 'private'
+    ],
     ],
 
     /*

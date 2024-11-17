@@ -36,7 +36,7 @@
                             @enderror
                         </div>
 
-                        <div class="mb-3">
+                        {{-- <div class="mb-3">
                             <label class="form-label">Program Image</label>
                             <div class="row">
                                 <div class="col-md-2">
@@ -51,7 +51,23 @@
                             @error('photo')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
+                        </div> --}}
+                        <div class="mb-3">
+                            <label class="form-label">Program Image</label>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <img src="{{ asset('guest/images/uploads/' . $program->program_image) }}" class="rounded" alt="" height="48">
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="hidden" id="croped_image" wire:model="croped_image">
+                                    <input class="form-control" id="post_image" wire:model="photo" type="file">
+                                </div>
+                            </div>
+                            @error('photo')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
                         </div>
+                        
                         <div class="mb-3" wire:ignore>
                             <label class="form-label" for="description">Program Description</label>
                             <div wire:ignore>
@@ -148,16 +164,26 @@
             });
 
             // Handle the "Crop and Upload" button click
-            $('#cropImage').on('click', function(ev) {
-                var imgurl = cropper.getCroppedCanvas({
-                    width: 1250,
-                    height: 850
-                }).toDataURL();
-                $('#image_modal').modal('hide');
-                document.getElementById('croped_image').value = imgurl;
-            });
-            //end product image
-        });
+        //     $('#cropImage').on('click', function(ev) {
+        //         var imgurl = cropper.getCroppedCanvas({
+        //             width: 1250,
+        //             height: 850
+        //         }).toDataURL();
+        //         $('#image_modal').modal('hide');
+        //         document.getElementById('croped_image').value = imgurl;
+        //     });
+        //     //end product image
+        // });
+        $('#cropImage').on('click', function(ev) {
+    var imgurl = cropper.getCroppedCanvas({
+        width: 1250,
+        height: 850
+    }).toDataURL();
+
+    $('#image_modal').modal('hide');
+    @this.set('croped_image', imgurl); // Set the Livewire property directly
+});
+
     </script>
     @push('styles')
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css">

@@ -68,6 +68,6 @@ class ProgramsComponent extends Component
     public function render()
     {
         $programs = $this->getProducts();
-        return view('livewire.website-admin.programs.programs-component',compact('programs'))->layout('livewire.website-admin.layouts.app');
+        return view('livewire.website-admin.programs.programs-list',compact('programs'))->layout('livewire.website-admin.layouts.app');
     }
 }
