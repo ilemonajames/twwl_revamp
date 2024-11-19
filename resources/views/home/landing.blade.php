@@ -140,7 +140,7 @@
     </div>
 </section>
 
-<section class="section-dark text-light text-center jarallax">
+{{-- <section class="section-dark text-light text-center jarallax">
     <img src="{{(asset('assets/images/background/1.webp'))}}" class="jarallax-img" alt="">
     <div class="container">
         <div class="row g-4">
@@ -170,7 +170,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 {{-- 
 <section>
     <div class="container">

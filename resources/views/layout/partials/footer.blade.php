@@ -129,11 +129,10 @@
 					<div class="spacer-20"></div>
 
 					<div class="social-icons mb-sm-30">
-						<a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-						<a href="#"><i class="fa-brands fa-twitter"></i></a>
-						{{-- <a href="#"><i class="fa-brands fa-discord"></i></a> --}}
-						<a href="#"><i class="fa-brands fa-tiktok"></i></a>
-						<a href="#"><i class="fa-brands fa-youtube"></i></a>
+						<a href="https://web.facebook.com/profile.php?id=61567812427624"><i class="fa-brands fa-facebook-f"></i></a>
+						
+						<a href="https://www.instagram.com/coffeewithliz_"><i class="fa-brands fa-instagram"></i></a>
+						{{-- <a href="#"><i class="fa-brands fa-youtube"></i></a> --}}
 					</div>
 
 				</div>
