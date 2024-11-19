@@ -13,7 +13,7 @@ class ProgramListComponent extends Component
     public function render()
     {
         return view('livewire.website-admin.programs.program-list-component', [
-            'programs' => Program::paginate(10) // Adjust the pagination count as needed
+            'programs' => Program::orderBy('created_at', 'desc')->paginate(10) // Adjust the pagination count as needed
         ])->layout('livewire.website-admin.layouts.app');;
     }
 }

@@ -13,6 +13,7 @@ class EditServiceComponent extends Component
     public $title;
     public $photo;
     public $service;
+    public $croped_image; 
     // public $service_icon;
     use WithFileUploads;
     public $message = [
@@ -34,15 +35,18 @@ class EditServiceComponent extends Component
         $this->validate([
             'title'=> ['required', 'string', 'max:255','unique:services,service_title,'.$this->service->id],
             'description'=> ['required', 'string'],
-            'photo' => 'nullable|mimes:jpeg,png,gif',
+            'photo' => 'nullable|mimes:jpeg,png,gif,png',
             // 'service_icon' => 'nullable|mimes:png',
         ],$this->message);
-
+  
         //update service image if a new service image is selected
-        if($this->photo){
+        if ($this->photo){
+            //heper in helpers/helpers.php -- storePhoto()
             Storage::disk('do')->delete(storePhoto().$this->service->service_image);//delete old service image
-            $servicePhoto  = $this->uploadProductImage($formData['croped_image']);
-            $this->service->update(['service_image'=>$servicePhoto ]);
+            $servicePhoto = $this->uploadProductImage($this->croped_image);
+           $this->service->update(['service_image' => $servicePhoto]);
+           // $servicePhoto  = $this->uploadProductImage($formData['croped_image']);
+            //$this->service->update(['service_image'=>$servicePhoto ]);
         }
 
         //update service icon if a new service icon is selected

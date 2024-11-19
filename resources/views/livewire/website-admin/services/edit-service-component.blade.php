@@ -39,7 +39,7 @@
                             <label class="form-label">Service Icon</label>
                             <div class="row">
                                 <div class="col-md-2">
-                                    <img src="{{ asset('assets/images/services/'.$service->service_icon) }}" class="rounded-circle avatar-xs m-1" alt="">
+                                    <img src="{{ asset('guest/images/uploads/'.$service->service_icon) }}" class="rounded-circle avatar-xs m-1" alt="">
                                 </div>
                                 <div class="col-md-10">
                                     <input class="form-control" wire:model="service_icon" type="file" placeholder="">
@@ -54,10 +54,12 @@
                             <label class="form-label">Service Image</label>
                             <div class="row">
                                 <div class="col-md-2">
-                                    <img src="{{ asset('assets/images/services/'.$service->service_image) }}" class="rounded" alt="" height="48">
+                                    <img src="{{ asset('guest/images/uploads/'.$service->service_image) }}" class="rounded" alt="" height="48">
                                 </div>
                                 <div class="col-md-10">
-                                    <input id="croped_image" name="croped_image" type="text" hidden>
+                                    {{-- <input id="croped_image" name="croped_image" type="text" hidden> --}}
+                                    <input type="hidden" id="croped_image" wire:model="croped_image" name="croped_image">
+
                                     <input class="form-control" id="post_image" wire:model="photo" type="file"  placeholder="">
                                 </div>
                             </div>

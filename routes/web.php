@@ -212,15 +212,15 @@ Route::middleware(['auth:sanctum','verified',])->group(function () {
         Route::get('/services',WebsiteAdminServiceComponent::class)->name('services.index');
         Route::get('/services/{id}/edit',EditServiceComponent::class)->name('services.edit');
 
-        // Route::get('/programs/create',NewProgramComponent::class)->name('programs.create');
-        // Route::get('/programs',ProgramsComponent::class)->name('programs.index');
-        // Route::get('/programs/{id}/edit',EditProgramComponent::class)->name('programs.edit');
+         Route::get('/programs/create',NewProgramComponent::class)->name('programs.create');
+         //Route::get('/programs',ProgramsComponent::class)->name('programs.index');
+         Route::get('/programs/{id}/edit',EditProgramComponent::class)->name('programs.edit');
         // Route for creating a new program
-        Route::get('/programs/create', ProgramComponent::class)->name('programs.create');
-        // Route for editing an existing program
-        Route::get('/programs/{id}/edit', ProgramComponent::class)->name('programs.edit')->where('id', '[0-9]+'); // Ensure that ID is a number
-        // Route for displaying all programs  
-        Route::get('/programs', ProgramListComponent::class)->name('programs.index');
+        // Route::get('/programs/create', ProgramComponent::class)->name('programs.create');
+        // // Route for editing an existing program
+        // Route::get('/programs/{id}/edit', ProgramComponent::class)->name('programs.edit')->where('id', '[0-9]+'); // Ensure that ID is a number
+        // // Route for displaying all programs  
+         Route::get('/programs', ProgramListComponent::class)->name('programs.index');
   
         // Route::get('/listprogram', ProgramComponent::class)->name('programs.index');
         // Route for displaying a single program

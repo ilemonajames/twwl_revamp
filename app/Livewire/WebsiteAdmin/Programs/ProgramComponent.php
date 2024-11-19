@@ -97,23 +97,52 @@ class ProgramComponent extends Component
         }
     }
 
-    public function uploadProductImage($image)
-    {
-        try {
-            $image_parts = explode(";base64,", $image);
-            if (count($image_parts) < 2) throw new \Exception("Invalid image data.");
-            $image_base64 = base64_decode($image_parts[1]);
-            $postImageName = Carbon::now()->timestamp . '_service.jpg';
-            $img = Image::make($image_base64)->encode('jpg', 60);
+    // public function uploadProductImage($image)
+    // {
+    //     try {
+    //         $image_parts = explode(";base64,", $image);
+    //         if (count($image_parts) < 2) throw new \Exception("Invalid image data.");
+    //         $image_base64 = base64_decode($image_parts[1]);
+    //         $postImageName = Carbon::now()->timestamp . '_service.jpg';
+    //         $img = Image::make($image_base64)->encode('jpg', 60);
 
-            // Save to DigitalOcean Spaces
-            Storage::disk('do')->put("guest/images/uploads/{$postImageName}", $img->stream());
-            return $postImageName;
-        } catch (\Exception $e) {
-            \Log::error("Image upload failed: " . $e->getMessage());
-            throw new \Exception("Failed to upload image.");
+    //         // Save to DigitalOcean Spaces
+    //         Storage::disk('do')->put("guest/images/uploads/{$postImageName}", $img->stream());
+    //         return $postImageName;
+    //     } catch (\Exception $e) {
+    //         \Log::error("Image upload failed: " . $e->getMessage());
+    //         throw new \Exception("Failed to upload image.");
+    //     }
+    // }
+
+    public function uploadProductImage($base64Image)
+{
+    try {
+        // Decode base64 image
+        $image_parts = explode(";base64,", $base64Image);
+        if (count($image_parts) < 2) {
+            throw new \Exception("Invalid base64 image data.");
         }
+
+        $image_base64 = base64_decode($image_parts[1]);
+        if (!$image_base64) {
+            throw new \Exception("Failed to decode base64 image.");
+        }
+
+        // Process the image
+        $imageName = Carbon::now()->timestamp . '_service.jpg';
+        $img = Image::make($image_base64)->encode('jpg', 60);
+
+        // Save to storage
+        Storage::disk('do')->put("guest/images/uploads/{$imageName}", $img->stream());
+
+        return $imageName;
+    } catch (\Exception $e) {
+        \Log::error("Image upload failed: " . $e->getMessage());
+        throw $e; // Rethrow to show error to the user
     }
+}
+
 
     public function resetForm()
     {
@@ -126,3 +155,4 @@ class ProgramComponent extends Component
             ->layout('livewire.website-admin.layouts.app');
     }
 }
+    

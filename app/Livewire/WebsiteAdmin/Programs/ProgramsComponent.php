@@ -20,9 +20,10 @@ class ProgramsComponent extends Component
     use WithPagination;
 
 
-    public function mount(){
+    public function index(){
         $this->paginate = 10;
     }
+    
        //get record of services
        public function getProducts(){
         $program = Program::query()
