@@ -66,8 +66,8 @@ use App\Livewire\WebsiteAdmin\Newsletters\SentNewsletterComponent;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\ResourceController;
-
-
+//use App\Http\Controllers\Podcasts;
+use App\Http\Controllers\PodcastsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -96,9 +96,16 @@ Route::get('/hypnotheraphy', function(){
     return view('informations.hypnotherapy');
 })->name('hypnotherapy');
 
+
+
 Route::get('/privacy-policy', function(){
     return view('informations.privacy');
 })->name('privacypolicy');
+
+// podcasts
+Route::get('/podcasts', [PodcastsController::class, 'index'])->name('podcasts.index');
+Route::get('/podcasts/{id}', [PodcastsController::class, 'show'])->name('podcasts.details');
+
 
 // Route::get('/events', function () {
 //     return view('informations.events');
