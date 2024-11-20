@@ -128,7 +128,7 @@
                         <h3>Schedule Your Appointment Today!</h3>
                         {{-- Mon - Sat: 8AM - 9PM<br>
                         Sunday: 10AM - 8PM<br> --}}
-                        <a class="btn-main btn-light-trans text-light mt-3" href="appointment.html">Book an Appointment</a>
+                        <a class="btn-main btn-light-trans text-light mt-3" href="https://calendly.com/twwl target="_blank"">Book an Appointment</a>
                     </div>
                 </div>
 

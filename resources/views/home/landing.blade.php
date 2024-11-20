@@ -277,7 +277,7 @@
                             
                         </ul>
 
-                        <a class="btn-main btn-light-trans w-100" href="appointment.html">
+                        <a class="btn-main btn-light-trans w-100" href="https://calendly.com/twwl" target="_blank">
                             Book an Appointment
                         </a>
                     </div>
@@ -303,7 +303,7 @@
     <li>Grief and loss</li>
                         </ul>
 
-                        <a class="btn-main btn-light-trans w-100" href="appointment.html">
+                        <a class="btn-main btn-light-trans w-100" href="https://calendly.com/twwl" target="_blank">
                             Book an Appointment
                         </a>
                     </div>
@@ -329,7 +329,7 @@
                             <li>Grief and loss</li>
                                                 </ul>
 
-                        <a class="btn-main btn-light-trans w-100" href="appointment.html">
+                        <a class="btn-main btn-light-trans w-100" href="https://calendly.com/twwl" target="_blank">
                             Book an Appointment
                         </a>
                     </div>
