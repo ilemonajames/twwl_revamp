@@ -34,10 +34,10 @@
                     <h2 class="wow fadeInUp" data-wow-delay=".2s">{{$service->service_name}}</h2>
                     <p class="lead">{{ $service->service_description}}  </p>
 
-                    <div class="fs-14 text-dark fw-500">Start from</div>
+                    {{-- <div class="fs-14 text-dark fw-500">Start from</div>
                     <div class="mb-3">
                         <h2 class="d-inline id-color-2">${{ number_format($service->service_price)}}</h2><span class="fs-14">/session</span>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="col-lg-6">
                     <img src="{{asset('assets/images/services/'.$service->service_image)}}" class="img-fluid rounded-20px" alt="">
