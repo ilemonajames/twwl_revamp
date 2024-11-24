@@ -24,7 +24,7 @@ class ProgramFee extends Model
         return $this->belongsTo(Program::class);
     }
 
-    public function service (){
-        return $this->belongsTo(Service::class);
-    }
+    // public function service (){
+    //     return $this->belongsTo(Service::class);
+    // }
 }

@@ -8,7 +8,7 @@ use App\Models\ProgramFee;
 class NewProgramFeeComponent extends Component
 {
 
-    public $service;
+    public $payment_link;
     public $consultation_fees;
     public $session_fees;
     public $program_fees;
@@ -18,7 +18,7 @@ class NewProgramFeeComponent extends Component
 
     public function newFees(){
         $this->validate([
-            'service' => ['required'],
+            'payment_link' => ['required'],
             'consultation_fees' => ['required'],
             'session_fees' => ['required'],
             'program_fees' => ['required'],
@@ -26,12 +26,12 @@ class NewProgramFeeComponent extends Component
             'program' => ['required'],
         ]);
 
-        $valFees  = ProgramFee::where('Program_id',$this->program)->where('service_id',$this->service)->first();
+        $valFees  = ProgramFee::where('Program_id',$this->program)->first();
         if($valFees!=null){
             $this->dispatch('errorfeedback', errorfeedback: "Sorry the select service and program already have a fees setup");
         }else{
             ProgramFee::create([
-                'service_id' => $this->service,
+                'payment_link' => $this->payment_link,
                 'program_id' => $this->program,
                 'session_fees' => $this->session_fees,
                 'consultation_fees' => $this->consultation_fees,

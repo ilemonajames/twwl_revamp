@@ -39,7 +39,8 @@ class EditProgramFeeComponent extends Component
             'program' => ['required'],
         ]);
 
-        $valFees  = ProgramFee::where('Program_id',$this->program)->where('service_id',$this->service)->first();
+      $valFees  = ProgramFee::where('Program_id',$this->program)->where('service_id',$this->service)->first();
+       // $valFees  = ProgramFee::where('program_id',$this->program)->first();
         if($valFees!=null  && $this->selFee->id!=$valFees->id){
             $this->dispatch('errorfeedback', errorfeedback: "Sorry the select service and program already have a fees setup");
         }else{

@@ -36,7 +36,7 @@
                                         <th><b>#</b></th>
                                         {{-- <th><b>Icon</b></th> --}}
                                         <th><b>Programs</b></th>
-                                        <th><b>Service</b></th>
+                                         <th><b>Payment Link</b></th>
                                         <th><b>Consultation Fees</b></th>
                                         <th><b>Session Fees</b></th>
                                         <th><b>Program Fees</b></th>
@@ -54,7 +54,7 @@
                                         <tr>
                                             <td scope="row">{{ $sn = $sn + 1 }}</td>
                                             <td>{{ $fee->program->program_title}}</td>
-                                            <td>{{ $fee->service->service_title}}</td>
+                                            <td>{{ $fee->payment_link}}</td>
                                             <td>${{ $fee->consultation_fees}}</td>
                                             <td>${{ $fee->session_fees}}</td>
                                             <td>${{ $fee->program_fees}}</td>

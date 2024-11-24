@@ -48,23 +48,16 @@
                                 </div>
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label-outlined" for="relationship">Service</label>
+                                        <label class="form-label-outlined" for="relationship">Payment Link</label>
 
-                                        <div class="form-control-wrap" wire:ignore.self>
-                                            <select wire:model="service"
-                                            class="form-control form-control-xl form-control-outlined"
-                                                 id="service">
-                                                <option value="service" selected>-- Select Service --</option>
-                                                @foreach(App\Models\Service::all() as $service)
-                                                <option value="{{ $service->id }}">{{ $service->service_title }}</option>
-                                                @endforeach
-                                            </select>
+                                        <input class="form-control-wrap" wire:model="payment_link">
+                                          
                                         </div>
                                     </div>
                                     @error('service')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
-                                </div>
+                                </div> 
                                 <div class="mb-3">
                                     <div class="row">
                                         <div class="col-md-6">

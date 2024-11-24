@@ -46,7 +46,7 @@
                                     <p class="text-danger">{{ $message }}</p>
                                 @enderror
                                 </div>
-                                <div class="mb-3">
+                                 {{-- <div class="mb-3">
                                     <div class="form-group">
                                         <label class="form-label-outlined" for="relationship">Service</label>
 
@@ -64,7 +64,7 @@
                                     @error('service')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
-                                </div>
+                                </div>  --}}
                                 <div class="mb-3">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -102,6 +102,17 @@
                                     </div>
                                 </div>
 
+                            <div class="mb-3">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label class="form-label">Payment Link</label>
+                                        <input class="form-control" wire:model="payment_link" type="url" placeholder="">
+                                        @error('payment_link')
+                                            <p class="text-danger">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div> 
 
                                 <button type="submit" class="btn btn-success waves-effect waves-light">
                                     <i wire:loading wire:target="newFees"

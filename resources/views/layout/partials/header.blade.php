@@ -50,7 +50,7 @@
 											
 											<li><a class="{{ Request::is('blogs') ? 'active' : '' }} menu-item"  href="/blogs"><b>Blog</b></a>
 												<ul>
-													<li><a class="menu-item {{ Request::is('blogs') ? 'active' : '' }}" href="/resources/podcasts">Podcast</a></li>
+													<li><a class="menu-item {{ Request::is('blogs') ? 'active' : '' }}" href="/podcasts">Podcast</a></li>
 													<li><a class="menu-item {{ Request::is('blogs') ? 'active' : '' }}" href="/videos">Vidoes</a></li>
 												</ul>
 											</li>

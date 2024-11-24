@@ -15,7 +15,8 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('program_image');
             $table->string('program_title');
-            $table->text('program_description');
+            $table->text('program_description')->nullable();
+            $table->text('program_content')->nullable();
             $table->boolean('is_featured')->default(false); // Add this line
             $table->timestamps();
         });

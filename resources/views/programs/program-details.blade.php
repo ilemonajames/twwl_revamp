@@ -30,25 +30,27 @@
                 <div class="col-lg-8">
                     <div class="p-4 bg-grey rounded-10px">
                         <div class="row g-4">
-                            <div class="col-lg-12">                                        
+                            <div class="col-lg-12">
                                 <h3 class="fs-32 id-color">{{ $program->program_title }}</h3>
                             </div>
                             <div class="col-lg-4">
-                                <h5>Details</h5>
+                                <h5>Description</h5>
                             </div>
                             <div class="col-lg-8">
-                                <p>{!! $program->program_description !!}.</p>
+                                <p>{!! $program->program_description !!}</p>
                             </div>
                         </div>
-                        {{-- <div class="row g-4">
+                        @if($program->program_content !=null)
+                         <div class="row g-4">
                             <div class="col-lg-4">
-                                <h5>Background Information</h5>
+                                <h5>Detailed Information</h5>
                             </div>
                             <div class="col-lg-8">
-                                <p>John has a history of chronic stress related to high-pressure deadlines and perfectionistic tendencies in his job. He also recently went through a divorce, further exacerbating his symptoms of depression.</p>
+                            <p>{!! $program->program_content !!}</p>
                             </div>
                         </div>
-
+                        @endif
+{{--
                         <div class="row g-4">
                             <div class="col-lg-4">
                                 <h5>Assessment</h5>
@@ -63,7 +65,7 @@
 
                     <div class="p-4 bg-grey rounded-10px">
                         {{-- <div class="row g-4">
-                            <div class="col-lg-12">                                        
+                            <div class="col-lg-12">
                                 <h3 class="fs-32 id-color">Treatment Plan</h3>
                             </div>
                             <div class="col-lg-4">
@@ -102,7 +104,7 @@
 
                     <div class="p-4 bg-grey rounded-10px">
                         <div class="row g-4">
-                            {{-- <div class="col-lg-12">                                        
+                            {{-- <div class="col-lg-12">
                                 <h3 class="fs-32 id-color mb-4">Results</h3>
 
                                 <ol class="ol-style-1">
@@ -139,16 +141,17 @@
                     </div>
 
                     <div class="spacer-double"></div>
+                    @if(isset($program->fees))
 
                     <div class="padding30 rounded-10px bg-color-3">
                         @foreach($program->fees as $fee)
-                        <h4>{{ $fee->service->service_title}}</h4>
+                        {{-- <h4>{{ $fee->service->service_title}}</h4> --}}
 
                         <div class="mb-3">
                             <div class="">Program Fee</div>
                             <div class="fw-bold">${{$fee->program_fees  }}</div>
                         </div>
-                       
+
                         <div class="mb-3">
                             <div class="">Session Fee</div>
                             <div class="fw-bold">${{$fee->session_fees  }}</div>
@@ -156,22 +159,29 @@
                         <div class="mb-3">
                             <div class="">Consultation Fee</div>
                             <div class="fw-bold">${{$fee->consultation_fees  }}</div>
-                        </div> 
+                        </div>
                         <div class="mb-3">
                             <div class="">Duration</div>
-                            <div class="fw-bold">{{ $fee->duration  }}</div>   
+                            <div class="fw-bold">{{ $fee->duration  }}</div>
                         </div>
 
-                        <a class="btn btn-primary btn-sm"
-                                                href="{{ route('client.book')}}">Book Now</a>
+                        <a class="" target="_blank"
+                                                href="https://swipesimple.com/links/lnk_9a2935a3c8f688deded68e8241da7feb">Book Now</a>
                         @endforeach
-                       
+
                     </div>
-                </div>
+                    @endif
+
+
+
+                       {{-- <p>No Fee Available</p> --}}
+
+
+
             </div>
         </div>
     </section>
-    
+
 </div>
     <!-- Breadcrumb -->
 
@@ -201,7 +211,7 @@
                                 <div class="col-md-6">
                                     <div class="card">
                                         <div class="card-body" style="background-color: rgba(128, 128, 128, 0.051); border-radius: 10px">
-                                            <h4 class="card-title mb-1"><b>{{ $fee->service->service_title}}</b></h4><hr>
+                                            <h4 class="card-title mb-1"><b>{{ $fee->program_title }}</b></h4><hr>
                                             <div class="row">
                                                 <div class="col-sm-6">
                                                     <div>
@@ -231,8 +241,7 @@
                                                 </div>
                                             </div>
                                             <div class="row mt-3 ml-2">
-                                                <a class="btn btn-primary btn-sm"
-                                                href="{{ route('client.book')}}">Book Now</a>
+                                                <a class="" href="https://swipesimple.com/links/lnk_9a2935a3c8f688deded68e8241da7feb" target="_blank">Book Now</a>
                                             </div>
                                         </div>
                                     </div>

@@ -120,6 +120,15 @@
                         <li><a href="{{ route('faqs.index')}}">Manage Questions</a></li>
                     </ul>
                 </li>
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="mdi mdi-account-multiple-outline"></i>
+                        <span>Videos</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="">Add Videos</a></li>
+                        <li><a href="">Manage Videos</a></li>
+                    </ul>
             </ul>
         </div>
         <!-- Sidebar -->

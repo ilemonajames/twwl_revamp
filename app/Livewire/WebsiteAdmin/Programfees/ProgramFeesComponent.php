@@ -30,10 +30,10 @@ class ProgramFeesComponent extends Component
        public function getFees(){
         $fee = ProgramFee::query()
             ->where(function($query) {
-                if($this->searchTerm) {
-                    $service = Service::where('service_title', 'like', '%'.$this->searchTerm.'%')->pluck('id');
-                    $query->wherein('service_id',$service);
-                }
+                // if($this->searchTerm) {
+                //     $service = Service::where('service_title', 'like', '%'.$this->searchTerm.'%')->pluck('id');
+                //     $query->wherein('service_id',$service);
+                // }
             })
             ->orWhere(function($query) {
                 if($this->searchTerm) {
