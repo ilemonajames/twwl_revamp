@@ -54,7 +54,8 @@
                                         .</p>
                                 </div>
                                 <div class="absolute start-0 w-100 h-100 bg-dark-op-50 hover-op-1"></div>
-                                <img src="{{asset('assets/images/services/'.$sn++.'.webp')}}" class="img-fluid hover-scale-1-2" alt="">
+                              <img src="{{ asset('/guest/images/uploads/' . $service->service_image) }}" style="width: 100%"
+                                    alt="Blog" class="img-fluid hover-scale-1-2" alt="">
                             </div>
                         </a>
                     </div>
