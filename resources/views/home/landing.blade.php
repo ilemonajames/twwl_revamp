@@ -259,10 +259,10 @@
                     <h4 class="bg-color-2 text-light p-3">Couples Counseling & Coaching</h4>
                     <div class="p-3 px-4 mb-4 relative">
                         <img src="{{(asset('assets/images/services/2.webp'))}}" class="absolute circle mb-4 w-80px end-0 me-4 shadow-soft wow scaleIn" data-wow-delay=".4s" alt="">
-                        <div class="fs-14 text-dark fw-500">Start from</div>
+                        {{-- <div class="fs-14 text-dark fw-500">Start from</div>
                         <div class="mb-3">
-                            <h2 class="d-inline id-color-2">$175</h2><span class="fs-14">/session</span>
-                        </div>
+                            <h2 class="d-inline id-color-2">$1</h2><span class="fs-14">/session</span>
+                        </div> --}}
                         <p><p>Our goal is to help couples navigate the complexities of their relationships, improve
                             communication, resolve conflicts, and foster a secure emotional connection..
                             We serve all couples, including:
@@ -289,10 +289,10 @@
                     <h4 class="bg-color text-light p-3">Individual Counseling</h4>
                     <div class="p-3 px-4 mb-4 relative">
                         <img src="{{(asset('assets/images/services/3.webp'))}}" class="absolute circle mb-4 w-80px end-0 me-4 shadow-soft wow scaleIn" data-wow-delay=".6s" alt="">
-                        <div class="fs-14 text-dark fw-500">Start from</div>
+                        {{-- <div class="fs-14 text-dark fw-500">Start from</div>
                         <div class="mb-3">
                             <h2 class="d-inline id-color-2">$120</h2><span class="fs-14">/session</span>
-                        </div>
+                        </div> --}}
                         <p>We provide support for individuals dealing with:
                             <ul class="ul-style-2 fw-600 text-dark mb-3">
                          <li>Depression</li>
@@ -314,10 +314,10 @@
                     <h4 class="bg-color-2 text-light p-3">Group Counseling</h4>
                     <div class="p-3 px-4 mb-4 relative">
                         <img src="{{(asset('assets/images/services/4.webp'))}}" class="absolute circle mb-4 w-80px end-0 me-4 shadow-soft wow scaleIn" data-wow-delay=".8s" alt="">
-                        <div class="fs-14 text-dark fw-500">Start from</div>
+                        {{-- <div class="fs-14 text-dark fw-500">Start from</div>
                         <div class="mb-3">
                             <h2 class="d-inline id-color-2">$1200</h2><span class="fs-14">/session</span>
-                        </div>
+                        </div> --}}
                         <p>We provide support for groups of people dealing with:
                             <ul class="ul-style-2 fw-600 text-dark mb-3">
                          <li>Stress</li>
@@ -386,7 +386,7 @@
     </div>
 </section>
 
-<section class="no-top no-bottom">
+{{-- <section class="no-top no-bottom">
     <div class="container-fluid">
         <div class="row g-0">
             <div class="col-lg-2 text-center">
@@ -456,7 +456,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 
 <section>
     <div class="container">
