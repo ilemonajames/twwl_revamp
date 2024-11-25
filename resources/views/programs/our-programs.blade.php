@@ -32,13 +32,13 @@
                 <div class="row g-4">
                     <div class="col-lg-3">
                         <ul id="filters" class="s2">
-                            @php
+                            {{-- @php
                             $sn =1;
-                            @endphp
+                            @endphp --}}
                             <li><a href="#" data-filter="*" class="selected">All services</a></li>
 
-                            @foreach ($services as $service)
-                            <li><a href="#" data-filter=".service-{{$sn++}}">{{ $service->service_title }}</a></li>  
+                            @foreach ($programs as $program)
+                            <li><a href="#" data-filter=".service-{{$program->id}}">{{ $program->program_title }}</a></li>  
                             @endforeach
                             {{-- <li><a href="#" data-filter="*" class="selected">All services</a></li>
                             <li><a href="#" data-filter=".service-1">Individual Therapy</a></li>
@@ -52,12 +52,10 @@
 
                     <div class="col-lg-9">
                         <div id="gallery" class="row g-4">
-                            @php
-                            $sn =1;
-                            @endphp
+                          
                             @if(count($programs)>0)
                 @foreach ($programs as $program)
-                            <div class="item service-{{$sn++}} col-lg-4 text-center">
+                            <div class="item service-{{ $program->id }} col-lg-4 text-center">
                                 <a href="{{ route('programs.details', $program->id) }}" class="d-block hover">
                                     <div class="relative overflow-hidden rounded-20px">
                                         <div class="absolute start-0 w-100 abs-middle fs-36 text-white text-center">
