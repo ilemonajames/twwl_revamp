@@ -17,7 +17,7 @@ class ProgramSeeder extends Seeder
                 'icon_class' => 'fas fa-heart', // Font Awesome icon class
                 'program_title' => '8-Week Couples Program',
                 'program_description' => 'A structured, self-paced 8-week program designed to help couples strengthen their connection, improve communication, and resolve conflicts.',
-                'program_content' => '<h2>Parenting Course Schedule</h2>
+                'program_content' => '<h3>Parenting Course Schedule</h3>
     
     <div class="week">
         <h3>Week 1: Understanding Parenting Styles</h3>
