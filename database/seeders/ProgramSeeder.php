@@ -17,6 +17,128 @@ class ProgramSeeder extends Seeder
                 'icon_class' => 'fas fa-heart', // Font Awesome icon class
                 'program_title' => '8-Week Couples Program',
                 'program_description' => 'A structured, self-paced 8-week program designed to help couples strengthen their connection, improve communication, and resolve conflicts.',
+                'program_content' => '<h2>Parenting Course Schedule</h2>
+    
+    <div class="week">
+        <h3>Week 1: Understanding Parenting Styles</h3>
+        <h4>Overview:</h4>
+        <p>Introduction to different parenting styles (authoritative, authoritarian, permissive, and uninvolved) and their impact on child development.</p>
+        <h4>Objectives:</h4>
+        <p>Help parents identify their current parenting style and learn how to adopt a more balanced approach that promotes healthy development.</p>
+        <h4>Key Topics:</h4>
+        <ul>
+            <li>Overview of parenting styles</li>
+            <li>The effects of each style on children</li>
+            <li>Finding balance: Moving toward an authoritative approach</li>
+        </ul>
+    </div>
+
+    <div class="week">
+        <h3>Week 2: Building Emotional Intelligence in Children</h3>
+        <h4>Overview:</h4>
+        <p>Understanding the importance of emotional intelligence and teaching children to recognize, express, and manage their emotions.</p>
+        <h4>Objectives:</h4>
+        <p>Equip parents with tools to nurture their children\'s emotional awareness and resilience.</p>
+        <h4>Key Topics:</h4>
+        <ul>
+            <li>Defining emotional intelligence</li>
+            <li>Techniques for modeling emotional regulation</li>
+            <li>Helping children identify and express their feelings</li>
+        </ul>
+    </div>
+
+    <div class="week">
+        <h3>Week 3: Effective Communication with Your Child</h3>
+        <h4>Overview:</h4>
+        <p>Learn the essentials of communicating with children at different developmental stages, including listening techniques and expressing empathy.</p>
+        <h4>Objectives:</h4>
+        <p>Strengthen parent-child relationships through open and effective communication.</p>
+        <h4>Key Topics:</h4>
+        <ul>
+            <li>Age-appropriate communication strategies</li>
+            <li>Active listening skills</li>
+            <li>Encouraging open dialogue and empathy</li>
+        </ul>
+    </div>
+
+    <div class="week">
+        <h3>Week 4: Setting Boundaries and Encouraging Discipline</h3>
+        <h4>Overview:</h4>
+        <p>Explore positive discipline strategies and the importance of setting healthy boundaries to promote responsibility and respect.</p>
+        <h4>Objectives:</h4>
+        <p>Help parents create clear, consistent boundaries and apply discipline in a constructive, non-punitive manner.</p>
+        <h4>Key Topics:</h4>
+        <ul>
+            <li>Setting clear expectations and consequences</li>
+            <li>Positive discipline vs. punitive discipline</li>
+            <li>Teaching responsibility and respect through boundaries</li>
+        </ul>
+    </div>
+
+    <div class="week">
+        <h3>Week 5: Fostering Self-Esteem and Confidence</h3>
+        <h4>Overview:</h4>
+        <p>Learn strategies to build your child’s self-esteem and confidence while providing appropriate encouragement and support.</p>
+        <h4>Objectives:</h4>
+        <p>Teach parents how to cultivate a growth mindset and provide constructive feedback.</p>
+        <h4>Key Topics:</h4>
+        <ul>
+            <li>Encouraging self-esteem through positive reinforcement</li>
+            <li>The role of praise in building confidence</li>
+            <li>Helping children develop resilience and independence</li>
+        </ul>
+    </div>
+
+    <div class="week">
+        <h3>Week 6: Managing Stress and Overwhelm in Parenting</h3>
+        <h4>Overview:</h4>
+        <p>Explore strategies for managing parental stress and preventing burnout while balancing responsibilities.</p>
+        <h4>Objectives:</h4>
+        <p>Teach parents self-care strategies and techniques to reduce stress in family life.</p>
+        <h4>Key Topics:</h4>
+        <ul>
+            <li>Stress management techniques for parents</li>
+            <li>Identifying and reducing sources of overwhelm</li>
+            <li>Creating a family routine that works for everyone</li>
+        </ul>
+    </div>
+
+    <div class="week">
+        <h3>Week 7: Supporting Your Child\'s Social and Academic Development</h3>
+        <h4>Overview:</h4>
+        <p>Discuss how to foster a supportive environment for your child’s academic and social success.</p>
+        <h4>Objectives:</h4>
+        <p>Equip parents with strategies to support their child’s learning and healthy peer relationships.</p>
+        <h4>Key Topics:</h4>
+        <ul>
+            <li>Encouraging a love for learning</li>
+            <li>Supporting social skills and peer relationships</li>
+            <li>Balancing academic expectations and play</li>
+        </ul>
+    </div>
+
+    <div class="week">
+        <h3>Week 8: Strengthening Family Bonds and Creating Lasting Traditions</h3>
+        <h4>Overview:</h4>
+        <p>Focus on ways to create strong family bonds and traditions that foster connection, communication, and joy.</p>
+        <h4>Objectives:</h4>
+        <p>Encourage families to establish meaningful rituals and traditions that bring them closer together.</p>
+        <h4>Key Topics:</h4>
+        <ul>
+            <li>Building family rituals and routines</li>
+            <li>Creating opportunities for connection and bonding</li>
+            <li>Celebrating family milestones and traditions</li>
+        </ul>
+    </div>
+
+    <div class="course-benefit">
+        <h3>Course Benefits:</h3>
+        <ul>
+            <li>Gain practical tools to improve communication and emotional regulation with your child.</li>
+            <li>Learn strategies for setting boundaries, managing discipline, and fostering self-esteem.</li>
+            <li>Find support in managing parental stress and creating a balanced, loving family environment.</li>
+        </ul>
+    </div>',
                 'is_featured' => true,
                 'created_at' => now(),
                 'updated_at' => now(),
