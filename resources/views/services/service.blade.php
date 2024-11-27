@@ -75,9 +75,9 @@
                     <div class="relative p-5 text-center h-100 bg-color text-light">
                         <i class="d-block fs-40 mb-2 icofont-clock-time"></i>
                         <h3>Schedule Your Appointment Today!</h3>
-                        Tue, & Thu, 10 am -6PM <br>
+                        {{-- Tue, & Thu, 10 am -6PM <br>
                         Satu 11am- 4PM & <br>
-                        Sun 4-6PM<br>
+                        Sun 4-6PM<br> --}}
                         <a class="btn-main btn-light-trans text-light mt-3" href="https://calendly.com/thewaywelove24" target="_blank">Book an Appointment</a>
                     </div>
                 </div>

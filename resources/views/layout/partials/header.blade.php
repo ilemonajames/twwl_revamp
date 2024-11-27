@@ -36,7 +36,7 @@
 									</div>
 									<div class="de-flex-col header-col-mid">
 										<ul id="mainmenu">
-											@guest
+											
 											<li><a class="menu-item {{ Request::is('home') ? 'active' : '' }}" href="/">Home</a>
 												
 											</li>
@@ -71,13 +71,13 @@
 												<i class="icofont-headphone-alt"></i>
 												<span>Phone</span>(804) 721-0983
 											</div>                                    
-											<a href="/login" class="btn-main">Book an Appointment</a>
+											<a href="/register" class="btn-main">Book an Appointment</a>
 											<span id="menu-btn"></span>
 										</div>
 									</div>
-									@else
-									<li>Dashboard</li>
-									@endguest
+									
+									<li>Login</li>
+									
 								</div>
 							</div>
 						</div>
