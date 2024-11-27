@@ -38,7 +38,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="img-with-cap mb20">
-                                <div class="d-title">Mon - Fri 08.00 - 18.00</div>
+                                <div class="d-title">Mon - Fri 08.00 - 19.00</div>
                                 <div class="d-overlay"></div>
                                 <img src="{{asset('assets/images/misc/5.webp')}}" class="img-fullwidth rounded-1" alt="">
                             </div>
@@ -111,8 +111,8 @@
                         <i class="d-block fs-40 mb-2 icofont-clock-time"></i>
                         <h3>Schedule Your Appointment Today!</h3>
                         {{-- Mon - Sat: 8AM - 9PM<br>
-                        Sunday: 10AM - 8PM<br> --}}
-                        <a class="btn-main btn-light-trans text-light mt-3" href="https://calendly.com/twwl">Book an Appointment</a>
+                        Sunday: 10AM - 8PM--}}<br> 
+                        <a class="btn-main btn-light-trans text-light mt-3" href="https://calendly.com/thewaywelove24" target="_blank">Book an Appointment</a>
                     </div>
                 </div>
 

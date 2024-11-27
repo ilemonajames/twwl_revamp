@@ -36,6 +36,7 @@
 									</div>
 									<div class="de-flex-col header-col-mid">
 										<ul id="mainmenu">
+											@guest
 											<li><a class="menu-item {{ Request::is('home') ? 'active' : '' }}" href="/">Home</a>
 												
 											</li>
@@ -57,8 +58,8 @@
 											<li> <a class="{{ Request::is('contact') ? 'active' : '' }} menu-item" href="{{ route('contact') }}">Contact</a>
 											</li>
 											{{-- <li class="login-link menu-item">
-												<a href="login">Login / Signup</a>
-											</li> --}}
+												<a href="login">Login</a>
+											</li>  --}}
 											{{-- <li><a class="menu-item" href="study-case.html">Study Case</a></li>
 											<li><a class="menu-item" href="blog.html">Blog</a></li>
 											<li><a class="menu-item" href="contact.html">Contact</a></li> --}}
@@ -70,10 +71,13 @@
 												<i class="icofont-headphone-alt"></i>
 												<span>Phone</span>(804) 721-0983
 											</div>                                    
-											<a href="/booking" class="btn-main">Book an Appointment</a>
+											<a href="/login" class="btn-main">Book an Appointment</a>
 											<span id="menu-btn"></span>
 										</div>
 									</div>
+									@else
+									<li>Dashboard</li>
+									@endguest
 								</div>
 							</div>
 						</div>

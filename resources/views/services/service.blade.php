@@ -78,7 +78,7 @@
                         Tue, & Thu, 10 am -6PM <br>
                         Satu 11am- 4PM & <br>
                         Sun 4-6PM<br>
-                        <a class="btn-main btn-light-trans text-light mt-3" href="https://calendly.com/twwl" target="_blank">Book an Appointment</a>
+                        <a class="btn-main btn-light-trans text-light mt-3" href="https://calendly.com/thewaywelove24" target="_blank">Book an Appointment</a>
                     </div>
                 </div>
 
