@@ -90,7 +90,7 @@
     <section class="bg-color-2 section-dark text-light text-center pt60 pb50 jarallax" style="background-color: #C2A03D; padding: 50px 0; text-white text-center py-3 " >
         <div class="container">
             <div class="row">
-                <div class="col-md-3">
+                {{-- <div class="col-md-3">
                     <h3 class=" font-weight-bold text-white">6250+</h3>
                     <p class="text-white">Happy Customers</p>
                 </div>
@@ -105,7 +105,7 @@
                 <div class="col-md-3">
                     <h3 class=" font-weight-bold text-white">15+</h3>
                     <p>Specialists</p>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>
@@ -119,13 +119,13 @@
                 <!-- Specialist 1 -->
                 <div class="row mb-4">
 					<div class="col-md-6 col-lg-3">
-						<div class="team-member">
+						{{-- <div class="team-member">
 							<img src="{{ asset('assets/img/we-always.png') }}" class="img-fluid rounded" alt="Jeffery Mussman">
 							<h4 class="font-weight-bold">Elizabeth Hall</h4>
 							<p>CEO/Founder</p>
 						</div>
 					</div>
-					{{-- <div class="col-md-6 col-lg-3">
+					<div class="col-md-6 col-lg-3">
 						<div class="team-member">
 							<img src="{{ asset('assets/img/we-always.png') }}" class="img-fluid rounded" alt="Jeffery Mussman">
 							<h4 class="font-weight-bold">Jeffery Mussman</h4>
@@ -186,7 +186,7 @@
     
 
     <!-- Information Section  -->
-    <section class="py-4 mb-5 text-white "style="background-color: #C2A03D;"> <!-- Added mb-5 for margin-bottom -->
+    <section class="py-4 mb-5 text-white "style="background-color: #C2A03D;"> 
         <div class="container">
             <div class="row text-center">
                 <!-- Working Hours -->

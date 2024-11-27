@@ -102,7 +102,7 @@
             <div class="row">
                 <div class="col-lg-6 offset-lg-3 text-center">                            
                     <div class="subtitle wow fadeInUp mb-3">FAQ</div>
-                    <h2 class="wow fadeInUp" data-wow-delay=".2s">Any Questions</h2>
+                    <h2 class="wow fadeInUp" data-wow-delay=".2s"></h2>
                 </div>
             </div>
 

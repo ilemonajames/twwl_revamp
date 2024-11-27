@@ -68,6 +68,7 @@ use App\Http\Controllers\ChatController;
 use App\Http\Controllers\ResourceController;
 //use App\Http\Controllers\Podcasts;
 use App\Http\Controllers\PodcastsController;
+use App\Http\Controllers\VideosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -105,6 +106,8 @@ Route::get('/privacy-policy', function(){
 // podcasts
 Route::get('/podcasts', [PodcastsController::class, 'index'])->name('podcasts.index');
 Route::get('/podcasts/{id}', [PodcastsController::class, 'show'])->name('podcasts.details');
+Route::get('/videos', [VideosController::class, 'index'])->name('videos.index');
+Route::get('/vdeos/{id}', [VideosController::class, 'show'])->name('videos.details');
 
 
 // Route::get('/events', function () {
