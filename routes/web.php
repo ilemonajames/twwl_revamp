@@ -332,8 +332,8 @@ Route::middleware(['auth:sanctum','verified',])->group(function () {
 // Route::get('/video-call', function () {
 //     return view('video-call');
 // })->name('video-call');
-Route::get('/term-condition', function () {     return view('term-condition');
- })->name('term-condition');
+Route::get('/terms', function () {     return view('information.terms');
+ })->name('terms');
 // Route::get('/social-media', function () {
 //     return view('social-media');
 // })->name('social-media');
