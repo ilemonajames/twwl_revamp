@@ -151,7 +151,7 @@ class ProgramSeeder extends Seeder
                 'program_title' => '8-Week Parenting Class',
                 'program_description' => 'An online self-paced parenting course focusing on parenting styles, emotional intelligence, communication, and building stronger family bonds.',
                 'program_content' => '<article>
-            <h2>Week 1: Understanding Parenting Styles</h2>
+            <h3>Week 1: Understanding Parenting Styles</h3>
             <ul>
                 <li><strong>Overview:</strong> Introduction to different parenting styles (authoritative, authoritarian, permissive, and uninvolved) and their impact on child development.</li>
                 <li><strong>Objectives:</strong> Help parents identify their current parenting style and learn how to adopt a more balanced approach that promotes healthy development.</li>
@@ -166,7 +166,7 @@ class ProgramSeeder extends Seeder
         </article>
 
         <article>
-            <h2>Week 2: Building Emotional Intelligence in Children</h2>
+            <h3>Week 2: Building Emotional Intelligence in Children</h3>
             <ul>
                 <li><strong>Overview:</strong> Understanding the importance of emotional intelligence and teaching children to recognize, express, and manage their emotions.</li>
                 <li><strong>Objectives:</strong> Equip parents with tools to nurture their children\'s emotional awareness and resilience.</li>
@@ -181,7 +181,7 @@ class ProgramSeeder extends Seeder
         </article>
 
         <article>
-            <h2>Week 3: Effective Communication with Your Child</h2>
+            <h3>Week 3: Effective Communication with Your Child</h3>
             <ul>
                 <li><strong>Overview:</strong> Learn the essentials of communicating with children at different developmental stages, including listening techniques and expressing empathy.</li>
                 <li><strong>Objectives:</strong> Strengthen parent-child relationships through open and effective communication.</li>
@@ -196,7 +196,7 @@ class ProgramSeeder extends Seeder
         </article>
 
         <article>
-            <h2>Week 4: Setting Boundaries and Encouraging Discipline</h2>
+            <h3>Week 4: Setting Boundaries and Encouraging Discipline</h3>
             <ul>
                 <li><strong>Overview:</strong> Explore positive discipline strategies and the importance of setting healthy boundaries to promote responsibility and respect.</li>
                 <li><strong>Objectives:</strong> Help parents create clear, consistent boundaries and apply discipline in a constructive, non-punitive manner.</li>
@@ -211,7 +211,7 @@ class ProgramSeeder extends Seeder
         </article>
 
         <article>
-            <h2>Week 5: Fostering Self-Esteem and Confidence</h2>
+            <h3>Week 5: Fostering Self-Esteem and Confidence</h3>
             <ul>
                 <li><strong>Overview:</strong> Learn strategies to build your child’s self-esteem and confidence while providing appropriate encouragement and support.</li>
                 <li><strong>Objectives:</strong> Teach parents how to cultivate a growth mindset and provide constructive feedback.</li>
@@ -226,7 +226,7 @@ class ProgramSeeder extends Seeder
         </article>
 
         <article>
-            <h2>Week 6: Managing Stress and Overwhelm in Parenting</h2>
+            <h3>Week 6: Managing Stress and Overwhelm in Parenting</h3>
             <ul>
                 <li><strong>Overview:</strong> Explore strategies for managing parental stress and preventing burnout while balancing responsibilities.</li>
                 <li><strong>Objectives:</strong> Teach parents self-care strategies and techniques to reduce stress in family life.</li>
@@ -241,7 +241,7 @@ class ProgramSeeder extends Seeder
         </article>
 
         <article>
-            <h2>Week 7: Supporting Your Child\'s Social and Academic Development</h2>
+            <h3>Week 7: Supporting Your Child\'s Social and Academic Development</h3>
             <ul>
                 <li><strong>Overview:</strong> Discuss how to foster a supportive environment for your child’s academic and social success.</li>
                 <li><strong>Objectives:</strong> Equip parents with strategies to support their child’s learning and healthy peer relationships.</li>
@@ -256,7 +256,7 @@ class ProgramSeeder extends Seeder
         </article>
 
         <article>
-            <h2>Week 8: Strengthening Family Bonds and Creating Lasting Traditions</h2>
+            <h3>Week 8: Strengthening Family Bonds and Creating Lasting Traditions</h3>
             <ul>
                 <li><strong>Overview:</strong> Focus on ways to create strong family bonds and traditions that foster connection, communication, and joy.</li>
                 <li><strong>Objectives:</strong> Encourage families to establish meaningful rituals and traditions that bring them closer together.</li>
@@ -271,7 +271,7 @@ class ProgramSeeder extends Seeder
         </article>
 
         <article>
-            <h2>Course Benefits</h2>
+            <h3>Course Benefits</h3>
             <ul>
                 <li>Gain practical tools to improve communication and emotional regulation with your child.</li>
                 <li>Learn strategies for setting boundaries, managing discipline, and fostering self-esteem.</li>
@@ -296,14 +296,14 @@ class ProgramSeeder extends Seeder
             healing and personal growth.
         </p>
 
-        <h2>Group Format:</h2>
+        <h3>Group Format:</h3>
         <ul>
             <li><strong>When:</strong> Tuesdays and Thursdays (60-minute sessions)</li>
             <li><strong>Where:</strong> Online (accessible from the comfort of your home)</li>
             <li><strong>Who:</strong> Open to individuals seeking support in healing from trauma or PTSD</li>
         </ul>
 
-        <h2>Group Objectives:</h2>
+        <h3>Group Objectives:</h3>
         <ol>
             <li>
                 <strong>A Safe Place to Tell Your Story</strong>
@@ -353,7 +353,7 @@ class ProgramSeeder extends Seeder
             relationship.
         </p>
 
-        <h2>Seminar Objectives:</h2>
+        <h3>Seminar Objectives:</h3>
         <ol>
             <li>
                 <strong>Foster Connection Between Couples</strong>
@@ -386,13 +386,13 @@ class ProgramSeeder extends Seeder
             </li>
         </ol>
 
-        <h2>Seminar Details:</h2>
+        <h3>Seminar Details:</h3>
         <ul>
             <li><strong>Dates & Times:</strong> Seminar dates and times are adjusted periodically to accommodate participants. Please check our schedule for the latest availability.</li>
             <li><strong>Format:</strong> Group sessions led by a licensed mental health professional in a supportive, structured environment.</li>
         </ul>
 
-        <h2>Why Attend?</h2>
+        <h3>Why Attend?</h3>
         <ul>
             <li><strong>Strengthen Your Relationship:</strong> Gain insights and skills that promote lasting connection and understanding with your partner.</li>
             <li><strong>Practical Tools:</strong> Walk away with effective communication, listening, and conflict resolution techniques you can use daily.</li>
