@@ -332,7 +332,7 @@ Route::middleware(['auth:sanctum','verified',])->group(function () {
 // Route::get('/video-call', function () {
 //     return view('video-call');
 // })->name('video-call');
-Route::get('/terms', function () {     return view('information.terms');
+Route::get('/terms', function () {     return view('informations.terms');
  })->name('terms');
 // Route::get('/social-media', function () {
 //     return view('social-media');

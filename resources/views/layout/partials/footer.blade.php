@@ -90,19 +90,18 @@
 					<div class="col-lg-6 col-sm-6">
 						<div class="widget">
 							<h5>Services</h5>
-							<ul>                                        
+							{{-- <ul>                                        
 								<li><a href="#">Individual Therapy</a></li>
 								<li><a href="#">Couples Counseling</a></li>
-								{{-- <li><a href="#">Career Counseling</a></li> --}}
 								<li><a href="#">Stress management</a></li>
 								<li><a href="#">Anxiety Treatment</a></li>
 								<li><a href="#">Depression Therapy</a></li>
-							</ul>
+							</ul> --}}
 						</div>
 					</div>
 					<div class="col-lg-6 col-sm-6">
 						<div class="widget">
-							<h5>Our Services</h5>
+							<h5>Pages</h5>
 							<ul>
 								<li><a href="/about">About Us</a></li>
 								<li><a href="/services">Our Services</a></li>
@@ -117,6 +116,7 @@
 			</div>
 			<div class="col-lg-4 col-sm-6 order-lg-2 order-sm-1">
 				<div class="widget">
+					<h5>Contact</h5>
 
 					<div class="fw-bold text-dark"><i class="icofont-location-pin me-2 id-color"></i>Office Location</div>
 					205 ½ E Broadway, Suite F & G Hopewell VA. 23860

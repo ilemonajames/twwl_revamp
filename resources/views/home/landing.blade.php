@@ -251,10 +251,10 @@
 
                         @foreach ($faqs as $faq)
                         <div class="accordion-section-title" data-tab="#accordion-a{{$sn}}">
-                        <p>{{$faq->question}}
+                        <p>{!! $faq->question!!}
                         </div></p>   
                         <div class="accordion-section-content" id="accordion-a{{$sn}}">
-                            <p>{{$faq->answer}}</p>
+                            <p>{!! $faq->answer!!}</p>
                         </div>
                         <div class="counter" style="display: none">{{ $sn++ }}</div>
                         @endforeach

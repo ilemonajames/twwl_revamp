@@ -24,7 +24,7 @@ class FaqSeeder extends Seeder
         ]);
         Faq::Create([
             'question' => 'How can I schedule an appointment?',
-            'answer' => 'You can easily schedule an appointment <a href="calendly.com/twwl">here</a>, by contacting our office via phone or email, or by filling out our online appointment request form.',
+            'answer' => 'You can easily schedule an appointment <a href="https://calendly.com/thewaywelove24">here</a>, by contacting our office via phone or email, or by filling out our online appointment request form.',
          ]);
         // Faq::Create([  'question' => 'Are your services covered by insurance?',
         //     'answer' => 'We accept a variety of insurance plans, and our team can help you navigate the process to ensure you receive the coverage you are entitled to.',

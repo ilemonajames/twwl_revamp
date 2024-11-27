@@ -27,6 +27,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 mx-auto">
+                   <h1> Legal Disclaimer</h1>
+
                     <h2>General Information</h2>
                     <p>
 The information provided by The Way We Love Relationship Counseling LLC ("we," "us," or "our") on our
@@ -42,33 +44,53 @@ The Way We Love Relationship Counseling or any of our therapists or coaches. The
 consultations, and information we provide should not replace therapy or counseling sessions with
 a licensed mental health professional.
 </p>
-                   
-                    <h3>How do we use your personal information?</h3>
-                    <p>We use your personal information for the following purposes:</p>
-                    <ul>
-                        <li>To provide you with information and services that you request from us</li>
-                        <li>To personalize your experience on our website</li>
-                        <li>To improve our website and our services</li>
-                        <li>To send you promotional information</li>
-                        <li>To administer contests and promotions</li>
-                        <li>To communicate with you about your use of our website</li>
-                    </ul>
-                    <h3>How do we store your personal information?</h3>
-                    <p>We store your personal information on secure servers in Canada. We use industry standard security measures to protect your personal information from unauthorized access, alteration, or destruction.</p>
-                    <h3>What are your data protection rights?</h3>
-                    <p>We would like to make sure you are fully aware of all of your data protection rights. Every user is entitled to the following:</p>
-                    <p>The right to access – You have the right to request copies of your personal information. We may charge you a small fee for this service.</p>
-                    <p>The right to rectification – You have the right to request that we correct any information you believe is inaccurate. You also have the right to request that we complete the information you believe is incomplete.</p>
-                    <p>The right to erasure – You have the right to request that we erase your personal information. However, we may not always be able to comply with your request immediately, so please note that we may not be able to accommodate a request that requires immediate erasure of your personal information.</p>
-                    <p>The right to restrict processing – You have the right to request that we restrict the processing of your personal information. In this case, we will not process your personal information for any purpose other than providing you with services.</p>                    
-                    <p>The right to object to processing – You have the right to object to our processing of your personal information. If you object to our processing for any reason, we will not process your personal information for that purpose.</p>
-                    <p>The right to data portability – You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions.</p>
-                    <p>If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us at our email address: <EMAIL></p>
-                    <h3>Cookies</h3>
-                    <p>We use cookies to store information about your preferences and settings. These cookies are used to provide you with a more efficient experience on our website, and to analyze our traffic. You can choose to accept or decline cookies. Most web browsers automatically accept cookies, but you can usually modify your browser setting to decline cookies if you prefer. If you choose to decline cookies, you may not be able to fully use all of the features on our website.</p>                    
-                    <h3>Children's Information</h3>                    
-                    <p>We do not knowingly collect any personal information from children under the age of 13. If you are under the age of 13, please do not submit any personal information through our website or submit any unsolicited communications.</p>  
 
+
+<h2>Hypnotherapy Services</h2>
+<p>Hypnotherapy services provided by The Way We Love Relationship Counseling are
+complementary and should be used as part of a holistic approach to well-being. These services
+are not intended to diagnose, treat, cure, or prevent any disease or mental health condition.
+Hypnotherapy is not a substitute for professional medical care or mental health therapy. Please
+consult a licensed healthcare provider before beginning any new therapeutic practices,
+especially if you have concerns about your mental or physical health.</p>
+<h2>Multimedia Content</h2>
+<p>
+Our multimedia content, including videos, audio files, podcasts, and blog posts, is intended 
+provide useful information on mental health, relationships, parenting, and personal growth.
+However, this content is not professional advice and should not be relied on for diagnosis or
+treatment. We do not guarantee the accuracy, completeness, or usefulness of the information
+presented. The use of any information provided on these platforms is solely at your own risk.</p>
+
+<h2>Limitations of Liability</h2>
+<p>
+Under no circumstances shall The Way We Love be held liable for any direct, indirect, incidental,
+special, or consequential damages resulting from the use of our services or the information
+provided. This includes, but is not limited to, reliance on any information contained in our content,
+or your reliance on the efficacy of hypnotherapy or any other services we provided</p>
+<h2>External Links</h2>
+<p>
+Our website, blog, and other content may contain links to third-party websites. These links are
+provided for convenience and informational purposes only, and The Way We Love Relationship
+Counseling LLC is not responsible for the content or accuracy of any third-party websites.</p>
+
+<h2>Consult a Professional</h2>
+<p>
+If you are in need of immediate assistance or are experiencing a crisis, please contact a licensed
+therapist, counselor, or medical professional, in your area or go to your local emergency service
+or helpline.</p>
+
+<h3>Contact</h3>
+<p>
+If you have any questions about this disclaimer or our services, please contact us at
+Thewayweloverelationshipcoun24@gmail.com or 804-721-0983</p>
+
+<em>Contact Information</em>
+<i>
+If you have any questions about our services, or if you'd like to schedule a consultation or
+session, please feel free to reach out through any of the following channels:
+</i>
+                  
+                   
                 </div>
                 </div>
         </div>

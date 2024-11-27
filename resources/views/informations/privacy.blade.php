@@ -27,21 +27,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 mx-auto">
-                    <h2>General Information</h2>
-                    <p>
-The information provided by The Way We Love Relationship Counseling LLC ("we," "us," or "our") on our
-website, YouTube videos, podcasts, blog posts, and other multimedia content is for general informational
-and educational purposes only. All content, including text, graphics, images, audio, and video, is not
-intended to be a substitute for professional medical advice, diagnosis, or treatment. Always seek the
-advice of your physician, therapist, or other qualified mental health provider with any questions you may
-have regarding a medical or mental health condition.
-<h2>No Professional Relationship</h2> <br>
-<p>
-Use of our content or services does not establish a therapist-client relationship between you and
-The Way We Love Relationship Counseling or any of our therapists or coaches. The services,
-consultations, and information we provide should not replace therapy or counseling sessions with
-a licensed mental health professional.
-</p>
+             
                    
                     <h3>How do we use your personal information?</h3>
                     <p>We use your personal information for the following purposes:</p>
@@ -54,7 +40,7 @@ a licensed mental health professional.
                         <li>To communicate with you about your use of our website</li>
                     </ul>
                     <h3>How do we store your personal information?</h3>
-                    <p>We store your personal information on secure servers in Canada. We use industry standard security measures to protect your personal information from unauthorized access, alteration, or destruction.</p>
+                    <p>We store your personal information on secure servers in USA. We use industry standard security measures to protect your personal information from unauthorized access, alteration, or destruction.</p>
                     <h3>What are your data protection rights?</h3>
                     <p>We would like to make sure you are fully aware of all of your data protection rights. Every user is entitled to the following:</p>
                     <p>The right to access – You have the right to request copies of your personal information. We may charge you a small fee for this service.</p>
