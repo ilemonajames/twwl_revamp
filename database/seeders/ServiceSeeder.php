@@ -77,21 +77,21 @@ class ServiceSeeder extends Seeder
         ]);
 
         // Service 5: Hypnotherapy Services
-        Service::create([
-            'service_icon' => 'hypnotherapy.png',
-            'service_image' => 'hypnotherapy.jpg',
-            'service_title' => 'Hypnotherapy Services',
-            'service_description' => "
-                We offer hypnotherapy services focused on managing stress, improving sleep, and fostering personal growth. These sessions help individuals reach a deep state of relaxation, allowing the subconscious mind to embrace positive change.
-                <h4>Key Offerings:</h4>
-                <ul>
-                    <li>Stress management and relaxation</li>
-                    <li>Sleep improvement</li>
-                    <li>Personal growth and goal setting</li>
-                </ul>
+        // Service::create([
+        //     'service_icon' => 'hypnotherapy.png',
+        //     'service_image' => 'hypnotherapy.jpg',
+        //     'service_title' => 'Hypnotherapy Services',
+        //     'service_description' => "
+        //         We offer hypnotherapy services focused on managing stress, improving sleep, and fostering personal growth. These sessions help individuals reach a deep state of relaxation, allowing the subconscious mind to embrace positive change.
+        //         <h4>Key Offerings:</h4>
+        //         <ul>
+        //             <li>Stress management and relaxation</li>
+        //             <li>Sleep improvement</li>
+        //             <li>Personal growth and goal setting</li>
+        //         </ul>
                
-            ",
-        ]);
+        //     ",
+        // ]);
     
 
     }
