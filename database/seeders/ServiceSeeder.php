@@ -46,17 +46,17 @@ class ServiceSeeder extends Seeder
             'service_description' => "We work with mental health providers to create custom-designed curricula tailored to their clients' specific needs. Our goal is to enhance the effectiveness of their services by providing structured, evidence-based programs that address mental health challenges."
         ]);
 
-        Service::create([
-            'service_icon' => 'organization.png',
-            'service_image' => 'organization.jpg',
-            'service_title' => 'Organizations',
-            'service_description' => "Our services extend to organizations seeking to support their teams' mental health and well-being. We offer workshops, coaching, and curriculum development focused on improving workplace dynamics, team cohesion, and emotional wellness."
-        ]);
+        // Service::create([
+        //     'service_icon' => 'organization.png',
+        //     'service_image' => 'organization.jpg',
+        //     'service_title' => 'Organizations',
+        //     'service_description' => "Our services extend to organizations seeking to support their teams' mental health and well-being. We offer workshops, coaching, and curriculum development focused on improving workplace dynamics, team cohesion, and emotional wellness."
+        // ]);
 
         Service::create([
             'service_icon' => 'organization.png',
             'service_image' => 'organization.jpg',
-            'service_title' => 'Couples & Families',
+            'service_title' => 'Organisation Support',
             'service_description' => "Our services extend to organizations seeking to support their teams' mental health and well-being. We offer workshops, coaching, and curriculum development focused on improving workplace dynamics, team cohesion, and emotional wellness."
         ]);
         // Service 4: Workshops & Seminars for Organizations
