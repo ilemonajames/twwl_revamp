@@ -90,13 +90,12 @@
 					<div class="col-lg-6 col-sm-6">
 						<div class="widget">
 							<h5>Services</h5>
-							{{-- <ul>                                        
-								<li><a href="#">Individual Therapy</a></li>
-								<li><a href="#">Couples Counseling</a></li>
-								<li><a href="#">Stress management</a></li>
-								<li><a href="#">Anxiety Treatment</a></li>
-								<li><a href="#">Depression Therapy</a></li>
-							</ul> --}}
+							<ul>
+							@foreach (App\Models\Service::all()->take(4) as $service)
+							                                    
+								<li><a href="{{route('services.show', $service->id)}}">{{$service->service_title}}</a></li>
+							@endforeach
+							</ul>
 						</div>
 					</div>
 					<div class="col-lg-6 col-sm-6">

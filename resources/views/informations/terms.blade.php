@@ -84,11 +84,11 @@ or helpline.</p>
 If you have any questions about this disclaimer or our services, please contact us at
 Thewayweloverelationshipcoun24@gmail.com or 804-721-0983</p>
 
-<em>Contact Information</em>
+{{-- <em>Contact Information</em>
 <i>
 If you have any questions about our services, or if you'd like to schedule a consultation or
 session, please feel free to reach out through any of the following channels:
-</i>
+</i> --}}
                   
                    
                 </div>

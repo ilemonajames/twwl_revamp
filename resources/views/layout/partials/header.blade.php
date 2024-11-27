@@ -63,20 +63,23 @@
 											{{-- <li><a class="menu-item" href="study-case.html">Study Case</a></li>
 											<li><a class="menu-item" href="blog.html">Blog</a></li>
 											<li><a class="menu-item" href="contact.html">Contact</a></li> --}}
+											<li> </li>
 										</ul>
 									</div>
 									<div class="de-flex-col">
+										<a href="/login" class="menu-item" {{ Request::is('login') ? 'active' : '' }}>Login</a>
 										<div class="menu_side_area">
+											                             
+											<a href="/register" class="btn-main">Appointment</a>
 											<div class="h-phone sm-hide">
 												<i class="icofont-headphone-alt"></i>
 												<span>Phone</span>(804) 721-0983
-											</div>                                    
-											<a href="/register" class="btn-main">Book an Appointment</a>
+											</div>   
 											<span id="menu-btn"></span>
 										</div>
 									</div>
 									
-									<li>Login</li>
+									
 									
 								</div>
 							</div>
