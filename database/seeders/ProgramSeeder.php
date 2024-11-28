@@ -13,7 +13,7 @@ class ProgramSeeder extends Seeder
     {
         Program::create([
                 'id' => Str::uuid(),
-                'program_image' => 'group.jpg',
+                'program_image' => 'couple_program.jpg',
                 'icon_class' => 'fas fa-heart', // Font Awesome icon class
                 'program_title' => '8-Week Couples Program',
                 'program_description' => 'A structured, self-paced 8-week program designed to help couples strengthen their connection, improve communication, and resolve conflicts.',
@@ -285,7 +285,7 @@ class ProgramSeeder extends Seeder
             
         Program::create([
                 'id' => Str::uuid(),
-                'program_image' => 'group.jpg',
+                'program_image' => 'ptsd.jpg',
                 'icon_class' => 'fas fa-user-shield', // Font Awesome icon class
                 'program_title' => 'Trauma & PTSD Support Group',
                 'program_description' => 'An online support group that provides a safe space for individuals dealing with trauma and PTSD to share, grow, and heal.',
@@ -342,7 +342,7 @@ class ProgramSeeder extends Seeder
 
         Program::create([
                 'id' => Str::uuid(),
-                'program_image' => 'couple.jpg',
+                'program_image' => 'coupleseminar.jpg',
                 'icon_class' => 'fas fa-users', // Font Awesome icon class
                 'program_title' => 'Couples Seminar',
                 'program_description' => 'A seminar led by a licensed mental health provider designed to help couples foster deeper emotional connections, improve communication, and resolve conflicts.',
