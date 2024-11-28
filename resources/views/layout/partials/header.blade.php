@@ -34,7 +34,9 @@
 										</div>
 										<!-- logo close -->
 									</div>
+									
 									<div class="de-flex-col header-col-mid">
+										@guest
 										<ul id="mainmenu">
 											
 											<li><a class="menu-item {{ Request::is('home') ? 'active' : '' }}" href="/">Home</a>
@@ -57,6 +59,7 @@
 											</li>
 											<li> <a class="{{ Request::is('contact') ? 'active' : '' }} menu-item" href="{{ route('contact') }}">Contact</a>
 											</li>
+											
 											{{-- <li class="login-link menu-item">
 												<a href="login">Login</a>
 											</li>  --}}
@@ -64,6 +67,7 @@
 											<li><a class="menu-item" href="blog.html">Blog</a></li>
 											<li><a class="menu-item" href="contact.html">Contact</a></li> --}}
 											<li> </li>
+
 										</ul>
 									</div>
 									<div class="de-flex-col">
@@ -78,8 +82,23 @@
 											<span id="menu-btn"></span>
 										</div>
 									</div>
-									
-									
+									@else
+									<!--User Profile-->
+									<div class="widget-profile pro-widget-content">
+										<div class="profile-info-widget">
+											<a href="#" class="booking-counc-img">
+												<img src="{{ asset('assets/images/users/'.Auth::user()->profile_photo_path) }}">
+											</a>
+											<div class="profile-det-info">
+												<h4>{{ Auth::user()->surname." ".Auth::user()->othernames}}</h4>
+												<div class="patient-details">
+													<h5 class="mb-0">({{ Auth::user()->user_type}})</h5>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!--User Profile end-->
+									@endguest
 									
 								</div>
 							</div>

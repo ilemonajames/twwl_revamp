@@ -17382,3 +17382,38 @@ button{
   padding: 14px 20px;
 }
 
+.profile-info-widget {
+  background-color: #f9f9f9; /* Light background for visibility */
+  border: 1px solid #e0e0e0; /* Subtle border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 15px; /* Padding for spacing */
+  display: flex; /* Flexbox for alignment */
+  align-items: center; /* Center items vertically */
+  margin-top: 20px; /* Space above the widget */
+}
+
+.profile-info-widget img {
+  border-radius: 50%; /* Circular profile image */
+  width: 60px; /* Fixed width */
+  height: 60px; /* Fixed height */
+  margin-right: 15px; /* Space between image and text */
+}
+
+.profile-det-info {
+  flex-grow: 1; /* Allows text to fill available space */
+}
+
+.profile-det-info h4 {
+  margin: 0; /* Reset margin */
+  font-size: 1.25rem; /* Font size for the user's name */
+  color: #333; /* Dark color for visibility */
+}
+
+.patient-details {
+  font-size: 0.875rem; /* Smaller font size for additional details */
+  color: #777; /* Lighter color for less emphasis */
+}
+
+.patient-details h5 {
+  margin: 0; /* Reset margin */
+}
