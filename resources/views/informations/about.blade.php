@@ -122,8 +122,8 @@
 
     <!-- Team Section -->
     <section class="py-5 mb-5" style="background-color: #FBF5E2">
-        <div class="container text-center">
-            <h2 class="mb-5">Our Specialists</h2>
+       {{--  <div class="container text-center">
+            <h2 class="mb-5">Our Specialists</h2> 
             <div class="row">
                 <!-- Specialist 1 -->
                 <div class="row mb-4">
@@ -154,11 +154,11 @@
 							<h4 class="font-weight-bold">Jeffery Mussman</h4>
 							<p>Psychologist</p>
 						</div>
-					</div> --}}
+					</div> 
 				</div>
                 <!-- Repeat for other specialists -->
             </div>
-        </div>
+        </div>--}}
     </section>
 	
 	<section class="jarallax overflow-hidden"> <!-- Increased padding and margin -->
