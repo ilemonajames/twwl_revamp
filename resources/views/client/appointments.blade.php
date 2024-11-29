@@ -2,37 +2,23 @@
 @extends('layout.mainlayout')
 @section('content')
 <!-- Breadcrumb -->
-			<div class="breadcrumb-bar">
-				<div class="container-fluid">
-					<div class="row align-items-center">
-						<div class="col-md-12 col-12">
-							<nav aria-label="breadcrumb" class="page-breadcrumb">
-								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="index">Home</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Dashboard</li>
-								</ol>
-							</nav>
-							<h2 class="breadcrumb-title">Dashboard</h2>
-						</div>
-					</div>
-				</div>
-			</div> 
+<
 			<!-- /Breadcrumb -->
  <!-- content begin -->
- <div class="no-bottom no-top" id="content">
-    <div id="top"></div>
+ <!--<div class="no-bottom no-top" id="content">
+    <div id="top"></div>   --> 
     <!-- section begin -->
     <section class="mt80 mt-sm-60 pt20 pb20 bg-color text-light">
         <div class="container relative z-index-1000">
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <h3 class="mb-0">Study Case</h3>
+                    <h3 class="mb-0">Dashboard</h3>
                 </div>
 
                 <div class="col-lg-6 text-lg-end">
                     <ul class="crumb">
-                        <li><a href="index.html">Home</a></li>
-                        <li class="active">Study Case</li>
+                        <li><a href="">Home</a></li>
+                        <li class="active">Dashboard</li>
                     </ul>
                 </div>
             </div>
@@ -44,16 +30,16 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-3">
-                    <ul id="filters" class="s2">
-                        {{-- <li><a href="#" data-filter="*" class="selected">All services</a></li>
+                     {{--<ul id="filters" class="s2">
+                        <li><a href="#" data-filter="*" class="selected">All services</a></li>
                         <li><a href="#" data-filter=".service-1">Individual Therapy</a></li>
                         <li><a href="#" data-filter=".service-2">Couples Counseling</a></li>
                         <li><a href="#" data-filter=".service-3">Career Counseling</a></li>
                         <li><a href="#" data-filter=".service-4">Stress management</a></li>
                         <li><a href="#" data-filter=".service-5">Anxiety Treatment</a></li>
-                        <li><a href="#" data-filter=".service-6">Depression Therapy</a></li> --}}
+                        <li><a href="#" data-filter=".service-6">Depression Therapy</a></li> 
                         @include('client.includes.client-navbar')
-                    </ul>
+                    </ul>--}}
                 </div>
 			<!-- Page Content -->
 			<div class="content">

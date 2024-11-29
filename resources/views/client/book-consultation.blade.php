@@ -2,34 +2,37 @@
 @extends('layout.mainlayout')
 @section('content')
 <!-- Breadcrumb -->
-			<div class="breadcrumb-bar">
-				<div class="container-fluid">
-					<div class="row align-items-center">
-						<div class="col-md-12 col-12">
-							<nav aria-label="breadcrumb" class="page-breadcrumb">
-								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="index">Dashboard</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Booking</li>
-								</ol>
-							</nav>
-							<h2 class="breadcrumb-title">Appointment Booking</h2>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- /Breadcrumb -->
+     <!-- content begin -->
+     <div class="no-bottom no-top" id="content">
+        <div id="top"></div>
+        <!-- section begin -->
+        <section class="mt80 mt-sm-60 pt20 pb20 bg-color text-light">
+            <div class="container relative z-index-1000">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h3 class="mb-0">Booking</h3>
+                    </div>
 
-			<!-- Page Content -->
-			<div class="content">
-				<div class="container">
+                    <div class="col-lg-6 text-lg-end">
+                        <ul class="crumb">
+                            <li><a href="">Home</a></li>
+                            <li class="active">Booking</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- section close -->
 
-					<div class="row">
-
-						<!-- Profile Sidebar -->
-                        @include('client.includes.client-navbar')
-						<!-- / Profile Sidebar -->
-						<div class="col-md-7 col-lg-8 col-xl-9">
-							<div class="card">
+        <section>
+            <div class="container">
+                <div class="row g-4">
+                            @include('client.includes.client-navbar')
+                        
+                    
+                    <div class="col-lg-7">
+                        <div id="gallery" class="row g-4">
+                            <div class="card">
 								<div class="card-body">
 									<div class="row">
 										<div class="col-md-12 col-lg-12">
@@ -56,7 +59,7 @@
                                                         <p class="text-danger">{{ $message }}</p>
                                                     @enderror
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    {{-- <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label class="form-label-outlined" for="relationship">Type of Booking</label>
 
@@ -74,22 +77,22 @@
                                                         @error('service')
                                                             <p class="text-danger">{{ $message }}</p>
                                                         @enderror
-                                                    </div>
+                                                    </div> --}}
                                                     <div class="col-md-12 mt-4" id="pricing" >
-                                                        @if(old('program') && old('service')) @php $selApp = App\Models\ProgramFee::where('program_id',old('program'))->where('service_id',old('service'))->first() @endphp @endif
+                                                        @if(old('program')) @php $selApp = App\Models\ProgramFee::where('program_id',old('program'))->first() @endphp @endif
                                                         <div class="card">
                                                             <div class="card-body" style="background-color: rgba(128, 128, 128, 0.051); border-radius: 10px">
                                                                 <div class="row">
                                                                     <div class="col-sm-6">
                                                                         <div>
                                                                             <p class="mb-2"><b>Program Fee</b></p>
-                                                                            <h6 id="programFees">@if(old('program') && old('service')) ${{ $selApp->program_fees }} @else @endif</h6>
+                                                                            <h6 id="programFees">@if(old('program')) ${{ $selApp->program_fees }} @else @endif</h6>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-sm-6">
                                                                         <div>
                                                                             <p class="mb-2"><b>Session Fee</b></p>
-                                                                            <h6 id="sessionFees">@if(old('program') && old('service')) ${{ $selApp->session_fees }} @else @endif</h6>
+                                                                            <h6 id="sessionFees">@if(old('program')) ${{ $selApp->session_fees }} @else @endif</h6>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -97,13 +100,13 @@
                                                                     <div class="col-sm-6">
                                                                         <div>
                                                                             <p class="mb-2"><b>Consultation Fee</b></p>
-                                                                            <h6 id="consultationFees">@if(old('program') && old('service')) ${{ $selApp->consultation_fees }} @else @endif</h6>
+                                                                            <h6 id="consultationFees">@if(old('program')) ${{ $selApp->consultation_fees }} @else @endif</h6>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-sm-6">
                                                                         <div>
                                                                             <p class="mb-2"><b>Duration</b></p>
-                                                                            <h6 id="duration">@if(old('program') && old('service')) {{ $selApp->duration }} @else @endif</h6>
+                                                                            <h6 id="duration">@if(old('program')) {{ $selApp->duration }} @else @endif</h6>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -150,8 +153,14 @@
 						</div>
 
 					</div>
+                        </div>
+                    </div>
 
-				</div>
+			<!-- /Breadcrumb -->
+
+			<!-- Page Content -->
+			<div class="content">
+				
 
 			</div>
 			<!-- /Page Content -->

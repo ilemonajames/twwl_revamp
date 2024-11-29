@@ -36,7 +36,7 @@
 									</div>
 									
 									<div class="de-flex-col header-col-mid">
-										@guest
+										
 										<ul id="mainmenu">
 											
 											<li><a class="menu-item {{ Request::is('home') ? 'active' : '' }}" href="/">Home</a>
@@ -70,6 +70,7 @@
 
 										</ul>
 									</div>
+									@guest
 									<div class="de-flex-col">
 										<a href="/login" class="menu-item" {{ Request::is('login') ? 'active' : '' }}>Login</a>
 										<div class="menu_side_area">

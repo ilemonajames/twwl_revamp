@@ -2,25 +2,27 @@
 @extends('layout.mainlayout')
 @section('content')
 <!-- Breadcrumb -->
-<div class="no-bottom no-top" id="content">
-	<div id="top"></div>
-	<!-- section begin -->
-	 <section class="mt80 mt-sm-60 pt20 pb20 bg-color text-light">
-		<div class="container relative z-index-1000">
-			<div class="row align-items-center">
-				<div class="col-lg-6">
-					<h3 class="mb-0">dashboard</h3>
-				</div>
+<!-- Section for the main dashboard header and navigation -->
+<section class="mt80 mt-sm-60 pt20 pb20 bg-color text-light">
+ <!-- Container to hold the dashboard header content -->
+ <div class="container relative z-index-1000">
+  <!-- Row to align the dashboard title and breadcrumb navigation -->
+  <div class="row align-items-center">
+   <!-- Column for the dashboard title -->
+   <div class="col-lg-6">
+    <h3 class="mb-0">Dashboard</h3>
+   </div>
 
-				<div class="col-lg-6 text-lg-end">
-					<ul class="crumb">
-						<li><a href="index.html">Home</a></li>
-						<li class="active">Dashboard</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</section> 
+   <!-- Column for breadcrumb navigation -->
+   <div class="col-lg-6 text-lg-end">
+    <ul class="crumb">
+     <li><a href="">Home</a></li>
+     <li class="active">Dashboard</li>
+    </ul>
+   </div>
+  </div>
+ </div>
+</section>
 	<!-- section close -->
 
 			 {{-- <div class="breadcrumb-bar">
@@ -41,137 +43,145 @@
 			<!-- /Breadcrumb -->
 
 			<!-- Page Content -->
-			<section>
-				<div class="container">
+ <!-- Client Dashboard section -->
+ <section>
+ <div class="container">
 
-					<div class="row">
+     <div class="row">
 
-						<!-- Profile Sidebar -->
+      <!-- Profile Sidebar -->
                         @include('client.includes.client-navbar')
-						<!-- / Profile Sidebar -->
+      <!-- / Profile Sidebar -->
 
-						<div class="col-md-7 col-lg-8 col-xl-9">
-							<div class="card">
-								<div class="card-body">
+      <!-- Main Content Area -->
+	 </div>
+	 <div class="row">
+	<h5>This is the client dashboard </h5>	
+	 </div>
+      <div class="col-md-7 col-lg-8 col-xl-9">
+       <div class="card">
+        <div class="card-body">
 
-									<!-- Tab Menu -->
-									<nav class="user-tabs mb-4">
-										<ul class="nav nav-tabs nav-tabs-bottom nav-justified">
-											<li class="nav-item">
-												<a class="nav-link active" href="#pat_appointments" data-toggle="tab">Appointments</a>
-											</li>
-											<li class="nav-item">
-												<a class="nav-link" href="#pat_prescriptions" data-toggle="tab">Payments</a>
-											</li>
+         <!-- Tab Menu for navigation between Appointments and Payments -->
+         <!-- Tab Content wrapper -->
+         <nav class="user-tabs mb-4">
+          <ul class="nav nav-tabs nav-tabs-bottom nav-justified">
+           <li class="nav-item">
+            <a class="nav-link active" href="#pat_appointments" data-toggle="tab">Appointments</a>
+           </li>
+           <li class="nav-item">
+            <a class="nav-link" href="#pat_prescriptions" data-toggle="tab">Payments</a>
+           </li>
 
-										</ul>
-									</nav>
-									<!-- /Tab Menu -->
+          </ul>
+         </nav>
+         <!-- /Tab Menu -->
 
-									<!-- Tab Content -->
-									<div class="tab-content pt-0">
+         <!-- Content of the selected tab -->
+         <div class="tab-content pt-0">
 
-										<!-- Appointment Tab -->
-										<div id="pat_appointments" class="tab-pane fade show active">
-											<div class="card card-table mb-0">
-												<div class="card-body">
+          <!-- Appointment Tab -->
+          <div id="pat_appointments" class="tab-pane fade show active">
+           <div class="card card-table mb-0">
+            <div class="card-body">
                                                     @if(count($bookings)>0)
-													<div class="table-responsive">
-														<table class="table table-hover table-center mb-0">
-															<thead>
-																<tr>
-																	<th>Booking Date</th>
-																	<th>Appointment Date</th>
-																	<th>Program</th>
-																	<th>Service</th>
-																	<th>Status</th>
-																	<th></th>
-																</tr>
-															</thead>
-															<tbody>
+             <div class="table-responsive">
+              <table class="table table-hover table-center mb-0">
+               <thead>
+                <tr>
+                 <th>Booking Date</th>
+                 <th>Appointment Date</th>
+                 <th>Program</th>
+                 <th>Service</th>
+                 <th>Status</th>
+                 <th></th>
+                </tr>
+               </thead>
+               <tbody>
                                                             @foreach($bookings as $booking)
-																<tr>
-																	<td>{{ $booking->created_at->format('d M, Y') }} <span class="d-block text-info">{{ $booking->created_at->format('h:m:s') }}</span></td>
-																	<td>{{ $booking->appointment_date->format('d M, Y') }} <span class="d-block text-info">{{ $booking->appointment_time }}</span></td>
-																	<td>{{ $booking->program->program_title  }}</td>
-																	<td>{{ $booking->service->service_title  }}</td>
-																	<td><span class="badge badge-pill @if($booking->status=="pending") bg-danger-light @else bg-success-light @endif">{{ $booking->status }}</span></td>
-																	<td class="text-right">
-																		<div class="table-action">
-																			<a href="javascript:void(0);" class="btn btn-sm bg-info-light">
-																				<i class="far fa-eye"></i> View
-																			</a>
-																		</div>
-																	</td>
-																</tr>
+                <tr>
+                 <td>{{ $booking->created_at->format('d M, Y') }} <span class="d-block text-info">{{ $booking->created_at->format('h:m:s') }}</span></td>
+                 <td>{{ $booking->appointment_date->format('d M, Y') }} <span class="d-block text-info">{{ $booking->appointment_time }}</span></td>
+                 <td>{{ $booking->program->program_title  }}</td>
+                 <td>{{ $booking->service->service_title  }}</td>
+                 <td><span class="badge badge-pill @if($booking->status=="pending") bg-danger-light @else bg-success-light @endif">{{ $booking->status }}</span></td>
+                 <td class="text-right">
+                  <div class="table-action">
+                   <a href="javascript:void(0);" class="btn btn-sm bg-info-light">
+                    <i class="far fa-eye"></i> View
+                   </a>
+                  </div>
+                 </td>
+                </tr>
                                                             @endforeach
-															</tbody>
-														</table>
-													</div>
+               </tbody>
+              </table>
+             </div>
                                                     @else
                                                         <div class="alert alert-danger">You are yet to make any booking yet <a href="{{ route('client.book')}}">Book Appointment</a></div>
                                                     @endif
-												</div>
-											</div>
-										</div>
-										<!-- /Appointment Tab -->
+            </div>
+           </div>
+          </div>
+          <!-- /Appointment Tab -->
 
-										<!-- Prescription Tab -->
-										<div class="tab-pane fade" id="pat_prescriptions">
-											<div class="card card-table mb-0">
-												<div class="card-body">
+          <!-- Prescription Tab (Payments) -->
+          <div class="tab-pane fade" id="pat_prescriptions">
+           <div class="card card-table mb-0">
+            <div class="card-body">
                                                     @if(count($payments)>0)
                                                     <div class="table-responsive">
-														<table class="table table-hover table-center mb-0">
-															<thead>
-																<tr>
-																	<th>Program</th>
-																	<th>Service</th>
-																	<th>Amount</th>
-																	<th>Transaction Date</th>
-																	<th>Status</th>
-																	<th></th>
-																</tr>
-															</thead>
-															<tbody>
+              <table class="table table-hover table-center mb-0">
+               <thead>
+                <tr>
+                 <th>Program</th>
+                 <th>Service</th>
+                 <th>Amount</th>
+                 <th>Transaction Date</th>
+                 <th>Status</th>
+                 <th></th>
+                </tr>
+               </thead>
+               <tbody>
                                                             @foreach($payments as $payment)
-																<tr>
-																	<td>{{ $payment->program->program_title  }}</td>
-																	<td>{{ $payment->service->service_title  }}</td>
-																	<td>${{ number_format($payment->amount)  }}</td>
-																	<td>{{ $payment->created_at  }}</td>
-																	<td><span class="badge badge-pill @if($payment->payment_status=="pending") bg-danger-light @else bg-success-light @endif">{{ $payment->payment_status }}</span></td>
-																	<td class="text-right">
-																		<div class="table-action">
-																			<a href="javascript:void(0);" class="btn btn-sm bg-info-light">
-																				<i class="far fa-eye"></i> View
-																			</a>
-																		</div>
-																	</td>
-																</tr>
+                <tr>
+                 <td>{{ $payment->program->program_title  }}</td>
+                 <td>{{ $payment->service->service_title  }}</td>
+                 <td>${{ number_format($payment->amount)  }}</td>
+                 <td>{{ $payment->created_at  }}</td>
+                 <td><span class="badge badge-pill @if($payment->payment_status=="pending") bg-danger-light @else bg-success-light @endif">{{ $payment->payment_status }}</span></td>
+                 <td class="text-right">
+                  <div class="table-action">
+                   <a href="javascript:void(0);" class="btn btn-sm bg-info-light">
+                    <i class="far fa-eye"></i> View
+                   </a>
+                  </div>
+                 </td>
+                </tr>
                                                                 @endforeach
-															</tbody>
-														</table>
-													</div>
+               </tbody>
+              </table>
+             </div>
                                                 @else
                                                     <div class="alert alert-danger">You are yet to make any payment yet <a href="{{ route('client.book')}}">Book Appointment</a></div>
                                                 @endif
-												</div>
-											</div>
-										</div>
-										<!-- /Prescription Tab -->
+            </div>
+           </div>
+          </div>
+          <!-- /Prescription Tab -->
 
-									</div>
-									<!-- Tab Content -->
+         </div>
+         <!-- Tab Content -->
 
-								</div>
-							</div>
-						</div>
-					</div>
+        </div>
+       </div>
+      </div>
+      <!-- /Main Content Area -->
+     </div>
 
-				</div>
+    </div>
 
-			</div>
-			<!-- /Page Content -->
-		</section>
-	   @endsection
+   </div>
+   <!-- /Page Content -->
+  </section>
+    @endsection
