@@ -22,7 +22,7 @@ class ServiceSeeder extends Seeder
             <p>We serve all couples, including:</p>
             <ol>
             <li>LGBTQIA+ couples.</li>
-            <li>Pre-marital (dating or engaged) couples</li>
+            <li>Premarital (dating or engaged) couples</li>
             <li> Cohabiting couples (living together but not married)</li>
             <li> Married couples (husbands, wives, etc.)</li>
             </ol>

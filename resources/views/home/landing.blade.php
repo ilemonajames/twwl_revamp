@@ -54,7 +54,7 @@
             <div class="col-lg-6 offset-lg-3 text-center">
                 <div class="subtitle wow fadeInUp mb-3">Our Services</div>
                 <h2 class="wow fadeInUp" data-wow-delay=".2s">Transform The Way<span class="d-block mt-3 alt-font fw-500 fs-64 id-color-2"> You Love</span></h2>
-                <p class="lead wow fadeInUp">Empowering individuals, couples, & family to build stronger and meaningful connections.</p>
+                <p class="lead wow fadeInUp">Empowering individuals, couples, and family to build stronger and meaningful connections.</p>
             </div>
         
            
@@ -115,7 +115,7 @@
 
                         <ul class="ul-style-2 fw-600 text-dark mb-3">
                             <li>LGBTQIA+ couples</li>
-                            <li>Pre-marital (dating or engaged) couples</li>
+                            <li>Premarital (dating or engaged) couples</li>
                             <li>Cohabiting couples (living together but not married)</li>
                             <li> Married couples (husbands, wives, etc.)</li>
                             

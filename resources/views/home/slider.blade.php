@@ -18,7 +18,7 @@
                                         <div class="subtitle s2 mb-2">The Way We Love</div>
                                         <h1 class="slider-title mb-3">Transform The Way <span class="d-block alt-font fw-500 id-color-2 fs-72">We Love</span></h1>
                                         <div class="col-lg-8">
-                                            <p class="slider-teaser mb-3">Empowering individuals, couples, & family to build stronger and meaningful connections.</p>
+                                            <p class="slider-teaser mb-3">Empowering individuals, couples, and family to build stronger and meaningful connections.</p>
                                         </div>
                                         <div class="spacer-10"></div>
                                         <a class="btn-main bg-color-2 mb10 mb-3" href="/">Our Services</a>
@@ -85,7 +85,7 @@
 
              <!-- Slides -->
              <div class="swiper-slide">
-                <div class="swiper-inner" data-bgimage="url({{asset('assets/images/background/onlineserv.jpg')}})">
+                <div class="swiper-inner" data-bgimage="url({{asset('assets/images/background/onlineservice.jpg')}})">
                      <div class="sw-caption relative z-1000">
                       <div class="container"> 
                             <div class="row gx-5 align-items-center">

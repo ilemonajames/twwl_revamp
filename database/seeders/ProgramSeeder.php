@@ -149,7 +149,7 @@ class ProgramSeeder extends Seeder
                 'program_image' => 'parenting.jpg',
                 'icon_class' => 'fas fa-child', // Font Awesome icon class
                 'program_title' => '8-Week Parenting Class',
-                'program_description' => 'An online self-paced parenting course focusing on parenting styles, emotional intelligence, communication, and building stronger family bonds.',
+                'program_description' => 'An online, self-paced parenting course focusing on parenting styles, emotional intelligence, communication, and building stronger family bonds.',
                 'program_content' => '<article>
             <h3>Week 1: Understanding Parenting Styles</h3>
             <ul>
@@ -345,7 +345,7 @@ class ProgramSeeder extends Seeder
                 'program_image' => 'coupleseminar.jpg',
                 'icon_class' => 'fas fa-users', // Font Awesome icon class
                 'program_title' => 'Couples Seminar',
-                'program_description' => 'A seminar led by a licensed mental health provider designed to help couples foster deeper emotional connections, improve communication, and resolve conflicts.',
+                'program_description' => 'A seminar led by a licensed mental health provider is designed to help couples foster deeper emotional connections, improve communication, and resolve conflicts.',
                 'program_content'=>'<p>
             Our Couples Seminar is designed to help couples foster deeper connections, improve
             communication, and learn essential skills for navigating conflict. Through guided sessions led by
@@ -372,7 +372,7 @@ class ProgramSeeder extends Seeder
             <li>
                 <strong>Effective Communication Skills</strong>
                 <p>
-                    Master strategies for expressing thoughts and emotions clearly, while avoiding
+                    Master strategies for expressing thoughts and emotions clearly while avoiding
                     misunderstandings that often lead to conflict.
                 </p>
             </li>
@@ -380,7 +380,7 @@ class ProgramSeeder extends Seeder
                 <strong>Conflict Resolution and Problem-Solving Skills</strong>
                 <p>
                     Learn practical methods for resolving disagreements and navigating challenges in
-                    a healthy, collaborative manner, reducing tension and fostering teamwork in the
+                    a healthy, collaborative manner, reducing tension, and fostering teamwork in the
                     relationship.
                 </p>
             </li>

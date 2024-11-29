@@ -1,7 +1,10 @@
  @extends('layout.mainlayout')
+ {{-- <link rel="stylesheet" href="{{ asset('resources/css/app.css') }}"> --}}
+ 
  @section('content')
  <!-- content begin -->
  <div class="no-bottom no-top" id="content">
+
     <div id="top"></div>
     <!-- section begin -->
     <section class="mt80 mt-sm-60 pt20 pb20 bg-color text-light">
@@ -33,14 +36,14 @@
 
                     <div class="spacer-single"></div>
 
-                    <h4>Our Office</h4>
+                    
 
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="img-with-cap mb20">
                                 <div class="d-title">Mon - Fri 08.00 - 19.00</div>
                                 <div class="d-overlay"></div>
-                                <img src="{{asset('assets/images/misc/5.webp')}}" class="img-fullwidth rounded-1" alt="">
+                                <img src="{{asset('assets/images/misc/ccontact.jpg')}}" class="img-fullwidth rounded-1" alt="">
                             </div>
                         </div>
 

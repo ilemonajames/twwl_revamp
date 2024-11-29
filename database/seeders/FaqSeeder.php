@@ -31,7 +31,7 @@ class FaqSeeder extends Seeder
         // ]);
         Faq::Create([
             'question' => 'Do you offer specialized therapy for specific issues?',
-            'answer' => 'Our Therapy team have expertise in various areas, such as anxiety, depression, trauma, and more, offering specialized therapy tailored to your unique needs.',
+            'answer' => 'Our Therapy team have expertise in various areas, such as anxiety, depression, trauma and more, offering specialized therapy tailor.',
         ]);
         // Faq::Create([
         //     'question' => 'Can I choose my therapist?',

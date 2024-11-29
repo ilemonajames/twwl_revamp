@@ -81,7 +81,7 @@
 				<div class="spacer-20"></div>
 				{{-- <h5>About Us</h5> --}}
 				<p>The Way We Love Relationship Counseling
-					Was born out of a deep desire to serve and mend relationships. We are committed to helping individuals,
+					was born out of a deep desire to serve and mend relationships. We are committed to helping individuals,
 					couples, and families achieve mental health and well-being by fostering a lifestyle of self-care. .</p>
 				
 			</div>

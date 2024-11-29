@@ -46,7 +46,7 @@
                 <!-- About Text -->
 				<div class="col-lg-6">
 					<h2 class="mb-4">Who is Elizabeth Hall?</h2>
-                    <p class="text-justify mb-4 text-lead text-justify">Elizabeth Hall is a dedicated mental health professional with a Master of Arts in Clinical Mental Health Counseling and a Bachelor's Degree in Psychology. She is a Certified Clinical Hypnotherapist (CCH) and holds the National Certified Counselor (NCC) credential from the National Board for Certified Counselors (NBCC). At the core of her work is a commitment to mental health and well-being, She believes that a person-centered approach is essential in any therapeutic relationship. By respecting the autonomy of her clients and working collaboratively with them, I tailor treatment to meet their unique needs. My approach is holistic and considers the mind, body, and spirit connection, ensuring that my clients receive compassionate, individualized care. </p>
+                    <p class="text-justify mb-4 text-lead text-justify">Elizabeth Hall is a dedicated mental health professional with a Master of Arts in Clinical Mental Health Counseling and a Bachelor's Degree in Psychology. She is a Certified Clinical Hypnotherapist (CCH) and holds the National Certified Counselor (NCC) credential from the National Board for Certified Counselors (NBCC). At the core of her work is a commitment to mental health and well-being. She believes that a person-centered approach is essential in any therapeutic relationship. By respecting the autonomy of her clients and working collaboratively with them, I tailor treatment to meet their unique needs. My approach is holistic and considers the mind, body, and spirit connection, ensuring that my clients receive compassionate, individualized care. </p>
 					
 					
 
@@ -162,7 +162,7 @@
 
                 <div class="col-lg-6">
                     <h4 class="mb-4 wow fadeInRight">Our Vision</h4>
-                    <p class="fs-24 fw-600 lh-1-4 wow fadeInUp">We envision a world where clients attain mental well-being through self-care practices, value-driven relationships, and nurturing bonds. By fostering secure connections and balance, we guide our clients toward relationships that are not only fulfilling but also deeply satisfying</p>
+                    <p class="fs-24 fw-600 lh-1-4 wow fadeInUp">We envision a world where clients attain mental well-being through self-care practices, value-driven relationships, and nurturing bonds. By fostering secure connections and balance, we guide our clients toward relationships that are not only fulfilling but also deeply satisfying.</p>
                     <h4 class="mb-4 wow fadeInRight">Our Mission</h4>
                     <p class="fs-24 fw-600 lh-1-4 wow fadeInUp"> At "The Way we Love Relationship Counseling," our mission is to foster mental health, strengthen relationships, and empower individuals, couples, and families to achieve deeper connection and lasting relationship satisfaction.</p>
                 </div>
