@@ -39,19 +39,28 @@
 						</div>
                         <figcaption class="figure-caption text-center">
                             <h3>Elizabeth Hall</h3>
-                            <p>CEO/Founder</p>
+                            <h4 class="mb-3">Elizabeth Hall, <em>MA, CTH, NCC, QMHP-A/C</em><br>
+                                <i>(She/Her)</i></h4>
                         </figcaption>
                     </figure>
                 </div>
                 <!-- About Text -->
 				<div class="col-lg-6">
 					<h2 class="mb-4">Who is Elizabeth Hall?</h2>
-                    <p class="text-justify mb-4 text-lead text-justify">Elizabeth Hall is a dedicated mental health professional with a Master of Arts in Clinical Mental Health Counseling and a Bachelor's Degree in Psychology. She is a Certified Clinical Hypnotherapist (CCH) and holds the National Certified Counselor (NCC) credential from the National Board for Certified Counselors (NBCC). At the core of her work is a commitment to mental health and well-being, She believes that a person-centered approach is essential in any therapeutic relationship. By respecting the autonomy of her clients and working collaboratively with them, I tailor treatment to meet their unique needs. My approach is holistic and considers the mind, body, and spirit connection, ensuring that my clients receive compassionate, individualized care. </p>
+                    
+                    <p class="text-justify mb-4 text-lead text-justify">Elizabeth Hall is a dedicated mental health professional with a Master of Arts in Clinical Mental
+                        Health Counseling and a Bachelor's Degree in Psychology. She is a Certified Transperson
+                        Hypnotherapist (CTH) and holds the National Certified Counselor (NCC) credential from t
+                        National Board for Certified Counselors (NBCC).
+                         </p>
 					
 					
 
                             <div class="about-section">
-                                <p class="text-muted mb-3 text-justify">Specializing in couples and family therapy, Elizabeth’s educational background equips her to provide systemic and relational therapeutic services for individuals, couples, and families. She integrates her training as a transpersonal hypnotherapist for clients dealing with stress-related issues, utilizing tools like guided imagery to promote deep relaxation and mental well-being.
+                                <p class="text-muted mb-3 text-justify">Specializing in couples and family therapy, Elizabeth’s educational background equips her to
+                                    provide systemic and relational therapeutic services for individuals, couples, and families. She
+                                    integrates her training as a transpersonal hypnotherapist for clients dealing with stress-related
+                                    issues, utilizing tools like guided imagery to promote deep relaxation and mental well-being.
                                 </p>
                                 
                                 

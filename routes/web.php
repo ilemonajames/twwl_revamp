@@ -90,7 +90,7 @@ Route::get('/about', function () {
 })->name('about');
 
 Route::get('/contact', function () {
-    return view('informations.contactnew');
+    return view('informations.contact');
 })->name('contact');
 
 Route::get('/hypnotheraphy', function(){

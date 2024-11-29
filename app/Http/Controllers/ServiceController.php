@@ -14,7 +14,7 @@ class ServiceController extends Controller
 {
     public function index()
     {
-        $services = Service::all();
+        $services = Service::all()->sortBy('service_title');
         return view('services.service', compact('services'));
     }
 

@@ -30,11 +30,11 @@
 
             <div class="row">
                 @foreach ($services as $service)
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="card">
                             <a href="blog-details">
                                 <img src="{{ asset('/guest/images/uploads/' . $service->service_image) }}" style="width: 100%"
-                                    alt="Blog">
+                                    alt="Services Image">
                             </a>
                             <div class="card-body">
                                 <h2 class="card-title blog-heading"><a href="blog-details">

@@ -81,8 +81,9 @@ or helpline.</p>
 
 <h3>Contact</h3>
 <p>
-If you have any questions about this disclaimer or our services, please contact us at
-Thewayweloverelationshipcoun24@gmail.com or 804-721-0983</p>
+If you have any questions about this disclaimer or our services, 
+please contact us at<br>
+<a mailto="thewaywelove24@gmail.com"><b>thewaywelove24@gmail.com</b></a> or <b>804-721-0983</b></p>
 
 {{-- <em>Contact Information</em>
 <i>

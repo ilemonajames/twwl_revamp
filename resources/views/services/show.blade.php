@@ -155,7 +155,7 @@
                     <div class="relative p-4 bg-color-3 text-dark">
                         <i class="d-block fs-40 mb-2 icofont-phone"></i>
                         (804) 721-0983<br>
-                        contact@mindthera.com
+                      info@thewaywelove.com
                     </div>
                 </div>
             </div>

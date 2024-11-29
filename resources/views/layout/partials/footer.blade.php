@@ -89,11 +89,11 @@
 				<div class="row">
 					<div class="col-lg-6 col-sm-6">
 						<div class="widget">
-							<h5>Services</h5>
+							<h5>Programes</h5>
 							<ul>
-							@foreach (App\Models\Service::all()->take(4) as $service)
+							@foreach (App\Models\Service::all()->take(6)->sortBy('service_title') as $service)
 							                                    
-								<li><a href="{{route('services.show', $service->id)}}">{{$service->service_title}}</a></li>
+								<li><a href="{{route('services.show', $service->id)}}">{{implode(' ', array_slice(explode(' ', $service->service_title), 0, 3))}}</a></li>
 							@endforeach
 							</ul>
 						</div>
@@ -105,7 +105,7 @@
 								<li><a href="/about">About Us</a></li>
 								<li><a href="/services">Our Services</a></li>
 								<li><a href="/programs">Packages</a></li>
-								<li><a href="/blog">Blog</a></li>
+								<li><a href="/blogs">Blog</a></li>
 								<li><a href="/contact">Contact Us</a></li>
 								{{-- <li><a href="#">Testimonials</a></li> --}}
 							</ul>

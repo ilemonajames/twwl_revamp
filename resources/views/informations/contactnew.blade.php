@@ -21,30 +21,30 @@
         </div>
     </section>
     <!-- section close -->
+    <section class="bg-color-1 pb40 pt40">
 
-    <section>
         <div class="container">
-            <div class="row g-4 align-items-center">
-                <div class="col-lg-6">
-                    <div class="subtitle wow fadeInUp mb-3">Contact Form</div>
+            <div class="row g-4 mt-4 align-items-center">
+                <div class="col-lg-12">
                     <h2 class="wow fadeInUp">Get In Touch</h2>
 
                     <p>Whether you have a question, a suggestion, or just want to say hello, this is the place to do it. Please fill out the form below with your details and message, and we'll get back to you as soon as possible.</p>
 
                     <div class="spacer-single"></div>
+                </div>
+                
+                   
+            </div>
+                   
 
-                    <h4>Our Office</h4>
-
-                    <div class="row">
+                <div class="row">
                         <div class="col-lg-6">
+                            <h4>Our Office</h4>
                             <div class="img-with-cap mb20">
                                 <div class="d-title">Mon - Fri 08.00 - 19.00</div>
                                 <div class="d-overlay"></div>
                                 <img src="{{asset('assets/images/misc/5.webp')}}" class="img-fullwidth rounded-1" alt="">
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6">
+                         
                             <div class="fw-bold text-dark"><i class="icofont-location-pin me-2 id-color-2"></i>Office Location</div>
                             205 ½ E Broadway, Suite F & G Hopewell VA. 23860.
 
@@ -61,11 +61,14 @@
                         </div>
                     </div>
 
-                </div>
+               
 
                 <div class="col-lg-6">
-                    <div class="p-4 bg-grey rounded-10px">
-                        <form name="contactForm" id="contact_form" class="position-relative z1000" method="post" action="{{ route('sendMessage')}}">
+                   
+                        <div class="subtitle wow fadeInUp mb-3">Contact Form</div>
+                   
+                    <div class="p-4 ">
+                        <form name="contactForm" class="contact_form" id="contact_form" class="position-relative z1000" method="post" action="{{ route('sendMessage')}}">
                             
                             <div class="field-set">
                                 <input type="text" name="Name" id="name" class="form-control no-border" placeholder="Your Name" required>
@@ -100,7 +103,7 @@
                 </div>
                 
             </div>
-        </div>
+       
     </section>  
 
     <section class="no-top no-bottom">

@@ -41,7 +41,7 @@
 
            @foreach($services as $service)
 
-                <div class="col-lg-4 col-sm-6">
+                <div class="col-lg-6 col-sm-6">
                     <div class="relative">
                         <a href="services/{{ $service->id }}" class="d-block hover">
                             <div class="relative overflow-hidden rounded-10px shadow-soft">
