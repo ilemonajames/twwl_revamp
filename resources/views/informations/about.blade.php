@@ -50,8 +50,7 @@
                     
                     <p class="text-justify mb-4 text-lead text-justify">Elizabeth Hall is a dedicated mental health professional with a Master of Arts in Clinical Mental
                         Health Counseling and a Bachelor's Degree in Psychology. She is a Certified Transperson
-                        Hypnotherapist (CTH) and holds the National Certified Counselor (NCC) credential from t
-                        National Board for Certified Counselors (NBCC).
+                        Hypnotherapist (CTH) and holds the National Certified Counselor (NCC) credential from the National Board for Certified Counselors (NBCC).
                          </p>
 					
 					

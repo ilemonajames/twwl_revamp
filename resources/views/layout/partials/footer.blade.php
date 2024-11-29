@@ -89,7 +89,7 @@
 				<div class="row">
 					<div class="col-lg-6 col-sm-6">
 						<div class="widget">
-							<h5>Programes</h5>
+							<h5>Programs</h5>
 							<ul>
 							@foreach (App\Models\Service::all()->take(6)->sortBy('service_title') as $service)
 							                                    
