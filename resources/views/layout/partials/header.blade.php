@@ -59,20 +59,16 @@
 											</li>
 											<li> <a class="{{ Request::is('contact') ? 'active' : '' }} menu-item" href="{{ route('contact') }}">Contact</a>
 											</li>
-											
-											{{-- <li class="login-link menu-item">
-												<a href="login">Login</a>
-											</li>  --}}
-											{{-- <li><a class="menu-item" href="study-case.html">Study Case</a></li>
-											<li><a class="menu-item" href="blog.html">Blog</a></li>
-											<li><a class="menu-item" href="contact.html">Contact</a></li> --}}
-											<li> </li>
+											{{-- <li><a href="/login" class="menu-item btn-success sm-hide btn  " {{ Request::is('login') ? 'active' : '' }}>Login</a>
+												</li> --}}
+												{{-- <li class="sm-hide"> <a class="{{ Request::is('login') ? 'active' : '' }} menu-item " href="{{ route('login') }}">Login</a>
+												</li> --}}
 
 										</ul>
 									</div>
 									@guest
 									<div class="de-flex-col">
-										<a href="/login" class="menu-item btn-success btn btn-rounded " {{ Request::is('login') ? 'active' : '' }}>Login</a>
+										<a href="/login" class="menu-item btn-success sm-hide btn btn-rounded " {{ Request::is('login') ? 'active' : '' }}>Login</a>
 										<div class="menu_side_area">
 											                             
 											<a href="/register" class="btn-main">Appointment</a>

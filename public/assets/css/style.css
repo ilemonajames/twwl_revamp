@@ -17386,7 +17386,7 @@ button{
   background-color: #f9f9f9; /* Light background for visibility */
   border: 1px solid #e0e0e0; /* Subtle border */
   border-radius: 8px; /* Rounded corners */
-  padding: 15px; /* Padding for spacing */
+  padding: 5px; /* Padding for spacing */
   display: flex; /* Flexbox for alignment */
   align-items: center; /* Center items vertically */
   margin-top: 20px; /* Space above the widget */
@@ -17416,4 +17416,16 @@ button{
 
 .patient-details h5 {
   margin: 0; /* Reset margin */
+}
+
+/* Default state: element is visible */
+.lg-hide {
+  display: block; /* or whatever display style you want */
+}
+
+/* Hide the element on large screens and above */
+@media (min-width: 720px) { /* Adjust the pixel value according to your framework’s breakpoint */
+  .lg-hide {
+      display: none;
+  }
 }
