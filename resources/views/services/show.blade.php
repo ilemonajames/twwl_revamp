@@ -40,7 +40,7 @@
                     </div> --}}
                 </div>
                 <div class="col-lg-6">
-                    <img src="{{asset('assets/images/services/'.$service->service_image)}}" class="img-fluid rounded-20px" alt="">
+                    <img src="{{asset('guest/images/uploads/'.$service->service_image)}}" class="img-fluid rounded-20px" alt="">
                 </div>
             </div>
         </div>
@@ -139,15 +139,16 @@
                 <div class="col-lg-4 col-md-4">
                     <div class="relative p-4 text-light">
                         <i class="d-block fs-40 mb-2 icofont-clock-time"></i>
-                        Mon - Sat: 8AM - 9PM<br>
-                        Sunday: 10AM - 8PM<br>
+                        {{-- Mon - Sat: 8AM - 9PM<br>
+                        Sunday: 10AM - 8PM<br> --}}<a href="https://calendly.com/thewaywelove24" target="_blank" class="text-light">Make an Appointment</a>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-4">
                     <div class="relative p-4 bg-color-2 text-light">
                         <i class="d-block fs-40 mb-2 icofont-location-pin"></i>
-                        789 Elm Avenue<br>Brooklyn, NY 11201
+                        205 ½ E Broadway,<br>
+                         Suite F & G Hopewell VA. 23860
                     </div>
                 </div>
 

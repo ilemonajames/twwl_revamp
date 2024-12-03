@@ -63,16 +63,24 @@
                                 </p>
                                 
                                 
-                                <button class="collapsible btn btn-primary px-4 py-2 mb-3">Read More</button>
+                                <a class="collapsible btn btn-main px-4 py-2 mb-3">Read More</a>
                                 <div class="content justify-content-center align-items-center">
                                     <p class="text-muted mb-3">
                                         Elizabeth is also certified by the Virginia Board of Counseling as a Qualified Mental Health Professional for adults and children (QMHP-A/C) and is currently registered with the Board as a Resident in Counseling and Marriage & Family Therapy. At the core of Elizabeth’s work is a commitment to mental health and well-being, and she believes that a person-centered approach is essential in any therapeutic relationship...</p>
                                     
                                     <h2>Personal beliefs</h2>
-                                <p>I believe in empowering the individuals and organizations I serve to achieve mental, emotional, and spiritual well-being...</p>
-                                    <p>My work is centered on fostering mental health through a holistic lifestyle of self-care that connects mind, body, and spirit.</p>
-                                    <p>For individuals, couples, and families, I emphasize the importance of self-care...</p>
-                                    <p>When working with organizations, I focus on developing customized curricula tailored to their unique needs...</p>
+                                    <em>Holistic Empowerment and Wellness</em>
+                                    <p>I believe in empowering the individuals and organizations I serve to achieve mental, emotional,
+                                    and spiritual well-being. My work is centered on fostering mental health through a holistic lifestyle
+                                    of self-care that connects mind, body, and spirit.</p>
+                                    <p>
+                                    For individuals, couples, and families, I emphasize the importance of self-care as a proactive and
+                                    preventive practice, rather than just a reactive one. This means helping clients create
+                                    personalized plans that incorporate mental, emotional, physical, and spiritual activities that
+                                    nourish and sustain them.</p>
+                                    <p>When working with organizations, I focus on developing customized curricula tailored to their
+                                    unique needs, supporting the mental and emotional wellness of their teams.
+                                    I draw from the <b>Self-Care Wheel framework</b>, which includes perspectives such as:</p>
                                     <ul>
                                         <li><strong>Physical:</strong> Engaging in activities that promote physical health.</li>
                                         <li><strong>Psychological:</strong> Maintaining mental clarity and emotional balance.</li>
