@@ -68,7 +68,7 @@
 									</div>
 									@guest
 									<div class="de-flex-col">
-										<a href="/login" class="menu-item btn-success sm-hide btn btn-rounded " {{ Request::is('login') ? 'active' : '' }}>Login</a>
+										<a href="/login" class="menu-item btn-success sm-hide btn-main " {{ Request::is('login') ? 'active' : '' }}>Login</a>
 										<div class="menu_side_area">
 											                             
 											<a href="/register" class="btn-main">Appointment</a>

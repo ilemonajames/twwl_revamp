@@ -59,7 +59,16 @@
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
-                                <div class="submit-section form-group mt-4">
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="rememberme" name="rememberme">
+                                        <label class="custom-control-label" for="rememberme">Remember me</label>
+                                    </div>
+                                </div>
+                            <div class="form-group">
+                                <a href="{{ route('password.request') }}">Forgot Password?</a>
+                            </div>  
+                                <div class="submit-section form-group mt-4 mb-3 ">
                                     <button class="form-control btn btn-primary submit-btn"
                                         type="submit">Login</button>  or  <a href="{{ route('register')}}">Create Account </a>
                                 </div>

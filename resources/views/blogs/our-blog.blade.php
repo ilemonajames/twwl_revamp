@@ -55,6 +55,54 @@
             </div>
         </div>
     </section>
+
+    <section>
+        <div class="container">
+            <div class="row g-4 gy-5">
+                <div class="col-lg-4 col-md-6 mb10">
+                    <div class="rounded-20px">
+                        <div class="post-image rounded-10px">
+                            <div class="d-tagline">
+                                <span>tips &amp; tricks</span>
+                            </div>
+                            <img alt="" src="images/news/1.webp" class="lazy">
+                        </div>
+                        <div class="pt-2 h-100">
+                            <h4><a class="text-dark" href="blog-single.html">The Power of Positive Thinking</a></h4>
+                            <p class="mb-3">Dolore officia sint incididunt non excepteur ea mollit commodo ut enim reprehenderit cupidatat labore ad laborum consectetur consequat...</p>
+                            <div class="relative bg-grey p-1 px-3 rounded-10px">
+                                <img src="images/testimonial/1.jpg" class="w-20px me-2 circle" alt="">
+                                <div class="d-inline fs-14 fw-bold me-3">Brunilda Doniger</div>
+                                <div class="d-inline fs-14 fw-600"><i class="icofont-ui-calendar id-color me-2"></i>18 Mar 2024</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+                <div class="col-lg-4 col-md-6 mb10">
+                    <div class="rounded-20px">
+                        <div class="post-image rounded-10px">
+                            <div class="d-tagline">
+                                <span>tips &amp; tricks</span>
+                            </div>
+                            <img alt="" src="images/news/6.webp" class="lazy">
+                        </div>
+                        <div class="pt-2 h-100">
+                            <h4><a class="text-dark" href="blog-single.html">The Secrets to a Fulfilling Life</a></h4>
+                            <p class="mb-3">Dolore officia sint incididunt non excepteur ea mollit commodo ut enim reprehenderit cupidatat labore ad laborum consectetur consequat...</p>
+                            <div class="relative bg-grey p-1 px-3 rounded-10px">
+                                <img src="images/testimonial/1.jpg" class="w-20px me-2 circle" alt="">
+                                <div class="d-inline fs-14 fw-bold me-3">Brunilda Doniger</div>
+                                <div class="d-inline fs-14 fw-600"><i class="icofont-ui-calendar id-color me-2"></i>18 Mar 2024</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     
                
            

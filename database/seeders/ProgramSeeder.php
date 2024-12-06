@@ -334,6 +334,12 @@ class ProgramSeeder extends Seeder
                     symptoms, reduce distress, and foster long-term healing.
                 </p>
             </li>
+            <li>
+                <strong>Support for Self-Esteem and Self-Acceptance</strong>
+                <p>Participants will develop greater self-awareness and insight into how their trauma affects their thoughts, emotions, and behavior, leading to meaningful
+personal growth.
+                </p>    
+                </li>
         </ol>',
                 'is_featured' => false,
                 'created_at' => now(),
