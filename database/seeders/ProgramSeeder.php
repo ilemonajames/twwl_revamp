@@ -442,7 +442,23 @@ class ProgramSeeder extends Seeder
                 'program_image' => 'group.jpg',
                 'icon_class' => 'fas fa-comments', // Font Awesome icon class
                 'program_title' => 'Group Therapy Program',
-                'program_description' => 'Weekly online group therapy sessions providing emotional support and coping strategies for trauma and PTSD.',
+                'program_description' => 'Weekly online group therapy sessions is a Holistic Empowerment & Wellness providing emotional support and coping strategies for trauma and PTSD.',
+                'program_content'=> '
+    <h3>Group Objectives</h3>
+    <ul>
+        <li>
+            <strong>A Safe Place to Tell Your Story</strong>
+            <p>We provide a non-judgmental, empathetic environment where individuals can express their feelings and share their experiences.</p>
+        </li>
+        <li>
+            <strong>Coping Skills for Healing</strong>
+            <p>The group will teach practical coping strategies and techniques to manage trauma symptoms, reduce distress, and foster long-term healing.</p>
+        </li>
+        <li>
+            <strong>Installation of Hope</strong>
+            <p>The group fosters hope through shared stories of healing and resilience, helping participants see that recovery is possible.</p>
+        </li>
+    </ul>',
                 'is_featured' => false,
                 'created_at' => now(),
                 'updated_at' => now(),
