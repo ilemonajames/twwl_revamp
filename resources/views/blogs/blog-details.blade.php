@@ -6,21 +6,82 @@
 @section('content')
 
     <!-- Breadcrumb -->
-    <div class="breadcrumb-bar">
-        <div class="container-fluid">
-            <div class="row align-items-center">
-                <div class="col-md-12 col-12">
-                    <nav aria-label="breadcrumb" class="page-breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ route('home')}}">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Blog</li>
-                        </ol>
-                    </nav>
-                    <h2 class="breadcrumb-title">Blog Details</h2>
+        <!-- header close -->
+        <!-- content begin -->
+        <div class="no-bottom no-top" id="content">
+            <div id="top"></div>
+            <!-- section begin -->
+            <section class="mt80 mt-sm-60 pt20 pb20 bg-color text-light">
+                <div class="container relative z-index-1000">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <h3 class="mb-0">Blog</h3>
+                        </div>
+
+                        <div class="col-lg-6 text-lg-end">
+                            <ul class="crumb">
+                                <li><a href="/">Home</a></li>
+                                <li class="active">Blog details</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
+            </section>
+            <!-- section close -->
+
+            <section>
+                <div class="container">
+                    <div class="row gx-5">
+                        <div class="col-lg-8">
+                            <div>
+                                <div class="d-tagline">
+                                    {{-- <span>tips &amp; tricks</span>  --}}
+                                </div>
+
+                                <h2>{{ $blog->blog_title }}</h2>
+
+                                <div>
+                                    <img src="{{ asset('/guest/images/uploads/' . $blog->image) }}" class="img-fluid mb-4 rounded-20px" alt="">
+                                    {!! $blog->description !!}
+                                </div>
+
+                            </div>
+
+
+                            <div id="blog-comment">
+                                {{-- <h4>Comments (5)</h4> --}}
+
+                                <div class="spacer-half"></div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="widget widget-post">
+                                <h4>Recent Posts</h4>
+                                <ul class="de-bloglist-type-1">
+                                    @foreach($blogs as $blog)
+                                    <li>
+                                        <div class="d-image">
+                                            <img src="{{ asset('/guest/images/uploads/' . $blog->image) }}" alt="">
+                                        </div>
+                                        <div class="d-content">
+                                            <a href="{{ route('blogs.details',$blog->id)}}"><h4>{{ $blog->blog_title }}</h4></a>
+                                            <div class="d-date">{{ $blog->created_at->format('d M Y') }}</div>
+                                        </div>
+                                    </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                          
+                        
+
+                    </div>
+                </div>
+            </section>
+                        
+
     <!-- /Breadcrumb -->
 
     <!-- Page Content -->

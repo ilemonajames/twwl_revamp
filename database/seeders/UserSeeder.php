@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
 
         User::create([
             'surname' => 'The way we Love',
-            'othernames' => 'Councelling',
+            'othernames' => 'Counselling',
             'email' => 'info@twwc.org',
             'phoneno' => '8047210983',
             'password' => Hash::make('TWWC@2024'),
@@ -32,8 +32,18 @@ class UserSeeder extends Seeder
         User::create([
             'surname' => 'Elizabeth',
             'othernames' => 'Hall',
-            'email' => 'thewayweloverelationshipcounselling@gmail.com',
+            'email' => 'thewaywelove24@gmail.com',
             'phoneno' => '08134305556',
+            'password' => Hash::make('Twwl@1991'),
+            'user_type' => 'Website Admin',
+            'status' => "Active",
+            'resident_address' => "Abuja"
+        ]);
+        User::create([
+            'surname' => 'Ilemona',
+            'othernames' => 'James',
+            'email' => 'ilemonaj@gmail.com',
+            'phoneno' => '08175840244',
             'password' => Hash::make('Twwl@1991'),
             'user_type' => 'Website Admin',
             'status' => "Active",
