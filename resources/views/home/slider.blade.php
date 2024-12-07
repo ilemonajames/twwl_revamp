@@ -85,7 +85,7 @@
 
              <!-- Slides -->
              <div class="swiper-slide">
-                <div class="swiper-inner" data-bgimage="url({{asset('assets/images/background/teletherapy.jpg')}})">
+                <div class="swiper-inner" data-bgimage="url({{asset('assets/images/background/teletheraphy.jpg')}})">
                      <div class="sw-caption relative z-1000">
                       <div class="container"> 
                             <div class="row gx-5 align-items-center">

@@ -9,7 +9,7 @@
             <div class="container relative z-index-1000">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
-                        <h3 class="mb-0">Authorized Access</h3>
+                        <h3 class="mb-0">Create Account</h3>
                     </div>
     
                     <div class="col-lg-6 text-lg-end">
@@ -25,15 +25,17 @@
     
         
     
-        <section>
-            <div class="container">
-                <div class="row">
+        <section class="relative overflow-hidden jarallax">
+           {{-- <img src="{{asset('assets/images/background/4.webp')}}" class="jarallax-img" alt="">
+             <div class="container">
+                <div class="row"> --}}
         <div class="container">
             <div class="row">
                 <!-- Blog Sidebar -->
                 <div class="col-lg-6 col-md-12">
                     <div class="contact-img" align="center">
-                        <img src="{{ asset('assets/images/login.png') }}" width="100%" class="" alt="about-img">
+                        {{-- <img src="{{ asset('assets/images/login.png') }}" width="100%" class="" alt="about-img"> --}}
+                        <img src="{{asset('assets/images/background/4.webp')}}" alt="jarallax-img" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-lg-5 col-md-12">
