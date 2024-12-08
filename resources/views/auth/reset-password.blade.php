@@ -1,4 +1,10 @@
-<x-guest-layout>
+@extends('layout.mainlayout')
+@section('title')
+    Please login or create an account to continue on The Way we Love
+@endsection
+
+
+@section('content')
     <form method="POST" action="{{ route('password.store') }}">
         @csrf
 
@@ -36,4 +42,4 @@
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout>
+@endsection
