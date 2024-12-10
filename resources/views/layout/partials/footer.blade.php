@@ -83,7 +83,7 @@
 				<p>The Way We Love Relationship Counseling
 					Was born out of a deep desire to serve and mend relationships. We are committed to helping individuals,
 					couples, and families achieve mental health and well-being by fostering a lifestyle of self-care. .</p>
-				
+
 			</div>
 			<div class="col-lg-4 col-sm-12 order-lg-1 order-sm-2">
 				<div class="row">
@@ -92,7 +92,7 @@
 							<h5>Programs</h5>
 							<ul>
 							@foreach (App\Models\Service::all()->take(6)->sortBy('service_title') as $service)
-							                                    
+
 								<li><a href="{{route('services.show', $service->id)}}">{{implode(' ', array_slice(explode(' ', $service->service_title), 0, 3))}}</a></li>
 							@endforeach
 							</ul>
@@ -117,22 +117,18 @@
 				<div class="widget">
 					<h5>Contact</h5>
 
-					<div class="fw-bold text-dark"><i class="icofont-location-pin me-2 id-color"></i>Office Location</div>
+					<div class="fw-bold text-light"><i class="icofont-location-pin me-2 id-color"></i>Office Location</div>
 					205 ½ E Broadway, Suite F & G Hopewell VA. 23860
 
 					<div class="spacer-20"></div>
 
-					<div class="fw-bold text-dark"><i class="icofont-envelope me-2 id-color"></i>Send a Message</div>
+					<div class="fw-bold text-light"><i class="icofont-envelope me-2 id-color"></i>Send a Message</div>
 					contact@thewaywelove.com
 
 					<div class="spacer-20"></div>
 
-					<div class="social-icons mb-sm-30">
-						<a href="https://web.facebook.com/profile.php?id=61567812427624"><i class="fa-brands fa-facebook-f"></i></a>
-						
-						<a href="https://www.instagram.com/coffeewithliz_"><i class="fa-brands fa-instagram"></i></a>
-						{{-- <a href="#"><i class="fa-brands fa-youtube"></i></a> --}}
-					</div>
+                    @livewire('newsletter-subscription')
+
 
 				</div>
 			</div>
