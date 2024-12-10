@@ -6,11 +6,11 @@
 					<span><a href="#">Scroll to top</a></span>
 				</div>
 				<div class="scrollbar-v show-on-scroll"></div>
-				
+
 				<!-- page preloader begin -->
 				<div id="de-loader"></div>
 				<!-- page preloader close -->
-		
+
 				<!-- header begin -->
 				@if(Route::is(['/','home']))
 				<header class="transparent scroll-light">
@@ -34,23 +34,23 @@
 										</div>
 										<!-- logo close -->
 									</div>
-									
+
 									<div class="de-flex-col header-col-mid">
-										
+
 										<ul id="mainmenu">
-											
+
 											<li><a class="menu-item {{ Request::is('home') ? 'active' : '' }}" href="/">Home</a>
-												
+
 											</li>
 											<li><a class="{{ Request::is('about') ? 'active' : '' }} menu-item"href="{{ route('about') }}">About Us</a>
 											</li>
 											<li><a class="menu-item {{ Request::is('services') ? 'active' : '' }}" href="/services">Services</a>
-												
+
 											</li>
-											
+
 											<li><a class="{{ Request::is('programs') ? 'active' : '' }} menu-item" href="{{ route('programs.all')}}"><b>Program</b></a>
 											</li>
-											
+
 											<li><a class="{{ Request::is('blogs') ? 'active' : '' }} menu-item"  href="/blogs"><b>Blog</b></a>
 												<ul>
 													<li><a class="menu-item {{ Request::is('blogs') ? 'active' : '' }}" href="/podcasts">Podcast</a></li>
@@ -70,12 +70,12 @@
 									<div class="de-flex-col">
 										<a href="/login" class="menu-item btn-success sm-hide btn-main " {{ Request::is('login') ? 'active' : '' }}>Login</a>
 										<div class="menu_side_area">
-											                             
+
 											<a href="/register" class="btn-main">Appointment</a>
 											<div class="h-phone sm-hide">
 												<i class="icofont-headphone-alt"></i>
 												<span>Phone</span>(804) 721-0983
-											</div>   
+											</div>
 											<span id="menu-btn"></span>
 										</div>
 									</div>
@@ -96,7 +96,7 @@
 									</div>
 									<!--User Profile end-->
 									@endguest
-									
+
 								</div>
 							</div>
 						</div>

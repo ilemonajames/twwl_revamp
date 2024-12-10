@@ -26,7 +26,7 @@
     </section>
     <!-- section close -->
 
-    
+
 
     <section>
         <div class="container">
@@ -43,6 +43,8 @@
                             <h4 class="card-title"><b>Authorized Access</b></h4>
                         </div>
                         <div class="p-4 bg-grey rounded-10px">
+                            <x-feedback-alert />
+
                             <form method="post" class="position-relative z1000" action="{{ route('login')}}">
                                 @csrf
                                 <div class="form-group">
@@ -67,7 +69,7 @@
                                 </div>
                             <div class="form-group">
                                 <a href="{{ route('password.request') }}">Forgot Password?</a>
-                            </div>  
+                            </div>
                                 <div class="submit-section form-group mt-4 mb-3 ">
                                     <button class="form-control btn btn-primary submit-btn"
                                         type="submit">Login</button>  or  <a href="{{ route('register')}}">Create Account </a>

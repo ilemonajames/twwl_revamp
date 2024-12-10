@@ -5,20 +5,21 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Program;
+use App\Models\ProgramFee;
 use Illuminate\Support\Str;
 
 class ProgramSeeder extends Seeder
 {
     public function run()
     {
-        Program::create([
+        $program = Program::create([
                 'id' => Str::uuid(),
                 'program_image' => 'couple_program.jpg',
                 'icon_class' => 'fas fa-heart', // Font Awesome icon class
                 'program_title' => '8-Week Couples Program',
                 'program_description' => 'A structured, self-paced 8-week program designed to help couples strengthen their connection, improve communication, and resolve conflicts.',
                 'program_content' => '<h3>Parenting Course Schedule</h3>
-    
+
     <div class="week">
         <h3>Week 1: Understanding Parenting Styles</h3>
         <h4>Overview:</h4>
@@ -143,8 +144,17 @@ class ProgramSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
-            
-        Program::create([
+
+            ProgramFee::create([
+                'payment_link' => "",
+                'program_id' => $program->id,
+                'session_fees' => 0,
+                'consultation_fees' => 0,
+                'duration' => "8 Weeks",
+                'program_fees' => 1125,
+            ]);
+
+        $program = Program::create([
                 'id' => Str::uuid(),
                 'program_image' => 'parenting.jpg',
                 'icon_class' => 'fas fa-child', // Font Awesome icon class
@@ -282,8 +292,17 @@ class ProgramSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
-            
-        Program::create([
+
+            ProgramFee::create([
+                'payment_link' => "",
+                'program_id' => $program->id,
+                'session_fees' => 0,
+                'consultation_fees' => 0,
+                'duration' => "8 Weeks",
+                'program_fees' => 550,
+            ]);
+
+        $program = Program::create([
                 'id' => Str::uuid(),
                 'program_image' => 'ptsd.jpg',
                 'icon_class' => 'fas fa-user-shield', // Font Awesome icon class
@@ -338,15 +357,24 @@ class ProgramSeeder extends Seeder
                 <strong>Support for Self-Esteem and Self-Acceptance</strong>
                 <p>Participants will develop greater self-awareness and insight into how their trauma affects their thoughts, emotions, and behavior, leading to meaningful
 personal growth.
-                </p>    
+                </p>
                 </li>
         </ol>',
                 'is_featured' => false,
                 'created_at' => now(),
                 'updated_at' => now(),
-            ]); 
+            ]);
 
-        Program::create([
+            ProgramFee::create([
+                'payment_link' => "",
+                'program_id' => $program->id,
+                'session_fees' => 0,
+                'consultation_fees' => 0,
+                'duration' => "60 Mintues",
+                'program_fees' => 120,
+            ]);
+
+        $program = Program::create([
                 'id' => Str::uuid(),
                 'program_image' => 'coupleseminar.jpg',
                 'icon_class' => 'fas fa-users', // Font Awesome icon class
@@ -410,7 +438,16 @@ personal growth.
                 'updated_at' => now(),
             ]);
 
-        Program::create([
+            ProgramFee::create([
+                'payment_link' => "",
+                'program_id' => $program->id,
+                'session_fees' => 175,
+                'consultation_fees' => 0,
+                'duration' => "60 Mintues",
+                'program_fees' => 150,
+            ]);
+
+        $program = Program::create([
                 'id' => Str::uuid(),
                 'program_image' => 'weigth.jpg',
                 'icon_class' => 'fas fa-weight', // Font Awesome icon class
@@ -422,19 +459,19 @@ personal growth.
         </p>
         <ul>
             <li>
-                <strong>Health Coaching:</strong> Support from a health coach to guide you through your weight loss 
+                <strong>Health Coaching:</strong> Support from a health coach to guide you through your weight loss
                 journey and create sustainable habits.
             </li>
             <li>
-                <strong>Customized Hypnotherapy Sessions:</strong> Tailored to address emotional and psychological 
+                <strong>Customized Hypnotherapy Sessions:</strong> Tailored to address emotional and psychological
                 aspects of weight release.
             </li>
             <li>
-                <strong>Biofeedback:</strong> Monitors physiological responses to stress, helping you manage emotions 
+                <strong>Biofeedback:</strong> Monitors physiological responses to stress, helping you manage emotions
                 and habits that may hinder weight loss.
             </li>
             <li>
-                <strong>14-Day Detox Cleanse:</strong> A natural detox program using all-natural ingredients to reset 
+                <strong>14-Day Detox Cleanse:</strong> A natural detox program using all-natural ingredients to reset
                 your body and promote health.
             </li>
         </ul>',
@@ -443,7 +480,9 @@ personal growth.
                 'updated_at' => now(),
             ]);
 
-        Program::create([
+
+
+        $program = Program::create([
                 'id' => Str::uuid(),
                 'program_image' => 'group.jpg',
                 'icon_class' => 'fas fa-comments', // Font Awesome icon class
@@ -470,8 +509,16 @@ personal growth.
                 'updated_at' => now(),
             ]);
 
+            ProgramFee::create([
+                'payment_link' => "",
+                'program_id' => $program->id,
+                'session_fees' => 0,
+                'consultation_fees' => 0,
+                'duration' => "60 Mintues",
+                'program_fees' => 120,
+            ]);
 
-        Program::create([
+        $program = Program::create([
                 'id' => Str::uuid(),
                 'program_image' => 'hypnotherapy.jpg',
                 'icon_class' => 'fas fa-user-md', // Font Awesome icon class
@@ -518,6 +565,15 @@ personal growth.
                 'is_featured' => false,
                 'created_at' => now(),
                 'updated_at' => now(),
+            ]);
+
+            ProgramFee::create([
+                'payment_link' => "",
+                'program_id' => $program->id,
+                'session_fees' => 150,
+                'consultation_fees' => 50,
+                'duration' => "60 Mintues",
+                'program_fees' => 50,
             ]);
     }
 }

@@ -1,6 +1,6 @@
 @extends('layout.mainlayout')
 @section('title')
-    Create Account to continue 
+    Create Account to continue
 @endsection
 
 @section('content')
@@ -11,7 +11,7 @@
                     <div class="col-lg-6">
                         <h3 class="mb-0">Create Account</h3>
                     </div>
-    
+
                     <div class="col-lg-6 text-lg-end">
                         <ul class="crumb">
                             <li><a href="/">Home</a></li>
@@ -22,9 +22,9 @@
             </div>
         </section>
         <!-- section close -->
-    
-        
-    
+
+
+
         <section class="relative overflow-hidden jarallax">
            {{-- <img src="{{asset('assets/images/background/4.webp')}}" class="jarallax-img" alt="">
              <div class="container">
@@ -113,6 +113,6 @@
             </div>
         </div>
     </section>
-        
-        
+
+
 @endsection

@@ -60,6 +60,7 @@ use App\Livewire\WebsiteAdmin\Profile\ChangePasswordComponent;
 use App\Livewire\WebsiteAdmin\Faqs\NewFaqComponent;
 use App\Livewire\WebsiteAdmin\Faqs\FaqsComponent;
 use App\Livewire\WebsiteAdmin\Booking\AppointmentsComponent;
+use App\Http\Controllers\AuthenticatedUserController;
 
 use App\Livewire\WebsiteAdmin\Newsletters\SendNewsletterComponent;
 use App\Livewire\WebsiteAdmin\Newsletters\SentNewsletterComponent;
@@ -83,7 +84,9 @@ use App\Http\Controllers\VideosController;
 
 // Home Page Route
 Route::get('/', [HomeController::class, 'index'])->name('home');
-
+Route::post('/forget-password',[AuthenticatedUserController::class,'forgetpassword'])->name('guest.forget-password'); //applicant verification
+Route::get('/set-password/{email}/{token}',[AuthenticatedUserController::class,'setpassword'])->name('set-password'); //applicant verification
+Route::post('/change-password',[AuthenticatedUserController::class,'changepassword'])->name('guest.change-password');
 
 Route::get('/about', function () {
     return view('informations.about');
@@ -229,12 +232,12 @@ Route::middleware(['auth:sanctum','verified',])->group(function () {
         // Route::get('/programs/create', ProgramComponent::class)->name('programs.create');
         // // Route for editing an existing program
         // Route::get('/programs/{id}/edit', ProgramComponent::class)->name('programs.edit')->where('id', '[0-9]+'); // Ensure that ID is a number
-        // // Route for displaying all programs  
+        // // Route for displaying all programs
          Route::get('/programs', ProgramListComponent::class)->name('programs.index');
-  
+
         // Route::get('/listprogram', ProgramComponent::class)->name('programs.index');
         // Route for displaying a single program
-        Route::get('/programs/{id}', ProgramComponent::class)->name('programs.show')->where('id', '[0-9]+'); 
+        Route::get('/programs/{id}', ProgramComponent::class)->name('programs.show')->where('id', '[0-9]+');
 
 // Ensure that ID is a number
 
