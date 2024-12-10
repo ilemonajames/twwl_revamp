@@ -46,6 +46,9 @@ use App\Livewire\WebsiteAdmin\Blogs\NewBlogComponent;
 use App\Livewire\WebsiteAdmin\Blogs\BlogsComponent;
 use App\Livewire\WebsiteAdmin\Blogs\EditBlogComponent;
 
+use App\Livewire\WebsiteAdmin\Podcast\CreatePodcastComponent;
+use App\Livewire\WebsiteAdmin\Podcast\PodcastsComponent;
+
 use App\Livewire\WebsiteAdmin\Events\NewEventComponent;
 use App\Livewire\WebsiteAdmin\Events\WebsiteAdminEventsComponent;
 use App\Livewire\WebsiteAdmin\Events\EditEventComponent;
@@ -250,6 +253,10 @@ Route::middleware(['auth:sanctum','verified',])->group(function () {
         Route::get('/blogs/create',NewBlogComponent::class)->name('blogs.create');
         Route::get('/blogs',blogsComponent::class)->name('blogs.index');
         Route::get('/blogs/{id}/edit',EditBlogComponent::class)->name('blogs.edit');
+
+        Route::get('/podcasts/create',CreatePodcastComponent::class)->name('podcasts.create');
+        Route::get('/podcasts',PodcastsComponent::class)->name('podcasts.index');
+        // Route::get('/blogs/{id}/edit',EditBlogComponent::class)->name('blogs.edit');
 
         Route::get('/events/create',NewEventComponent::class)->name('events.create');
         Route::get('/events',WebsiteAdminEventsComponent::class)->name('events.index');

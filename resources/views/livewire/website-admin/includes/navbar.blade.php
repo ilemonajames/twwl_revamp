@@ -122,6 +122,16 @@
                 </li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="mdi mdi-microphone"></i>
+                        <span>Podcast</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('podcasts.create')}}">Add Podcast</a></li>
+                        <li><a href="{{ route('podcasts.index')}}">Manage Podcast</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="mdi mdi-account-multiple-outline"></i>
                         <span>Videos</span>
                     </a>
