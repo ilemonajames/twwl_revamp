@@ -136,8 +136,8 @@
                         <span>Videos</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="">Add Videos</a></li>
-                        <li><a href="">Manage Videos</a></li>
+                        <li><a href="#addVideos">Add Videos</a></li>
+                        <li><a href="#manageVideos">Manage Videos</a></li>
                     </ul>
             </ul>
         </div>
