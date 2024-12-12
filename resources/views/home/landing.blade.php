@@ -5,7 +5,7 @@
 <section class="bg-color no-top no-bottom">
     <div class="container-fluid">
         <div class="row g-0 align-items-center">
-           
+
             <div class="col-lg-4 col-md-4">
                 <div class="relative p-4 bg-color-2 text-light">
                     <i class="d-block fs-40 mb-2 icofont-location-pin"></i>
@@ -43,7 +43,7 @@
                 <a class="btn-main wow fadeInUp" href="/about">About Us</a>
             </div>
         </div>
-        
+
     </div>
 </section>
 
@@ -56,10 +56,10 @@
                 <h2 class="wow fadeInUp" data-wow-delay=".2s">Transform The Way<span class="d-block mt-3 alt-font fw-500 fs-64 id-color-2"> You Love</span></h2>
                 <p class="lead wow fadeInUp">Empowering individuals, couples, & family to build stronger and meaningful connections.</p>
             </div>
-        
-           
-            @php 
-            $sn = 1; 
+
+
+            @php
+            $sn = 1;
             @endphp
 
 @foreach ($programs as $program)
@@ -74,19 +74,47 @@
     </div>
 </div>
 @endforeach
-           
+
         </div>
 
         <div class="spacer-double"></div>
     </div>
 </section>
+<section class="relative overflow-hidden">
+    <img src="images/misc/flowers-crop-2.webp" class="w-30 absolute top-0 end-0 sw-anim" alt="">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 text-center">
+                <div class="subtitle wow fadeInUp mb-3">Collections</div>
+                <h2 class="wow fadeInUp" data-wow-delay=".2s">Our <span class="alt-font fw-500 fs-64 id-color-2">Products</span></h2>
+                {{-- <p class="lead">.</p> --}}
+                <div class="spacer-single"></div>
+            </div>
+        </div>
 
+        <div class="row g-4">
+            @foreach(App\Models\Product::limit(3)->get() as $product)
+            <div class="col-lg-4 col-sm-6">
+                <img src="{{ asset('guest/images/uploads/'.$product->photo)}}" class="img-fluid rounded-10px" alt="">
+                <div class="p-3 text-center bg-color-3 rounded-10px mx-3 mt-30 relative z-1000">
+                    <h4 class="mb-0">{{ $product->product_name}}</h4>
+                    <p class="mb-2 text-white">{!! Str::limit($product->description,50) !!}</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="bg-white id-color bg-hover-2 text-hover-white fa fa-shopping-cart" aria-hidden="true"></i></a>
+                        <a href="#"><i class="bg-white id-color bg-hover-2 text-hover-white fa fa-cart-plus" tooltip="Add to cart" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+</section>
 
 <section class="section-dark jarallax">
     <img src="{{(asset('assets/images/background/1.webp'))}}" class="jarallax-img" alt="">
     <div class="container">
         <div class="row text-light">
-            <div class="col-lg-6 offset-lg-3 text-center">                            
+            <div class="col-lg-6 offset-lg-3 text-center">
                 <div class="subtitle s2 wow fadeInUp mb-3">Our Package</div>
                 <h2 class="wow fadeInUp" data-wow-delay=".2s">Plans</h2>
                 {{-- <p class="lead">Qui culpa qui consequat officia cillum quis irure aliquip ut dolore sit eu culpa ut irure nisi occaecat dolore adipisicing.</p> --}}
@@ -95,8 +123,8 @@
         </div>
 
         <div class="row g-4 align-items-center">
-            
-         
+
+
 
             <div class="col-lg-4 col-sm-6">
                 <div class="relative bg-white h-100 rounded-10px overflow-hidden wow fadeInUp" data-wow-delay=".2s">
@@ -110,7 +138,7 @@
                         <p><p>Our goal is to help couples navigate the complexities of their relationships, improve
                             communication, resolve conflicts, and foster a secure emotional connection..
                             We serve all couples, including:
-                            
+
                             </p>
 
                         <ul class="ul-style-2 fw-600 text-dark mb-3">
@@ -118,7 +146,7 @@
                             <li>Pre-marital (dating or engaged) couples</li>
                             <li>Cohabiting couples (living together but not married)</li>
                             <li> Married couples (husbands, wives, etc.)</li>
-                            
+
                         </ul>
 
                         <a class="btn-main btn-light-trans w-100" href="https://calendly.com/thewaywelove24" target="_blank">
@@ -179,7 +207,7 @@
                     </div>
                 </div>
             </div>
-     
+
 
 
         </div>
@@ -200,28 +228,28 @@
                 <div class="col-lg-3 col-6 wow fadeInRight" data-wow-delay=".2s">
                     <div class="relative p-4">
                         <div class="subtitle bg-color text-light mb-2 wow fadeInRight" data-wow-delay=".2s">Step 1</div>
-                        <h4>Orientation</h4>                    
+                        <h4>Orientation</h4>
                         {{-- <p class="fs-14">Qui culpa qui consequat officia cillum quis irure aliquip ut dolore sit eu culpa ut irure nisi occaecat.</p> --}}
                     </div>
                 </div>
                 <div class="col-lg-3 col-6 wow fadeInRight" data-wow-delay=".6s">
                     <div class="relative p-4">
                         <div class="subtitle bg-color text-light mb-2 fadeInRight" data-wow-delay=".6s">Step 2</div>
-                        <h4>Indentification</h4>                    
+                        <h4>Indentification</h4>
                         {{-- <p class="fs-14">Qui culpa qui consequat officia cillum quis irure aliquip ut dolore sit eu culpa ut irure nisi occaecat.</p> --}}
                     </div>
                 </div>
                 <div class="col-lg-3 col-6 wow fadeInRight" data-wow-delay=".8s">
                     <div class="relative p-4">
                         <div class="subtitle bg-color text-light mb-2 wow fadeInRight" data-wow-delay=".8s">Step 3</div>
-                        <h4>Exploration</h4>                    
+                        <h4>Exploration</h4>
                         {{-- <p class="fs-14">Qui culpa qui consequat officia cillum quis irure aliquip ut dolore sit eu culpa ut irure nisi occaecat.</p> --}}
                     </div>
                 </div>
                 <div class="col-lg-3 col-6 wow fadeInRight" data-wow-delay="1s">
                     <div class="relative p-4">
                         <div class="subtitle bg-color text-light mb-2 wow fadeInRight" data-wow-delay="1s">Step 4</div>
-                        <h4>Resolution</h4>                    
+                        <h4>Resolution</h4>
                         {{-- <p class="fs-14">Qui culpa qui consequat officia cillum quis irure aliquip ut dolore sit eu culpa ut irure nisi occaecat.</p> --}}
                     </div>
                 </div>
@@ -233,7 +261,7 @@
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 offset-lg-3 text-center">                            
+            <div class="col-lg-6 offset-lg-3 text-center">
                 <div class="subtitle wow fadeInUp mb-3">FAQ</div>
                 <h2 class="wow fadeInUp" data-wow-delay=".2s"></h2>
             </div>
@@ -244,7 +272,7 @@
             <div class="col-lg-12">
                 <div class="accordion s2 wow fadeInUp">
                     <div class="accordion-section">
-                        
+
                         @php
                         $sn=1;
                         @endphp
@@ -252,13 +280,13 @@
                         @foreach ($faqs as $faq)
                         <div class="accordion-section-title" data-tab="#accordion-a{{$sn}}">
                         <p>{!! $faq->question!!}
-                        </div></p>   
+                        </div></p>
                         <div class="accordion-section-content" id="accordion-a{{$sn}}">
                             <p>{!! $faq->answer!!}</p>
                         </div>
                         <div class="counter" style="display: none">{{ $sn++ }}</div>
                         @endforeach
-                    
+
                     </div>
                 </div>
             </div>

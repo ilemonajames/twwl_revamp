@@ -1,4 +1,4 @@
-{{-- 
+{{--
         <meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
         <title>@yield('title','The way we love counselling')</title>
@@ -62,7 +62,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css' integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
     <!DOCTYPE html>
     <html lang="en">
-    
+
     <head>
         <title>@yield('title','The way we love counselling')</title>
 
@@ -104,8 +104,9 @@
         <link href="{{ asset('assets/css/coloring.css/') }}" rel="stylesheet" type="text/css" >
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
         <!-- color scheme -->
         <link id="colors" href="{{ asset('assets/css/colors/scheme-02.css/') }}" rel="stylesheet" type="text/css" >
-    
+
     </head>
-    
