@@ -46,6 +46,9 @@ use App\Livewire\WebsiteAdmin\Blogs\NewBlogComponent;
 use App\Livewire\WebsiteAdmin\Blogs\BlogsComponent;
 use App\Livewire\WebsiteAdmin\Blogs\EditBlogComponent;
 
+use App\Livewire\WebsiteAdmin\Products\AddProductComponent;
+use App\Livewire\WebsiteAdmin\Products\ManageProductsComponent;
+
 use App\Livewire\WebsiteAdmin\Podcast\CreatePodcastComponent;
 use App\Livewire\WebsiteAdmin\Podcast\PodcastsComponent;
 
@@ -67,6 +70,7 @@ use App\Http\Controllers\AuthenticatedUserController;
 
 use App\Livewire\WebsiteAdmin\Newsletters\SendNewsletterComponent;
 use App\Livewire\WebsiteAdmin\Newsletters\SentNewsletterComponent;
+use App\Livewire\WebsiteAdmin\Newsletters\SubscribersComponent;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\ResourceController;
@@ -244,8 +248,6 @@ Route::middleware(['auth:sanctum','verified',])->group(function () {
 
 // Ensure that ID is a number
 
-
-
         Route::get('/program-fees/create',NewProgramFeeComponent::class)->name('fees.create');
         Route::get('/program-fees',ProgramFeesComponent::class)->name('fees.index');
         Route::get('/program-program/{id}/edit',EditProgramFeeComponent::class)->name('fees.edit');
@@ -256,6 +258,9 @@ Route::middleware(['auth:sanctum','verified',])->group(function () {
 
         Route::get('/podcasts/create',CreatePodcastComponent::class)->name('podcasts.create');
         Route::get('/podcasts',PodcastsComponent::class)->name('podcasts.index');
+
+        Route::get('/products/create',AddProductComponent::class)->name('products.create');
+        Route::get('/products',ManageProductsComponent::class)->name('products.index');
         // Route::get('/blogs/{id}/edit',EditBlogComponent::class)->name('blogs.edit');
 
         Route::get('/events/create',NewEventComponent::class)->name('events.create');
@@ -268,6 +273,7 @@ Route::middleware(['auth:sanctum','verified',])->group(function () {
 
         Route::get('/newsletter/snd',SendNewsletterComponent::class)->name('newsletter.send');
         Route::get('/sent-newsletter',SentNewsletterComponent::class)->name('newsletter.sent');
+        Route::get('/newsletter/subscribers',SubscribersComponent::class)->name('newsletter.index');
         Route::get('/admin-bookings',AppointmentsComponent::class)->name('admin.bookings');
 
         Route::get('/frequently-asked-question/create',NewFaqComponent::class)->name('faqs.create');

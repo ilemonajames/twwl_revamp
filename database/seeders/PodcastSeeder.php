@@ -13,7 +13,8 @@ class PodcastSeeder extends Seeder
             'title' => 'The Laravel Journey',
             'description' => 'Learn about Laravel from the basics to advanced concepts.',
             'host' => 'John Doe',
-            'duration' => 45,
+            'photo' => 'group.jpg',
+            'category' => "Media",
             'release_date' => '2024-11-01',
             'audio_url' => 'https://example.com/audio/laravel-journey.mp3',
         ]);
@@ -22,7 +23,8 @@ class PodcastSeeder extends Seeder
             'title' => 'Tech Trends 2024',
             'description' => 'Explore the latest trends in technology for 2024.',
             'host' => 'Jane Smith',
-            'duration' => 30,
+            'photo' => 'group.jpg',
+            'category' => "Podcast",
             'release_date' => '2024-10-15',
             'audio_url' => 'https://example.com/audio/tech-trends.mp3',
         ]);

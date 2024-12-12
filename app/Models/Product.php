@@ -5,18 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Podcast extends Model
+class Product extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'title',
+        'product_name',
         'description',
-        'host',
-        'string',
-        'release_date',
-        'audio_url',
+        'price',
         'photo',
-        'category'
     ];
 }

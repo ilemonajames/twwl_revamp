@@ -1,5 +1,5 @@
 <div>
-    <x-slot name="title">New Podcast</x-slot>
+    <x-slot name="title">Add Product</x-slot>
 
     <div class="page-content">
 
@@ -7,12 +7,12 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="page-title mb-0 font-size-18">New Podcast</h4>
+                    <h4 class="page-title mb-0 font-size-18">Add Product</h4>
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
-                            <li class="breadcrumb-item active">New Podcast</li>
+                            <li class="breadcrumb-item active">Add Product</li>
                         </ol>
                     </div>
 
@@ -25,10 +25,10 @@
             <div class="col-lg-10">
                 <div class="card">
                     <div class="card-body">
-                        <form name="new-blog" id="new-blog" wire:submit.prevent="newPodcast(Object.fromEntries(new FormData($event.target)))" enctype="multipart/form-data">
+                        <form name="new-blog" id="new-blog" wire:submit.prevent="newProduct(Object.fromEntries(new FormData($event.target)))" enctype="multipart/form-data">
                             <div>
                                 <div class="mb-3">
-                                    <label class="form-label">Cover Image</label>
+                                    <label class="form-label">Product Image</label>
                                     <div class="custom-file">
                                         <div x-data="{ isUploading: false, progress: 5 }" x-on:livewire-upload-start="isUploading = true"
                                             x-on:livewire-upload-finish="isUploading = false; progress = 5"
@@ -57,15 +57,15 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label class="form-label">Title</label>
-                                    <input class="form-control" wire:model="title" type="text" placeholder="">
-                                    @error('title')
+                                    <label class="form-label">Product Name</label>
+                                    <input class="form-control" wire:model="product_name" type="text" placeholder="">
+                                    @error('product_name')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
 
                                 <div class="mb-3">
-                                    <label class="form-label" for="description">Description</label>
+                                    <label class="form-label" for="description">Prouct Description</label>
                                     <div wire:ignore>
                                         <textarea id="message" wire:model="description" class="form-control tinymce-basic" name="description"></textarea>
                                     </div>
@@ -74,53 +74,13 @@
                                     @enderror
                                 </div>
 
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <div class="form-group">
-                                                <label class="form-label-outlined" for="relationship">Category</label>
-
-                                                <div class="form-control-wrap" wire:ignore.self>
-                                                    <select wire:model="category"
-                                                    class="form-control form-control-xl form-control-outlined"
-                                                         id="category">
-                                                        <option value="category" selected>-- Select Category --</option>
-                                                        <option value="Podcast">Podcast</option>
-                                                        <option value="Video">Video</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            @error('category')
-                                            <p class="text-danger">{{ $message }}</p>
-                                        @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label class="form-label">Release Date</label>
-                                            <input class="form-control" wire:model="release_date" type="date" placeholder="">
-                                            @error('release_date')
-                                                <p class="text-danger">{{ $message }}</p>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
 
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <div class="mb-3">
-                                            <label class="form-label">Host</label>
-                                            <input class="form-control" wire:model="host" type="text" placeholder="">
-                                            @error('host')
-                                                <p class="text-danger">{{ $message }}</p>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label class="form-label">Audio Link</label>
-                                            <input class="form-control" wire:model="link" type="link" placeholder="">
-                                            @error('link')
+                                            <label class="form-label">Price</label>
+                                            <input class="form-control" wire:model="price" type="text" placeholder="">
+                                            @error('price')
                                                 <p class="text-danger">{{ $message }}</p>
                                             @enderror
                                         </div>
@@ -179,7 +139,7 @@
         $(document).ready(function() {
             //start cover photo
             let cropper;
-            var finalCropWidth = 1250;
+            var finalCropWidth = 850;
             var finalCropHeight = 850;
             var finalAspectRatio = finalCropWidth / finalCropHeight;
 
@@ -218,7 +178,7 @@
             // Handle the "Crop and Upload" button click
             $('#cropImage').on('click', function(ev) {
                 var imgurl = cropper.getCroppedCanvas({
-                    width: 1250,
+                    width: 850,
                     height: 850
                 }).toDataURL();
                 $('#image_modal').modal('hide');

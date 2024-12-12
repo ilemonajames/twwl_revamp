@@ -1,19 +1,18 @@
 <div>
-    <x-slot name="title">Podcasts</x-slot>
+    <x-slot name="title">Products</x-slot>
 
-    @include('livewire.website-admin.podcast.modals.view-podcast-modal')
     <div class="page-content" >
 
         <!-- start page title -->
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="page-title mb-0 font-size-18">Podcasts</h4>
+                    <h4 class="page-title mb-0 font-size-18">Products</h4>
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Podcasts</li>
+                            <li class="breadcrumb-item active">Products</li>
                         </ol>
                     </div>
 
@@ -26,7 +25,7 @@
             <div class="col-lg-12" >
                 <div class="card">
                     <div class="card-body">
-                        <x-search-bar wire:model.live="searchTerm" placeholder="Search by blog title or description" />
+                        <x-search-bar wire:model.live="searchTerm" placeholder="Search by proudct name or description" />
                         <x-spin-loader />
                         <div>
                             <table class="table table-striped mb-0">
@@ -35,11 +34,9 @@
                                     <tr>
                                         <th><b>#</b></th>
                                         <th><b>Photo</b></th>
-                                        <th><b>Title</b></th>
+                                        <th><b>Product Name</b></th>
                                         <th  class="desktopView"><b>Description</b></th>
-                                        <th ><b>Duration</b></th>
-                                        <th ><b>Host</b></th>
-                                        <th ><b>Releases</b></th>
+                                        <th ><b>Price</b></th>
                                         <th><b>Action</b></th>
                                     </tr>
                                 </thead>
@@ -49,29 +46,27 @@
                                         vertical-align: middle;
                                     }
                                     </style>
-                                    @foreach ($podcasts as $podcast)
+                                    @foreach ($products as $product)
                                         <tr>
                                             <td scope="row">{{ $sn = $sn + 1 }}</td>
                                             <td  class="desktopView">
-                                                <img src="{{ asset('guest/images/uploads/'.$podcast->photo) }}" class="rounded" alt="" height="48">
+                                                <img src="{{ asset('guest/images/uploads/'.$product->photo) }}" class="rounded" alt="" height="48">
 
                                             </td>
-                                            <td>{{ $podcast->title}}</td>
-                                            <td  class="desktopView">{!! Str::limit(strip_tags($podcast->description),120) !!}</td>
-                                            <td>{{ $podcast->duration}}</td>
-                                            <td>{{ $podcast->host}}</td>
-                                            <td>{{ $podcast->release_date}}</td>
+                                            <td>{{ $product->product_name}}</td>
+                                            <td  class="desktopView">{!! Str::limit(strip_tags($product->description),120) !!}</td>
+                                            <td>{{ number_format($product->price,2)}}</td>
                                             <td>
                                                 <div class="dropdown"> <button  class="btn btn-success" data-bs-toggle="dropdown"  aria-expanded="false"><i class="mdi mdi-dots-vertical m-0 text-white h5"></i> </button>
                                                     <div class="dropdown-menu dropdown-menu-end">
-                                                        <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#viewPodcast" wire:click="setPodcast({{ $podcast }})" href="#">View</a>
-                                                        <a class="dropdown-item confirm-delete" wire:click="setActionId('{{ $podcast->id }}')" href="#">Delete</a>
+                                                        <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#viewPodcast" wire:click="setProduct({{ $product }})" href="#">View</a>
+                                                        <a class="dropdown-item confirm-delete" wire:click="setActionId('{{ $product->id }}')" href="#">Delete</a>
                                                     </div>
                                                 </div>
                                             </td>
                                         </tr>
                                     @endforeach
-                                    @if(count($podcasts)<=0)
+                                    @if(count($products)<=0)
                                     <tr>
                                         <td colspan="6" class="text-center">
                                             <img src="https://img.freepik.com/free-vector/no-data-concept-illustration_114360-626.jpg?size=626&ext=jpg&uid=R51823309&ga=GA1.2.224938283.1666624918&semt=sph"
@@ -85,7 +80,7 @@
                         </div>
                         <div class="mt-3">
                             <ul class="pagination pagination-rounded justify-content-center mb-0">
-                                {{ $podcasts->links() }}
+                                {{ $products->links() }}
                             </ul>
                         </div>
                     </div>

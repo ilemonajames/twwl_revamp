@@ -102,6 +102,7 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('newsletter.send')}}" >Send Newsletter</a></li>
                         <li><a href="{{ route('newsletter.sent')}}">Sent Newsletter</a></li>
+                        <li><a href="{{ route('newsletter.index')}}">Subscribers</a></li>
                     </ul>
                 </li>
                 <li>
@@ -123,21 +124,21 @@
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="mdi mdi-microphone"></i>
-                        <span>Podcast</span>
+                        <span>Media</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('podcasts.create')}}">Add Podcast</a></li>
-                        <li><a href="{{ route('podcasts.index')}}">Manage Podcast</a></li>
+                        <li><a href="{{ route('podcasts.create')}}">Add Media</a></li>
+                        <li><a href="{{ route('podcasts.index')}}">Manage Media</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="mdi mdi-account-multiple-outline"></i>
-                        <span>Videos</span>
+                        <i class="mdi mdi-cart"></i>
+                        <span>Products</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="#addVideos">Add Videos</a></li>
-                        <li><a href="#manageVideos">Manage Videos</a></li>
+                        <li><a href="{{ route('products.create')}}">Add Product</a></li>
+                        <li><a href="{{ route('products.index')}}">Manage Products</a></li>
                     </ul>
             </ul>
         </div>

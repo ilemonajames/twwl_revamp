@@ -1,24 +1,23 @@
 <?php
 
-namespace App\Livewire\WebsiteAdmin\Podcast;
+namespace App\Livewire\WebsiteAdmin\Products;
 
 use Livewire\Component;
-use App\Models\Podcast;
+use App\Models\Product;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
 use Image;
-class CreatePodcastComponent extends Component
+
+class AddProductComponent extends Component
 {
+
     use WithFileUploads;
 
-    public $title;
+    public $product_name;
     public $description;
-    public $release_date;
-    public $category;
-    public $host;
-    public $link;
+    public $price;
     public $photo;
 
 
@@ -52,8 +51,9 @@ class CreatePodcastComponent extends Component
     public function updated($fields)
     {
         $this->validateOnly($fields,[
-            'title'=> ['required', 'string', 'max:255','unique:blogs,blog_title'],
+            'product_name'=> ['required', 'string', 'max:255','unique:products,product_name'],
             'description'=> ['required', 'string'],
+            'price'=> ['required', 'string'],
             'photo' => 'required',
         ],$this->message);
 
@@ -89,14 +89,12 @@ class CreatePodcastComponent extends Component
         return $postImage;
     }
 
-    public function newPodcast($formData){
+
+    public function newProduct($formData){
         $this->validate([
-            'title' => ['required','string','unique:podcasts'],
+            'product_name' => ['required','string','unique:products'],
             'description' => ['required','string'],
-            'category' => ['required','string'],
-            'host' => ['required','string'],
-            'release_date' => ['required','string'],
-            'link' => ['required','string'],
+            'price' => ['required','string'],
             'photo' => 'required',
 
         ]);
@@ -122,22 +120,20 @@ class CreatePodcastComponent extends Component
             $this->photo->storeAs('/uploads',$imageName);
         }
 
-        Podcast::create([
-            'title' => $this->title,
+        Product::create([
+            'product_name' => $this->product_name,
             'description' => $this->description,
-            'release_date' => $this->release_date,
-            'category' => $this->category,
+            'price' => $this->price,
             'photo' => $imageName,
-            'host' => $this->host,
-            'audio_url' => $this->link,
         ]);
 
         $this->reset();
-        $this->dispatch('feedback', feedback: "Podcast created successfully");
+        $this->dispatch('feedback', feedback: "Product created successfully");
 
     }
+
     public function render()
     {
-        return view('livewire.website-admin.podcast.create-podcast-component')->layout('livewire.website-admin.layouts.app');
+        return view('livewire.website-admin.products.add-product-component')->layout('livewire.website-admin.layouts.app');
     }
 }

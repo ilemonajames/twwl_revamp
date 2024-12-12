@@ -13,7 +13,8 @@ class CreatePodcastsTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('host');
-            $table->integer('duration'); // Duration in minutes
+            $table->string('photo'); // Duration in minutes
+            $table->string('category'); // Duration in minutes
             $table->date('release_date');
             $table->string('audio_url'); // Link to the podcast audio file
             $table->timestamps();
