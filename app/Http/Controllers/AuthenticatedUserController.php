@@ -95,9 +95,15 @@ class AuthenticatedUserController extends Controller
             ]);
 
             $url = url('set-password/'.$checkMail->email.'/'.$token);
+<<<<<<< Updated upstream
             // try{
                 Mail::to($checkMail)->send(new ResetPasswordMail($checkMail,$url));
             // }catch (\Exception $e) { }
+=======
+            //try{
+                Mail::to($checkMail)->send(new ResetPasswordMail($checkMail,$url));
+           // }catch (\Exception $e) { }
+>>>>>>> Stashed changes
 
             return back()->with('feedback','Password successfully resset, a reset link has been sent to your register mail');
         }else{
