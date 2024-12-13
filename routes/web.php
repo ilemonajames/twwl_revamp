@@ -11,12 +11,16 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ProductController;
 
 use App\Http\Middleware\SuperAdminMiddleware;
 use App\Http\Middleware\WebsiteAdminMiddleware;
 use App\Http\Middleware\ClientMiddleware;
 
 use App\Livewire\Guest\Events\EventDetailsComponent;
+use App\Livewire\Guest\Products\GuestProductsComponent;
+use App\Livewire\Guest\Products\GuestAllProductsComponent;
+use App\Livewire\Guest\CheckoutComponent;
 
 
 use App\Livewire\Guest\Service\ServiceDetailsComponent;
@@ -113,6 +117,10 @@ Route::get('/privacy-policy', function(){
     return view('informations.privacy');
 })->name('privacypolicy');
 
+Route::get('/all-proeucts', function(){
+    return view('products.index');
+})->name('all-products');
+
 // podcasts
 Route::get('/podcasts', [PodcastsController::class, 'index'])->name('podcasts.index');
 Route::get('/podcasts/{id}', [PodcastsController::class, 'show'])->name('podcasts.details');
@@ -139,7 +147,11 @@ Route::get('/resources', [ResourceController::class, 'index'])->name('resources.
 Route::get('/resources/videos', [ResourceController::class, 'videos'])->name('resources.videos');
 Route::get('/resources/podcasts', [ResourceController::class, 'podcasts'])->name('resources.podcasts');
 Route::get('/resources/books', [ResourceController::class, 'books'])->name('resources.books');
-Route::get('/resources/articles', [ResourceController::class, 'articles'])->name('resources.articles');
+Route::get('/resources/books', [ResourceController::class, 'books'])->name('resources.books');
+
+// Route::get('/guest-products', [GuestProductsComponent::class])->name('products.all');
+// Route::get('/products-collections', [GuestAllProductsComponent::class])->name('all-products');
+Route::get('/checkout', [ProductController::class,'checkout'])->name('checkout');
 
 // Appointment Routes
 Route::resource('appointments', AppointmentController::class)->except(['index', 'create', 'show', 'edit']);

@@ -9,6 +9,7 @@
         "guzzlehttp/guzzle": "^7.9",
         "intervention/image": "^2.7",
         "laravel/framework": "^10.10",
+        "hardevine/shoppingcart": "^3.2",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.5"
@@ -68,8 +69,8 @@
             "php-http/discovery": true
         }
     },
-    
-   
+
+
 
 
     "minimum-stability": "stable",

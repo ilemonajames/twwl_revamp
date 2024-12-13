@@ -16,6 +16,7 @@
   <body class="call-page containter">
   @endif
 @include('layout.partials.header')
+{{-- @livewire('guest.guest-navigation') --}}
 @yield('content')
 @if(!Route::is(['chat-councellor','map-grid','map-list','chat','voice-call','video-call']))
 @include('layout.partials.footer')
