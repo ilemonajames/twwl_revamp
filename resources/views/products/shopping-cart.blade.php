@@ -1,6 +1,6 @@
 @extends('layout.mainlayout')
 @section('title')
-Checkout
+Shopping Cart
 @endsection
 @section('content')
 <!-- header close -->
@@ -12,17 +12,19 @@ Checkout
         <div class="container relative z-index-1000">
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <h3 class="mb-0">Checkout</h3>
+                    <h3 class="mb-0">Shopping Cart</h3>
                 </div>
 
                 <div class="col-lg-6 text-lg-end">
                     <ul class="crumb">
                         <li><a href="/">Home</a></li>
-                        <li class="active">Checkout</li>
+                        <li class="active">Shopping Cart</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
+    <!-- section close -->
+    @livewire('guest.checkout-component')
 </div>
 @endsection

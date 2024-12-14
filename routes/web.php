@@ -127,12 +127,7 @@ Route::get('/podcasts/{id}', [PodcastsController::class, 'show'])->name('podcast
 Route::get('/videos', [VideosController::class, 'index'])->name('videos.index');
 Route::get('/vdeos/{id}', [VideosController::class, 'show'])->name('videos.details');
 
-
-// Route::get('/events', function () {
-//     return view('informations.events');
-// })->name('events');
 Route::post('/contact-us',[ ContactController::class,'sendMessage'])->name('sendMessage');
-
 
 Route::get('/frequently-asked-question', function () {
     $faqs = App\Models\Faq::all();
@@ -151,6 +146,7 @@ Route::get('/resources/books', [ResourceController::class, 'books'])->name('reso
 
 // Route::get('/guest-products', [GuestProductsComponent::class])->name('products.all');
 // Route::get('/products-collections', [GuestAllProductsComponent::class])->name('all-products');
+Route::get('/cart', [ProductController::class,'cart'])->name('cart');
 Route::get('/checkout', [ProductController::class,'checkout'])->name('checkout');
 
 // Appointment Routes

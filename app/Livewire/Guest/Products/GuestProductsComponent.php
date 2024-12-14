@@ -22,6 +22,12 @@ class GuestProductsComponent extends Component
         $this->dispatch('feedback', feedback: "success");
     }
 
+    public function buyProduct(Product $product){
+        Cart::instance('cart')->add($product->id,$product->product_name, 1, $product->price)->associate(Product::class);
+        $this->dispatch('refreshComponent')->to('guest.guest-navigation');
+        return redirect()->route('checkout');
+    }
+
     public function render()
     {
         $products;

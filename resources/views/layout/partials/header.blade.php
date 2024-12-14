@@ -2,7 +2,7 @@
 
 <body>
     <style>
-        #quantity{
+        #cartquantity{
             position: relative;
             right: 20px;
             background-color: green;

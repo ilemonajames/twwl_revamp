@@ -19,7 +19,7 @@
                         <h4 class="mb-0">{{ $product->product_name}}</h4>
                         <p class="mb-2 text-white">{!! Str::limit($product->description,50) !!}</p>
                         <div class="social-icons">
-                            <a ><i class="bg-white id-color bg-hover-2 text-hover-white fa fa-shopping-cart" aria-hidden="true"></i></a>
+                            <a  wire:click="buyProduct({{$product}})"><i class="bg-white id-color bg-hover-2 text-hover-white fa fa-shopping-cart" aria-hidden="true"></i></a>
                             <a  wire:click="addToCart({{$product}})"><i class="bg-white id-color bg-hover-2 text-hover-white fa fa-cart-plus" tooltip="Add to cart" aria-hidden="true"></i></a>
                         </div>
                     </div>
