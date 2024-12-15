@@ -26,12 +26,14 @@
 
         <section>
             <div class="container">
-                <div class="row g-4">
-                            @include('client.includes.client-navbar')
+                <div class="row">
+                    <div class="col-md-4">
+                        @include('client.includes.client-navbar')
+
+                    </div>
                         
                     
-                    <div class="col-lg-7">
-                        <div id="gallery" class="row g-4">
+                    <div class="col-md-6">
                             <div class="card">
 								<div class="card-body">
 									<div class="row">
@@ -150,21 +152,20 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						
 
 					</div>
-                        </div>
-                    </div>
+                </div>
+            </div>
+        </section>
+                        
 
 			<!-- /Breadcrumb -->
 
 			<!-- Page Content -->
-			<div class="content">
-				
-
-			</div>
+			
 			<!-- /Page Content -->
-			</div>
+			
 
 @push('script')
     <script>

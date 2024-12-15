@@ -30,6 +30,7 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-3">
+                    
                      {{--<ul id="filters" class="s2">
                         <li><a href="#" data-filter="*" class="selected">All services</a></li>
                         <li><a href="#" data-filter=".service-1">Individual Therapy</a></li>

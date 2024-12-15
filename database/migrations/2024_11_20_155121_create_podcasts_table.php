@@ -14,7 +14,7 @@ class CreatePodcastsTable extends Migration
             $table->text('description');
             $table->string('host');
             $table->string('photo'); // Duration in minutes
-            $table->string('category'); // Duration in minutes
+            $table->string('category')->enum('video', 'audio', 'podcast'); // Duration in minutes
             $table->date('release_date');
             $table->string('audio_url'); // Link to the podcast audio file
             $table->timestamps();

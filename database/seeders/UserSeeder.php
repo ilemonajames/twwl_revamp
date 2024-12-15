@@ -44,8 +44,8 @@ class UserSeeder extends Seeder
             'othernames' => 'James',
             'email' => 'ilemonaj@gmail.com',
             'phoneno' => '08175840244',
-            'password' => Hash::make('Twwl@1991'),
-            'user_type' => 'Website Admin',
+            'password' => Hash::make('TWWC@2024'),
+            'user_type' => 'Client',
             'status' => "Active",
             'resident_address' => "Abuja"
         ]);

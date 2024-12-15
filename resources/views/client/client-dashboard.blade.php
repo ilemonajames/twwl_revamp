@@ -48,18 +48,22 @@
  <div class="container">
 
      <div class="row">
-
+<div class="col-md-4">
       <!-- Profile Sidebar -->
-                        @include('client.includes.client-navbar')
+      @include('client.includes.client-navbar')
       <!-- / Profile Sidebar -->
 
+</div>
+    
+
       <!-- Main Content Area -->
-	 </div>
-	 <div class="row">
-	<h5>This is the client dashboard </h5>	
-	 </div>
-      <div class="col-md-7 col-lg-8 col-xl-9">
+	
+	 
+       <div class="col-md-7 col-lg-8 col-xl-9">
        <div class="card">
+        <div class="card-header">
+         <h4 class="card-title">My Dashboard</h4>
+        </div>
         <div class="card-body">
 
          <!-- Tab Menu for navigation between Appointments and Payments -->
@@ -178,10 +182,6 @@
       </div>
       <!-- /Main Content Area -->
      </div>
-
-    </div>
-
-   </div>
    <!-- /Page Content -->
   </section>
     @endsection

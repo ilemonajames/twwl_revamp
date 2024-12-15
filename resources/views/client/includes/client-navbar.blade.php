@@ -2,7 +2,7 @@
 
 
 
-<div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
+{{-- <div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar"> --}}
     <div class="profile-sidebar">
      <div class="widget-profile pro-widget-content">
             <div class="profile-info-widget">
@@ -45,7 +45,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <a href="{{ route('logout')}}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">  @csrf</form>
                             <i class="fas fa-sign-out-alt"></i>
                             <span>Logout</span>
@@ -56,4 +56,4 @@
         </div>
 
     </div>
-</div>
+{{-- </div> --}}
