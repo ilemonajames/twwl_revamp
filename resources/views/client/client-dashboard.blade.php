@@ -2,27 +2,24 @@
 @extends('layout.mainlayout')
 @section('content')
 <!-- Breadcrumb -->
-<!-- Section for the main dashboard header and navigation -->
 <section class="mt80 mt-sm-60 pt20 pb20 bg-color text-light">
- <!-- Container to hold the dashboard header content -->
- <div class="container relative z-index-1000">
-  <!-- Row to align the dashboard title and breadcrumb navigation -->
-  <div class="row align-items-center">
-   <!-- Column for the dashboard title -->
-   <div class="col-lg-6">
-    <h3 class="mb-0">Dashboard</h3>
-   </div>
+    <div class="container relative z-index-1000">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h3 class="mb-0">Dashboard</h3>
+            </div>
 
-   <!-- Column for breadcrumb navigation -->
-   <div class="col-lg-6 text-lg-end">
-    <ul class="crumb">
-     <li><a href="">Home</a></li>
-     <li class="active">Dashboard</li>
-    </ul>
-   </div>
-  </div>
- </div>
+            <div class="col-lg-6 text-lg-end">
+                <ul class="crumb">
+                    <li><a href="">Home</a></li>
+                    <li class="active">Dashboard test</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </section>
+<!-- /Breadcrumb -->
+
 	<!-- section close -->
 
 			 {{-- <div class="breadcrumb-bar">
@@ -44,7 +41,7 @@
 
 			<!-- Page Content -->
  <!-- Client Dashboard section -->
- <section>
+ <section class="mt-3">
  <div class="container">
 
      <div class="row">
@@ -59,7 +56,7 @@
       <!-- Main Content Area -->
 	
 	 
-       <div class="col-md-7 col-lg-8 col-xl-9">
+       <div class="col-md-6">
        <div class="card">
         <div class="card-header">
          <h4 class="card-title">My Dashboard</h4>
@@ -96,7 +93,7 @@
                  <th>Booking Date</th>
                  <th>Appointment Date</th>
                  <th>Program</th>
-                 <th>Service</th>
+                 {{-- <th>Service</th> --}}
                  <th>Status</th>
                  <th></th>
                 </tr>
@@ -107,7 +104,7 @@
                  <td>{{ $booking->created_at->format('d M, Y') }} <span class="d-block text-info">{{ $booking->created_at->format('h:m:s') }}</span></td>
                  <td>{{ $booking->appointment_date->format('d M, Y') }} <span class="d-block text-info">{{ $booking->appointment_time }}</span></td>
                  <td>{{ $booking->program->program_title  }}</td>
-                 <td>{{ $booking->service->service_title  }}</td>
+                 {{-- <td>{{ $booking->service->service_title  }}</td> --}}
                  <td><span class="badge badge-pill @if($booking->status=="pending") bg-danger-light @else bg-success-light @endif">{{ $booking->status }}</span></td>
                  <td class="text-right">
                   <div class="table-action">
@@ -139,7 +136,7 @@
                <thead>
                 <tr>
                  <th>Program</th>
-                 <th>Service</th>
+                 {{-- <th>Service</th> --}}
                  <th>Amount</th>
                  <th>Transaction Date</th>
                  <th>Status</th>
@@ -150,7 +147,7 @@
                                                             @foreach($payments as $payment)
                 <tr>
                  <td>{{ $payment->program->program_title  }}</td>
-                 <td>{{ $payment->service->service_title  }}</td>
+                 {{-- <td>{{ $payment->service->service_title  }}</td> --}}
                  <td>${{ number_format($payment->amount)  }}</td>
                  <td>{{ $payment->created_at  }}</td>
                  <td><span class="badge badge-pill @if($payment->payment_status=="pending") bg-danger-light @else bg-success-light @endif">{{ $payment->payment_status }}</span></td>
@@ -181,7 +178,8 @@
        </div>
       </div>
       <!-- /Main Content Area -->
-     </div>
+     
+ </div>
+ </section>
    <!-- /Page Content -->
-  </section>
     @endsection
