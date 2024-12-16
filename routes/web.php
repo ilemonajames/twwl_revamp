@@ -52,9 +52,11 @@ use App\Livewire\WebsiteAdmin\Blogs\EditBlogComponent;
 
 use App\Livewire\WebsiteAdmin\Products\AddProductComponent;
 use App\Livewire\WebsiteAdmin\Products\ManageProductsComponent;
+use App\Livewire\WebsiteAdmin\Products\EditProductComponent;
 
 use App\Livewire\WebsiteAdmin\Podcast\CreatePodcastComponent;
 use App\Livewire\WebsiteAdmin\Podcast\PodcastsComponent;
+use App\Livewire\WebsiteAdmin\Podcast\EditProdcastComponent;
 
 use App\Livewire\WebsiteAdmin\Events\NewEventComponent;
 use App\Livewire\WebsiteAdmin\Events\WebsiteAdminEventsComponent;
@@ -266,10 +268,11 @@ Route::middleware(['auth:sanctum','verified',])->group(function () {
 
         Route::get('/podcasts/create',CreatePodcastComponent::class)->name('podcasts.create');
         Route::get('/podcasts',PodcastsComponent::class)->name('podcasts.index');
+        Route::get('/podcasts/{id}/edit',EditProdcastComponent::class)->name('podcasts.edit');
 
         Route::get('/products/create',AddProductComponent::class)->name('products.create');
         Route::get('/products',ManageProductsComponent::class)->name('products.index');
-        // Route::get('/blogs/{id}/edit',EditBlogComponent::class)->name('blogs.edit');
+        Route::get('/products/{id}/edit',EditProductComponent::class)->name('products.edit');
 
         Route::get('/events/create',NewEventComponent::class)->name('events.create');
         Route::get('/events',WebsiteAdminEventsComponent::class)->name('events.index');

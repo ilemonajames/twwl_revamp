@@ -1,185 +1,86 @@
-<?php $page="patient-dashboard";?>
-@extends('layout.mainlayout')
-@section('content')
-<!-- Breadcrumb -->
-<section class="mt80 mt-sm-60 pt20 pb20 bg-color text-light">
-    <div class="container relative z-index-1000">
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <h3 class="mb-0">Dashboard</h3>
-            </div>
+<x-app-layout>
+    <div>
+        <div class="page-content">
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-flex align-items-center justify-content-between">
+                        <h4 class="page-title mb-0 font-size-18">Dashboard</h4>
 
-            <div class="col-lg-6 text-lg-end">
-                <ul class="crumb">
-                    <li><a href="">Home</a></li>
-                    <li class="active">Dashboard test</li>
-                </ul>
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item active">Welcome Back!</li>
+                            </ol>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <div class="row">
+                <div class="col-xl-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start">
+                                <div class="avatar-sm font-size-20 me-3">
+                                    <span class="avatar-title bg-soft-success text-success rounded">
+                                        <i class="mdi mdi-newspaper-variant-outline"></i>
+                                    </span>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="font-size-16 mt-2">Pending Appointment</div>
+
+                                </div>
+                            </div>
+                            <h4 class="mt-4">0</h4>
+                            <div class="row">
+                                <div class="col-7">
+                                    <p class="mb-0"><span class="text-success me-2"> 0 <i
+                                                class="mdi mdi-arrow-up"></i> </span></p>
+                                </div>
+                                <div class="col-5 align-self-center">
+                                    <div class="progress progress-sm">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 62%"
+                                            aria-valuenow="62" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start">
+                                <div class="avatar-sm font-size-20 me-3">
+                                    <span class="avatar-title bg-soft-success text-success rounded">
+                                        <i class="mdi mdi-calendar"></i>
+                                    </span>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="font-size-16 mt-2">My Appointments</div>
+                                </div>
+                            </div>
+                            <h4 class="mt-4">0</h4>
+                            <div class="row">
+                                <div class="col-7">
+                                    <p class="mb-0"><span class="text-success me-2"> 0 Upcoming<i
+                                                class="mdi mdi-arrow-up"></i> </span></p>
+                                </div>
+                                <div class="col-5 align-self-center">
+                                    <div class="progress progress-sm">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 62%"
+                                            aria-valuenow="62" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- end row -->
             </div>
         </div>
     </div>
-</section>
-<!-- /Breadcrumb -->
 
-	<!-- section close -->
-
-			 {{-- <div class="breadcrumb-bar">
-				<div class="container-fluid">
-					<div class="row align-items-center">
-						<div class="col-md-12 col-12">
-							<nav aria-label="breadcrumb" class="page-breadcrumb">
-								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="index">Home</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Dashboard</li>
-								</ol>
-							</nav>
-							<h2 class="breadcrumb-title">Dashboard</h2>
-						</div>
-					</div>
-				</div>
-			</div>  --}}
-			<!-- /Breadcrumb -->
-
-			<!-- Page Content -->
- <!-- Client Dashboard section -->
- <section class="mt-3">
- <div class="container">
-
-     <div class="row">
-<div class="col-md-4">
-      <!-- Profile Sidebar -->
-      @include('client.includes.client-navbar')
-      <!-- / Profile Sidebar -->
-
-</div>
-    
-
-      <!-- Main Content Area -->
-	
-	 
-       <div class="col-md-6">
-       <div class="card">
-        <div class="card-header">
-         <h4 class="card-title">My Dashboard</h4>
-        </div>
-        <div class="card-body">
-
-         <!-- Tab Menu for navigation between Appointments and Payments -->
-         <!-- Tab Content wrapper -->
-         <nav class="user-tabs mb-4">
-          <ul class="nav nav-tabs nav-tabs-bottom nav-justified">
-           <li class="nav-item">
-            <a class="nav-link active" href="#pat_appointments" data-toggle="tab">Appointments</a>
-           </li>
-           <li class="nav-item">
-            <a class="nav-link" href="#pat_prescriptions" data-toggle="tab">Payments</a>
-           </li>
-
-          </ul>
-         </nav>
-         <!-- /Tab Menu -->
-
-         <!-- Content of the selected tab -->
-         <div class="tab-content pt-0">
-
-          <!-- Appointment Tab -->
-          <div id="pat_appointments" class="tab-pane fade show active">
-           <div class="card card-table mb-0">
-            <div class="card-body">
-                                                    @if(count($bookings)>0)
-             <div class="table-responsive">
-              <table class="table table-hover table-center mb-0">
-               <thead>
-                <tr>
-                 <th>Booking Date</th>
-                 <th>Appointment Date</th>
-                 <th>Program</th>
-                 {{-- <th>Service</th> --}}
-                 <th>Status</th>
-                 <th></th>
-                </tr>
-               </thead>
-               <tbody>
-                                                            @foreach($bookings as $booking)
-                <tr>
-                 <td>{{ $booking->created_at->format('d M, Y') }} <span class="d-block text-info">{{ $booking->created_at->format('h:m:s') }}</span></td>
-                 <td>{{ $booking->appointment_date->format('d M, Y') }} <span class="d-block text-info">{{ $booking->appointment_time }}</span></td>
-                 <td>{{ $booking->program->program_title  }}</td>
-                 {{-- <td>{{ $booking->service->service_title  }}</td> --}}
-                 <td><span class="badge badge-pill @if($booking->status=="pending") bg-danger-light @else bg-success-light @endif">{{ $booking->status }}</span></td>
-                 <td class="text-right">
-                  <div class="table-action">
-                   <a href="javascript:void(0);" class="btn btn-sm bg-info-light">
-                    <i class="far fa-eye"></i> View
-                   </a>
-                  </div>
-                 </td>
-                </tr>
-                                                            @endforeach
-               </tbody>
-              </table>
-             </div>
-                                                    @else
-                                                        <div class="alert alert-danger">You are yet to make any booking yet <a href="{{ route('client.book')}}">Book Appointment</a></div>
-                                                    @endif
-            </div>
-           </div>
-          </div>
-          <!-- /Appointment Tab -->
-
-          <!-- Prescription Tab (Payments) -->
-          <div class="tab-pane fade" id="pat_prescriptions">
-           <div class="card card-table mb-0">
-            <div class="card-body">
-                                                    @if(count($payments)>0)
-                                                    <div class="table-responsive">
-              <table class="table table-hover table-center mb-0">
-               <thead>
-                <tr>
-                 <th>Program</th>
-                 {{-- <th>Service</th> --}}
-                 <th>Amount</th>
-                 <th>Transaction Date</th>
-                 <th>Status</th>
-                 <th></th>
-                </tr>
-               </thead>
-               <tbody>
-                                                            @foreach($payments as $payment)
-                <tr>
-                 <td>{{ $payment->program->program_title  }}</td>
-                 {{-- <td>{{ $payment->service->service_title  }}</td> --}}
-                 <td>${{ number_format($payment->amount)  }}</td>
-                 <td>{{ $payment->created_at  }}</td>
-                 <td><span class="badge badge-pill @if($payment->payment_status=="pending") bg-danger-light @else bg-success-light @endif">{{ $payment->payment_status }}</span></td>
-                 <td class="text-right">
-                  <div class="table-action">
-                   <a href="javascript:void(0);" class="btn btn-sm bg-info-light">
-                    <i class="far fa-eye"></i> View
-                   </a>
-                  </div>
-                 </td>
-                </tr>
-                                                                @endforeach
-               </tbody>
-              </table>
-             </div>
-                                                @else
-                                                    <div class="alert alert-danger">You are yet to make any payment yet <a href="{{ route('client.book')}}">Book Appointment</a></div>
-                                                @endif
-            </div>
-           </div>
-          </div>
-          <!-- /Prescription Tab -->
-
-         </div>
-         <!-- Tab Content -->
-
-        </div>
-       </div>
-      </div>
-      <!-- /Main Content Area -->
-     
- </div>
- </section>
-   <!-- /Page Content -->
-    @endsection
+</x-app-layout>

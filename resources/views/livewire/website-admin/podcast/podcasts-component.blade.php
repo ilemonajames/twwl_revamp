@@ -37,7 +37,7 @@
                                         <th><b>Photo</b></th>
                                         <th><b>Title</b></th>
                                         <th  class="desktopView"><b>Description</b></th>
-                                        <th ><b>Duration</b></th>
+                                        <th ><b>Category</b></th>
                                         <th ><b>Host</b></th>
                                         <th ><b>Releases</b></th>
                                         <th><b>Action</b></th>
@@ -58,13 +58,14 @@
                                             </td>
                                             <td>{{ $podcast->title}}</td>
                                             <td  class="desktopView">{!! Str::limit(strip_tags($podcast->description),120) !!}</td>
-                                            <td>{{ $podcast->duration}}</td>
+                                            <td>{{ $podcast->category}}</td>
                                             <td>{{ $podcast->host}}</td>
                                             <td>{{ $podcast->release_date}}</td>
                                             <td>
                                                 <div class="dropdown"> <button  class="btn btn-success" data-bs-toggle="dropdown"  aria-expanded="false"><i class="mdi mdi-dots-vertical m-0 text-white h5"></i> </button>
                                                     <div class="dropdown-menu dropdown-menu-end">
                                                         <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#viewPodcast" wire:click="setPodcast({{ $podcast }})" href="#">View</a>
+                                                        <a class="dropdown-item"  href="{{ route('podcasts.edit',$podcast->id)}}">Edit</a>
                                                         <a class="dropdown-item confirm-delete" wire:click="setActionId('{{ $podcast->id }}')" href="#">Delete</a>
                                                     </div>
                                                 </div>

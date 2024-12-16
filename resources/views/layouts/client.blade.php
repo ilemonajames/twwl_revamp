@@ -47,7 +47,7 @@
 
             @include('livewire.website-admin.includes.header')
             <!-- ========== Left Sidebar Start ========== -->
-            @include('layouts.partials.client-navbar')
+            @include('client.includes.client-navbar')
             <!-- Left Sidebar End -->
 
             <!-- ============================================================== -->

@@ -59,7 +59,8 @@
                                             <td>
                                                 <div class="dropdown"> <button  class="btn btn-success" data-bs-toggle="dropdown"  aria-expanded="false"><i class="mdi mdi-dots-vertical m-0 text-white h5"></i> </button>
                                                     <div class="dropdown-menu dropdown-menu-end">
-                                                        <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#viewPodcast" wire:click="setProduct({{ $product }})" href="#">View</a>
+                                                        {{-- <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#viewPodcast" wire:click="setProduct({{ $product }})" href="#">View</a> --}}
+                                                        <a class="dropdown-item"  href="{{ route('products.edit',$product->id)}}">Edit</a>
                                                         <a class="dropdown-item confirm-delete" wire:click="setActionId('{{ $product->id }}')" href="#">Delete</a>
                                                     </div>
                                                 </div>

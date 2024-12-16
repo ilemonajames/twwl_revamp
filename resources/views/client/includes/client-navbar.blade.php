@@ -16,7 +16,7 @@
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
         <div class="dashboard-widget">
             <nav class="dashboard-menu">
                 <ul>
