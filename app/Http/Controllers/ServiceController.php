@@ -19,13 +19,13 @@ class ServiceController extends Controller
     }
 
     public function getServices($id){
-        $programFees = ProgramFee::where('program_id',$id)->get()->pluck('service_id');
-        $services = Service::whereIn('id',$programFees)->get();
-        return json_encode($services);
+        $programFees = ProgramFee::where('program_id',$id)->first();
+        // $services = Service::whereIn('id',$programFees)->get();
+        return json_encode($programFees);
     }
 
-    public function bookingPrice($id,$productID){
-        $programFees = ProgramFee::where('program_id',$productID)->where('service_id',$id)->first();
+    public function bookingPrice($id){
+        $programFees = ProgramFee::where('program_id',$id)->first();
         if($programFees!=null){
             return json_encode($programFees);
         }else{
@@ -51,7 +51,6 @@ class ServiceController extends Controller
     public function bookAppointment(Request $request){
         $data = $request->validate([
             'program' => ['required'],
-            'service' => ['required'],
             'ap_date' => ['required'],
             'ap_time' => ['required'],
             'comment' => ['required'],
@@ -72,7 +71,7 @@ class ServiceController extends Controller
             return back()->withInput()->with('errorfeedback','Sorry you cannot book appointment today for the selected time as there is an appointment booked for '.$appointment->appointment_time);
         }else{
             Appointment::create([
-                'service_id' => $data['service'],
+                'service_id' => "",
                 'program_id' => $data['program'],
                 'appointment_date' => $data['ap_date'],
                 'appointment_time' => $data['ap_time'],

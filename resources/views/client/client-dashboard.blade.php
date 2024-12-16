@@ -33,7 +33,7 @@
 
                                 </div>
                             </div>
-                            <h4 class="mt-4">0</h4>
+                            <h4 class="mt-4">{{ App\Models\Appointment::where('status','Pending')->where('user_id',Auth::user()->id)->count() }}</h4>
                             <div class="row">
                                 <div class="col-7">
                                     <p class="mb-0"><span class="text-success me-2"> 0 <i
@@ -62,7 +62,7 @@
                                     <div class="font-size-16 mt-2">My Appointments</div>
                                 </div>
                             </div>
-                            <h4 class="mt-4">0</h4>
+                            <h4 class="mt-4">{{ App\Models\Appointment::where('user_id',Auth::user()->id)->count() }}</h4>
                             <div class="row">
                                 <div class="col-7">
                                     <p class="mb-0"><span class="text-success me-2"> 0 Upcoming<i

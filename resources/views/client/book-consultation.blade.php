@@ -29,7 +29,7 @@
                             <form method="post" action="{{ route('book-appointment')}}">
                                 @csrf
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="form-label-outlined" for="relationship">Program</label>
 
@@ -119,7 +119,7 @@
                                         @enderror
                                         </div>
                                     </div>
-                                </div>
+                                </div><br>
 
                                 <div class="form-group">
                                     <label>Comment</label>
@@ -127,7 +127,7 @@
                                     @error('comment')
                                     <p class="text-danger">{{ $message }}</p>
                                 @enderror
-                                </div>
+                                </div><br>
                                 <div class="submit-section">
                                     <button type="submit" class="btn btn-primary submit-btn">Book Appointment</button>
                                 </div>
@@ -140,4 +140,75 @@
             </div>
         </div>
     </div>
+    @push('scripts')
+    <script>
+
+        //  var selService = document.getElementById("selService").value;
+
+        //  if(selService==""){
+        //     var x = document.getElementById("pricing");
+        //     x.style.display = "none"
+        //  }else{
+        //     var x = document.getElementById("pricing");
+        //     x.style.display = "block"
+        //  }
+
+        $(document).ready(function(){
+            //get department units
+            var productID;
+
+            $('#selProgram').on('change',function(){
+                productID = $(this).val();
+                $('#selService').empty();
+                $('#selService').append('<option value="0" disabled selected>Processing...</options>');
+                    $.ajax({
+                        url: '/client/get-services/' + productID,
+                        type: 'GET',
+                        dataType: 'json',
+                        success: function(_response){
+
+                            var x = document.getElementById("pricing");
+                            x.style.display = "block";
+                            $('#sessionFees').text("$"+_response['session_fees']);
+                            $('#consultationFees').text("$"+_response['consultation_fees']);
+                            $('#duration').text(_response['duration']);
+                            $('#programFees').text("$"+_response['program_fees']);
+                        },
+                        error: function( _response ){
+                            console.log(_response);
+                        }
+                    });
+            });
+
+
+            //selected Servcie
+            // $('#selService').on('change',function(){
+            //     let id = $(this).val();
+            //         $.ajax({
+            //             url: '/client/get-booking-price/' + id,
+            //             type: 'GET',
+            //             dataType: 'json',
+            //             success: function(_response){
+            //                 var response = _response;
+            //                 if(response!=0){
+            //                     var x = document.getElementById("pricing");
+            //                     x.style.display = "block";
+            //                     $('#sessionFees').text("$"+response['session_fees']);
+            //                     $('#consultationFees').text("$"+response['consultation_fees']);
+            //                     $('#duration').text(response['duration']);
+            //                     $('#programFees').text("$"+response['program_fees']);
+            //                 }else{
+            //                     var x = document.getElementById("pricing");
+            //                     x.style.display = "none"
+            //                 }
+            //             },
+            //             error: function( _response ){
+            //                 console.log(_response);
+            //             }
+            //         });
+            // });
+        });
+
+    </script>
+    @endpush
 </x-app-layout>
