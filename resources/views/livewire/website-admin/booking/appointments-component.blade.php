@@ -36,7 +36,7 @@
                                         <th class="desktopView"><b>Client Name</b></th>
                                         <th><b>Appointment Datte</b></th>
                                         <th class="desktopView"><b>Program</b></th>
-                                        <th><b>Service</b></th>
+                                        {{-- <th><b>Service</b></th> --}}
                                         <th class="desktopView"><b>Status</b></th>
                                         <th><b>Action</b></th>
                                     </tr>
@@ -53,7 +53,7 @@
                                             <td>{{ $booking->user->surname." ".$booking->user->othernames }}</td>
                                             <td>{{ $booking->appointment_date->format('d M, Y')." ".$booking->appointment_time }}</td>
                                             <td class="desktopView">{{ $booking->program->program_title }}</td>
-                                            <td class="desktopView">{{ $booking->service->service_title }}</td>
+                                            {{-- <td class="desktopView">{{ $booking->service->service_title }}</td> --}}
                                             <td class="desktopView">{{ $booking->status }}</td>
                                             <td>
                                                 <div class="dropdown"> <button class="btn btn-success"

@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-6">
-                <script>document.write(new Date().getFullYear())</script> © The way we love counselling.
+                <script>document.write(new Date().getFullYear())</script> © The Way We Love Counselling LLC.
             </div>
         </div>
     </div>

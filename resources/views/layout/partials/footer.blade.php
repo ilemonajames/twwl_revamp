@@ -140,7 +140,7 @@
 				<div class="col-md-12">
 					<div class="de-flex">
 						<div class="de-flex-col">
-							© 2024 The Way We Love Relationship Counseling
+							© 2024 The Way We Love Relationship Counseling LLC
 						</div>
 						<ul class="menu-simple">
 							<li><a href="/terms">Terms &amp; Conditions</a></li>
