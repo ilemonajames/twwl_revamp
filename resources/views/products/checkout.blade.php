@@ -138,7 +138,7 @@ Checkout
                 <div class="col-lg-4">
                     <div class="bg-white p-4 mb-4">
                         <h4 class="mb-3">Need Help?</h4>
-                        <p>We are here to help you. Call us on 1-800-123-4567 or email us at <EMAIL></p>
+                        <p>We are here to help you. Call us on 804) 721-0983 or email us at <EMAIL></p>
                     </div>
                     <div class="bg-white p-4 mb-4">
                         <h4 class="mb-3">Order Tracking</h4>

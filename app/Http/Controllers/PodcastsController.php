@@ -8,7 +8,8 @@ class PodcastsController extends Controller
 {
     public function index()
     {
-        $podcasts = Podcast::all(); // Fetch all podcasts
+        $podcasts = Podcast::where('category', 'Podcast')->get(); // Fetch all podcasts
+        //dd($podcasts);
         return view('pages.podcasts', compact('podcasts'));
     }
 
