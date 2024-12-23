@@ -65,11 +65,20 @@
 
                                 </li>
 
-                                <li><a class="{{ Request::is('programs') ? 'active' : '' }} menu-item"
+                                {{-- <li><a class="{{ Request::is('programs') ? 'active' : '' }} menu-item"
                                         href="{{ route('programs.all') }}"><b>Program</b></a>
-                                </li>
+                                </li> --}}
 
-                                <li><a class="{{ Request::is('blogs') ? 'active' : '' }} menu-item"
+                                <li><a class="{{ Request::is('resource') ? 'active' : '' }} menu-item"
+                                    href="#"><b>Resource</b></a>
+                                <ul>
+                                    <li><a class="menu-item {{ Request::is('programs') ? 'active' : '' }}" href="/podcasts">Program</a></li>
+                                    <li><a class="menu-item {{ Request::is('events') ? 'active' : '' }}" href="/events">Events</a></li>
+                                    <li><a class="menu-item {{ Request::is('blogs') ? 'active' : '' }}" href="/podcasts">Podcast</a></li>
+                                    <li><a class="menu-item {{ Request::is('blogs') ? 'active' : '' }}" href="/videos">Vidoes</a></li>
+                                </ul>
+                            </li>
+                                {{-- <li><a class="{{ Request::is('blogs') ? 'active' : '' }} menu-item"
                                         href="/blogs"><b>Blog</b></a>
                                     <ul>
                                         <li><a class="menu-item {{ Request::is('blogs') ? 'active' : '' }}"
@@ -77,7 +86,7 @@
                                         <li><a class="menu-item {{ Request::is('blogs') ? 'active' : '' }}"
                                                 href="/videos">Vidoes</a></li>
                                     </ul>
-                                </li>
+                                </li> --}}
                                 <li> <a class="{{ Request::is('contact') ? 'active' : '' }} menu-item"
                                         href="{{ route('contact') }}">Contact</a>
                                 </li>

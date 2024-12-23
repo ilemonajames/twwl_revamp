@@ -186,7 +186,37 @@
         </div>
     </div>
 </section>
-
+@if(count($teams)>0)
+<section class="relative overflow-hidden">
+    <img src="images/misc/flowers-crop-2.webp" class="w-30 absolute top-0 end-0 sw-anim" alt="">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 text-center">
+                <div class="subtitle wow fadeInUp mb-3">Behind the Scene</div>
+                <h2 class="wow fadeInUp" data-wow-delay=".2s">Our <span class="alt-font fw-500 fs-64 id-color-2">Team</span></h2>
+                {{-- <p class="lead">Qui culpa qui consequat officia cillum quis irure aliquip ut dolore sit eu culpa ut irure nisi occaecat dolore adipisicing.</p> --}}
+                <div class="spacer-single"></div>
+            </div>
+        </div>
+        <div class="row g-4">
+            @foreach($teams as $team)
+            <div class="col-lg-3 col-sm-6">
+                <img src="{{ asset('assets/images/team/'.$team->image)}}" class="img-fluid rounded-10px" alt="">
+                <div class="p-3 text-center bg-color-3 rounded-10px mx-3 mt-30 relative z-1000">
+                    <h4 class="mb-0">{{ $team->full_name }}</h4>
+                    <p class="mb-2">{{ $team->role }}</p>
+                    <div class="social-icons">
+                        <a href="{{ $team->facebook }}"><i class="bg-white id-color bg-hover-2 text-hover-white fa-brands fa-facebook-f"></i></a>
+                        <a href="{{ $team->twitter }}"><i class="bg-white id-color bg-hover-2 text-hover-white fa-brands fa-twitter"></i></a>
+                        <a href="{{ $team->instagram }}"><i class="bg-white id-color bg-hover-2 text-hover-white fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+@endif
 <section>
     <div class="container">
         <div class="row">

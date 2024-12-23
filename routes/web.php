@@ -84,6 +84,10 @@ use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\PodcastsController;
 use App\Http\Controllers\VideosController;
 
+
+use App\Livewire\WebsiteAdmin\Teams\NewTeamComponent;
+use App\Livewire\WebsiteAdmin\Teams\ManageTeamsComponent;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -122,6 +126,17 @@ Route::get('/privacy-policy', function(){
 Route::get('/all-proeucts', function(){
     return view('products.index');
 })->name('all-products');
+
+Route::get('/events', function(){
+    $events = App\Models\Event::limit(3)->get();
+    return view('events.index',compact('events'));
+})->name('events');
+
+Route::get('/events/{id}', function($id){
+    $event = App\Models\Event::find($id);
+    return view('events.show',compact('event'));
+})->name('events.show');
+
 
 // podcasts
 Route::get('/podcasts', [PodcastsController::class, 'index'])->name('podcasts.index');
@@ -292,6 +307,9 @@ Route::middleware(['auth:sanctum','verified',])->group(function () {
 
         Route::get('/profile',ProfileComponent::class)->name('profile');
         Route::get('/change-password',ChangePasswordComponent::class)->name('change-password');
+
+        Route::get('/team/create',NewTeamComponent::class)->name('teams.create');
+        Route::get('/team',ManageTeamsComponent::class)->name('teams.index');
     });
 });
 

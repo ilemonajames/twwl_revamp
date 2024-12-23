@@ -34,10 +34,11 @@
                         <span>Team</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="#">Add Team Member</a></li>
-                        <li><a href="#">Manage Team</a></li>
+                        <li><a href="{{ route('teams.create')}}">Add Team Member</a></li>
+                        <li><a href="{{ route('teams.index')}}">Manage Team</a></li>
                     </ul>
-                </li>  
+                </li>
+
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
