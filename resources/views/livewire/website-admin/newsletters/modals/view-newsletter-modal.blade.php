@@ -15,7 +15,7 @@
                         enctype="multipart/form-data">
                         <div class="mb-3">
                             <div class="row">
-                                <iframe class="eBookFrame" src="{{ asset('assets/images/newsletter/'.$selNewsletter->file) }}" width="100%" height="450px" frameborder="0" seamless></iframe>
+                                <img src="{{ asset('guest/images/uploads/'.$selNewsletter->image) }}" class="rounded" >
                             </div>
                         </div>
                     </form>

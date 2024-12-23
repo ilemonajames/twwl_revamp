@@ -83,6 +83,7 @@ use App\Http\Controllers\ResourceController;
 //use App\Http\Controllers\Podcasts;
 use App\Http\Controllers\PodcastsController;
 use App\Http\Controllers\VideosController;
+use App\Http\Controllers\EventController;
 
 
 use App\Livewire\WebsiteAdmin\Teams\NewTeamComponent;
@@ -116,6 +117,7 @@ Route::get('/contact', function () {
 Route::get('/hypnotheraphy', function(){
     return view('informations.hypnotherapy');
 })->name('hypnotherapy');
+Route::post('/signup-event/{id}',[EventController::class,'signup'])->name('event.signup');
 
 
 
