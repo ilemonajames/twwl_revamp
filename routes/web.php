@@ -21,6 +21,7 @@ use App\Livewire\Guest\Events\EventDetailsComponent;
 use App\Livewire\Guest\Products\GuestProductsComponent;
 use App\Livewire\Guest\Products\GuestAllProductsComponent;
 use App\Livewire\Guest\CheckoutComponent;
+use App\Livewire\Guest\MainCheckout;
 
 
 use App\Livewire\Guest\Service\ServiceDetailsComponent;
@@ -125,7 +126,7 @@ Route::get('/privacy-policy', function(){
     return view('informations.privacy');
 })->name('privacypolicy');
 
-Route::get('/all-proeucts', function(){
+Route::get('/all-products', function(){
     return view('products.index');
 })->name('all-products');
 
@@ -167,6 +168,8 @@ Route::get('/resources/books', [ResourceController::class, 'books'])->name('reso
 // Route::get('/products-collections', [GuestAllProductsComponent::class])->name('all-products');
 Route::get('/cart', [ProductController::class,'cart'])->name('cart');
 Route::get('/checkout', [ProductController::class,'checkout'])->name('checkout');
+
+Route::get('/product-checkout',MainCheckout::class)->name('product.checkout');
 
 // Appointment Routes
 Route::resource('appointments', AppointmentController::class)->except(['index', 'create', 'show', 'edit']);

@@ -24,7 +24,7 @@ Checkout
             </div>
         </div>
     </section>
-    <!-- section close -->  
+    <!-- section close -->
     <section class="bg-light">
         <div class="container">
             <div class="row">
@@ -44,14 +44,14 @@ Checkout
                                 </div>
                                 <div class="form-group">
                                     <label for="phone">Phone</label>
-                                    <input type="text" class="form-control" id="phone" name="phone" value="{{ old('phone') }}" required>  
-                                </div>  
+                                    <input type="text" class="form-control" id="phone" name="phone" value="{{ old('phone') }}" required>
+                                </div>
 
-                                <div class="form-group">    
+                                <div class="form-group">
                                     <label for="address">Address</label>
                                     <input type="text" class="form-control" id="address" name="address" value="{{ old('address') }}" required>
                                 </div>
-                            
+
                                 <div class="form-group">
                                 </div>
                                 {{-- <div class="form-group">
@@ -69,7 +69,7 @@ Checkout
                                 </div>
                                 {{-- <div class="form-group">
                                     <label for="card-name">Card Name</label>
-                                    <input type="text" class="form-control" id="card-name" name="card-name" value="{{ old('card-name') }}" required>    
+                                    <input type="text" class="form-control" id="card-name" name="card-name" value="{{ old('card-name') }}" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="card-number">Card Number</label>
@@ -87,7 +87,7 @@ Checkout
                                     <label for="card-cvv">Card CVV</label>
                                     <input type="text" class="form-control" id="card-cvv" name="card-cvv" value="{{ old('card-cvv') }}" required>
                                 </div> --}}
-                                <button type="submit" class="btn btn-primary">Place Order</button> 
+                                <button type="submit" class="btn btn-primary">Place Order</button>
                             </form>
                         </div>
                         <div class="col-md-6">
@@ -158,26 +158,26 @@ Checkout
                             <li><i class="fa fa-cc-mastercard fa-lg text-primary mr-2"></i> Mastercard</li>
                             <li><i class="fa fa-cc-paypal fa-lg text-primary mr-2"></i> PayPal</li>
                             <li><i class="fa fa-money fa-lg text-primary mr-2"></i> Bank Transfer</li>
-                            
-                        </ul> 
-                            
+
+                        </ul>
+
                     </div>
                     <div class="bg-white p-4 mb-4">
                         <h4 class="mb-3">Delivery Information</h4>
-                        
+
                         <p>We also accept cash on delivery.</p>
                         <p>Please note that delivery times may vary depending on your location and order size.</p>
                         <p>Please allow 2-3 days for delivery.</p>
-                        
-                        
+
+
                     </div>
 
 
-                    
-                                
 
 
-                    
+
+
+
                     </div>
                     </div>
             </div>

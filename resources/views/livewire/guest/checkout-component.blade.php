@@ -71,7 +71,7 @@
                   </tbody>
               </table>
               <a href="{{ route('all-products')}}" class="btn-main mt-3">Continue Shopping</a>
-              <a href="{{ route('checkout')}}" class="btn-main mt-3">checkout</a>
+              <a href="{{ route('product.checkout')}}" class="btn-main mt-3">checkout</a>
               @else
               <div class="section-header text-center">
                 <img src="https://img.freepik.com/free-vector/no-data-concept-illustration_114360-626.jpg?size=626&ext=jpg&uid=R51823309&ga=GA1.2.224938283.1666624918&semt=sph"

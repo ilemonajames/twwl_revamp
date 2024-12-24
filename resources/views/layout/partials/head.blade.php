@@ -102,7 +102,9 @@
         <link href="{{ asset('assets/css/swiper.css/') }}" rel="stylesheet" type="text/css" >
         <link href="{{ asset('assets/css/style.css/') }}" rel="stylesheet" type="text/css" >
         <link href="{{ asset('assets/css/coloring.css/') }}" rel="stylesheet" type="text/css" >
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
+        <script type="text/javascript" src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
