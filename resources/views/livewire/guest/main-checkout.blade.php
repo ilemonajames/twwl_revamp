@@ -32,7 +32,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <h4 class="mb-3">Billing Details</h4>
-                                    <form wire:submit.prevent="processPayment">
+                                    {{-- <form wire:submit.prevent="processPayment">
                                         @csrf
                                         <div>
                                             <label for="name">Name</label>
@@ -51,7 +51,42 @@
                                         <div id="card-container" class="mt-3"></div>
                                         <!-- Pay Now Button -->
                                         <button type="submit" id="card-button" class="btn btn-primary mt-3">Pay Now</button>
-                                    </form>
+                                    </form> --}}
+
+                                    <div>
+                                        <div id="form-container"></div>
+                                        <button id="sq-creditcard" class="btn btn-primary">Pay</button>
+                                        <div id="payment-status-container"></div>
+
+                                        <script type="text/javascript">
+                                            const applicationId = "{{ env('SQUARE_APPLICATION_ID') }}";
+                                            const locationId = "{{ env('SQUARE_LOCATION_ID') }}";
+
+                                            document.addEventListener('DOMContentLoaded', function () {
+                                                const payments = Square.payments(applicationId, locationId);
+
+                                                async function initializeCard(payments) {
+                                                    const card = await payments.card();
+                                                    await card.attach('#form-container');
+                                                    return card;
+                                                }
+
+                                                async function tokenize(paymentMethod) {
+                                                    const result = await paymentMethod.tokenize();
+                                                    if (result.status === 'OK') {
+                                                        Livewire.emit('processPayment', result.token);
+                                                    } else {
+                                                        document.getElementById('payment-status-container').innerText = result.errors[0].detail;
+                                                    }
+                                                }
+
+                                                const card = initializeCard(payments);
+                                                document.getElementById('sq-creditcard').addEventListener('click', async function () {
+                                                    await tokenize(await card);
+                                                });
+                                            });
+                                        </script>
+                                    </div>
                                 </div>
 
                                 <!-- Order Summary -->
@@ -113,14 +148,8 @@
             </section>
         </div>
 
-        <script type="text/javascript" src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
-        @push('scripts')
-
+        {{-- <script type="text/javascript" src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
         <script>
-            // console.log('Initializing Square Payments...');
-            // const payments = window.Square.payments("{{ env('SQUARE_ACCESS_TOKEN') }}", "{{ env('SQUARE_LOCATION_ID') }}");
-            // console.log('Payments object:', payments);
-
             document.addEventListener('livewire:load', async () => {
                 try {
                     // Initialize Square Payments
@@ -165,8 +194,8 @@
                     alert('Failed to initialize payment system. Please refresh the page and try again.');
                 }
             });
-        </script>
-        @endpush
+        </script> --}}
+
 
     @endsection
 </div>
