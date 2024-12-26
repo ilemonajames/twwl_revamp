@@ -18,7 +18,6 @@ class GuestProductsComponent extends Component
 
     public function addToCart(Product $product)
     {
-        // Check if the product already exists in the cart
         $cartItem = Cart::instance('cart')->search(function ($cartItem, $rowId) use ($product) {
             return $cartItem->id === $product->id;
         });
@@ -27,19 +26,24 @@ class GuestProductsComponent extends Component
             $this->dispatch('errorfeedback', errorfeedback: "Product already in cart!");
             return;
         }
-        // Add the product to the cart
         Cart::instance('cart')->add($product->id, $product->product_name, 1, $product->price)->associate(Product::class);
 
         $this->dispatch('refreshComponent')->to('guest.guest-navigation');
         $this->dispatch('feedback', feedback: "Product added to cart!");
     }
 
-
-    public function buyProduct(Product $product){
-        Cart::instance('cart')->add($product->id,$product->product_name, 1, $product->price)->associate(Product::class);
+    public function buyProduct(Product $product)
+    {
+        Cart::instance('cart')->add([
+            'id'       => $product->id,
+            'name'     => $product->product_name,
+            'qty'      => 1,
+            'price'    => $product->price,
+        ])->associate(Product::class);
         $this->dispatch('refreshComponent')->to('guest.guest-navigation');
-        return redirect()->route('checkout');
+        return redirect()->route('product.checkout')->with('success', 'Product added to cart successfully!');
     }
+
 
     public function render()
     {

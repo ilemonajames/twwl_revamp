@@ -17,7 +17,7 @@
                         <img src="{{ asset('guest/images/uploads/'.$product->photo)}}" class="img-fluid rounded-10px" alt="">
                         <div class="p-3 text-center bg-color-3 rounded-10px mx-3 mt-30 relative z-1000">
                             <h4 class="mb-0">{{ $product->product_name}}</h4>
-                            <p class="mb-2 text-white">{!! Str::limit($product->description,50) !!}</p>
+                            <p class="mb-2 text-white">{{ Str::limit(strip_tags($product->description), 50) }}</p>
                             <div class="social-icons">
                                 <a  wire:click="buyProduct({{$product}})"><i class="bg-white id-color bg-hover-2 text-hover-white fa fa-shopping-cart" tooltip="Buy" aria-hidden="true"></i></a>
                                 <a  wire:click="addToCart({{$product}})"><i class="bg-white id-color bg-hover-2 text-hover-white fa fa-cart-plus" tooltip="Add to cart" aria-hidden="true"></i></a>

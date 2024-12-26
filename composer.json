@@ -14,7 +14,7 @@
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.5",
         "square/connect": "^3.20200528",
-        "square/square": "39.1.0.20241218"
+        "square/square": "^39.1"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
