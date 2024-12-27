@@ -4,6 +4,7 @@
     @include('layout.partials.head')
     <link rel="stylesheet" href="https://nacomns.fra1.digitaloceanspaces.com/portal/staff/assets/vendor/toastr/css/toastr.min.css"/>
     <script type="text/javascript" src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
+    @livewireStyles
 </head>
   @if(Route::is(['map-grid','map-list']))
   <body class="map-page">
@@ -28,11 +29,13 @@
 
 
 
-<script src="https://nacomns.fra1.digitaloceanspaces.com/portal/staff/assets/vendor/toastr/js/toastr.min.js"></script>
-<script src="https://nacomns.fra1.digitaloceanspaces.com/portal/staff/assets/js/plugins-init/toastr-init.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>
-<x-confirm-alert/>
-<x-toast-notification/>
+    @livewireScripts
+    <script src="https://cdn.jsdelivr.net/npm/square-payment-form@5.0.0/dist/square-payment-form.js"></script>
 
-  </body>
+    <script src="https://nacomns.fra1.digitaloceanspaces.com/portal/staff/assets/vendor/toastr/js/toastr.min.js"></script>
+    <script src="https://nacomns.fra1.digitaloceanspaces.com/portal/staff/assets/js/plugins-init/toastr-init.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>
+    <x-confirm-alert/>
+    <x-toast-notification/>
+</body>
 </html>
