@@ -126,47 +126,37 @@
         </div>
     </section>
     <!-- /Stats Section -->
+    @php
+    $teams = App\Models\LivingwordTeam::all();
 
+    @endphp
+
+    @if(count($teams)>0)
     <!-- Team Section -->
     <section class="py-5 mb-5" style="background-color: #FBF5E2">
-       {{--  <div class="container text-center">
+        <div class="container text-center">
             <h2 class="mb-5">Our Specialists</h2> 
             <div class="row">
                 <!-- Specialist 1 -->
+                @foreach($teams as $team)
                 <div class="row mb-4">
 					<div class="col-md-6 col-lg-3">
-						{{-- <div class="team-member">
-							<img src="{{ asset('assets/img/we-always.png') }}" class="img-fluid rounded" alt="Jeffery Mussman">
-							<h4 class="font-weight-bold">Elizabeth Hall</h4>
-							<p>CEO/Founder</p>
+						 <div class="team-member">
+							<img src="{{ asset('assets/images/team/'.$team->image)}}" class="img-fluid rounded-10x"  alt="{{ $team->full_name }}">
+							<h4 class="font-weight-bold">{{ $team->full_name }}</h4>
+							<p>{{ $team->role }}</p>
 						</div>
+                        <div class="social-icons">
+                            <a href="{{ $team->facebook }}"><i class="bg-white id-color bg-hover-2 text-hover-white fa-brands fa-facebook-f"></i></a>
+                            <a href="{{ $team->twitter }}"><i class="bg-white id-color bg-hover-2 text-hover-white fa-brands fa-twitter"></i></a>
+                            <a href="{{ $team->instagram }}"><i class="bg-white id-color bg-hover-2 text-hover-white fa-brands fa-instagram"></i></a>
+                        </div>
 					</div>
-					<div class="col-md-6 col-lg-3">
-						<div class="team-member">
-							<img src="{{ asset('assets/img/we-always.png') }}" class="img-fluid rounded" alt="Jeffery Mussman">
-							<h4 class="font-weight-bold">Jeffery Mussman</h4>
-							<p>Psychologist</p>
-						</div>
-					</div>
-					<div class="col-md-6 col-lg-3">
-						<div class="team-member">
-							<img src="{{ asset('assets/img/we-always.png') }}" class="img-fluid rounded" alt="Jeffery Mussman">
-							<h4 class="font-weight-bold">Jeffery Mussman</h4>
-							<p>Psychologist</p>
-						</div>
-					</div>
-					<div class="col-md-6 col-lg-3">
-						<div class="team-member">
-							<img src="{{ asset('assets/img/we-always.png') }}" class="img-fluid rounded" alt="Jeffery Mussman">
-							<h4 class="font-weight-bold">Jeffery Mussman</h4>
-							<p>Psychologist</p>
-						</div>
-					</div> 
-				</div>
-                <!-- Repeat for other specialists -->
             </div>
-        </div>--}}
+            @endforeach
+        </div>
     </section>
+    @endif
 	
 	<section class="jarallax overflow-hidden"> <!-- Increased padding and margin -->
         <div class="container">

@@ -102,11 +102,26 @@
         <link href="{{ asset('assets/css/swiper.css/') }}" rel="stylesheet" type="text/css" >
         <link href="{{ asset('assets/css/style.css/') }}" rel="stylesheet" type="text/css" >
         <link href="{{ asset('assets/css/coloring.css/') }}" rel="stylesheet" type="text/css" >
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
+        <script type="text/javascript" src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <!-- color scheme -->
         <link id="colors" href="{{ asset('assets/css/colors/scheme-02.css/') }}" rel="stylesheet" type="text/css" >
+        <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/676937deaf5bfec1dbe09dd6/1ifpg4glh';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
 
     </head>
