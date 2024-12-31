@@ -72,7 +72,7 @@
                                 <li><a class="{{ Request::is('resource') ? 'active' : '' }} menu-item"
                                     href="#"><b>Resource</b></a>
                                 <ul>
-                                    <li><a class="menu-item {{ Request::is('programs') ? 'active' : '' }}" href="/podcasts">Program</a></li>
+                                    <li><a class="menu-item {{ Request::is('programs') ? 'active' : '' }}" href="/programs">Program</a></li>
                                     <li><a class="menu-item {{ Request::is('events') ? 'active' : '' }}" href="/events">Events</a></li>
                                     <li><a class="menu-item {{ Request::is('blogs') ? 'active' : '' }}" href="/podcasts">Podcast</a></li>
                                     <li><a class="menu-item {{ Request::is('blogs') ? 'active' : '' }}" href="/videos">Vidoes</a></li>

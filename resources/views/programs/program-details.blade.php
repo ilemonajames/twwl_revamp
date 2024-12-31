@@ -170,7 +170,7 @@
                         </div>
 
                         <a class="" target="_blank"
-                                                href="https://swipesimple.com/links/lnk_9a2935a3c8f688deded68e8241da7feb">Book Now</a>
+                                                href="#">Book Now</a>
                         @endforeach
 
                     </div>
