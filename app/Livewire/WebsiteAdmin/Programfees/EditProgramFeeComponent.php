@@ -9,6 +9,7 @@ class EditProgramFeeComponent extends Component
 {
 
     public $consultation_fees;
+    public $payment_link;
     public $session_fees;
     public $program_fees;
     public $duration;
@@ -25,32 +26,34 @@ class EditProgramFeeComponent extends Component
         $this->program_fees = $selFee->program_fees;
         $this->duration = $selFee->duration;
         $this->program = $selFee->program_id;
+        $this->payment_link = $selFee->payment_link;
         $this->selFee = $selFee;
     }
 
 
     public function updateFees(){
         $this->validate([
-            'service' => ['required'],
             'consultation_fees' => ['required'],
             'session_fees' => ['required'],
             'program_fees' => ['required'],
             'duration' => ['required'],
             'program' => ['required'],
+            'payment_link' => ['required'],
         ]);
 
-      $valFees  = ProgramFee::where('Program_id',$this->program)->where('service_id',$this->service)->first();
+
+      $valFees  = ProgramFee::where('Program_id',$this->program)->first();
        // $valFees  = ProgramFee::where('program_id',$this->program)->first();
         if($valFees!=null  && $this->selFee->id!=$valFees->id){
             $this->dispatch('errorfeedback', errorfeedback: "Sorry the select service and program already have a fees setup");
         }else{
             $this->selFee->update([
-                'service_id' => $this->service,
                 'program_id' => $this->program,
                 'session_fees' => $this->session_fees,
                 'consultation_fees' => $this->consultation_fees,
                 'duration' => $this->duration,
                 'program_fees' => $this->program_fees,
+                'payment_link' => $this->payment_link,
             ]);
 
             return redirect()->route('fees.index')->with('feedback','Program fees successfully updated');

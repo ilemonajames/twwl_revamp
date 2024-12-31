@@ -16,6 +16,7 @@ class ProgramFee extends Model
         'service_id',
         'consultation_fees',
         'program_fees',
+        'payment_link',
         'duration'
     ];
 

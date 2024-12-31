@@ -38,7 +38,7 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $program->program_title }}</td>
-                                        <td>{{ Str::limit($program->program_description, 50) }}</td>
+                                        <td>{!! Str::limit($program->program_description, 50) !!}</td>
                                         <td>
                                             @if ($program->program_image)
                                                 <img src="{{ asset('guest/images/uploads/' . $program->program_image) }}" alt="Program Image" height="40">
