@@ -47,17 +47,14 @@
                                 @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <div class="form-group">
-                                        <label class="form-label-outlined" for="relationship">Payment Link</label>
-
-                                        <input class="form-control-wrap" wire:model="payment_link">
-                                          
-                                        </div>
+                                    <div class="col-md-12">
+                                        <label class="form-label">Payment Link</label>
+                                        <input class="form-control"  wire:model="payment_link" type="text" placeholder="">
+                                        @error('payment_link')
+                                            <p class="text-danger">{{ $message }}</p>
+                                        @enderror
                                     </div>
-                                    @error('service')
-                                        <p class="text-danger">{{ $message }}</p>
-                                    @enderror
-                                </div> 
+                                </div>
                                 <div class="mb-3">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -107,7 +104,6 @@
         </div>
     </div>
 
-</div>
 <div>@include('livewire.website-admin.crop-image-modal.image_croper')</div>
 <div>@include('livewire.website-admin.events.crop-image-modal.thumbnail_croper')</div>
 </div>

@@ -67,7 +67,7 @@
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
-                        
+
                         <div class="mb-3" wire:ignore>
                             <label class="form-label" for="description">Program Description</label>
                             <div wire:ignore>
