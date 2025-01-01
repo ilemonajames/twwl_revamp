@@ -170,7 +170,7 @@
                         </div>
 
                         <a class="" target="_blank"
-                                                href="#">Book Now</a>
+                                                href="{{$fee->payment_link}}">Book Now</a>
                         @endforeach
 
                     </div>
