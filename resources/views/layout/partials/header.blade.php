@@ -5,7 +5,7 @@
         #cartquantity{
             position: relative;
             right: 20px;
-            background-color: green;
+            background-color: rgba(43, 128, 0, 0.748);
             width: 20px;
             height: 20px;
 
@@ -121,8 +121,14 @@
                 </div>
             </div>
         </div>
+        <!-- mobile menu begin -->
+
+        
         </header>
         <!-- header close -->
         <div class="no-bottom no-top" id="content">
 
             <div id="top"></div>
+
+
+            

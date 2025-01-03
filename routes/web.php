@@ -265,6 +265,8 @@ Route::middleware(['auth:sanctum','verified',])->group(function () {
          Route::get('/programs/create',NewProgramComponent::class)->name('programs.create');
          //Route::get('/programs',ProgramsComponent::class)->name('programs.index');
          Route::get('/programs/{id}/edit',EditProgramComponent::class)->name('programs.edit');
+         //Delete Program
+         Route::get('/programs/{id}/delete', [ProgramListComponent::class, 'DeleteProgram'])->name('programs.delete');
         // Route for creating a new program
         // Route::get('/programs/create', ProgramComponent::class)->name('programs.create');
         // // Route for editing an existing program

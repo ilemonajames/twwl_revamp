@@ -37,7 +37,7 @@
                                         {{-- <th><b>Icon</b></th> --}}
                                         <th  class="desktopView"><b>Image</b></th>
                                         <th><b>Programs Title</b></th>
-                                        <th  class="desktopView"><b>Description of waht we do</b></th>
+                                        <th  class="desktopView"><b>Description of what we do</b></th>
                                         <th><b>Action</b></th>
                                     </tr>
                                 </thead>
@@ -48,7 +48,6 @@
                                     }
                                     </style>
                                     @foreach(App\Models\Program::all() as $program)
-                                    @php var_dump($program) @endphp
                                         <tr>
                                             <td scope="row">{{ $sn = $sn + 1 }}</td>
                                             {{-- <td><img src="{{ asset('guest/images/uploads/'.$program->program_icon) }}" class="rounded-circle avatar-xs m-1" alt=""></td> --}}
