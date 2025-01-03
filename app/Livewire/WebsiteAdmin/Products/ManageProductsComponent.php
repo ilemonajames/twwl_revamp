@@ -51,11 +51,11 @@ class ManageProductsComponent extends Component
     //delete Service
     public function deleteProduct(){
         $product= Product::find($this->actionId);
-        if($service){
+        if($product){
             // unlink('guest/images/uploads/'.$service->service_icon);
-            unlink('guest/images/uploads/'.$product->photo);
+            $product->delete();
+
         }
-        $product->delete();
         $this->dispatch('feedback',feedback:'Product Successfully Deleted');
     }
 
