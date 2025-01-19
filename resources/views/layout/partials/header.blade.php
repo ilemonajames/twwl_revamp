@@ -60,19 +60,19 @@
                                         class="{{ Request::is('about') ? 'active' : '' }} menu-item"href="{{ route('about') }}">About
                                         Us</a>
                                 </li>
-                                <li><a class="menu-item {{ Request::is('services') ? 'active' : '' }}"
-                                        href="/services">Services</a>
+                                {{-- <li><a class="menu-item {{ Request::is('services') ? 'active' : '' }}"
+                                        href="/programs">Programs</a>
 
-                                </li>
-
-                                {{-- <li><a class="{{ Request::is('programs') ? 'active' : '' }} menu-item"
-                                        href="{{ route('programs.all') }}"><b>Program</b></a>
                                 </li> --}}
 
-                                <li><a class="{{ Request::is('resource') ? 'active' : '' }} menu-item"
-                                    href="#"><b>Resource</b></a>
+                                 <li><a class="{{ Request::is('programs') ? 'active' : '' }} menu-item"
+                                        href="{{ route('programs.all') }}"><b>Program</b></a>
+                                </li>
+
+                                <li><a class="{{ Request::is('blogs') ? 'active' : '' }} menu-item"
+                                    href="/blogs"><b>Blogs</b></a>
                                 <ul>
-                                    <li><a class="menu-item {{ Request::is('programs') ? 'active' : '' }}" href="/programs">Program</a></li>
+                                    <li><a class="menu-item {{ Request::is('services') ? 'active' : '' }}" href="/services">Services</a></li>
                                     <li><a class="menu-item {{ Request::is('events') ? 'active' : '' }}" href="/events">Events</a></li>
                                     <li><a class="menu-item {{ Request::is('blogs') ? 'active' : '' }}" href="/podcasts">Podcast</a></li>
                                     <li><a class="menu-item {{ Request::is('blogs') ? 'active' : '' }}" href="/videos">Vidoes</a></li>
