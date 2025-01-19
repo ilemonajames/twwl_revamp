@@ -25,7 +25,7 @@ class ContactController extends Controller
 
         try{
             // Mail::to("support@maytrustmicrolending.com")->send(new ContactMail($question));
-            Mail::to("ilemonaj@gmail.com")->send(new ContactMail($question));
+            Mail::to("thewaywelove24@gmail.com")->send(new ContactMail($question));
         }catch(\Exception $e){}
 
         return back()->with('feedback','Message Successully Sent');
