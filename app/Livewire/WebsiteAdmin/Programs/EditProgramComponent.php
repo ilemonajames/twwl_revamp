@@ -4,6 +4,7 @@ namespace App\Livewire\WebsiteAdmin\Programs;
 
 use Livewire\Component;
 use Carbon\Carbon;
+use Image;
 use App\Models\Program;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
@@ -31,7 +32,7 @@ class EditProgramComponent extends Component
     }
 
     //service modification
-    public function updateService(){
+    public function updateService($formData){
         $this->validate([
             'title'=> ['required', 'string', 'max:255','unique:programs,program_title,'.$this->program->id],
             'description'=> ['required', 'string'],
