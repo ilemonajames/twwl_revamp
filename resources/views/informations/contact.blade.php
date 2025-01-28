@@ -69,7 +69,7 @@
                         <div class="col-lg-6">
                             <div class="p-4">
                                 
-                                    <form name="contactForm"  class="contact-form" method="post"  action="{{ route('sendMessage')}}">
+                                    <form name="contactForm"  class="contact-form" method="post"  action="{{ route('sendMessage')}}" onsubmit="return validateCaptcha();">
                                         @csrf
                                     <div class="field-set mb-3">
                                         <input  type="text" name="name" value="{{ old('name')}}" id="name" class="form-control" placeholder="Your Name" required>
@@ -99,12 +99,18 @@
                                     </div>
                                         
                                     
-                                    <div class="g-recaptcha" data-sitekey="6LdW03QgAAAAAJko8aINFd1eJUdHlpvT4vNKakj6"></div>
+                                    <!-- Dynamic CAPTCHA -->
+                                    <div class="g-capcha">
+                                      <label for="captcha">Anti spam prove - What is?: <span id="math-question"></span></label>
+                                      <input type="text" class="captcha form-control" id="captcha" name="captcha" required>
+                                    </div>
                                     <div id='submit' class="mt20">
                                        
                                         <button class="btn btn-main submit-btn"
                                         type="submit">Send Message</button>
                                     </div>
+                                    
+                                    
 
                                     <div id="success_message" class='success'>
                                         Your message has been sent successfully. Refresh this page if you want to send more messages.
@@ -112,6 +118,30 @@
                                     <div id="error_message" class='error'>
                                         Sorry there was an error sending your form.
                                     </div>
+                                    <!-- Validation -->
+
+                                    <script>
+                                        // Generate two random numbers for the CAPTCHA
+                                        let num1 = Math.floor(Math.random() * 10); // Random number between 0 and 9
+                                        let num2 = Math.floor(Math.random() * 10); // Random number between 0 and 9
+                                        let correctAnswer = num1 + num2;
+                                        
+                                        // Display the math question in the form
+                                        document.getElementById("math-question").textContent = `${num1} + ${num2}`;
+                                        
+                                        // Validate the CAPTCHA on form submission
+                                        function validateCaptcha() {
+                                          const userAnswer = parseInt(document.getElementById("captcha").value);
+                                          if (userAnswer !== correctAnswer) {
+                                            alert("Incorrect answer. Please try again.");
+                                            return false; // Prevent form submission
+                                          }
+                                          return true; // Allow form submission
+                                        }
+                                        </script>
+                                    
+
+                                    <!-- // Validation -->
                                 </form>
                             </div>
                         </div>
