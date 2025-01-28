@@ -146,7 +146,7 @@ class ProgramSeeder extends Seeder
             ]);
 
             ProgramFee::create([
-                'payment_link' => "",
+                'payment_link' => "https://square.link/u/08TA3uGd",
                 'program_id' => $program->id,
                 'session_fees' => 0,
                 'consultation_fees' => 0,
@@ -294,7 +294,7 @@ class ProgramSeeder extends Seeder
             ]);
 
             ProgramFee::create([
-                'payment_link' => "",
+                'payment_link' => "https://square.link/u/TkkhqXni",
                 'program_id' => $program->id,
                 'session_fees' => 0,
                 'consultation_fees' => 0,
@@ -366,7 +366,7 @@ personal growth.
             ]);
 
             ProgramFee::create([
-                'payment_link' => "",
+                'payment_link' => "https://square.link/u/VcH6qcrE",
                 'program_id' => $program->id,
                 'session_fees' => 0,
                 'consultation_fees' => 0,
@@ -439,7 +439,7 @@ personal growth.
             ]);
 
             ProgramFee::create([
-                'payment_link' => "",
+                'payment_link' => "https://square.link/u/h0tBSDGx",
                 'program_id' => $program->id,
                 'session_fees' => 175,
                 'consultation_fees' => 0,
@@ -480,7 +480,14 @@ personal growth.
                 'updated_at' => now(),
             ]);
 
-
+            ProgramFee::create([
+                'payment_link' => "https://square.link/u/HiVkHxqE",
+                'program_id' => $program->id,
+                'session_fees' => 0,
+                'consultation_fees' => 0,
+                'duration' => "60 Mintues",
+                'program_fees' => 120,
+            ]);
 
         $program = Program::create([
                 'id' => Str::uuid(),
@@ -510,7 +517,7 @@ personal growth.
             ]);
 
             ProgramFee::create([
-                'payment_link' => "",
+                'payment_link' => "https://square.link/u/gXZmgre7",
                 'program_id' => $program->id,
                 'session_fees' => 0,
                 'consultation_fees' => 0,
@@ -574,6 +581,16 @@ personal growth.
                 'consultation_fees' => 50,
                 'duration' => "60 Mintues",
                 'program_fees' => 50,
+            ]);
+
+
+            ProgramFee::create([
+                'payment_link' => "https://square.link/u/DktP4bR9",
+                'program_id' => $program->id,
+                'session_fees' => 0,
+                'consultation_fees' => 0,
+                'duration' => "60 Mintues",
+                'program_fees' => 120,
             ]);
     }
 }
