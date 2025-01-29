@@ -47,8 +47,8 @@
                                         <td><span class="badge badge-pill @if($booking->status=="pending") bg-danger-light @else bg-success-light @endif">{{ $booking->status }}</span></td>
                                         <td class="text-right">
                                             <div class="table-action">
-                                                <a href="javascript:void(0);" class="btn btn-sm bg-info-light">
-                                                    <i class="far fa-eye"></i> View
+                                                <a href="https://square.link/u/TkkhqXni" class="btn btn-sm bg-danger-light">
+                                                    <i class="far fa-money"></i> Pay
                                                 </a>
                                             </div>
                                         </td>

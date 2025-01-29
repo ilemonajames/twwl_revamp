@@ -168,10 +168,14 @@
                             <div class="">Duration</div>
                             <div class="fw-bold">{{ $fee->duration  }}</div>
                         </div>
-                        --}}
+                        
 
                         <a class="" target="_blank"
                                                 href="{{$fee->payment_link}}">Book Now</a>
+                                                --}}
+
+                                                <a class="" target="_blank"
+                                                href="/register">Book Now</a>
                         @endforeach
 
                     </div>
