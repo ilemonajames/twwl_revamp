@@ -100,6 +100,14 @@
                                         
                                     
                                     <!-- Dynamic CAPTCHA -->
+                                    <script>
+                                        function onClick(e) {
+                                          e.preventDefault();
+                                          grecaptcha.enterprise.ready(async () => {
+                                            const token = await grecaptcha.enterprise.execute('6LdBucYqAAAAAIQdZIZSDx-ySzCydJFpCZuA0qHN', {action: 'LOGIN'});
+                                          });
+                                        }
+                                      </script>
                                     <div class="g-capcha">
                                       <label for="captcha">Anti spam prove - What is?: <span id="math-question"></span></label>
                                       <input type="text" class="captcha form-control" id="captcha" name="captcha" required>
