@@ -100,14 +100,8 @@
                                         
                                     
                                     <!-- Dynamic CAPTCHA -->
-                                    <script>
-                                        function onClick(e) {
-                                          e.preventDefault();
-                                          grecaptcha.enterprise.ready(async () => {
-                                            const token = await grecaptcha.enterprise.execute('6LdBucYqAAAAAIQdZIZSDx-ySzCydJFpCZuA0qHN', {action: 'LOGIN'});
-                                          });
-                                        }
-                                      </script>
+                                    <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
+
                                     <div class="g-capcha">
                                       <label for="captcha">Anti spam prove - What is?: <span id="math-question"></span></label>
                                       <input type="text" class="captcha form-control" id="captcha" name="captcha" required>
@@ -117,7 +111,7 @@
                                         <button class="btn btn-main submit-btn"
                                         type="submit">Send Message</button>
                                     </div>
-                                    
+
                                     
 
                                     <div id="success_message" class='success'>
@@ -153,7 +147,8 @@
                                 </form>
                             </div>
                         </div>
-                        
+                        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
                     </div>
                 </div>
             </section>  
