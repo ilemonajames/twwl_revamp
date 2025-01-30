@@ -28,6 +28,7 @@ class EditProgramComponent extends Component
 
     public function mount($id){
         $program = Program::find($id);
+        
         $this->title = $program->program_title;
         $this->description = $program->program_description;
         $this->program_content = $program->program_content;

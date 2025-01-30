@@ -63,7 +63,7 @@
                                 <div class="mb-3">
                                     <label class="form-label" for="program_content">Program Content</label>
                                     <div wire:ignore>
-                                        <textarea id="message" wire:model="program_content" class="form-control tinymce-basic" name="program_content"></textarea>
+                                        <textarea id="program_content" wire:model="program_content" class="form-control tinymce-basic" name="program_content"></textarea>
                                     </div>
                                     @error('program_content')
                                         <p class="text-danger">{{ $message }}</p>
@@ -99,8 +99,23 @@
                 editor.on('change', function(e) {
                     @this.set('description', editor.getContent());
                 });
+                
             }
         });
+
+        // tinymce.init({
+        //     selector: '#program_content',
+        //     setup: function(editor) {
+        //         editor.on('init change', function() {
+        //             editor.save();
+        //         });
+
+        // editor.on('init change', function()){
+        //             @this.set('program_content', editor.getContent());
+        //         }
+
+        //     }
+        // });
 
 
         window.addEventListener('feedback', event => {

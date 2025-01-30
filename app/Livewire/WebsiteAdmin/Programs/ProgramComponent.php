@@ -152,7 +152,7 @@ class ProgramComponent extends Component
 
     public function resetForm()
     {
-        $this->reset(['title', 'description', 'photo', 'croped_image']);
+        $this->reset(['title', 'description', 'program_content', 'photo', 'croped_image']);
     }
 
     public function render()

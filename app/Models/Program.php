@@ -15,6 +15,7 @@ class Program extends Model
         'program_image',
         'program_title',
         'program_description',
+        'program_content',
         'price'
     ];
 

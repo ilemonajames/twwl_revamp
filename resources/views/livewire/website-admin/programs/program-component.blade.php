@@ -57,6 +57,15 @@
                                 @error('description') <p class="text-danger">{{ $message }}</p> @enderror
                             </div>
 
+                             <!-- Program Description -->
+                             <div class="mb-3">
+                                <label class="form-label" for="program_content">Program Content</label>
+                                <div wire:ignore>
+                                    <textarea id="message" wire:model="program_content" class="form-control tinymce-basic" name="program_content"></textarea>
+                                </div>
+                                @error('program_content') <p class="text-danger">{{ $message }}</p> @enderror
+                            </div>
+
                             <!-- Submit Button -->
                             <button type="submit" class="btn btn-success waves-effect waves-light">
                                 <i wire:loading wire:target="saveProgram" class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i> 
