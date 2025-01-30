@@ -20,7 +20,7 @@ class EditProgramComponent extends Component
     use WithFileUploads;
     public $message = [
         'title.required' => "Please enter your program title",
-        'content.description' => "Please enter your program description",
+        'description.required' => "Please enter your program description",
         'program_content.required'=>"Please enter your program content",
         'photo.required' => "Please upload a program image",
         'photo.dimensions' => "image must have a minimum of 860 width and 500 height",
