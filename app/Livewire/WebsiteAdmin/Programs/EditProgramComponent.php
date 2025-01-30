@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Storage;
 class EditProgramComponent extends Component
 {
     public $description;
+    public $program_content;
     public $title;
     public $photo;
     public $program;
@@ -20,6 +21,7 @@ class EditProgramComponent extends Component
     public $message = [
         'title.required' => "Please enter your program title",
         'content.description' => "Please enter your program description",
+        'program_content.required'=>"Please enter your program content",
         'photo.required' => "Please upload a program image",
         'photo.dimensions' => "image must have a minimum of 860 width and 500 height",
     ];
@@ -28,6 +30,7 @@ class EditProgramComponent extends Component
         $program = Program::find($id);
         $this->title = $program->program_title;
         $this->description = $program->program_description;
+        $this->program_content = $program->program_content;
         $this->program = $program;
     }
 
@@ -36,6 +39,7 @@ class EditProgramComponent extends Component
         $this->validate([
             'title'=> ['required', 'string', 'max:255','unique:programs,program_title,'.$this->program->id],
             'description'=> ['required', 'string'],
+            'program_content'=>['required', 'string'],
             'photo' => 'nullable|mimes:jpeg,png,gif',
             // 'program_icon' => 'nullable|mimes:png',
         ],$this->message);
@@ -57,6 +61,7 @@ class EditProgramComponent extends Component
         $this->program->update([
             'program_title' => $this->title,
             'program_description' => $this->description,
+            'program_content' => $this->program_content,
         ]);
 
         return redirect()->route('programs.index')->with('feedback','program successfully updated');

@@ -15,18 +15,21 @@ class CreateProgramComponent extends Component
 
     public $title;
     public $description;
+    public $program_content;
     public $photo;
     public $croped_image; // To hold the cropped image data
 
     protected $rules = [
         'title' => 'required|string|max:255|unique:programs,program_title',
         'description' => 'required|string',
+        'program_content'=>'required|string',
         'photo' => 'required|mimes:jpeg,jpg,png,gif|max:2048|dimensions:min_width=860,min_height=500',
         'croped_image' => 'nullable|string', // To validate cropped image data
     ];
 
     protected $messages = [
         'title.required' => "Please enter your program title",
+        'program_content'=>"Please enter program detailed content",
         'description.required' => "Please enter your program description",
         'photo.required' => "Please upload a program image",
         'photo.dimensions' => "Image must be at least 860px wide and 500px tall",
@@ -44,6 +47,7 @@ class CreateProgramComponent extends Component
             Program::create([
                 'program_title' => $this->title,
                 'program_description' => $this->description,
+                'program_content'=> $this->program_content,
                 'program_image' => $servicePhoto,
             ]);
 

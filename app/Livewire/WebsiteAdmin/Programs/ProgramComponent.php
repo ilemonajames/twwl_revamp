@@ -16,6 +16,7 @@ class ProgramComponent extends Component
 
     public $title;
     public $description;
+    public $program_content;
     public $photo;
     public $croped_image; // Holds the cropped image data
     public $program; // Holds the program being edited
@@ -24,6 +25,7 @@ class ProgramComponent extends Component
     protected $messages = [
         'title.required' => "Please enter your program title",
         'description.required' => "Please enter your program description",
+        'program_content.required'=> "Please enter Program Details",
         'photo.required' => "Please upload a program image",
         'photo.dimensions' => "Image must be at least 860px wide and 500px tall",
     ];
@@ -46,6 +48,7 @@ class ProgramComponent extends Component
             $this->program = Program::findOrFail($id);
             $this->title = $this->program->program_title;
             $this->description = $this->program->program_description;
+            $this->program_content = $this->program->program_content;
         }
     }
 
@@ -54,6 +57,7 @@ class ProgramComponent extends Component
         $this->validate([
             'title' => 'required|string|max:255' . ($this->mode === 'edit' ? '|unique:programs,program_title,' . $this->program->id : '|unique:programs,program_title'),
             'description' => 'required|string',
+            'program_content'=>'required|string',
             'photo' => 'nullable|mimes:jpeg,jpg,png,gif|dimensions:min_width=860,min_height=500',
             'croped_image' => 'nullable|string', // Validates cropped image as base64 string
         ]);
@@ -77,6 +81,7 @@ class ProgramComponent extends Component
                 Program::create([
                     'program_title' => $this->title,
                     'program_description' => $this->description,
+                    'program_content'=>$this->program_content,
                     'program_image' => $programPhoto ?? null,
                 ]);
             } else {
@@ -84,6 +89,7 @@ class ProgramComponent extends Component
                 $this->program->update([
                     'program_title' => $this->title,
                     'program_description' => $this->description,
+                    'program_content'=>$this->program_content,
                     'program_image' => $programPhoto ?? $this->program->program_image,
                 ]);
             }

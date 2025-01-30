@@ -30,6 +30,7 @@ class ProgramsComponent extends Component
             ->where(function($query) {
             if($this->searchTerm) {
                 $query->where('program_title', 'like', '%'.$this->searchTerm.'%' )
+                ->orWhere('program_content', 'like', '%'.$this->searchTerm. '%')
                 ->orWhere('program_description', 'like', '%'.$this->searchTerm.'%' );
             }
         })

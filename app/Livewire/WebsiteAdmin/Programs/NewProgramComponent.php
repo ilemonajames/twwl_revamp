@@ -16,6 +16,7 @@ class NewProgramComponent extends Component
     public $description;
     public $title;
     public $photo;
+    public $program_content;
     public $program_icon;
     use WithFileUploads;
 
@@ -34,6 +35,7 @@ class NewProgramComponent extends Component
         $this->validate([
             'title'=> ['required', 'string', 'max:255','unique:programs,program_title'],
             'description'=> ['required', 'string'],
+            'program_content'=>['required', 'string'],
             'photo' => 'required|mimes:jpeg,png,gif',
             // 'program_icon' => 'required|mimes:png',
         ],$this->message);
@@ -44,6 +46,7 @@ class NewProgramComponent extends Component
         Program::create([
             'program_title' => $this->title,
             'program_description' => $this->description,
+            'program_content'=>$this->program_content,
             'program_image' => $servicePhoto,
             // 'program_icon' => $serviceIcon,
         ]);

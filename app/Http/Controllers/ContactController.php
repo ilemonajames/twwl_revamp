@@ -15,13 +15,27 @@ class ContactController extends Controller
             'name' => ['required','string'],
             'email' => ['required','email'],
             'message' => ['required','string','max:500'],
+            'g-recaptcha-response' => 'required'
         ]);
 
         $question = [
             'email' => $data['email'],
             'name' => $data['name'],
             'message' => $data['message'],
+
         ];
+        // Verify reCAPTCHA response
+    $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+        'secret' => env('RECAPTCHA_SECRET_KEY'),
+        'response' => $request->input('g-recaptcha-response'),
+    ]);
+
+    $responseData = $response->json();
+
+    if (!$responseData['success']) {
+        return back()->withErrors(['captcha' => 'reCAPTCHA verification failed. Please try again.']);
+    }
+
 
         try{
             // Mail::to("support@maytrustmicrolending.com")->send(new ContactMail($question));
