@@ -27,7 +27,7 @@
                     <div class="card-body">
                         <form name="new-service" id="new-service" wire:submit.prevent="updateService(Object.fromEntries(new FormData($event.target)))" enctype="multipart/form-data">
                             <div>
-                                <div class="mb-3">
+                                <div class="mb-3 mt-3">
                                     <label class="form-label">Program Name</label>
                                     <input class="form-control" wire:model="title" type="text" placeholder="">
                                     @error('title')
@@ -50,17 +50,17 @@
                                         <input class="form-control" id="post_image" wire:model="photo" type="file"  placeholder="">
                                     </div>
                                 </div>
-                                <div class="mb-3">
+                                <div class="mb-3 mt-2">
                                     <label class="form-label" for="description">Program Description</label>
                                     <div wire:ignore>
-                                        <textarea id="message" wire:model="description" class="form-control tinymce-basic" name="description"></textarea>
+                                        <textarea id="message" wire:model="description" class="form-control tinymce-basic" name="description" rows="5"></textarea>
                                     </div>
                                     @error('description')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
 
-                                <div class="mb-3">
+                                <div class="mb-3 mt-2">
                                     <label class="form-label" for="program_content">Program Content</label>
                                     <div wire:ignore>
                                         <textarea id="program_content" wire:model="program_content" class="form-control tinymce-basic" name="program_content"></textarea>
@@ -91,38 +91,40 @@
 
     <script>
         tinymce.init({
-            selector: '#message',
+            selector: '#program_content',
             setup: function(editor) {
                 editor.on('init change', function() {
                     editor.save();
                 });
                 editor.on('change', function(e) {
-                    @this.set('description', editor.getContent());
+                    @this.set('program_content', editor.getContent());
                 });
                 
             }
         });
-
-        // tinymce.init({
-        //     selector: '#program_content',
-        //     setup: function(editor) {
-        //         editor.on('init change', function() {
-        //             editor.save();
-        //         });
-
-        // editor.on('init change', function()){
-        //             @this.set('program_content', editor.getContent());
-        //         }
-
-        //     }
-        // });
-
-
         window.addEventListener('feedback', event => {
             tinyMCE.activeEditor.setContent("");
         });
     </script>
 
+{{-- <script>
+        tinymce.init({
+            selector: '#program_content',
+            setup: function(editor) {
+                editor.on('init change', function() {
+                    editor.save();
+                });
+
+        editor.on('init change', function()){
+                    @this.set('program_content', editor.getContent());
+                }
+
+            }
+        });
+        window.addEventListener('feedback', event => {
+            tinyMCE.activeEditor.setContent("");
+        });
+    </script> --}}
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script> --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
