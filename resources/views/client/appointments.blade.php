@@ -5,12 +5,12 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="page-title mb-0 font-size-18">What we do</h4>
+                    <h4 class="page-title mb-0 font-size-18">Appointment</h4>
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
-                            <li class="breadcrumb-item active">What we do</li>
+                            <li class="breadcrumb-item active">List of Appointments</li>
                         </ol>
                     </div>
 
@@ -34,11 +34,16 @@
                                         <th>Program</th>
                                         {{-- <th>Service</th> --}}
                                         <th>Status</th>
-                                        <th></th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($bookings as $booking)
+
+                                @php $programFee = App\Models\ProgramFee::where('program_id', $booking->program->id)->get(); 
+                                var_dump($programFee[0]["payment_link"]);
+                                @endphp
+
                                     <tr>
                                         <td>{{ $booking->created_at->format('d M, Y') }} <span class="d-block text-info">{{ $booking->created_at->format('h:m:s') }}</span></td>
                                         <td>{{ $booking->appointment_date->format('d M, Y') }} <span class="d-block text-info">{{ $booking->appointment_time }}</span></td>
@@ -47,8 +52,8 @@
                                         <td><span class="badge badge-pill @if($booking->status=="pending") bg-danger-light @else bg-success-light @endif">{{ $booking->status }}</span></td>
                                         <td class="text-right">
                                             <div class="table-action">
-                                                <a href="https://square.link/u/TkkhqXni" class="btn btn-sm bg-danger-light">
-                                                    <i class="far fa-money"></i> Pay
+                                                <a href="$programFee[0]['payment_link]" class="btn btn-sm bg-danger-light">
+                                                    <i class="far fa-money"></i> Pay to confirm appointment
                                                 </a>
                                             </div>
                                         </td>

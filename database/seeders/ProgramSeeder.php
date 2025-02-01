@@ -575,7 +575,7 @@ personal growth.
             ]);
 
             ProgramFee::create([
-                'payment_link' => "",
+                'payment_link' => "https://square.link/u/DktP4bR9",
                 'program_id' => $program->id,
                 'session_fees' => 150,
                 'consultation_fees' => 50,
