@@ -20,6 +20,7 @@ return new class extends Migration
             $table->time('appointment_time');
             $table->string('address')->nullable();
             $table->string('city')->nullable();
+            $table->string('consulation_link')->nullable();
             $table->string('state')->nullable();
             $table->string('name')->nullable();
             $table->string('email')->nullable();

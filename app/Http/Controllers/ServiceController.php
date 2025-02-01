@@ -78,6 +78,8 @@ class ServiceController extends Controller
                 'user_id' => Auth::user()->id
             ]);
 
+             $bookedProgram = ProgramFee::where('program_id',$request->program)->first();
+             return redirect()->to($bookedProgram->payment_link);
             return back()->with('feedback','Appointment Successfully Booking and awaiting confirmaitn');
         }
     }

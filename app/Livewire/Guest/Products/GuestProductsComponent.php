@@ -16,7 +16,7 @@ class GuestProductsComponent extends Component
         $this->page = $page;
     }
 
-    public function addMaterial(Product $product)
+    public function addToCart(Product $product)
     {
         $cartItem = Cart::instance('cart')->search(function ($cartItem, $rowId) use ($product) {
             return $cartItem->id === $product->id;

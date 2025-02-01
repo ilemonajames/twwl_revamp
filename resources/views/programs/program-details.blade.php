@@ -49,11 +49,11 @@
                             <p>{!! $program->program_content !!}</p>
                             </div>
                         </div>
-                        
+
                         @endif
-                        
-                       
-                        
+
+
+
 {{--
                         <div class="row g-4">
                             <div class="col-lg-4">
@@ -151,10 +151,10 @@
                         @foreach($program->fees as $fee)
                         {{-- <h4>{{ $fee->service->service_title}}</h4> --}}
 
-                        {{-- <div class="mb-3">
+                        <div class="mb-3">
                             <div class="">Program Fee</div>
                             <div class="fw-bold">${{$fee->program_fees  }}</div>
-                        </div> 
+                        </div>
 
                         <div class="mb-3">
                             <div class="">Session Fee</div>
@@ -168,14 +168,10 @@
                             <div class="">Duration</div>
                             <div class="fw-bold">{{ $fee->duration  }}</div>
                         </div>
-                        
+
 
                         <a class="" target="_blank"
                                                 href="{{$fee->payment_link}}">Book Now</a>
-                                                --}}
-
-                                                <a class="" target="_blank"
-                                                href="/register">Book Now</a>
                         @endforeach
 
                     </div>
