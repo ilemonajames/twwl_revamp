@@ -26,6 +26,13 @@
                                     @error('ap_time')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
+                                </div><br>
+                                <div class="col-md-12">
+                                    <label class="form-label">Meeting Link</label>
+                                    <input class="form-control" wire:model="meeting_link" type="text" placeholder="">
+                                    @error('meeting_link')
+                                        <p text="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
                             </div>
                             <br>

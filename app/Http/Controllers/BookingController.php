@@ -36,13 +36,13 @@ class BookingController extends Controller
     //     ]);
 
     //     // Perform necessary actions to save the booking
-        
+
 
     //     // For example, saving it to a database or sending a confirmation email
-        
+
     //     // Redirect to success page
-    //  return redirect()->route('booking.success'); 
-      
+    //  return redirect()->route('booking.success');
+
     // }
 
 
@@ -62,7 +62,7 @@ public function bookAsGuest(Request $request)
         'amount' => 'required|numeric', // Amount that is due
     ]);
 
-    // Begin a transaction to ensure atomicity 
+    // Begin a transaction to ensure atomicity
     DB::beginTransaction();
     try {
         // Save booking details - mark the status as 'on hold'
@@ -80,6 +80,8 @@ public function bookAsGuest(Request $request)
             'status' => 'on hold', // Mark the booking status as on hold
             'amount_due' => $request->amount, // Store the amount due in the booking record
         ]);
+
+        $bookedProgram = Program::find($request->program);
 
         // Commit the transaction
         DB::commit();

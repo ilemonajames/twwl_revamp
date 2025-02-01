@@ -73,12 +73,14 @@ class AppointmentsComponent extends Component
         $this->validate([
             'ap_date' => ['required'],
             'ap_time' => ['required'],
+            'meeting_link' => ['required'],
         ]);
 
         $this->selBooking->update([
             'status' => 'scheduled',
             'appointment_date' => $this->ap_date,
             'appointment_time' => $this->ap_time,
+            'consulation_link' => $this->meeting_link
         ]);
 
         try{

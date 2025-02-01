@@ -62,7 +62,7 @@
                                                     </button>
                                                     <div class="dropdown-menu dropdown-menu-end">
                                                         @if($booking->status=="pending")
-                                                        <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#scheduleAppointment" wire:click="setBooking({{ $booking }})" href="#">School Appointment</a>
+                                                        <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#scheduleAppointment" wire:click="setBooking({{ $booking }})" href="#">Schedule Appointment</a>
                                                         @endif
                                                         <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#updateAppointment" wire:click="setBooking({{ $booking }})" href="#">Update Appointment</a>
                                                         <a class="dropdown-item confirm-delete" wire:click="setActionId('{{ $booking->id }}')" href="#">Delete</a>
