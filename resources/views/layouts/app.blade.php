@@ -22,8 +22,10 @@
     <link href="{{ asset('admin/assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://nacomns.fra1.digitaloceanspaces.com/portal/staff/assets/vendor/toastr/css/toastr.min.css"/>
     <script src="https://kit.fontawesome.com/a5a1968140.js" crossorigin="anonymous"></script>
-
+    @livewireStyles()
     @stack('styles')
+    <script type="text/javascript" src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
+    <script type="text/javascript" src="https://js.squareup.com/v2/paymentform"></script>
 </head>
 
 <body data-layout="detached" data-topbar="colored" @if(Auth::user()->dark_mode==true) data-bs-theme="dark"  @endif>
@@ -92,10 +94,9 @@
 
     <script src="{{ asset('admin/assets/js/app.js') }}"></script>
 
-    <script type="text/javascript" src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
-    <script type="text/javascript" src="https://js.squareup.com/v2/paymentform"></script>
 
 
+    @livewireScripts()
     <script src="https://nacomns.fra1.digitaloceanspaces.com/portal/staff/assets/vendor/toastr/js/toastr.min.js"></script>
     <script src="https://nacomns.fra1.digitaloceanspaces.com/portal/staff/assets/js/plugins-init/toastr-init.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>

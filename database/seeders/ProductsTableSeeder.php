@@ -1,10 +1,10 @@
 <?php
 
     namespace Database\Seeders;
-    
+
     use Illuminate\Database\Seeder;
     use Illuminate\Support\Facades\DB;
-    
+
     class ProductsTableSeeder extends Seeder
     {
         /**
@@ -16,18 +16,18 @@
         {
             DB::table('products')->insert([
                 [
-                    'product_name' => 'Sample Product 1',
-                    'description' => 'Description for Sample Product 1',
+                    'product_name' => 'Hoodies: inhale peace exhale chaos ',
+                    'description' => 'Hoodies: inhale peace exhale chaos ',
                     'price' => 19.99,
-                    'photo' => 'path/to/photo1.jpg',
+                    'photo' => 'hood.jpeg',
                     'created_at' => now(),
                     'updated_at' => now(),
                 ],
                 [
-                    'product_name' => 'Sample Product 2',
-                    'description' => 'Description for Sample Product 2',
+                    'product_name' => 'T-shirt',
+                    'description' => 'T-shirt',
                     'price' => 29.99,
-                    'photo' => 'path/to/photo2.jpg',
+                    'photo' => 'tshirt.jpeg',
                     'created_at' => now(),
                     'updated_at' => now(),
                 ],
@@ -35,4 +35,4 @@
             ]);
         }
     }
-    
+
