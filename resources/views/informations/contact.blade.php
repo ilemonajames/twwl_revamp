@@ -69,7 +69,7 @@
                         <div class="col-lg-6">
                             <div class="p-4">
                                 
-                                    <form name="contactForm"  class="contact-form" method="post"  action="{{ route('sendMessage')}}" onsubmit="return validateCaptcha();">
+                                    <form name="contactForm"  class="contact-form" method="post"  action="{{ route('sendMessage')}}" id="contact-form">
                                         @csrf
                                     <div class="field-set mb-3">
                                         <input  type="text" name="name" value="{{ old('name')}}" id="name" class="form-control" placeholder="Your Name" required>
@@ -103,7 +103,7 @@
                                     {{-- <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div> --}}
 
                                     <div class="g-capcha">
-                                        {!! htmlFormSnippet() !!}
+                                        <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
 
                                     </div>
                                     <div id='submit' class="mt20">
@@ -181,3 +181,20 @@
 
         </div>
         @endsection
+
+        <!-- Add reCAPTCHA v3 script -->
+<script src="https://www.google.com/recaptcha/api.js?render={{ env('RECAPTCHA_SITE_KEY') }}"></script>
+<script>
+    // Execute reCAPTCHA v3 on form submission
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        grecaptcha.ready(function() {
+            grecaptcha.execute('{{ env('RECAPTCHA_SITE_KEY') }}', {action: 'submit'}).then(function(token) {
+                // Add the token to the hidden input
+                document.getElementById('g-recaptcha-response').value = token;
+                // Submit the form
+                document.getElementById('contact-form').submit();
+            });
+        });
+    });
+</script>
