@@ -100,11 +100,11 @@
                                         
                                     
                                     <!-- Dynamic CAPTCHA -->
-                                    <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
+                                    {{-- <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div> --}}
 
                                     <div class="g-capcha">
-                                      <label for="captcha">Anti spam prove - What is?: <span id="math-question"></span></label>
-                                      <input type="text" class="captcha form-control" id="captcha" name="captcha" required>
+                                        {!! htmlFormSnippet() !!}
+
                                     </div>
                                     <div id='submit' class="mt20">
                                        
