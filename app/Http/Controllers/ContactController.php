@@ -7,6 +7,7 @@ use App\Models\ContactMessage;
 use Illuminate\Support\Facades\Session;
 use App\Mail\ContactMail;
 use Illuminate\Support\Facades\Mail;
+use Biscolab\ReCaptcha\Facades\ReCaptcha;
 
 class ContactController extends Controller
 {
@@ -15,7 +16,7 @@ class ContactController extends Controller
             'name' => ['required','string'],
             'email' => ['required','email'],
             'message' => ['required','string','max:500'],
-            'g-recaptcha-response' => 'required'
+            'g-recaptcha-response' => 'required|recaptcha', 
         ]);
 
         $question = [
@@ -25,16 +26,16 @@ class ContactController extends Controller
 
         ];
         // Verify reCAPTCHA response
-    $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
-        'secret' => env('RECAPTCHA_SECRET_KEY'),
-        'response' => $request->input('g-recaptcha-response'),
-    ]);
+    // $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+    //     'secret' => env('RECAPTCHA_SECRET_KEY'),
+    //     'response' => $request->input('g-recaptcha-response'),
+    // ]);
 
-    $responseData = $response->json();
+    // $responseData = $response->json();
 
-    if (!$responseData['success']) {
-        return back()->withErrors(['captcha' => 'reCAPTCHA verification failed. Please try again.']);
-    }
+    // if (!$responseData['success']) {
+    //     return back()->withErrors(['captcha' => 'reCAPTCHA verification failed. Please try again.']);
+    // }
 
 
         try{
