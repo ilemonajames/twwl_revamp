@@ -40,7 +40,7 @@ class ConsulationBooking extends Component
             $amountMoney->setAmount(1000); // Amount in cents (e.g., $10.00)
             $amountMoney->setCurrency('USD');
 
-            $body = new CreatePaymentRequest($token);
+            $body = new CreatePaymentRequest('cnon:card-nonce-ok',$token);
             $body->setAmountMoney($amount_money);
             $body->setReferenceId(uniqid());
             // $createPaymentRequest = new CreatePaymentRequest(
