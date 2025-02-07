@@ -41,7 +41,7 @@ class ConsulationBooking extends Component
             $amountMoney->setCurrency('USD');
 
             $body = new CreatePaymentRequest('cnon:card-nonce-ok',$token);
-            $body->setAmountMoney($amount_money);
+            $body->setAmountMoney($amountMoney);
             $body->setReferenceId(uniqid());
             // $createPaymentRequest = new CreatePaymentRequest(
             //     $token,
