@@ -13,7 +13,6 @@ use Square\Models\Money;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
 use App\Mail\BookingNotification;
-use Illuminate\Support\Str;
 
 class ConsulationBooking extends Component
 {
@@ -26,6 +25,13 @@ class ConsulationBooking extends Component
     protected $listeners = ['processPayment'];
     #[On('processPayment')]
 
+    protected $squareClient;
+
+    public function __construct(SquareClient $squareClient)
+    {
+        $this->squareClient = $squareClient;
+    }
+
     public function updatedProgram(){
         $this->selApp = ProgramFee::where('program_id',$this->program)->first();
     }
@@ -33,17 +39,21 @@ class ConsulationBooking extends Component
     public function processPayment($token)
     {
         $client = app(SquareClient::class);
-        $t_token = Str::random(10);
+
         $paymentsApi = $client->getPaymentsApi();
         try {
-            $response = $paymentsApi->createPayment([
-                'source_id' => $token,
-                'amount_money' => [
-                    'amount' => $this->total_amount * 100, // Amount in cents
-                    'currency' => 'USD',
-                ],
-                'idempotency_key' => $t_token, // Unique key for this transaction
-            ]);
+            $paymentsApi = $this->squareClient->getPaymentsApi();
+            $amountMoney = new Money();
+            $amountMoney->setAmount($this->total_amount * 100); // Amount in cents (e.g., $10.00)
+            $amountMoney->setCurrency('USD');
+
+            $createPaymentRequest = new CreatePaymentRequest(
+                $token,
+                uniqid(),
+                $amountMoney
+            );
+
+            $response = $paymentsApi->createPayment($createPaymentRequest);
 
             if ($response->isSuccess()) {
                 $this->dispatch('feedback', feedback: 'Payment successful!');
