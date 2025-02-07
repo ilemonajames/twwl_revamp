@@ -1,4 +1,5 @@
 <div>
+    @include('livewire.client.modals.payment-model')
 
     <div class="col-lg-12" >
         <div class="card">
@@ -101,7 +102,6 @@
                 </div>
             </div>
         </div>
-    @include('livewire.client.modals.payment-model')
 
     </div>
 
