@@ -24,6 +24,7 @@
     <script src="https://kit.fontawesome.com/a5a1968140.js" crossorigin="anonymous"></script>
     @livewireStyles()
     @stack('styles')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <script type="text/javascript" src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
     <script type="text/javascript" src="https://js.squareup.com/v2/paymentform"></script>
 </head>

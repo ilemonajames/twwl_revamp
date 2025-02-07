@@ -5,12 +5,12 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="page-title mb-0 font-size-18">Appointment</h4>
+                    <h4 class="page-title mb-0 font-size-18">My Bookings</h4>
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
-                            <li class="breadcrumb-item active">List of Appointments</li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">Booking</a></li>
+                            <li class="breadcrumb-item active">My Bookings</li>
                         </ol>
                     </div>
 
@@ -49,7 +49,8 @@
                                         <td>{{ $booking->appointment_date->format('d M, Y') }} <span class="d-block text-info">{{ $booking->appointment_time }}</span></td>
                                         <td>{{ $booking->program->program_title  }}</td>
                                         {{-- <td>{{ $booking->service->service_title  }}</td> --}}
-                                        <td><span class="badge badge-pill @if($booking->status=="pending") bg-danger-light @else bg-success-light @endif">{{ $booking->status }}</span></td>
+                                        <td><span class="badge badge-pill @if($booking->status=="pending") bg-danger @else bg-success @endif">{{ $booking->status }}</span></td>
+                                        @if($booking->status != "Paid" && $booking->status!="Scheduled" && $booking->status!="Completed")
                                         <td class="text-right">
                                             <div class="table-action">
                                                 <a href="$programFee[0]['payment_link]" class="btn btn-sm bg-danger-light">
@@ -57,6 +58,7 @@
                                                 </a>
                                             </div>
                                         </td>
+                                        @endif
                                     </tr>
                                 @endforeach
                                 @if(count($bookings)<=0)

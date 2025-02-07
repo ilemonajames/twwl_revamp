@@ -1,11 +1,11 @@
-<div class="modal fade lg" id="paymentModal" data-bs-backdrop="static" wire:ignore.self data-bs-keyboard="false" tabindex="-1"
+<div class="modal fade md" id="paymentModal" data-bs-backdrop="static" wire:ignore.self data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="paymentModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" wire:ignore.self>
+    <div class="modal-dialog modal-md" wire:ignore.self>
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="paymentModalLabel">
                 </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" id="closeCardModal" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="card-body">
@@ -42,6 +42,10 @@
                                 });
                             });
                         </script>
+                        <button type="submit" wire:click="processPayment('{{"ddd"}}')" class="btn btn-success waves-effect waves-light">
+                            <i  wire:loading wire:target="processPayment"
+                                class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i> Book
+                        </button>
                     </div>
                 </div>
             </div>
@@ -51,3 +55,9 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
+<script>
+    window.addEventListener('feedback',event => {
+        document.getElementById("closeCardModal").click();
+     });
+
+</script>
