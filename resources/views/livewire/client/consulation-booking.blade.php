@@ -1,10 +1,10 @@
 <div>
+    @include('livewire.client.modals.payment-model')
 
     <div class="col-lg-12" >
         <div class="card">
             <div class="card-body">
                 <div class="col-md-12 col-lg-12">
-                    @include('livewire.client.modals.payment-model')
 
                     <!-- Change Password Form -->
                     <form method="post" id="placeOrderForm" wire:submit.prevent="bookConsulation">
