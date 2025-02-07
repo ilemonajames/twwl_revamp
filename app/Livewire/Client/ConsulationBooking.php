@@ -11,6 +11,7 @@ use Square\Exceptions\ApiException;
 use Square\Models\CreatePaymentRequest;
 use Square\Models\Money;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
 use App\Mail\BookingNotification;
 
 class ConsulationBooking extends Component
@@ -45,7 +46,7 @@ class ConsulationBooking extends Component
             if ($response->isSuccess()) {
                 $this->dispatch('feedback', feedback: 'Payment successful!');
                 $message = "There is a new booking kindly login and schedule appointment for the client ";
-                $this->sendMail(Auth::user(),$message);
+                $this->sendMail(null,$message);
                 $this->completeBooking();
                 return redirect()->route('client.bookings');
             } else {
@@ -62,10 +63,11 @@ class ConsulationBooking extends Component
             'program_id' => $this->program,
             'appointment_date' => $this->ap_date,
             'appointment_time' => $this->ap_time,
-            'user_id' => Auth::user()->id
+            'user_id' => Auth::user()->id,
+            'status' => "Paid"
         ]);
 
-         $bookedProgram = ProgramFee::where('program_id',$request->program)->first();
+         $bookedProgram = ProgramFee::where('program_id',$this->program)->first();
          return redirect()->to($bookedProgram->payment_link);
         return back()->with('feedback','Appointment Successfully Booking and awaiting confirmaitn');
     }
@@ -115,7 +117,7 @@ class ConsulationBooking extends Component
 
     public function sendMail($user,$data){
         try{
-            Mail::to($user)->send(new BookingNotification($user,$data));
+            Mail::to("thewaywelove24@gmail.com")->send(new BookingNotification($user,$data));
         }catch (\Exception $e) { }
 
     }

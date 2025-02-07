@@ -1,5 +1,4 @@
 <x-app-layout>
-    @include('livewire.client.modals.payment-model')
     <div class="page-content">
         <!-- start page title -->
         <div class="row">
@@ -27,7 +26,6 @@
         <script>
             window.addEventListener('payment', event => {
                 $('#paymentModal').modal('show');
-                console.log("ddddd");
             });
         </script>
     @endpush

@@ -9,6 +9,8 @@ use Livewire\WithPagination;
 use App\Mail\AppointmentConfirmationMail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+use App\Mail\BookingNotification;
 
 class AppointmentsComponent extends Component
 {
@@ -23,6 +25,7 @@ class AppointmentsComponent extends Component
     public $selBooking;
     public $ap_date;
     public $ap_time;
+    public $meeting_link;
     public $status;
 
     use WithPagination;
@@ -94,11 +97,46 @@ class AppointmentsComponent extends Component
             'status' => ['required'],
         ]);
 
+        if($this->status=="Scheduled"){
+            $this->validate([
+                'ap_date' => ['required'],
+                'ap_time' => ['required'],
+                'meeting_link' => ['required'],
+            ]);
+
+
+            $this->selBooking->update([
+                'status' => 'scheduled',
+                'appointment_date' => $this->ap_date,
+                'appointment_time' => $this->ap_time,
+                'consulation_link' => $this->meeting_link
+            ]);
+
+            $meetingDate = $this->ap_date->format('d M, Y');
+
+            $message = "
+                    <div>
+                        <p>Your consultation has been scheduled as follows: </p>
+                        <p><strong>Date:</strong> $meetingDate</p>
+                        <p><strong>Venue:</strong> $this->ap_time</p>
+                        <p><strong>Meeting Link:</strong> <a href=\"$this->meeting_link\" target=\"_blank\">Join Meeting</a></p>
+                    </div>
+                ";
+            $this->sendMail($this->selBooking->user,$message);
+        }
+
         $this->selBooking->update([
             'status' => $this->status,
         ]);
 
         $this->dispatch('feedback', feedback: "Appointment Successfully Updated");
+    }
+
+    public function sendMail($user,$data){
+        try{
+            Mail::to($user)->send(new BookingNotification($user,$data));
+        }catch (\Exception $e) { }
+
     }
 
     public function render()

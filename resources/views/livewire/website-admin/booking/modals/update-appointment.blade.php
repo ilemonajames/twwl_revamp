@@ -33,7 +33,7 @@
                             <label class="form-label">Booking Status</label>
                             <select class="form-select" aria-label="Default select example" wire:model.live="status">
                                 <option selected="">-- Select Status--</option>
-                                <option value="Scheduled">Scheduled</option>
+                                <option value="Scheduled">Schedule Appointment</option>
                                 <option value="Completed">Completed</option>
                                 <option value="Closed">Closed</option>
                             </select>
@@ -41,6 +41,31 @@
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
+                        @if($status=="Scheduled")
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="form-label">Appointment date</label>
+                                <input class="form-control" wire:model="ap_date" type="date" placeholder="">
+                                @error('ap_date')
+                                    <p class="text-danger">{{ $message }}</p>
+                                @enderror
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Appointment time</label>
+                                <input class="form-control" wire:model="ap_time" type="time" placeholder="">
+                                @error('ap_time')
+                                    <p class="text-danger">{{ $message }}</p>
+                                @enderror
+                            </div><br><br>
+                            <div class="col-md-12">
+                                <label class="form-label">Meeting Link</label>
+                                <input class="form-control" wire:model="meeting_link" type="text" placeholder="">
+                                @error('meeting_link')
+                                    <p text="text-danger">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        @endif
                         <br>
 
                         <button type="submit" class="btn btn-success waves-effect waves-light">

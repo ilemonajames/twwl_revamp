@@ -150,7 +150,7 @@
                     <div class="padding30 rounded-10px bg-color-3">
                         @foreach($program->fees as $fee)
                         {{-- <h4>{{ $fee->service->service_title}}</h4> --}}
-
+{{--
                         <div class="mb-3">
                             <div class="">Program Fee</div>
                             <div class="fw-bold">${{$fee->program_fees  }}</div>
@@ -167,7 +167,7 @@
                         <div class="mb-3">
                             <div class="">Duration</div>
                             <div class="fw-bold">{{ $fee->duration  }}</div>
-                        </div>
+                        </div> --}}
 
 
                         <a class="" target="_blank"

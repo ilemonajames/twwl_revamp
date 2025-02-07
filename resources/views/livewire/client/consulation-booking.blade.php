@@ -1,4 +1,5 @@
 <div>
+
     <div class="col-lg-12" >
         <div class="card">
             <div class="card-body">
@@ -95,10 +96,13 @@
                             <i wire:loading wire:target="bookConsulation"
                                 class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i> Book
                         </button>
+
                     </form>
                 </div>
             </div>
         </div>
+    @include('livewire.client.modals.payment-model')
+
     </div>
 
 </div>
