@@ -30,7 +30,8 @@
                                 async function tokenize(paymentMethod) {
                                     const result = await paymentMethod.tokenize();
                                     if (result.status === 'OK') {
-                                        Livewire.emit('processPayment', result.token);
+                                        console.log(window.Livewire)
+                                        Livewire.dispatch('processPayment', result.token);
                                     } else {
                                         document.getElementById('payment-status-container').innerText = result.errors[0].detail;
                                     }
