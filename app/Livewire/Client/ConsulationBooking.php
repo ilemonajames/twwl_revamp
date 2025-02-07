@@ -43,7 +43,7 @@ class ConsulationBooking extends Component
             $createPaymentRequest = new CreatePaymentRequest(
                 $token,
                 uniqid(),
-                $amountMoney
+                setAmountMoney($amountMoney)
             );
 
             $response = $paymentsApi->createPayment($createPaymentRequest);
