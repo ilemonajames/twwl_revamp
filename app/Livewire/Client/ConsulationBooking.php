@@ -40,13 +40,16 @@ class ConsulationBooking extends Component
             $amountMoney->setAmount(1000); // Amount in cents (e.g., $10.00)
             $amountMoney->setCurrency('USD');
 
-            $createPaymentRequest = new CreatePaymentRequest(
-                $token,
-                uniqid(),
-                setAmountMoney($amountMoney)
-            );
+            $body = new CreatePaymentRequest($token);
+            $body->setAmountMoney($amount_money);
+            $body->setReferenceId(uniqid());
+            // $createPaymentRequest = new CreatePaymentRequest(
+            //     $token,
+            //     uniqid(),
+            //     setAmountMoney($amountMoney)
+            // );
 
-            $response = $paymentsApi->createPayment($createPaymentRequest);
+            $response = $paymentsApi->createPayment($body);
 
             if ($response->isSuccess()) {
                 $this->dispatch('feedback', feedback: 'Payment successful!');
