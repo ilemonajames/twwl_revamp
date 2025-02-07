@@ -25,12 +25,6 @@ class ConsulationBooking extends Component
     protected $listeners = ['processPayment'];
     #[On('processPayment')]
 
-    protected $squareClient;
-
-    public function __construct(SquareClient $squareClient)
-    {
-        $this->squareClient = $squareClient;
-    }
 
     public function updatedProgram(){
         $this->selApp = ProgramFee::where('program_id',$this->program)->first();
@@ -39,8 +33,8 @@ class ConsulationBooking extends Component
     public function processPayment($token)
     {
         $client = app(SquareClient::class);
-
         $paymentsApi = $client->getPaymentsApi();
+
         try {
             $paymentsApi = $this->squareClient->getPaymentsApi();
             $amountMoney = new Money();
