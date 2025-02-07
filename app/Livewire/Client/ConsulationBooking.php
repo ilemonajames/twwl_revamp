@@ -37,7 +37,7 @@ class ConsulationBooking extends Component
         try {
             $paymentsApi = $client->getPaymentsApi();
             $amountMoney = new Money();
-            $amountMoney->setAmount(1000 * 100); // Amount in cents (e.g., $10.00)
+            $amountMoney->setAmount(1000); // Amount in cents (e.g., $10.00)
             $amountMoney->setCurrency('USD');
 
             $createPaymentRequest = new CreatePaymentRequest(
