@@ -13,6 +13,7 @@ use Square\Models\Money;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
 use App\Mail\BookingNotification;
+use Illuminate\Support\Str;
 
 class ConsulationBooking extends Component
 {
@@ -32,7 +33,7 @@ class ConsulationBooking extends Component
     public function processPayment($token)
     {
         $client = app(SquareClient::class);
-
+        $t_token = Str::random(10);
         $paymentsApi = $client->getPaymentsApi();
         try {
             $response = $paymentsApi->createPayment([
@@ -41,7 +42,7 @@ class ConsulationBooking extends Component
                     'amount' => $this->total_amount * 100, // Amount in cents
                     'currency' => 'USD',
                 ],
-                'idempotency_key' => uniqid(), // Unique key for this transaction
+                'idempotency_key' => $t_token, // Unique key for this transaction
             ]);
 
             if ($response->isSuccess()) {
