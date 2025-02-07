@@ -41,9 +41,9 @@
         <link href="{{ asset('assets/css/style.css/') }}" rel="stylesheet" type="text/css" >
         <link href="{{ asset('assets/css/coloring.css/') }}" rel="stylesheet" type="text/css" >
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-       
+
             <script src="https://www.google.com/recaptcha/enterprise.js?render=6LdBucYqAAAAAIQdZIZSDx-ySzCydJFpCZuA0qHN"></script>
-            
+
 
         <script type="text/javascript" src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
 
