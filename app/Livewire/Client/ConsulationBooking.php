@@ -22,7 +22,7 @@ class ConsulationBooking extends Component
     public $ap_time;
     public $comment;
     public $total_amount;
-    // protected $listeners = ['processPayment'];
+    protected $listeners = ['processPayment'];
     #[On('processPayment')]
 
     public function updatedProgram(){
@@ -31,6 +31,7 @@ class ConsulationBooking extends Component
 
     public function processPayment($token)
     {
+        dd($token);
         $client = app(SquareClient::class);
 
         $paymentsApi = $client->getPaymentsApi();
