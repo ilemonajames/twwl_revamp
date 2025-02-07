@@ -33,10 +33,9 @@ class ConsulationBooking extends Component
     public function processPayment($token)
     {
         $client = app(SquareClient::class);
-        $paymentsApi = $client->getPaymentsApi();
 
         try {
-            $paymentsApi = $this->squareClient->getPaymentsApi();
+            $paymentsApi = $client->getPaymentsApi();
             $amountMoney = new Money();
             $amountMoney->setAmount($this->total_amount * 100); // Amount in cents (e.g., $10.00)
             $amountMoney->setCurrency('USD');
