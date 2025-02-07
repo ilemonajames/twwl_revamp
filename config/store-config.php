@@ -1,0 +1,7 @@
+<?php 
+$GLOBALS['ACCESS_TOKEN'] = "{{YOUR ACCESS TOKEN}}";
+$GLOBALS['STORE_NAME'] = "{{STORE NAME FROM SQUARE DASHBOARD}}";
+$GLOBALS['LOCATION_ID'] = ""; // We'll set this in a moment
+$GLOBALS['API_CLIENT_SET'] = false;
+
+?>
