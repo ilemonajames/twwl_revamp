@@ -26,7 +26,6 @@
     @stack('styles')
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script type="text/javascript" src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
-    <script type="text/javascript" src="https://js.squareup.com/v2/paymentform"></script>
 </head>
 
 <body data-layout="detached" data-topbar="colored" @if(Auth::user()->dark_mode==true) data-bs-theme="dark"  @endif>
@@ -101,6 +100,8 @@
     <script src="https://nacomns.fra1.digitaloceanspaces.com/portal/staff/assets/vendor/toastr/js/toastr.min.js"></script>
     <script src="https://nacomns.fra1.digitaloceanspaces.com/portal/staff/assets/js/plugins-init/toastr-init.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/square-payment-form@5.0.0/dist/square-payment-form.js"></script>
+
     <x-confirm-alert/>
     <x-toast-notification/>
     @stack('scripts')
