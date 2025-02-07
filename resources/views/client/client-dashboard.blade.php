@@ -18,6 +18,7 @@
             </div>
             <!-- end page title -->
 
+            @if(count(App\Models\Appointment::where('user_id',Auth::user()->id)->where('status','Paid')->get())>0)
             <div class="col-lg-12">
                 <div class="alert alert-danger alert-icon alert-dismissible">
                     <div class="row">
@@ -30,6 +31,7 @@
                     </div>
                 </div>
             </div><br>
+            @endif
             <div class="row">
                 <div class="col-xl-6">
                     <div class="card">
