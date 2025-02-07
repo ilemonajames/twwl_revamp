@@ -18,6 +18,20 @@
             </div>
             <!-- end page title -->
 
+            @if(count(App\Models\Appointment::where('user_id',Auth::user()->id)->where('status','Paid')->get())>0)
+            <div class="col-lg-12">
+                <div class="alert alert-danger alert-icon alert-dismissible">
+                    <div class="row">
+                            <div class="col-lg-9" style="padding-top:9px;">
+                                <em class="icon ni ni-cross-circle"></em> <strong>Hello {{ Auth::user()->surname. ' '.Auth::user()->othernames}} </strong>! you have no active booking
+                            </div>
+                            <div class="col-lg-3">
+                                <a href="{{ route('client.book') }}"><button class="btn btn-success align-right">Book Appointment</button></a>
+                            </div>
+                    </div>
+                </div>
+            </div><br>
+            @endif
             <div class="row">
                 <div class="col-xl-6">
                     <div class="card">

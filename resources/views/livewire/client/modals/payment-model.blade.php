@@ -42,10 +42,10 @@
                                 });
                             });
                         </script>
-                        <button type="submit" wire:click="processPayment('{{"ddd"}}')" class="btn btn-success waves-effect waves-light">
+                        {{-- <button type="submit" wire:click="processPayment('{{"ddd"}}')" class="btn btn-success waves-effect waves-light">
                             <i  wire:loading wire:target="processPayment"
                                 class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i> Book
-                        </button>
+                        </button> --}}
                     </div>
                 </div>
             </div>
