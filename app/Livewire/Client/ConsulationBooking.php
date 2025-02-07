@@ -22,7 +22,8 @@ class ConsulationBooking extends Component
     public $ap_time;
     public $comment;
     public $total_amount;
-    protected $listeners = ['processPayment'];
+    // protected $listeners = ['processPayment'];
+    #[On('processPayment')]
 
     public function updatedProgram(){
         $this->selApp = ProgramFee::where('program_id',$this->program)->first();
