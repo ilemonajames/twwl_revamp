@@ -31,7 +31,6 @@ class ConsulationBooking extends Component
 
     public function processPayment($token)
     {
-        dd($token);
         $client = app(SquareClient::class);
 
         $paymentsApi = $client->getPaymentsApi();
