@@ -18,7 +18,8 @@
   @if(Route::is(['video-call','voice-call']))
   <body class="call-page containter">
   @endif
-@include('layout.partials.header')
+  {{-- MENU NAVIGATION--}}
+@include('layout.partials.header_')
 {{-- @livewire('guest.guest-navigation') --}}
 @yield('content')
 @if(!Route::is(['chat-councellor','map-grid','map-list','chat','voice-call','video-call']))

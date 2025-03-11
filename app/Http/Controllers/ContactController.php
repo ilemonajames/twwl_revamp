@@ -9,6 +9,14 @@ use App\Mail\ContactMail;
 use Illuminate\Support\Facades\Mail;
 use Biscolab\ReCaptcha\Facades\ReCaptcha;
 
+require 'vendor/autoload.php';
+
+// Include Google Cloud dependencies using Composer
+use Google\Cloud\RecaptchaEnterprise\V1\RecaptchaEnterpriseServiceClient;
+use Google\Cloud\RecaptchaEnterprise\V1\Event;
+use Google\Cloud\RecaptchaEnterprise\V1\Assessment;
+use Google\Cloud\RecaptchaEnterprise\V1\TokenProperties\InvalidReason;
+
 class ContactController extends Controller
 {
     public function sendMessage(Request $request){

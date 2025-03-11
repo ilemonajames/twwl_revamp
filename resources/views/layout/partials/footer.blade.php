@@ -118,7 +118,8 @@
 					<h5>Contact</h5>
 
 					<div class="fw-bold text-light"><i class="icofont-location-pin me-2 id-color"></i>Office Location</div>
-					205 ½ E Broadway, Suite F & G Hopewell VA. 23860
+					1720 E Hundred Rd, Chester, Va 23836  Bldg C. (Middleville Common ) 
+
 
 					<div class="spacer-20"></div>
 

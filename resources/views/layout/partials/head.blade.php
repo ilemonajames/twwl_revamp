@@ -39,6 +39,7 @@
         <link href="{{ asset('assets/css/plugins.css/') }}" rel="stylesheet" type="text/css" >
         <link href="{{ asset('assets/css/swiper.css/') }}" rel="stylesheet" type="text/css" >
         <link href="{{ asset('assets/css/style.css/') }}" rel="stylesheet" type="text/css" >
+        <link href="{{ asset('assets/css/menu.css/') }}" rel="stylesheet" type="text/css" >
         <link href="{{ asset('assets/css/coloring.css/') }}" rel="stylesheet" type="text/css" >
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 

@@ -1,20 +1,24 @@
+
 <?php error_reporting(0); ?>
-
 <body>
-    <style>
-        #cartquantity{
-            position: relative;
-            right: 20px;
-            background-color: rgba(43, 128, 0, 0.748);
-            width: 20px;
-            height: 20px;
+    
+<style>
+#cartquantity {
+    position: relative;
+    right: 20px;
+    background-color: rgba(43, 128, 0, 0.748);
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-            border-radius: 100%;
-            font-size: 10px;
-        }
-    </style>
-    <div id="wrapper">
-        <div class="float-text show-on-scroll">
+</style>
+<header class="navbar navbar-expand-lg navbar-light bg-light transparent scroll-light" id="wrapper">
+    <div class="float-text show-on-scroll">
             <span><a href="#">Scroll to top</a></span>
         </div>
         <div class="scrollbar-v show-on-scroll"></div>
@@ -22,113 +26,63 @@
         <!-- page preloader begin -->
         <div id="de-loader"></div>
         <!-- page preloader close -->
+    <div class="container">
+        <!-- Logo -->
+        <a class="navbar-brand" href="/">
+            <img src="{{ asset('assets/images/logo.png') }}" alt="Logo" class="logo-main">
+        </a>
 
-        <!-- header begin -->
-        @if (Route::is(['/', 'home']))
-            <header class="transparent scroll-light">
-            @else
-                <header class="transparent header-light">
-        @endif
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="de-flex sm-pt10">
-                        <div class="de-flex-col">
-                            <!-- logo begin -->
-                            <div id="logo">
-                                <a href="/">
-                                    {{-- <img class="logo-main" src="images/logo.webp" alt="" > --}}
-                                    <img src="{{ asset('assets/images/logo.png') }}" class="logo-main" alt="Logo">
-                                    <img class="logo-scroll" src="{{ asset('assets/images/logo_black.png') }}"
-                                        alt="">
-                                    <img class="logo-mobile" src="{{ asset('assets/images/logo_black.png') }}"
-                                        alt="">
-                                </a>
-                            </div>
-                            <!-- logo close -->
+        <!-- Mobile Toggle Button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navigation Menu -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('home') ? 'active' : '' }}" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('about') ? 'active' : '' }}" href="{{ route('about') }}">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('programs') ? 'active' : '' }}" href="{{ route('programs.all') }}"><b>Program</b></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle {{ Request::is('blogs') ? 'active' : '' }}" href="/blogs" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <b>Blogs</b>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/services">Services</a></li>
+                        <li><a class="dropdown-item" href="/events">Events</a></li>
+                        <li><a class="dropdown-item" href="/podcasts">Podcast</a></li>
+                        <li><a class="dropdown-item" href="/videos">Videos</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('contact') ? 'active' : '' }}" href="{{ route('contact') }}">Contact</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- User Profile Section -->
+        @guest
+            @livewire('guest.guest-navigation')
+        @else
+            <div class="widget-profile pro-widget-content">
+                <div class="profile-info-widget">
+                    <a href="#" class="booking-counc-img">
+                        <img src="{{ asset('assets/images/users/' . Auth::user()->profile_photo_path) }}" alt="Profile">
+                    </a>
+                    <div class="profile-det-info">
+                        <h4>{{ Auth::user()->surname . ' ' . Auth::user()->othernames }}</h4>
+                        <div class="patient-details">
+                            <h5 class="mb-0">({{ Auth::user()->user_type }})</h5>
                         </div>
-
-                        <div class="de-flex-col header-col-mid">
-
-                            <ul id="mainmenu">
-
-                                <li><a class="menu-item {{ Request::is('home') ? 'active' : '' }}"
-                                        href="/">Home</a>
-
-                                </li>
-                                <li><a
-                                        class="{{ Request::is('about') ? 'active' : '' }} menu-item"href="{{ route('about') }}">About
-                                        Us</a>
-                                </li>
-                                {{-- <li><a class="menu-item {{ Request::is('services') ? 'active' : '' }}"
-                                        href="/programs">Programs</a>
-
-                                </li> --}}
-
-                                 <li><a class="{{ Request::is('programs') ? 'active' : '' }} menu-item"
-                                        href="{{ route('programs.all') }}"><b>Program</b></a>
-                                </li>
-
-                                <li><a class="{{ Request::is('blogs') ? 'active' : '' }} menu-item"
-                                    href="/blogs"><b>Blogs</b></a>
-                                <ul>
-                                    <li><a class="menu-item {{ Request::is('services') ? 'active' : '' }}" href="/services">Services</a></li>
-                                    <li><a class="menu-item {{ Request::is('events') ? 'active' : '' }}" href="/events">Events</a></li>
-                                    <li><a class="menu-item {{ Request::is('blogs') ? 'active' : '' }}" href="/podcasts">Podcast</a></li>
-                                    <li><a class="menu-item {{ Request::is('blogs') ? 'active' : '' }}" href="/videos">Vidoes</a></li>
-                                </ul>
-                            </li>
-                                {{-- <li><a class="{{ Request::is('blogs') ? 'active' : '' }} menu-item"
-                                        href="/blogs"><b>Blog</b></a>
-                                    <ul>
-                                        <li><a class="menu-item {{ Request::is('blogs') ? 'active' : '' }}"
-                                                href="/podcasts">Podcast</a></li>
-                                        <li><a class="menu-item {{ Request::is('blogs') ? 'active' : '' }}"
-                                                href="/videos">Vidoes</a></li>
-                                    </ul>
-                                </li> --}}
-                                <li> <a class="{{ Request::is('contact') ? 'active' : '' }} menu-item"
-                                        href="{{ route('contact') }}">Contact</a>
-                                </li>
-                                {{-- <li><a href="/login" class="menu-item btn-success sm-hide btn  " {{ Request::is('login') ? 'active' : '' }}>Login</a>
-												</li> --}}
-                                {{-- <li class="sm-hide"> <a class="{{ Request::is('login') ? 'active' : '' }} menu-item " href="{{ route('login') }}">Login</a>
-												</li> --}}
-
-                            </ul>
-                        </div>
-                        @guest
-                        @livewire('guest.guest-navigation')
-                        @else
-                            <!--User Profile-->
-                            <div class="widget-profile pro-widget-content">
-                                <div class="profile-info-widget">
-                                    <a href="#" class="booking-counc-img">
-                                        <img src="{{ asset('assets/images/users/' . Auth::user()->profile_photo_path) }}">
-                                    </a>
-                                    <div class="profile-det-info">
-                                        <h4>{{ Auth::user()->surname . ' ' . Auth::user()->othernames }}</h4>
-                                        <div class="patient-details">
-                                            <h5 class="mb-0">({{ Auth::user()->user_type }})</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--User Profile end-->
-                        @endguest
-
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- mobile menu begin -->
-
-        
-        </header>
-        <!-- header close -->
-        <div class="no-bottom no-top" id="content">
-
-            <div id="top"></div>
-
-
-            
+        @endguest
+    </div>
+</header>
