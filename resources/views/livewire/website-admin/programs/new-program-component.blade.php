@@ -98,6 +98,9 @@
                 editor.on('change', function(e) {
                     @this.set('description', editor.getContent());
                 });
+                editor.on('change', function(e) {
+                    @this.set('program_content', editor.getContent());
+                });
             }
         });
 
