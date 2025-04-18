@@ -47,7 +47,7 @@
                             </div>
                             <!-- logo close -->
                         </div>
-
+                        <!-- Mobile Toggle Button -->
                         <div class="de-flex-col header-col-mid">
 
                             <ul id="mainmenu">
@@ -96,7 +96,8 @@
 												</li> --}}
 
                             </ul>
-                        </div>
+                        </div>                        
+</div>
                         @guest
                         @livewire('guest.guest-navigation')
                         @else
@@ -121,14 +122,13 @@
                 </div>
             </div>
         </div>
-        <!-- mobile menu begin -->
-
-        
+        <!-- mobile menu begin -->         
         </header>
         <!-- header close -->
         <div class="no-bottom no-top" id="content">
 
             <div id="top"></div>
+        </body> 
 
 
             
