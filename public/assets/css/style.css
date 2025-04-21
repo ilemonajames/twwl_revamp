@@ -133,7 +133,7 @@ html {
 
 body {
   font-family: var(--body-font);
-  font-size: var(--body-font-size)
+  font-size: var(--body-font-size);
   font-weight: 400;
   color: var(--body-font-color);
   padding: 0;
@@ -267,7 +267,7 @@ header.transparent {
 }
 
 body:not(.side-layout) header:not(.smaller):not(.header-mobile).header-light.transparent {
-  background: rgba(255, 255, 255, 0.0);
+  background: rgba(255, 255, 255, 0);
 }
 
 header.autoshow {
@@ -5287,7 +5287,7 @@ i.font60 {
 
 .ul-style-4 li {
   margin: 2px 0 2px 0;
-  display: ;
+  display:;
   font-weight: 500;
 }
 
@@ -9516,7 +9516,7 @@ footer .widget{
   border-color: #555;
 }
 
-.widget_tags li a:hover border-color: #eceff3;
+.widget_tags li a:hover{ border-color: #eceff3;
 }
 
 footer .widget {
@@ -9856,6 +9856,7 @@ i.bg-color-secondary {
    background: -webkit-linear-gradient(0deg,rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .5) 100%);
   background: -moz-linear-gradient(0deg,rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .5) 100%);
   background: linear-gradient(0deg,rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .5) 100%);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 0;
@@ -9914,7 +9915,7 @@ i.bg-color-secondary {
 
 
 .de-step-s1 {
-  overflow: ;
+  overflow: hidden;/* this place was empty so I just put hidden*/
   position: relative;
   padding: 30px;
   height: 100%;
@@ -10042,7 +10043,7 @@ i.bg-color-secondary {
 
 
 .owl-carousel.no-hide .owl-stage-outer{
-  overflow: visible; !important;
+  overflow: visible, !important;
 }
 
 .c-item{
@@ -13873,6 +13874,7 @@ a.read_more i {
 .switch {
   margin-bottom: -5px;
   -webkit-appearance: none;
+  appearance: none;
   height: 22px;
   width: 42px;
   background-color: #F4F4F4;
@@ -17436,18 +17438,26 @@ button{
 @media (max-width: 768px) {
   #mainmenu {
       display: none; /* Hide the navigation by default */
-  }
+   }
+ 
 
-  #mainmenu.collapse {
+  #mainmenu.show {
       display: block; /* Show menu when toggled */
   }
 
   .navbar-toggler {
+      display:block;
       -webkit-appearance: none;
+      appearance: none;
       background: none;
       border: none;
       color: #fff; /* Style the toggler button */
       font-size: 1.5rem;
       cursor: pointer;
   }
+  @media (min-width: 769px) {
+    .navbar-toggler {
+        display: none; /* Hide on larger screens */
+    }
 }
+} 

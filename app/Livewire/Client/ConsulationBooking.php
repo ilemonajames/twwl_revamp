@@ -13,6 +13,7 @@ use Square\Models\Money;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
 use App\Mail\BookingNotification;
+use Carbon\Carbon;
 
 class ConsulationBooking extends Component
 {

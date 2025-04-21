@@ -8,8 +8,9 @@ use Illuminate\Support\Facades\Session;
 use App\Mail\ContactMail;
 use Illuminate\Support\Facades\Mail;
 use Biscolab\ReCaptcha\Facades\ReCaptcha;
+use Illuminate\Support\Facades\Http;
 
-require 'vendor/autoload.php';
+// require 'C:\Users\Legend\Documents\twwl_revamp\vendor\autoload.php';
 
 // Include Google Cloud dependencies using Composer
 use Google\Cloud\RecaptchaEnterprise\V1\RecaptchaEnterpriseServiceClient;
@@ -33,26 +34,32 @@ class ContactController extends Controller
             'message' => $data['message'],
 
         ];
-  // Verify reCAPTCHA token with Google
-  $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
-    'secret' => env('RECAPTCHA_SECRET_KEY'),
-    'response' => $request->input('g-recaptcha-response'),
-    'remoteip' => $request->ip(),
-]);
 
-$responseData = $response->json();
+  // Verify reCAPTCHA token with Google(version 2)
+      $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+        'secret' => env('RECAPTCHA_SECRET_KEY'),
+        'response' => $request->input('g-recaptcha-response'),
+        'remoteip' => $request->ip(),
+    ]);
 
-// Check if reCAPTCHA verification was successful
-if (!$responseData['success'] || $responseData['score'] < 0.5) {
-    // reCAPTCHA verification failed or score is too low
-    return redirect()->back()->with('error', 'Failed reCAPTCHA verification. Please try again.');
+    $responseData = $response->json();
 
-}
+    if (!$responseData['success']) {
+        \Log::info('Contact form email not sent');
+        return redirect()->back()->with('error', 'reCAPTCHA verification failed. Try again.');
+    }
 
         try{
             // Mail::to("support@maytrustmicrolending.com")->send(new ContactMail($question));
             Mail::to("thewaywelove24@gmail.com")->send(new ContactMail($question));
-        }catch(\Exception $e){}
+            \Log::info('Contact form email sent');
+            
+        }catch(\Exception $e){
+            \Log::error('Mail sending failed: ' . $e->getMessage());
+            // dd('Email error: ' . $e->getMessage());
+            return redirect()->back()->with('error', 'Failed to send the message. Please try again later.');
+            
+        }
 
         return back()->with('feedback','Message Successully Sent');
     }

@@ -51,7 +51,7 @@
                                     <input id="email" type="email" name="email" class="form-control"
                                         :value="old('email')" required autofocus />
                                     <div class="text-error mt-2"> <span class="text"
-                                            :messages="$errors - > get('email')"></span> </div>
+                                            :messages="$errors -> get('email')"></span> </div>
                                 </div>
 
                                 <div class="flex items-center justify-end mt-4">

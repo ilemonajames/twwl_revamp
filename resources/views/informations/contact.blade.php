@@ -90,7 +90,7 @@
                                     </div>
                                     @error('email')
                                     <p class="text-danger">{{ $message }}</p>
-                                @enderror 
+                                    @enderror 
                                     <div class="field-set mb20">
                                         <textarea rows="4" name="message" value="{{ old('message')}}" id="message" class="form-control" placeholder="Your Message" required></textarea>
                                         @error('message')
@@ -99,55 +99,40 @@
                                     </div>
                                         
                                     
-                                    <!-- Dynamic CAPTCHA -->
-                                    {{-- <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div> --}}
-
-                                    <div class="g-capcha">
-                                        <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
-
+                                    {{-- captcha v2--}}
+                                    <div class="form-group mb-3">
+                                        <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
+                                        @error('g-recaptcha-response')
+                                            <p class="text-danger">{{ $message }}</p>
+                                        @enderror
                                     </div>
+
                                     <div id='submit' class="mt20">
                                        
                                         <button class="btn btn-main submit-btn"
                                         type="submit">Send Message</button>
                                     </div>
 
+                                    @if(Session::has('feedback'))
+                                        <div class="alert alert-success mt-3">
+                                            {{ Session::get('feedback') }}
+                                        </div>
+                                    @endif
                                     
-
-                                    <div id="success_message" class='success'>
-                                        Your message has been sent successfully. Refresh this page if you want to send more messages.
-                                    </div>
-                                    <div id="error_message" class='error'>
-                                        Sorry there was an error sending your form.
-                                    </div>
-                                    <!-- Validation -->
-
-                                    <script>
-                                        // Generate two random numbers for the CAPTCHA
-                                        let num1 = Math.floor(Math.random() * 10); // Random number between 0 and 9
-                                        let num2 = Math.floor(Math.random() * 10); // Random number between 0 and 9
-                                        let correctAnswer = num1 + num2;
-                                        
-                                        // Display the math question in the form
-                                        document.getElementById("math-question").textContent = `${num1} + ${num2}`;
-                                        
-                                        // Validate the CAPTCHA on form submission
-                                        function validateCaptcha() {
-                                          const userAnswer = parseInt(document.getElementById("captcha").value);
-                                          if (userAnswer !== correctAnswer) {
-                                            alert("Incorrect answer. Please try again.");
-                                            return false; // Prevent form submission
-                                          }
-                                          return true; // Allow form submission
-                                        }
-                                        </script>
+                                    @if(Session::has('error'))
+                                        <div class="alert alert-danger mt-3">
+                                            {{ Session::get('error') }}
+                                        </div>
+                                    @endif
                                     
-
+                              
+                                    
                                     <!-- // Validation -->
                                 </form>
+                                <script src="https://www.google.com/recaptcha/api.js" async defer></script>
                             </div>
                         </div>
-                        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                        
 
                     </div>
                 </div>
@@ -183,19 +168,3 @@
         </div>
         @endsection
 
-        <!-- Add reCAPTCHA v3 script -->
-<script src="https://www.google.com/recaptcha/api.js?render={{ env('RECAPTCHA_SITE_KEY') }}"></script>
-<script>
-    // Execute reCAPTCHA v3 on form submission
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-        event.preventDefault();
-        grecaptcha.ready(function() {
-            grecaptcha.execute('{{ env('RECAPTCHA_SITE_KEY') }}', {action: 'submit'}).then(function(token) {
-                // Add the token to the hidden input
-                document.getElementById('g-recaptcha-response').value = token;
-                // Submit the form
-                document.getElementById('contact-form').submit();
-            });
-        });
-    });
-</script>
