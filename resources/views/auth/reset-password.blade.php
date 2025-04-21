@@ -74,6 +74,8 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="g-recaptcha" data-sitekey="6LdW03QgAAAAAJko8aINFd1eJUdHlpvT4vNKakj6"></div>
+                            <div id='submit' class="mt20">
 
                                 <div class="submit-section form-group mt-4 mb-3 ">
                                     <button class="form-control btn btn-primary submit-btn"

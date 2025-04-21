@@ -56,7 +56,7 @@ class ContactController extends Controller
             
         }catch(\Exception $e){
             \Log::error('Mail sending failed: ' . $e->getMessage());
-            // dd('Email error: ' . $e->getMessage());
+             dd('Email error: ' . $e->getMessage());
             return redirect()->back()->with('error', 'Failed to send the message. Please try again later.');
             
         }
