@@ -81,9 +81,20 @@ class AuthenticatedUserController extends Controller
 
     public function forgetpassword(Request $request){
         $data = $request->validate([
-            'email' => ['email','required']
-        ]);
-
+            'email' => ['email','required'],
+            'g-recaptcha-response' => ['required']
+    ]);
+    
+    // Manual reCAPTCHA verification
+    $recaptchaResponse = $data['g-recaptcha-response'];
+    $secretKey = env('RECAPTCHA_SECRET_KEY');
+    
+    $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secretKey.'&response='.$recaptchaResponse);
+    $responseData = json_decode($verifyResponse);
+    
+    if(!$responseData->success) {
+        return back()->with('errorfeedback', 'Please complete the reCAPTCHA correctly');
+    }
         $checkMail =  User::where(['email'=>$data['email'],'status'=>'Active'])->first();
 
         if($checkMail!=null){

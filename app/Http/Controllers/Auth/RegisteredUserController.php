@@ -36,7 +36,18 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'phoneno' => ['required', 'string', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'g-recaptcha-response' => ['required']
         ]);
+        
+        $recaptchaResponse = $request->input('g-recaptcha-response');
+        $secretKey = env('RECAPTCHA_SECRET_KEY');
+    
+        $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secretKey.'&response='.$recaptchaResponse);
+        $responseData = json_decode($verifyResponse);
+    
+        if(!$responseData->success) {
+            return back()->withErrors(['g-recaptcha-response' => 'Please complete the reCAPTCHA correctly'])->withInput();
+        }
 
         $user = User::create([
             'surname' => $request->surname,
