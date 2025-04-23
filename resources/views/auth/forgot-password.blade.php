@@ -53,9 +53,18 @@
                                     <div class="text-error mt-2"> <span class="text"
                                             :messages="$errors -> get('email')"></span> </div>
                                 </div>
+                                <!-- Google reCAPTCHA -->
+                                <div class="form-group mt-4">
+                                    <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}" data-callback="enableSubmitButton"></div>
+                                    @if ($errors->has('g-recaptcha-response'))
+                                        <div class="text-error mt-2">
+                                            <span class="text">{{ $errors->first('g-recaptcha-response') }}</span>
+                                        </div>
+                                    @endif
+                                </div>
 
                                 <div class="flex items-center justify-end mt-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary" id="submit-btn" disabled>
                                         {{ __('Email Password Reset Link') }}
                                     </button>
                                 </div>
@@ -66,4 +75,11 @@
             </div>
         </section>
     </div>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+        // Enable submit button once reCAPTCHA is completed
+        function enableSubmitButton() {
+            document.getElementById('submit-btn').disabled = false;
+        }
+    </script>
 @endsection

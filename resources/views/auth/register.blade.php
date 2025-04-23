@@ -101,9 +101,16 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!-- Google reCAPTCHA -->
+                                <div class="form-group mt-4">
+                                    <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}" data-callback="enableSubmitButton"></div>
+                                    @error('g-recaptcha-response')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
                                 <div class="submit-section">
-                                    <button class="btn btn-primary submit-btn form-control mt-4"
-                                        type="submit">Sign up</button>  Already have account?  <a href="{{ route('login')}}">Login </a>
+                                    <button class="btn btn-primary submit-btn form-control mt-4" 
+                                        type="submit" id="submit-btn" disabled>Sign up</button>  Already have account?  <a href="{{ route('login')}}">Login </a>
                                 </div>
                             </form>
                         </div>
@@ -113,6 +120,12 @@
             </div>
         </div>
     </section>
-
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+        // Enable submit button once reCAPTCHA is completed
+        function enableSubmitButton() {
+            document.getElementById('submit-btn').disabled = false;
+        }
+    </script>
 
 @endsection
