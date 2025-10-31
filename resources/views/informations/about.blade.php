@@ -39,7 +39,7 @@
 						</div>
                         <figcaption class="figure-caption text-center">
                             <h3>Elizabeth Hall</h3>
-                            <h4 class="mb-3">Elizabeth Hall, <em>MA, CTH, NCC, QMHP-A/C</em><br>
+                            <h4 class="mb-3">Elizabeth Hall, <em>NCC, LPC/LMFT, CHT </em><br>
                                 <i>(She/Her)</i></h4>
                         </figcaption>
                     </figure>
@@ -204,8 +204,8 @@
                 <!-- Location -->
                 <div class="col-md-4 mb-3">
                     <h5 class="fw-bold">Location:</h5>
-                    <p>205 ½ E Broadway
-                        <br>, Suite F & G Hopewell VA. 23860</p>
+                    <p>206 N 2nd Avenue, 
+                        <br>, Hopewell Va 23860</p>
                 </div>
                 <!-- Contact -->
                 <div class="col-md-4">

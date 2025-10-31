@@ -51,7 +51,7 @@ All Products
                     <div class="relative p-5 text-center h-100 bg-color-2 text-light">
                         <i class="d-block fs-40 mb-2 icofont-location-pin"></i>
                         <h3>Visit Our Clinic</h3>
-                        205 ½ E Broadway, Suite F & G Hopewell VA. 23860. <br>
+                        206 N 2nd Avenue, Hopewell Va 23860. <br>
                         <a class="btn-main btn-light-trans text-light mt-3" href="https://maps.app.goo.gl/ctuz2C2hWQTdY7cj6" target="_blank">Get Direction</a>
                     </div>
                 </div>

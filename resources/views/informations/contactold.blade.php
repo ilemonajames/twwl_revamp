@@ -57,7 +57,7 @@
                                                         <h5><b>Our Address</b></h5>
                                                     </div>
                                                     <div class="feature-box-content">
-                                                        <p>205 ½ E Broadway, Suite F & G Hopewell VA. 23860.</p>
+                                                        <p>206 N 2nd Avenue, Hopewell Va 23860.</p>
                                                     </div>
                                                 </div>
                                             </div>

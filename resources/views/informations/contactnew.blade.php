@@ -46,7 +46,7 @@
                                 <img src="{{asset('assets/images/misc/5.webp')}}" class="img-fullwidth rounded-1" alt="">
                          
                             <div class="fw-bold text-dark"><i class="icofont-location-pin me-2 id-color-2"></i>Office Location</div>
-                            205 ½ E Broadway, Suite F & G Hopewell VA. 23860.
+                            206 N 2nd Avenue, Hopewell Va 23860.
 
 
                             <div class="spacer-single"></div>
