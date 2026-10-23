@@ -17,13 +17,13 @@ class ChatController extends Controller
     public function chat(Request $request)
     {
         $request->validate([
-            'input' => 'required|string',
+            'input' => 'required|string|max:2000',
         ]);
 
         $userInput = $request->input('input');
 
         $response = $this->openAIService->generateResponse($userInput);
-        
+
         return response()->json(['response' => $response]);
     }
 }

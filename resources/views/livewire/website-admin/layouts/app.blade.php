@@ -24,9 +24,10 @@
     <script src="https://kit.fontawesome.com/a5a1968140.js" crossorigin="anonymous"></script>
 
     @stack('styles')
+<link rel="stylesheet" href="{{ asset('assets/css/site-refinements.css') }}?v={{ filemtime(public_path('assets/css/site-refinements.css')) }}">
 </head>
 
-<body data-layout="detached" data-topbar="colored" @if(Auth::user()->dark_mode==true) data-bs-theme="dark"  @endif>
+<body class="site-account" data-layout="detached" data-topbar="colored" @if(Auth::user()->dark_mode==true) data-bs-theme="dark"  @endif>
     <div id="preloader">
         <div id="status">
             <div class="spinner-chase">
@@ -39,7 +40,7 @@
             </div>
         </div>
     </div>
-    <!-- <body data-layout="horizontal" data-topbar="dark"> -->
+    <!-- <body class="site-account" data-layout="horizontal" data-topbar="dark"> -->
 
     <div class="container-fluid">
         <!-- Begin page -->

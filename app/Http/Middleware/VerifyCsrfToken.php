@@ -12,6 +12,6 @@ class VerifyCsrfToken extends Middleware
      * @var array<int, string>
      */
     protected $except = [
-        //
+        'square/webhook', // Authenticated with Square's HMAC over the exact URL and raw body.
     ];
 }

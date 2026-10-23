@@ -48,6 +48,11 @@ class ProfileController extends Controller
 
         $user = $request->user();
 
+        if (\App\Models\Appointment::where('user_id', $user->id)->exists()
+            || \App\Models\Payment::where('user_id', $user->id)->exists()) {
+            return back()->withErrors(['password' => 'Please contact support to close an account with appointment or payment history.'], 'userDeletion');
+        }
+
         Auth::logout();
 
         $user->delete();

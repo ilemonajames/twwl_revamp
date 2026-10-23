@@ -51,21 +51,28 @@
                     </div>
 
                     <div class="col-lg-9">
-                        <div id="gallery" class="row g-4">
+                        <div id="gallery" class="site-program-grid row g-4">
                           
                             @if(count($programs)>0)
                 @foreach ($programs as $program)
-                            <div class="item service-{{ $program->id }} col-lg-4 text-center">
-                                <a href="{{ route('programs.details', $program->id) }}" class="d-block hover">
-                                    <div class="relative overflow-hidden rounded-20px">
-                                        <div class="absolute start-0 w-100 abs-middle fs-36 text-white text-center">
-                                            <span class="btn-main hover-scale-in-2">Read More</span>
-                                        </div>
-                                        <img src="{{ asset('/guest/images/uploads/' . $program->program_image) }}" class="img-fluid hover-scale-1-2" alt="">
+                            <div class="item service-{{ $program->id }} col-lg-4 col-md-6 text-center">
+                                @php
+                                    $photoName = basename((string) $program->program_image);
+                                    $photoUrl = $photoName && is_file(public_path('guest/images/uploads/'.$photoName))
+                                        ? asset('guest/images/uploads/'.$photoName) : asset('assets/images/services/2.webp');
+                                @endphp
+                                <article class="site-image-card h-100">
+                                <a href="{{ route('programs.details', $program->id) }}" class="d-block" tabindex="-1" aria-hidden="true">
+                                    <div class="site-program-media relative overflow-hidden">
+                                        <img src="{{ $photoUrl }}" class="site-card-image" alt="" loading="lazy" width="600" height="400">
                                     </div>
                                 </a>
-                                <h4 class="mt-3 mb-0">{{ $program->program_title }}</h4>
-                                <p class="mb-2">{!! Str::limit(strip_tags($program->program_description), 40) !!}</p>
+                                <div class="site-card-copy">
+                                <h4 class="mb-2">{{ $program->program_title }}</h4>
+                                <p class="mb-2">{{ Str::limit(trim(strip_tags($program->program_description)), 130) }}</p>
+                                <a class="btn-main btn-light-trans" href="{{ route('programs.details', $program->id) }}" aria-label="Read more about {{ $program->program_title }}">Read more</a>
+                                </div>
+                                </article>
                             </div>
                             @endforeach
                             @endif

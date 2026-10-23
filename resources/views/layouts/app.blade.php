@@ -25,10 +25,10 @@
     @livewireStyles()
     @stack('styles')
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <script type="text/javascript" src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
+<link rel="stylesheet" href="{{ asset('assets/css/site-refinements.css') }}?v={{ filemtime(public_path('assets/css/site-refinements.css')) }}">
 </head>
 
-<body data-layout="detached" data-topbar="colored" @if(Auth::user()->dark_mode==true) data-bs-theme="dark"  @endif>
+<body class="site-account" data-layout="detached" data-topbar="colored" @if(Auth::user()->dark_mode==true) data-bs-theme="dark"  @endif>
     <div id="preloader">
         <div id="status">
             <div class="spinner-chase">
@@ -41,7 +41,7 @@
             </div>
         </div>
     </div>
-    <!-- <body data-layout="horizontal" data-topbar="dark"> -->
+    <!-- <body class="site-account" data-layout="horizontal" data-topbar="dark"> -->
 
     <div class="container-fluid">
         <!-- Begin page -->

@@ -14,9 +14,9 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-    </head>
-    <body class="font-sans text-gray-900 antialiased">
+    <link rel="stylesheet" href="{{ asset('assets/css/site-refinements.css') }}?v={{ filemtime(public_path('assets/css/site-refinements.css')) }}">
+</head>
+    <body class="site-account font-sans text-gray-900 antialiased">
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
             <div>
                 <a href="/">
@@ -29,8 +29,6 @@
             </div>
         </div>
 
-        <script type="text/javascript" src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
-        <script type="text/javascript" src="https://js.squareup.com/v2/paymentform"></script>
 
 
         <script src="https://nacomns.fra1.digitaloceanspaces.com/portal/staff/assets/vendor/toastr/js/toastr.min.js"></script>

@@ -19,8 +19,12 @@ class RegistrationTest extends TestCase
 
     public function test_new_users_can_register(): void
     {
+        \Illuminate\Support\Facades\Http::fake(['www.google.com/recaptcha/api/siteverify' => \Illuminate\Support\Facades\Http::response(['success' => true])]);
         $response = $this->post('/register', [
-            'name' => 'Test User',
+            'surname' => 'User',
+            'othernames' => 'Test',
+            'phoneno' => '08012345678',
+            'g-recaptcha-response' => 'test-token',
             'email' => 'test@example.com',
             'password' => 'password',
             'password_confirmation' => 'password',

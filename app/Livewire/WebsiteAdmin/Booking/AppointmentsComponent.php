@@ -2,146 +2,119 @@
 
 namespace App\Livewire\WebsiteAdmin\Booking;
 
-use Livewire\Component;
-use App\Models\Appointment;
-use App\Models\Grow;
-use Livewire\WithPagination;
+use App\Livewire\WebsiteAdmin\AdminComponent as Component;
 use App\Mail\AppointmentConfirmationMail;
+use App\Models\Appointment;
+use App\Services\BookingService;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Auth;
-use App\Mail\BookingNotification;
+use Illuminate\Validation\ValidationException;
+use Livewire\WithPagination;
 
 class AppointmentsComponent extends Component
 {
-    protected $listeners = ['delete-confirmed'=>'deleteGrowth'];//listen to emited action
-
-    public $paginate;
-    public $actionId;
-    protected $paginationTheme = 'bootstrap';
-    public $searchTerm = null;
-    public $sn;
-    public $booking;
-    public $selBooking;
-    public $ap_date;
-    public $ap_time;
-    public $meeting_link;
-    public $status;
-
     use WithPagination;
 
+    protected $listeners = ['delete-confirmed' => 'deleteGrowth'];
 
-    public function mount(){
-        $this->paginate = 10;
+    protected $paginationTheme = 'bootstrap';
+
+    public $paginate = 10;
+
+    public $actionId;
+
+    public $searchTerm = '';
+
+    public $sn = 0;
+
+    public $booking;
+
+    public $selBooking;
+
+    public $ap_date;
+
+    public $ap_time;
+
+    public $meeting_link;
+
+    public $status;
+
+    public function getBookings()
+    {
+        return Appointment::with(['user', 'program'])->when($this->searchTerm, function ($query) {
+            $term = '%'.$this->searchTerm.'%';
+            $query->where(function ($query) use ($term) {
+                $query->where('name', 'like', $term)->orWhere('email', 'like', $term)
+                    ->orWhereHas('user', fn ($user) => $user->where('surname', 'like', $term)->orWhere('othernames', 'like', $term));
+            });
+        })->latest()->paginate(min(max((int) $this->paginate, 1), 100));
     }
-       //get record of blogs
-       public function getBookings(){
-        $bookings = Appointment::query()
-            ->where(function($query) {
-            if($this->searchTerm) {
-                $users = User::where('surname', 'like', '%'.$this->searchTerm.'%' )->orWhere('othernames', 'like', '%'.$this->searchTerm.'%' )->get()->pluck('id');
-                $query->wherein('user_id', $users );
-            }
-        })
 
-        ->latest()->paginate($this->paginate);
-        return $bookings;
+    public function clearSearch()
+    {
+        $this->searchTerm = '';
+        $this->resetPage();
     }
 
-    public function clearSearch(){
-        $this->searchTerm = "";
-    }
-
-    //delete Service
-    public function deleteGrowth(){
-        $grow= Appointment::find($this->actionId);
-        $grow->delete();
-        $this->dispatch('feedback',feedback:'Appointment Successfully Deleted');
-    }
-
-    //set action id
-    public function setActionId($actionId){
+    public function setActionId($actionId)
+    {
         $this->actionId = $actionId;
     }
 
-    public function setBooking(Appointment $booking){
+    private function assertPaymentResolved(Appointment $appointment): void
+    {
+        if (in_array($appointment->status, ['pending_payment', 'payment_processing', 'payment_review'], true)) {
+            throw ValidationException::withMessages(['payment' => 'Resolve this appointment payment before changing its status.']);
+        }
+    }
+
+    public function deleteGrowth()
+    {
+        $appointment = Appointment::findOrFail($this->actionId);
+        $this->assertPaymentResolved($appointment);
+        // Preserve payment references and booking history.
+        $appointment->update(['status' => 'cancelled']);
+        $this->dispatch('feedback', feedback: 'Appointment cancelled. Any refund must be handled separately.');
+    }
+
+    public function setBooking(Appointment $booking)
+    {
         $this->selBooking = $booking;
-        $this->ap_date = $booking->appointment_date;
-        $this->ap_time = $booking->appointment_time;
+        $this->ap_date = $booking->appointment_date->toDateString();
+        $this->ap_time = substr($booking->appointment_time, 0, 5);
+        $this->meeting_link = $booking->consulation_link;
         $this->status = $booking->status;
     }
 
-
-    public function scheduleAppointment(){
-        $this->validate([
-            'ap_date' => ['required'],
-            'ap_time' => ['required'],
-            'meeting_link' => ['required'],
+    public function scheduleAppointment()
+    {
+        abort_unless($this->selBooking, 422);
+        $this->validate(['ap_date' => 'required|date_format:Y-m-d', 'ap_time' => 'required|date_format:H:i', 'meeting_link' => 'required|url:http,https|max:2048']);
+        $this->selBooking = app(BookingService::class)->reschedule($this->selBooking, [
+            'appointment_date' => $this->ap_date, 'appointment_time' => $this->ap_time, 'consulation_link' => $this->meeting_link,
         ]);
-
-        $this->selBooking->update([
-            'status' => 'scheduled',
-            'appointment_date' => $this->ap_date,
-            'appointment_time' => $this->ap_time,
-            'consulation_link' => $this->meeting_link
-        ]);
-
-        try{
-            Mail::to($this->selBooking->user->email)->send(new AppointmentConfirmationMail($this->selBooking));
-        }catch(\Exception $e){}
-        $this->dispatch('feedback', feedback: "Appointment Successfully Scheduled");
-    }
-
-    public function updateAppointment(){
-        $this->validate([
-            'status' => ['required'],
-        ]);
-
-        if($this->status=="Scheduled"){
-            $this->validate([
-                'ap_date' => ['required'],
-                'ap_time' => ['required'],
-                'meeting_link' => ['required'],
-            ]);
-
-
-            $this->selBooking->update([
-                'status' => 'scheduled',
-                'appointment_date' => $this->ap_date,
-                'appointment_time' => $this->ap_time,
-                'consulation_link' => $this->meeting_link
-            ]);
-
-            $meetingDate = $this->ap_date->format('d M, Y');
-
-            $message = "
-                    <div>
-                        <p>Your consultation has been scheduled as follows: </p>
-                        <p><strong>Date:</strong> $meetingDate</p>
-                        <p><strong>Venue:</strong> $this->ap_time</p>
-                        <p><strong>Meeting Link:</strong> <a href=\"$this->meeting_link\" target=\"_blank\">Join Meeting</a></p>
-                    </div>
-                ";
-            $this->sendMail($this->selBooking->user,$message);
+        $email = $this->selBooking->user?->email ?? $this->selBooking->email;
+        if ($email) {
+            Mail::to($email)->queue((new AppointmentConfirmationMail($this->selBooking))->onConnection('database'));
         }
-
-        $this->selBooking->update([
-            'status' => $this->status,
-        ]);
-
-        $this->dispatch('feedback', feedback: "Appointment Successfully Updated");
+        $this->dispatch('feedback', feedback: 'Appointment scheduled. Confirmation queued.');
     }
 
-    public function sendMail($user,$data){
-        try{
-            Mail::to($user)->send(new BookingNotification($user,$data));
-        }catch (\Exception $e) { }
-
+    public function updateAppointment()
+    {
+        abort_unless($this->selBooking, 422);
+        $this->validate(['status' => 'required|in:Scheduled,Completed,Closed']);
+        if ($this->status === 'Scheduled') {
+            return $this->scheduleAppointment();
+        }
+        $appointment = Appointment::findOrFail($this->selBooking->id);
+        $this->assertPaymentResolved($appointment);
+        $appointment->update(['status' => $this->status]);
+        $this->dispatch('feedback', feedback: 'Appointment updated.');
     }
 
     public function render()
     {
-        $bookings = $this->getBookings();
-        return view('livewire.website-admin.booking.appointments-component',compact('bookings'))->layout('livewire.website-admin.layouts.app');
+        return view('livewire.website-admin.booking.appointments-component', ['bookings' => $this->getBookings()])
+            ->layout('livewire.website-admin.layouts.app');
     }
 }

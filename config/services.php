@@ -35,8 +35,14 @@ return [
         'access_token' => env('SQUARE_ACCESS_TOKEN'),
         'application_id' => env('SQUARE_APPLICATION_ID'),
         'location_id' => env('SQUARE_LOCATION_ID'),
-        'environment' => env('SQUARE_ENVIRONMENT'),
+        'environment' => env('SQUARE_ENVIRONMENT', 'sandbox'),
+        'currency' => env('SQUARE_CURRENCY', 'USD'),
+        'webhook_signature_key' => env('SQUARE_WEBHOOK_SIGNATURE_KEY'),
+        'webhook_notification_url' => env('SQUARE_WEBHOOK_NOTIFICATION_URL'),
     ],
-
+    'openai' => [
+        'key' => env('OPENAI_API_KEY'),
+        'model' => env('OPENAI_MODEL', 'gpt-3.5-turbo'),
+    ],
 
 ];

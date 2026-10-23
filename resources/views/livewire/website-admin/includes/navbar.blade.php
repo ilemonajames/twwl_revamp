@@ -129,7 +129,7 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('podcasts.create')}}">Add Media</a></li>
-                        <li><a href="{{ route('podcasts.index')}}">Manage Media</a></li>
+                        <li><a href="{{ route('admin.podcasts.index')}}">Manage Media</a></li>
                     </ul>
                 </li>
                 <li>

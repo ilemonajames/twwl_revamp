@@ -2,42 +2,45 @@
 
 namespace App\Livewire\WebsiteAdmin\Programs;
 
-use Livewire\Component;
-use Carbon\Carbon;
+use App\Livewire\WebsiteAdmin\AdminComponent as Component;
 use App\Models\Program;
-use Livewire\WithFileUploads;
-use Intervention\Image\Facades\Image;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
-use WithPagination;
+use Intervention\Image\Facades\Image;
+use Livewire\WithFileUploads;
 
 class ProgramComponent extends Component
 {
     use WithFileUploads;
 
     public $title;
+
     public $description;
+
     public $program_content;
+
     public $photo;
+
     public $croped_image; // Holds the cropped image data
+
     public $program; // Holds the program being edited
+
     public $mode = 'create'; // Default mode is create; change to 'edit' for editing
 
     protected $messages = [
-        'title.required' => "Please enter your program title",
-        'description.required' => "Please enter your program description",
-        'program_content.required'=> "Please enter Program Details",
-        'photo.required' => "Please upload a program image",
-        'photo.dimensions' => "Image must be at least 860px wide and 500px tall",
+        'title.required' => 'Please enter your program title',
+        'description.required' => 'Please enter your program description',
+        'program_content.required' => 'Please enter Program Details',
+        'photo.required' => 'Please upload a program image',
+        'photo.dimensions' => 'Image must be at least 860px wide and 500px tall',
     ];
 
-    //display all programs
-
-    
+    // display all programs
 
     public function displayPrograms()
     {
         return view('livewire.website-admin.programs.program-list-component', [
-            'programs' => Program::paginate(10) // Adjust the pagination count as needed
+            'programs' => Program::paginate(10), // Adjust the pagination count as needed
         ]);
     }
 
@@ -55,9 +58,9 @@ class ProgramComponent extends Component
     public function saveProgram()
     {
         $this->validate([
-            'title' => 'required|string|max:255' . ($this->mode === 'edit' ? '|unique:programs,program_title,' . $this->program->id : '|unique:programs,program_title'),
+            'title' => 'required|string|max:255'.($this->mode === 'edit' ? '|unique:programs,program_title,'.$this->program->id : '|unique:programs,program_title'),
             'description' => 'required|string',
-            'program_content'=>'required|string',
+            'program_content' => 'required|string',
             'photo' => 'nullable|mimes:jpeg,jpg,png,gif|dimensions:min_width=860,min_height=500',
             'croped_image' => 'nullable|string', // Validates cropped image as base64 string
         ]);
@@ -81,7 +84,7 @@ class ProgramComponent extends Component
                 Program::create([
                     'program_title' => $this->title,
                     'program_description' => $this->description,
-                    'program_content'=>$this->program_content,
+                    'program_content' => $this->program_content,
                     'program_image' => $programPhoto ?? null,
                 ]);
             } else {
@@ -89,16 +92,16 @@ class ProgramComponent extends Component
                 $this->program->update([
                     'program_title' => $this->title,
                     'program_description' => $this->description,
-                    'program_content'=>$this->program_content,
+                    'program_content' => $this->program_content,
                     'program_image' => $programPhoto ?? $this->program->program_image,
                 ]);
             }
 
-            session()->flash('message', 'Program successfully ' . ($this->mode === 'create' ? 'created' : 'updated'));
+            session()->flash('message', 'Program successfully '.($this->mode === 'create' ? 'created' : 'updated'));
             $this->resetForm();
 
         } catch (\Exception $e) {
-            \Log::error("Error saving program: " . $e->getMessage());
+            \Log::error('Error saving program: '.$e->getMessage());
             session()->flash('error', 'An error occurred while saving the program.');
         }
     }
@@ -122,33 +125,32 @@ class ProgramComponent extends Component
     // }
 
     public function uploadProductImage($base64Image)
-{
-    try {
-        // Decode base64 image
-        $image_parts = explode(";base64,", $base64Image);
-        if (count($image_parts) < 2) {
-            throw new \Exception("Invalid base64 image data.");
+    {
+        try {
+            // Decode base64 image
+            $image_parts = explode(';base64,', $base64Image);
+            if (count($image_parts) < 2) {
+                throw new \Exception('Invalid base64 image data.');
+            }
+
+            $image_base64 = base64_decode($image_parts[1]);
+            if (! $image_base64) {
+                throw new \Exception('Failed to decode base64 image.');
+            }
+
+            // Process the image
+            $imageName = Carbon::now()->timestamp.'_service.jpg';
+            $img = Image::make($image_base64)->encode('jpg', 60);
+
+            // Save to storage
+            Storage::disk('do')->put("guest/images/uploads/{$imageName}", $img->stream());
+
+            return $imageName;
+        } catch (\Exception $e) {
+            \Log::error('Image upload failed: '.$e->getMessage());
+            throw $e; // Rethrow to show error to the user
         }
-
-        $image_base64 = base64_decode($image_parts[1]);
-        if (!$image_base64) {
-            throw new \Exception("Failed to decode base64 image.");
-        }
-
-        // Process the image
-        $imageName = Carbon::now()->timestamp . '_service.jpg';
-        $img = Image::make($image_base64)->encode('jpg', 60);
-
-        // Save to storage
-        Storage::disk('do')->put("guest/images/uploads/{$imageName}", $img->stream());
-
-        return $imageName;
-    } catch (\Exception $e) {
-        \Log::error("Image upload failed: " . $e->getMessage());
-        throw $e; // Rethrow to show error to the user
     }
-}
-
 
     public function resetForm()
     {
@@ -161,4 +163,3 @@ class ProgramComponent extends Component
             ->layout('livewire.website-admin.layouts.app');
     }
 }
-    

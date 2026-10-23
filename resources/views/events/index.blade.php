@@ -39,7 +39,7 @@
             <div class="row g-4">
                 @foreach($events as $event)
                 <div class="col-lg-4 col-sm-6">
-                    <div class="relative mb-3">
+                    <div class="relative mb-3 site-image-card h-100">
                         <a href="{{ route('events.show',$event->id)}}" class="d-block hover mb-3">
                             <div class="relative overflow-hidden rounded-20px shadow-soft">
                                 <img src="{{ asset('guest/images/uploads/'.$event->image)}}" class="w-50 end-0 absolute hover-op-0"
@@ -47,11 +47,13 @@
                                 <div class="absolute start-0 w-100 abs-middle fs-36 text-white text-center">
                                     <span class="btn-main hover-scale-in-2">Read More</span>
                                 </div>
-                                <img src="{{ asset('guest/images/uploads/'.$event->image)}}" class="img-fluid hover-scale-1-2" alt="">
+                                <img src="{{ asset('guest/images/uploads/'.$event->image)}}" class="site-card-image" alt="{{ $event->event_title }}" loading="lazy">
                             </div>
                         </a>
+                        <div class="site-card-copy">
                         <h4>{{ $event->event_title}}</h4>
-                        <p class="no-bottom">{!! Str::limit($event->description,200) !!}</p>
+                        <p class="no-bottom">{{ Str::limit(strip_tags($event->description),200) }}</p>
+                        </div>
                     </div>
                 </div>
                 @endforeach

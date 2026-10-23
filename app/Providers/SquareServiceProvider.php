@@ -11,8 +11,10 @@ class SquareServiceProvider extends ServiceProvider
     {
         $this->app->singleton(SquareClient::class, function () {
             return new SquareClient([
-                'accessToken' => env('SQUARE_ACCESS_TOKEN'),
-                'environment' => env('SQUARE_ENVIRONMENT', 'sandbox'),
+                'accessToken' => config('services.square.access_token'),
+                'environment' => config('services.square.environment', 'sandbox'),
+                'timeout' => 20,
+                'numberOfRetries' => 0,
             ]);
         });
     }

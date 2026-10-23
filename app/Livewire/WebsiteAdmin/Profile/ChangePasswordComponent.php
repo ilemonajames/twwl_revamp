@@ -2,46 +2,51 @@
 
 namespace App\Livewire\WebsiteAdmin\Profile;
 
-use Livewire\Component;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
+use App\Livewire\WebsiteAdmin\AdminComponent as Component;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class ChangePasswordComponent extends Component
 {
     public $current_passowrd;
+
     public $password;
+
     public $password_confirmation;
+
     public $message = [
-        'current_passowrd.required' => "Please enter your current password",
-        'password.required' => "Please enter your new password",
-        'password_confirmation.required' => "Please confirm your new password",
-        'same.confirmed' => "password mismatch",
+        'current_passowrd.required' => 'Please enter your current password',
+        'password.required' => 'Please enter your new password',
+        'password_confirmation.required' => 'Please confirm your new password',
+        'same.confirmed' => 'password mismatch',
     ];
 
-    public function updated($fields){
-        $this->validateOnly($fields,[
+    public function updated($fields)
+    {
+        $this->validateOnly($fields, [
             'current_passowrd' => ['required', 'string', 'min:8'],
             'password' => ['required', 'string', 'min:8'],
-            'password_confirmation' => ['required', 'string', 'min:8','same:password'],
-        ],$this->message);
+            'password_confirmation' => ['required', 'string', 'min:8', 'same:password'],
+        ], $this->message);
     }
 
-    public function changePassword(){
+    public function changePassword()
+    {
         $this->validate([
             'current_passowrd' => ['required', 'string', 'min:8'],
             'password' => ['required', 'string', 'min:8'],
-            'password_confirmation' => ['required', 'string', 'min:8','same:password'],
-        ],$this->message);
+            'password_confirmation' => ['required', 'string', 'min:8', 'same:password'],
+        ], $this->message);
 
-        if(!Hash::check($this->current_passowrd, Auth()->user()->password)){
-            $this->dispatch('errorfeedback', errorfeedback: "Your current password do not match our record");
-        }else{
+        if (! Hash::check($this->current_passowrd, Auth()->user()->password)) {
+            $this->dispatch('errorfeedback', errorfeedback: 'Your current password do not match our record');
+        } else {
             User::find(Auth::user()->id)->update([
                 'password' => Hash::make($this->password),
             ]);
             $this->reset();
-            $this->dispatch('feedback',feedback: 'Password Successfully Changed');
+            $this->dispatch('feedback', feedback: 'Password Successfully Changed');
         }
 
     }

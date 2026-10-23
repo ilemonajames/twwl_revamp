@@ -2,28 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\NewsletterSubscriber;
+use Illuminate\Http\Request;
 
 class NewsletterController extends Controller
 {
-    public function subscribe(Request $request){
+    public function subscribe(Request $request)
+    {
         $data = $request->validate([
-            'email' => ['required','string']
+            'email' => ['required', 'string', 'email', 'max:255'],
         ]);
 
-        $checkEmail = NewsletterSubscriber::where('email',$data['email'])->first();
+        $checkEmail = NewsletterSubscriber::where('email', $data['email'])->first();
 
-        if($checkEmail!=null){
+        if ($checkEmail != null) {
             return back()->with('errorfeedback', 'Sorry you already subscribed for our news updates');
-        }elseif($data['email']==null){
+        } elseif ($data['email'] == null) {
             return back()->with('errorfeedback', 'Please enter your email address to subscribe to our news letter');
-        }else{
+        } else {
             NewsletterSubscriber::create([
-                'email' => $data['email']
+                'email' => $data['email'],
             ]);
 
-            return back()->with('feedback','Subscription Successful');
+            return back()->with('feedback', 'Subscription Successful');
         }
 
     }

@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
+use App\Traits\UUID;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Traits\UUID;
 
 class NewsLetter extends Model
 {
@@ -15,6 +15,7 @@ class NewsLetter extends Model
         'title',
         'image',
         'description',
-        'file'
+        'file',
+        'user_id',
     ];
 }

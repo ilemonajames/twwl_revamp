@@ -2,9 +2,9 @@
 
 namespace App\Livewire\WebsiteAdmin\Programs;
 
-use Livewire\Component;
-use Livewire\WithPagination;
+use App\Livewire\WebsiteAdmin\AdminComponent as Component;
 use App\Models\Program;
+use Livewire\WithPagination;
 
 class ProgramListComponent extends Component
 {
@@ -14,33 +14,18 @@ class ProgramListComponent extends Component
 
     public function deleteProgram($id)
     {
-        \Log::info("Delete function triggered with ID: $id");
-    
-        $program = Program::find($id);
-    
-        if ($program) {
-            \Log::info("Program found: {$program->program_title}");
-    
-            if ($program->program_image && file_exists(public_path('guest/images/uploads/' . $program->program_image))) {
-                unlink(public_path('guest/images/uploads/' . $program->program_image));
-                \Log::info("Program image deleted: {$program->program_image}");
-            }
-    
-            $program->delete();
-            \Log::info("Program deleted successfully.");
-            session()->flash('message', 'Program deleted successfully.');
+        abort_unless(auth()->user()?->status === 'Active'
+            && auth()->user()?->hasVerifiedEmail()
+            && in_array(auth()->user()?->user_type, ['Website Admin', 'Super Admin'], true), 403);
+        app(\App\Services\CatalogDeletionService::class)->program($id);
 
-            return redirect()->to('/website-admin/programs');// Emit an event to refresh the component
-        } else {
-            \Log::info("Program not found.");
-            session()->flash('error', 'Program not found.');
-        }
+        return redirect()->route('programs.index')->with('feedback', 'Program deleted successfully.');
     }
-    
+
     public function render()
     {
         return view('livewire.website-admin.programs.program-list-component', [
-            'programs' => Program::orderBy('created_at', 'desc')->paginate(10) // Adjust the pagination count as needed
+            'programs' => Program::orderBy('created_at', 'desc')->paginate(10), // Adjust the pagination count as needed
         ])->layout('livewire.website-admin.layouts.app');
     }
 }

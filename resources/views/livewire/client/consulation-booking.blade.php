@@ -1,4 +1,6 @@
 <div>
+    @error('appointment_time')<p class="text-danger" role="alert">{{ $message }}</p>@enderror
+    @error('payment')<p class="text-danger" role="alert">{{ $message }}</p>@enderror
     @include('livewire.client.modals.payment-model')
 
     <div class="col-lg-12" >
@@ -9,6 +11,10 @@
                     <!-- Change Password Form -->
                     <form method="post" id="placeOrderForm" wire:submit.prevent="bookConsulation">
                         @csrf
+                        @if($reservationId)
+                            <p role="status">Your selected appointment is reserved. Payment will use the recorded appointment and price. Contact us before starting another payment if confirmation is delayed.</p>
+                        @endif
+                        <fieldset @disabled($reservationId)>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
@@ -93,10 +99,14 @@
                         @enderror
                         </div><br>
 
+                        </fieldset>
                         <button type="submit" class="btn btn-success waves-effect waves-light">
                             <i wire:loading wire:target="bookConsulation"
                                 class="bx bx-loader bx-spin font-size-16 align-middle me-2"></i> Book
                         </button>
+                        @if($reservationId)
+                            <button type="button" wire:click="cancelUnpaidReservation" class="btn btn-secondary">Cancel unpaid reservation</button>
+                        @endif
 
                     </form>
                 </div>

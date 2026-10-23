@@ -22,11 +22,4 @@
             @livewire('client.consulation-booking')
         </div>
     </div>
-    @push('scripts')
-        <script>
-            window.addEventListener('payment', event => {
-                $('#paymentModal').modal('show');
-            });
-        </script>
-    @endpush
 </x-app-layout>

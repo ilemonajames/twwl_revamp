@@ -1,4 +1,4 @@
-<section class="section-dark text-light no-top no-bottom position-relative overflow-hidden z-1000">
+<section class="site-hero section-dark text-light no-top no-bottom position-relative overflow-hidden z-1000" aria-label="The Way We Love introduction">
     <div class="v-center">
         <div class="swiper">
           <!-- Additional required wrapper -->
@@ -21,7 +21,7 @@
                                             <p class="slider-teaser mb-3">Empowering individuals, couples, & family to build stronger and meaningful connections.</p>
                                         </div>
                                         <div class="spacer-10"></div>
-                                        <a class="btn-main bg-color-2 mb10 mb-3" href="/">Our Services</a>
+                                        <a class="btn-main bg-color-2 mb10 mb-3" href="{{ route('services.all') }}">Our Services</a>
                                     </div>
                                 </div>
 
@@ -69,7 +69,7 @@
                                             <p class="slider-teaser mb-3">Embark on a journey of self-discovery and emotional healing with our expert therapists.</p>
                                         </div>
                                         <div class="spacer-10"></div>
-                                        <a class="btn-main bg-color-2 mb10 mb-3" href="/">Our Services</a>
+                                        <a class="btn-main bg-color-2 mb10 mb-3" href="{{ route('services.all') }}">Our Services</a>
                                     </div>
                                 </div>
 
@@ -127,6 +127,7 @@
 
           <!-- If we need scrollbar -->
           <div class="swiper-scrollbar"></div>
+          <button type="button" class="site-slider-toggle" aria-label="Pause slideshow">Pause slideshow</button>
         </div>
     </div>
 </section>

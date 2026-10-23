@@ -2,48 +2,35 @@
 
 namespace App\Services;
 
-use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class OpenAIService
 {
-    protected $client;
-
-    public function __construct()
+    public function generateResponse($prompt)
     {
-        $this->client = new Client([
-            'base_uri' => 'https://api.openai.com/v1/',
-            'headers' => [
-                'Authorization' => 'Bearer ' . env('OPENAI_API_KEY'),
-                'Content-Type'  => 'application/json',
-            ],
-        ]);
-    }
-
-   public function generateResponse($prompt)
-{
-    try {
-        $response = $this->client->post('chat/completions', [
-            'json' => [
-                'model' => 'gpt-3.5-turbo', // or 'gpt-4' if you have access
-                'messages' => [
-                    ['role' => 'system', 'content' => 'You are a helpful assistant.'],
-                    ['role' => 'user', 'content' => $prompt]
-                ],
-                'max_tokens' => 100, // Reduce max tokens to optimize usage
-            ],
-        ]);
-
-        $data = json_decode($response->getBody(), true);
-
-        return $data['choices'][0]['message']['content'] ?? 'Sorry, I could not generate a response.';
-    } catch (\Exception $e) {
-        // Retry mechanism for 429 errors
-        if ($e->getCode() == 429) {
-            sleep(30); // Wait for 30 seconds before retrying
-            return $this->generateResponse($prompt);
+        if (! config('services.openai.key')) {
+            return 'Chat is currently unavailable. Please try again later.';
         }
-        return 'Error: ' . $e->getMessage();
-    }
-}
+        try {
+            $response = Http::withToken(config('services.openai.key'))
+                ->connectTimeout(5)->timeout(20)
+                ->post('https://api.openai.com/v1/chat/completions', [
+                    'model' => config('services.openai.model'),
+                    'messages' => [
+                        ['role' => 'system', 'content' => 'You are a helpful assistant.'],
+                        ['role' => 'user', 'content' => $prompt],
+                    ],
+                    'max_tokens' => 100,
+                ]);
+            if ($response->successful()) {
+                return $response->json('choices.0.message.content') ?? 'Chat is currently unavailable. Please try again later.';
+            }
+            Log::warning('Chat provider request failed', ['status' => $response->status()]);
+        } catch (\Throwable $e) {
+            Log::warning('Chat provider unavailable', ['exception' => get_class($e)]);
+        }
 
+        return 'Chat is currently unavailable. Please try again later.';
+    }
 }

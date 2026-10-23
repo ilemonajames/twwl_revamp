@@ -1,19 +1,21 @@
 @extends('layout.mainlayout')
+@section('title', 'The Way We Love Relationship Counseling')
 @section('content')
+<div class="site-home">
 @include('home.slider')
 
 <section class="bg-color no-top no-bottom">
     <div class="container-fluid">
         <div class="row g-0 align-items-center">
 
-            <div class="col-lg-4 col-md-4">
+            <div class="col-lg-6 col-md-6">
                 <div class="relative p-4 bg-color-2 text-light">
                     <i class="d-block fs-40 mb-2 icofont-location-pin"></i>
                     205 ½ E Broadway, <br>Suite F & G Hopewell VA. 23860
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-4">
+            <div class="col-lg-6 col-md-6">
                 <div class="relative p-4 bg-color-3 text-dark">
                     <i class="d-block fs-40 mb-2 icofont-phone"></i>
                     804-721-0983<br>
@@ -24,15 +26,15 @@
     </div>
 </section>
 
-<section>
+<section class="site-home-intro">
     <div class="container">
         <div class="row g-4 gx-5 align-items-center">
             <div class="col-lg-6">
-                <div class="relative rounded-20px overflow-hidden shadow-soft">
+                <div class="site-founder-frame relative rounded-20px overflow-hidden shadow-soft">
                     <a class="de-video-play-button popup-youtube" href="https://www.youtube.com/watch?v=Qf9GBIntSaY">
                         <span></span>
                     </a>
-                    <img src="{{(asset('assets/images/about.png'))}}" class="img-fluid" width="100%" height="60%" align="middle" alt="">
+                    <img src="{{ asset('assets/img/we-always.png') }}" class="img-fluid site-founder-image" width="389" height="486" loading="lazy" alt="Elizabeth Hall, founder of The Way We Love">
                 </div>
             </div>
             <div class="col-lg-6">
@@ -47,7 +49,7 @@
     </div>
 </section>
 
-<section class="bg-grey relative overflow-hidden">
+<section class="site-home-programs bg-grey relative overflow-hidden">
     <img src="{{(asset('assets/images/misc/flowers-crop-2.webp'))}}" class="w-30 absolute top-0 start-0 sw-anim" alt="">
     <div class="container">
        <div class="row g-4">
@@ -63,21 +65,27 @@
             @endphp
 
 @foreach ($programs as $program)
+@php
+    $programPhoto = basename((string) $program->program_image);
+    $programPhotoUrl = $programPhoto && is_file(public_path('guest/images/uploads/'.$programPhoto))
+        ? asset('guest/images/uploads/'.$programPhoto) : asset('assets/images/services/2.webp');
+@endphp
 
 <div class="col-lg-4 col-sm-6">
-    <div class="relative p-4 pb-0 text-center bg-white mt-5 h-100 rounded-10px">
+    <article class="site-image-card relative text-center bg-white h-100 rounded-10px">
         {{-- <div class="alt-font absolute end-0 pe-4 fw-bold fs-24 id-color">06</div> --}}
-        <img src="{{ asset('/guest/images/uploads/' . $program->program_image) }}" class="img-fluid circle mb-4 w-30 mt-50 shadow-soft wow scaleIn" data-wow-delay=".2s" alt="" data-wow-delay=".2s" >
+        <a href="{{ route('programs.details', $program->id) }}" tabindex="-1" aria-hidden="true"><img src="{{ $programPhotoUrl }}" class="site-card-image" alt="" loading="lazy" width="600" height="400"></a>
+        <div class="site-card-copy">
         <h4>{{$program->program_title}}</h4>
-        <p class="no-bottom">{{$program->program_description}}</p>
-        <a class="btn-main btn-main btn-light-trans mt-3" href="{{ route('programs.details', $program->id) }}">Our programs</a>
-    </div>
+        <p class="no-bottom">{{ Str::limit(trim(strip_tags($program->program_description)), 135) }}</p>
+        <a class="btn-main btn-light-trans mt-3" href="{{ route('programs.details', $program->id) }}" aria-label="Explore {{ $program->program_title }}">Explore program</a>
+        </div>
+    </article>
 </div>
 @endforeach
 
         </div>
 
-        <div class="spacer-double"></div>
     </div>
 </section>
 
@@ -108,7 +116,7 @@
                         <div class="mb-3">
                             <h2 class="d-inline id-color-2">$1</h2><span class="fs-14">/session</span>
                         </div> --}}
-                        <p><p>Our goal is to help couples navigate the complexities of their relationships, improve
+                        <p>Our goal is to help couples navigate the complexities of their relationships, improve
                             communication, resolve conflicts, and foster a secure emotional connection..
                             We serve all couples, including:
 
@@ -122,7 +130,7 @@
 
                         </ul>
 
-                        <a class="btn-main btn-light-trans w-100" href="https://calendly.com/thewaywelove24" target="_blank">
+                        <a class="btn-main btn-light-trans w-100" href="https://calendly.com/thewaywelove24" target="_blank" rel="noopener noreferrer">
                             Book an Appointment
                         </a>
                     </div>
@@ -138,7 +146,7 @@
                         <div class="mb-3">
                             <h2 class="d-inline id-color-2">$120</h2><span class="fs-14">/session</span>
                         </div> --}}
-                        <p>We provide support for individuals dealing with:
+                        <p>We provide support for individuals dealing with:</p>
                             <ul class="ul-style-2 fw-600 text-dark mb-3">
                          <li>Depression</li>
     <li>Anxiety</li>
@@ -148,7 +156,7 @@
     <li>Grief and loss</li>
                         </ul>
 
-                        <a class="btn-main btn-light-trans w-100" href="https://calendly.com/thewaywelove24" target="_blank">
+                        <a class="btn-main btn-light-trans w-100" href="https://calendly.com/thewaywelove24" target="_blank" rel="noopener noreferrer">
                             Book an Appointment
                         </a>
                     </div>
@@ -163,7 +171,7 @@
                         <div class="mb-3">
                             <h2 class="d-inline id-color-2">$1200</h2><span class="fs-14">/session</span>
                         </div> --}}
-                        <p>We provide support for groups of people dealing with:
+                        <p>We provide support for groups of people dealing with:</p>
                             <ul class="ul-style-2 fw-600 text-dark mb-3">
                          <li>Stress</li>
                             <li>Anxiety</li>
@@ -174,7 +182,7 @@
                             <li>Grief and loss</li>
                                                 </ul>
 
-                        <a class="btn-main btn-light-trans w-100" href="https://calendly.com/thewaywelove24" target="_blank">
+                        <a class="btn-main btn-light-trans w-100" href="https://calendly.com/thewaywelove24" target="_blank" rel="noopener noreferrer">
                             Book an Appointment
                         </a>
                     </div>
@@ -186,7 +194,7 @@
         </div>
     </div>
 </section>
-<section>
+<section class="site-home-process">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 offset-lg-3 text-center">
@@ -207,7 +215,7 @@
                 <div class="col-lg-3 col-6 wow fadeInRight" data-wow-delay=".6s">
                     <div class="relative p-4">
                         <div class="subtitle bg-color text-light mb-2 fadeInRight" data-wow-delay=".6s">Step 2</div>
-                        <h4>Indentification</h4>
+                        <h4>Identification</h4>
                         {{-- <p class="fs-14">Qui culpa qui consequat officia cillum quis irure aliquip ut dolore sit eu culpa ut irure nisi occaecat.</p> --}}
                     </div>
                 </div>
@@ -230,12 +238,12 @@
     </div>
 </section>
 
-<section>
+<section class="site-home-faq">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 offset-lg-3 text-center">
                 <div class="subtitle wow fadeInUp mb-3">FAQ</div>
-                <h2 class="wow fadeInUp" data-wow-delay=".2s"></h2>
+                <h2 class="wow fadeInUp" data-wow-delay=".2s">Frequently Asked Questions</h2>
             </div>
         </div>
 
@@ -245,18 +253,11 @@
                 <div class="accordion s2 wow fadeInUp">
                     <div class="accordion-section">
 
-                        @php
-                        $sn=1;
-                        @endphp
-
                         @foreach ($faqs as $faq)
-                        <div class="accordion-section-title" data-tab="#accordion-a{{$sn}}">
-                        <p>{!! $faq->question!!}
-                        </div></p>
-                        <div class="accordion-section-content" id="accordion-a{{$sn}}">
-                            <p>{!! $faq->answer!!}</p>
-                        </div>
-                        <div class="counter" style="display: none">{{ $sn++ }}</div>
+                            <details class="site-faq-item">
+                                <summary>{{ trim(strip_tags($faq->question)) }}</summary>
+                                <div>{{ trim(strip_tags($faq->answer)) }}</div>
+                            </details>
                         @endforeach
 
                     </div>
@@ -267,6 +268,18 @@
 </section>
 
 
+<section class="site-home-invitation" aria-labelledby="home-invitation-title">
+    <div class="container">
+        <div class="site-invitation-panel">
+            <div>
+                <div class="subtitle mb-3">Your next chapter</div>
+                <h2 id="home-invitation-title">Take a step toward stronger connections</h2>
+                <p>Find support for yourself and the relationships that matter to you. We’re here when you’re ready.</p>
+            </div>
+            <a class="btn-main" href="{{ route('booking.form') }}">Book an appointment</a>
+        </div>
+    </div>
+</section>
 </div>
 <!-- content close -->
 @endsection

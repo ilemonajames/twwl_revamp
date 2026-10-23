@@ -1,7 +1,8 @@
 <?php
+
 namespace App\Http\Livewire;
 
-use Livewire\Component;
+use App\Livewire\WebsiteAdmin\AdminComponent as Component;
 use Livewire\WithFileUploads;
 
 class VideoManager extends Component
@@ -9,7 +10,9 @@ class VideoManager extends Component
     use WithFileUploads;
 
     public $videoLink;      // The video URL
+
     public $description;    // Video description
+
     public $thumbnail;      // Thumbnail file
 
     public function saveVideo()

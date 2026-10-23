@@ -144,7 +144,7 @@
 													<table class="heading_block block-1" width="100%" border="0" cellpadding="10" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
 														<tr>
 															<td class="pad">
-                                                                <p>Dear {{ $booking->user->surname }},</p>
+                                                                <p>Dear {{ $booking->user?->surname ?? $booking->name }},</p>
                                                                 <p>You booking for {{ $booking->program->program_title }} has been scheduled as follows:<p>
                                                                 <p><b>Appointment Date:</b>  {{ $booking->appointment_date->format('d M, Y') }}</p>
                                                                 <p><b>Appointment Time:</b>  {{ $booking->appointment_time }}</p>

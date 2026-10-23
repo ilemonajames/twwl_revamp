@@ -1,16 +1,17 @@
 @extends('layout.mainlayout')
+@section('title', 'About Elizabeth Hall | The Way We Love')
 
 @section('content')
 
 <!-- content begin -->
-<div id="content" class="no-top no-bottom">
+<div id="content" class="site-about no-top no-bottom">
     <div id="top"></div>
     <!-- section begin -->
     <section class="mt80 mt-sm-60 pt20 pb20 bg-color text-light">
         <div class="container relative z-index-1000">
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <h3 class="mb-0">About Us</h3>
+                    <h1 class="mb-0 fs-3">About Us</h1>
                 </div>
 
                 <div class="col-lg-6 text-lg-end">
@@ -28,24 +29,25 @@
     <!-- /Call to Action -->
 
     <!-- About Section -->
-    <section class="py-5 mb-5"> <!-- Added mb-5 for margin-bottom -->
+    <section class="site-about-intro">
         <div class="container">
-            <div class="row">
+            <div class="row g-5 align-items-start">
                 <!-- Image with Caption -->
-                <div class="col-lg-5 mb-4">
-                    <figure class="figure">
-						<div class="position-relative overflow-hidden rounded shadow-lg">
-                        <img src="{{ asset('assets/img/we-always.png') }}" class="img-fluid" alt="Elizabeth Hall">
+                <div class="col-lg-5">
+                    <figure class="site-about-portrait figure">
+						<div class="site-about-portrait-frame position-relative overflow-hidden rounded">
+                        <img src="{{ asset('assets/img/elizabeth-hall-enhanced.png') }}" class="img-fluid" width="1122" height="1402" alt="Elizabeth Hall smiling, with her chin resting on her hands">
 						</div>
                         <figcaption class="figure-caption text-center">
                             <h3>Elizabeth Hall</h3>
-                            <h4 class="mb-3">Elizabeth Hall, <em>NCC, LPC/LMFT, CHT </em><br>
-                                <i>(She/Her)</i></h4>
+                            <p class="mb-1">NCC, LPC/LMFT, CHT</p>
+                            <p class="mb-0">She/Her</p>
                         </figcaption>
                     </figure>
                 </div>
                 <!-- About Text -->
-				<div class="col-lg-6">
+				<div class="col-lg-7 site-about-biography">
+                    <div class="subtitle mb-3">Meet Elizabeth</div>
 					<h2 class="mb-4">Who is Elizabeth Hall?</h2>
                     
                     <p class="text-justify mb-4 text-lead text-justify">Elizabeth Hall is a dedicated mental health professional with a Master of Arts in Clinical Mental
@@ -63,8 +65,9 @@
                                 </p>
                                 
                                 
-                                <a class="collapsible btn btn-main px-4 py-2 mb-3">Read More</a>
-                                <div class="content justify-content-center align-items-center">
+                                <details class="site-about-details">
+                                <summary>More about Elizabeth’s approach</summary>
+                                <div class="site-about-details-copy">
                                     <p class="text-muted mb-3">
                                         Elizabeth is also certified by the Virginia Board of Counseling as a Qualified Mental Health Professional for adults and children (QMHP-A/C) and is currently registered with the Board as a Resident in Counseling and Marriage & Family Therapy. At the core of Elizabeth’s work is a commitment to mental health and well-being, and she believes that a person-centered approach is essential in any therapeutic relationship...</p>
                                     
@@ -91,9 +94,9 @@
                                     </ul>
                                     <p>By addressing self-care in these diverse areas, I believe individuals can achieve balance, maintain healthy relationships, and lead fulfilling lives.</p>
                                 </div>
+                                </details>
                             </div>
                             
-                    </p>
 					{{-- <a href="{{ url('/about') }}" >Learn More</a> --}}
 				</div>
                 
@@ -102,30 +105,6 @@
     </section>
     <!-- /About Section -->
 
-    <!-- Stats Section -->
-    <section class="bg-color-2 section-dark text-light text-center pt60 pb50 jarallax" style="background-color: #C2A03D; padding: 50px 0; text-white text-center py-3 " >
-        <div class="container">
-            <div class="row">
-                {{-- <div class="col-md-3">
-                    <h3 class=" font-weight-bold text-white">6250+</h3>
-                    <p class="text-white">Happy Customers</p>
-                </div>
-                <div class="col-md-3">
-                    <h3 class=" font-weight-bold text-white">3200+</h3>
-                    <p>Successful Services</p>
-                </div>
-                <div class="col-md-3">
-                    <h3 class=" font-weight-bold text-white">20+</h3>
-                    <p>Years of Experience</p>
-                </div>
-                <div class="col-md-3">
-                    <h3 class=" font-weight-bold text-white">15+</h3>
-                    <p>Specialists</p>
-                </div> --}}
-            </div>
-        </div>
-    </section>
-    <!-- /Stats Section -->
     @php
     $teams = App\Models\LivingwordTeam::all();
 
@@ -133,14 +112,13 @@
 
     @if(count($teams)>0)
     <!-- Team Section -->
-    <section class="py-5 mb-5" style="background-color: #FBF5E2">
+    <section class="site-about-team">
         <div class="container text-center">
             <h2 class="mb-5">Our Specialists</h2> 
-            <div class="row">
+            <div class="row g-4 justify-content-center">
                 <!-- Specialist 1 -->
                 @foreach($teams as $team)
-                <div class="row mb-4">
-					<div class="col-md-6 col-lg-3">
+                    <div class="col-md-6 col-lg-3 site-about-team-card">
 						 <div class="team-member">
 							<img src="{{ asset('assets/images/team/'.$team->image)}}" class="img-fluid rounded-10x"  alt="{{ $team->full_name }}">
 							<h4 class="font-weight-bold">{{ $team->full_name }}</h4>
@@ -152,13 +130,13 @@
                             <a href="{{ $team->instagram }}"><i class="bg-white id-color bg-hover-2 text-hover-white fa-brands fa-instagram"></i></a>
                         </div>
 					</div>
-            </div>
             @endforeach
+            </div>
         </div>
     </section>
     @endif
 	
-	<section class="jarallax overflow-hidden"> <!-- Increased padding and margin -->
+	<section class="site-about-purpose">
         <div class="container">
             <div class="row g-4 gx-5">
                 <div class="col-lg-12 text-center">
@@ -192,14 +170,14 @@
     
 
     <!-- Information Section  -->
-    <section class="py-4 mb-5 text-white "style="background-color: #C2A03D;"> 
+    <section class="site-about-contact">
         <div class="container">
             <div class="row text-center">
                 <!-- Working Hours -->
                 <div class="col-md-4 mb-3">
                     <h5 class="fw-bold">Working Hours:</h5>
                     {{-- <p>Mon - Sat: 8AM - 9PM<br>Sunday: 10AM - 8PM</p> --}}
-                    <p><a href="https://calendly.com/thewaywelove24" target="_blank" class="btn btn-primary px-4 py-2">See Here</a></p>
+                    <p><a href="https://calendly.com/thewaywelove24" target="_blank" rel="noopener noreferrer" class="btn-main">View availability</a></p>
                 </div>
                 <!-- Location -->
                 <div class="col-md-4 mb-3">
@@ -210,11 +188,12 @@
                 <!-- Contact -->
                 <div class="col-md-4">
                     <h5 class="fw-bold">Contact:</h5>
-                    <p>(804) 721-0983<br><a href="mailto:contact@thewaywelove.com" class="text-white">contact@thewaywelove.com</a></p>
+                    <p><a href="tel:+18047210983">(804) 721-0983</a><br><a href="mailto:contact@thewaywelove.com">contact@thewaywelove.com</a></p>
                 </div>
             </div>
         </div>
     </section>
     <!-- /Team Section -->
 
+</div>
 @endsection

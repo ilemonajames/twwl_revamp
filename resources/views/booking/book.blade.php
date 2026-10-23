@@ -33,7 +33,19 @@
                     <div class="p-4 bg-white rounded-10px">
                         <form name="appointment_form" id="appointment_form" class="position-relative z1000" method="post" action="/booking">
                             {{ csrf_field() }}
+                            @if($errors->any())
+                                <div role="alert" class="alert alert-danger"><ul>@foreach($errors->all() as $error)<li>{{ $error }}</li>@endforeach</ul></div>
+                            @endif
                             <div class="row">
+                                <div class="col-lg-12">
+                                    <label for="program">Program</label>
+                                    <select id="program" name="program" class="form-control" required>
+                                        <option value="">Select a program</option>
+                                        @foreach($programs as $program)
+                                            <option value="{{ $program->id }}" @selected(old('program') === $program->id)>{{ $program->program_title }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                                 <div class="col-lg-12">
                                     <h5>Select Service</h5>
                                     <div class="relative">
@@ -52,7 +64,7 @@
                                     <h5>Select Date</h5>
                                     <div id="date" class="relative input-group date" data-date-format="mm-dd-yyyy">
                                         <i class="absolute top-0 end-0 id-color pt-3 pe-3 icofont-calendar"></i>
-                                        <input name="date" class="form-control bg-grey no-border" type="text" readonly />
+                                        <input name="date" aria-label="Appointment date" class="form-control bg-grey no-border" type="date" value="{{ old('date') }}" min="{{ now()->addDay()->toDateString() }}" required />
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                                     </div>
                                 </div>

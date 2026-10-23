@@ -1,94 +1,68 @@
 <?php
 
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\AppointmentController;
-use App\Http\Controllers\PaymentController;
-use App\Http\Controllers\ProgramController;
-use App\Http\Controllers\ServiceController;
-use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\NewsletterController;
-use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AuthenticatedUserController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\ChatController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\PodcastsController;
 use App\Http\Controllers\ProductController;
-
-use App\Http\Middleware\SuperAdminMiddleware;
-use App\Http\Middleware\WebsiteAdminMiddleware;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\ResourceController;
+use App\Http\Controllers\ServiceController;
+// website admin components
+use App\Http\Controllers\VideosController;
 use App\Http\Middleware\ClientMiddleware;
-
-use App\Livewire\Guest\Events\EventDetailsComponent;
-use App\Livewire\Guest\Products\GuestProductsComponent;
-use App\Livewire\Guest\Products\GuestAllProductsComponent;
-use App\Livewire\Guest\CheckoutComponent;
+use App\Http\Middleware\WebsiteAdminMiddleware;
 use App\Livewire\Guest\MainCheckout;
-
-
-use App\Livewire\Guest\Service\ServiceDetailsComponent;
-use App\Livewire\Superadmin\SuperAdminContactComponent;
-use App\Livewire\Superadmin\SuperAdminDashboardComponent;
-
-
-
-//website admin components
-use App\Livewire\WebsiteAdmin\WebsiteAdminDashbaord;
-use App\Livewire\WebsiteAdmin\Services\NewServiceComponent;
-use App\Livewire\WebsiteAdmin\Services\WebsiteAdminServiceComponent;
-use App\Livewire\WebsiteAdmin\Services\EditServiceComponent;
-
-use App\Livewire\WebsiteAdmin\Programs\NewProgramComponent;
-//use App\Livewire\WebsiteAdmin\Programs\ProgramsComponent;
-use App\Livewire\WebsiteAdmin\Programs\ProgramComponent;
-use App\Livewire\WebsiteAdmin\Programs\ProgramListComponent;
-
-use App\Livewire\WebsiteAdmin\Programs\EditProgramComponent;
-
-use App\Livewire\WebsiteAdmin\Programfees\NewProgramFeeComponent;
-use App\Livewire\WebsiteAdmin\Programfees\ProgramFeesComponent;
-use App\Livewire\WebsiteAdmin\Programfees\EditProgramFeeComponent;
-
-use App\Livewire\WebsiteAdmin\Blogs\NewBlogComponent;
+use App\Livewire\Guest\Products\GuestAllProductsComponent;
+// use App\Livewire\WebsiteAdmin\Programs\ProgramsComponent;
+use App\Livewire\Guest\Products\GuestProductsComponent;
 use App\Livewire\WebsiteAdmin\Blogs\BlogsComponent;
 use App\Livewire\WebsiteAdmin\Blogs\EditBlogComponent;
-
-use App\Livewire\WebsiteAdmin\Products\AddProductComponent;
-use App\Livewire\WebsiteAdmin\Products\ManageProductsComponent;
-use App\Livewire\WebsiteAdmin\Products\EditProductComponent;
-
-use App\Livewire\WebsiteAdmin\Podcast\CreatePodcastComponent;
-use App\Livewire\WebsiteAdmin\Podcast\PodcastsComponent;
-use App\Livewire\WebsiteAdmin\Podcast\EditProdcastComponent;
-
-use App\Livewire\WebsiteAdmin\Events\NewEventComponent;
-use App\Livewire\WebsiteAdmin\Events\WebsiteAdminEventsComponent;
-use App\Livewire\WebsiteAdmin\Events\EditEventComponent;
-use App\Livewire\WebsiteAdmin\Events\RegistrationDetails;
-
-use App\Livewire\WebsiteAdmin\Sponsors\NewSponsorComponent;
-use App\Livewire\WebsiteAdmin\Sponsors\SponsorsComponent;
-// use App\Livewire\WebsiteAdmin\Sponsors\EditSponsorComponent;
-use App\Livewire\WebsiteAdmin\Profile\ProfileComponent;
-use App\Livewire\WebsiteAdmin\Profile\ChangePasswordComponent;
-
-use App\Livewire\WebsiteAdmin\Faqs\NewFaqComponent;
-use App\Livewire\WebsiteAdmin\Faqs\FaqsComponent;
+use App\Livewire\WebsiteAdmin\Blogs\NewBlogComponent;
 use App\Livewire\WebsiteAdmin\Booking\AppointmentsComponent;
-use App\Http\Controllers\AuthenticatedUserController;
-
+use App\Livewire\WebsiteAdmin\Events\EditEventComponent;
+use App\Livewire\WebsiteAdmin\Events\NewEventComponent;
+use App\Livewire\WebsiteAdmin\Events\RegistrationDetails;
+use App\Livewire\WebsiteAdmin\Events\WebsiteAdminEventsComponent;
+use App\Livewire\WebsiteAdmin\Faqs\FaqsComponent;
+use App\Livewire\WebsiteAdmin\Faqs\NewFaqComponent;
 use App\Livewire\WebsiteAdmin\Newsletters\SendNewsletterComponent;
 use App\Livewire\WebsiteAdmin\Newsletters\SentNewsletterComponent;
 use App\Livewire\WebsiteAdmin\Newsletters\SubscribersComponent;
-use App\Http\Controllers\BookingController;
-use App\Http\Controllers\ChatController;
-use App\Http\Controllers\ResourceController;
-//use App\Http\Controllers\Podcasts;
-use App\Http\Controllers\PodcastsController;
-use App\Http\Controllers\VideosController;
-use App\Http\Controllers\EventController;
-
-
-use App\Livewire\WebsiteAdmin\Teams\NewTeamComponent;
+use App\Livewire\WebsiteAdmin\Podcast\CreatePodcastComponent;
+use App\Livewire\WebsiteAdmin\Podcast\EditProdcastComponent;
+use App\Livewire\WebsiteAdmin\Podcast\PodcastsComponent;
+use App\Livewire\WebsiteAdmin\Products\AddProductComponent;
+use App\Livewire\WebsiteAdmin\Products\EditProductComponent;
+use App\Livewire\WebsiteAdmin\Products\ManageProductsComponent;
+use App\Livewire\WebsiteAdmin\Profile\ChangePasswordComponent;
+// use App\Livewire\WebsiteAdmin\Sponsors\EditSponsorComponent;
+use App\Livewire\WebsiteAdmin\Profile\ProfileComponent;
+use App\Livewire\WebsiteAdmin\Programfees\EditProgramFeeComponent;
+use App\Livewire\WebsiteAdmin\Programfees\NewProgramFeeComponent;
+use App\Livewire\WebsiteAdmin\Programfees\ProgramFeesComponent;
+use App\Livewire\WebsiteAdmin\Programs\EditProgramComponent;
+use App\Livewire\WebsiteAdmin\Programs\NewProgramComponent;
+use App\Livewire\WebsiteAdmin\Programs\ProgramComponent;
+use App\Livewire\WebsiteAdmin\Programs\ProgramListComponent;
+use App\Livewire\WebsiteAdmin\Services\EditServiceComponent;
+use App\Livewire\WebsiteAdmin\Services\NewServiceComponent;
+use App\Livewire\WebsiteAdmin\Services\WebsiteAdminServiceComponent;
+use App\Livewire\WebsiteAdmin\Sponsors\NewSponsorComponent;
+// use App\Http\Controllers\Podcasts;
+use App\Livewire\WebsiteAdmin\Sponsors\SponsorsComponent;
 use App\Livewire\WebsiteAdmin\Teams\ManageTeamsComponent;
+use App\Livewire\WebsiteAdmin\Teams\NewTeamComponent;
+use App\Livewire\WebsiteAdmin\WebsiteAdminDashbaord;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -103,9 +77,9 @@ use App\Livewire\WebsiteAdmin\Teams\ManageTeamsComponent;
 
 // Home Page Route
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::post('/forget-password',[AuthenticatedUserController::class,'forgetpassword'])->name('guest.forget-password'); //applicant verification
-Route::get('/set-password/{email}/{token}',[AuthenticatedUserController::class,'setpassword'])->name('set-password'); //applicant verification
-Route::post('/change-password',[AuthenticatedUserController::class,'changepassword'])->name('guest.change-password');
+Route::post('/forget-password', [\App\Http\Controllers\Auth\PasswordResetLinkController::class, 'store'])->middleware(['guest', 'throttle:6,1'])->name('guest.forget-password');
+Route::get('/set-password/{email}/{token}', [AuthenticatedUserController::class, 'setpassword'])->name('set-password'); // applicant verification
+Route::post('/change-password', [AuthenticatedUserController::class, 'changepassword'])->middleware(['guest', 'throttle:6,1'])->name('guest.change-password');
 
 Route::get('/about', function () {
     return view('informations.about');
@@ -115,45 +89,46 @@ Route::get('/contact', function () {
     return view('informations.contact');
 })->name('contact');
 
-Route::get('/hypnotheraphy', function(){
+Route::get('/hypnotheraphy', function () {
     return view('informations.hypnotherapy');
 })->name('hypnotherapy');
-Route::post('/signup-event/{id}',[EventController::class,'signup'])->name('event.signup');
+Route::post('/signup-event/{id}', [EventController::class, 'signup'])->middleware('throttle:6,1')->name('event.signup');
 
-
-
-Route::get('/privacy-policy', function(){
+Route::get('/privacy-policy', function () {
     return view('informations.privacy');
 })->name('privacypolicy');
 
-Route::get('/all-products', function(){
+Route::get('/all-products', function () {
     return view('products.index');
 })->name('all-products');
 
-Route::get('/events', function(){
+Route::get('/events', function () {
     $events = App\Models\Event::limit(3)->get();
-    return view('events.index',compact('events'));
+
+    return view('events.index', compact('events'));
 })->name('events');
 
-Route::get('/events/{id}', function($id){
-    $event = App\Models\Event::find($id);
-    return view('events.show',compact('event'));
-})->name('events.show');
+Route::get('/events/{id}', function ($id) {
+    $event = App\Models\Event::findOrFail($id);
 
+    return view('events.show', compact('event'));
+})->name('events.show');
 
 // podcasts
 Route::get('/podcasts', [PodcastsController::class, 'index'])->name('podcasts.index');
 Route::get('/podcasts/{id}', [PodcastsController::class, 'show'])->name('podcasts.details');
 Route::get('/videos', [VideosController::class, 'index'])->name('videos.index');
-Route::get('/vdeos/{id}', [VideosController::class, 'show'])->name('videos.details');
+Route::get('/videos/{id}', [VideosController::class, 'show'])->name('videos.details');
+Route::get('/vdeos/{id}', fn ($id) => redirect()->route('videos.details', $id, 301));
 
-Route::post('/contact-us',[ ContactController::class,'sendMessage'])->name('sendMessage');
+Route::post('/contact-us', [ContactController::class, 'sendMessage'])->middleware('throttle:6,1')->name('sendMessage');
 
 Route::get('/frequently-asked-question', function () {
     $faqs = App\Models\Faq::all();
-    return view('informations.faq',compact('faqs'));
+
+    return view('informations.faq', compact('faqs'));
 })->name('faq');
-Route::post('/chat', [ChatController::class, 'chat']);
+Route::post('/chat', [ChatController::class, 'chat'])->middleware('throttle:10,1');
 Route::get('/chat', function () {
     return view('chat');
 });
@@ -162,24 +137,23 @@ Route::get('/resources', [ResourceController::class, 'index'])->name('resources.
 Route::get('/resources/videos', [ResourceController::class, 'videos'])->name('resources.videos');
 Route::get('/resources/podcasts', [ResourceController::class, 'podcasts'])->name('resources.podcasts');
 Route::get('/resources/books', [ResourceController::class, 'books'])->name('resources.books');
-Route::get('/resources/books', [ResourceController::class, 'books'])->name('resources.books');
 
 // Route::get('/guest-products', [GuestProductsComponent::class])->name('products.all');
 // Route::get('/products-collections', [GuestAllProductsComponent::class])->name('all-products');
-Route::get('/cart', [ProductController::class,'cart'])->name('cart');
-Route::get('/checkout', [ProductController::class,'checkout'])->name('checkout');
+Route::get('/cart', [ProductController::class, 'cart'])->name('cart');
+Route::get('/checkout', [ProductController::class, 'checkout'])->name('checkout');
 
-Route::get('/product-checkout',MainCheckout::class)->name('product.checkout');
+Route::get('/product-checkout', MainCheckout::class)->name('product.checkout');
 
 // Appointment Routes
-Route::resource('appointments', AppointmentController::class)->except(['index', 'create', 'show', 'edit']);
-Route::get('appointments', [AppointmentController::class, 'index'])->name('appointments.index');
-Route::get('appointments/create', [AppointmentController::class, 'create'])->name('appointments.create');
-Route::get('appointments/{appointment}', [AppointmentController::class, 'show'])->name('appointments.show');
-Route::get('appointments/{appointment}/edit', [AppointmentController::class, 'edit'])->name('appointments.edit');
+Route::middleware(['auth', 'verified', ClientMiddleware::class])->group(function () {
+    Route::get('appointments', fn () => redirect()->route('client.bookings'))->name('appointments.index');
+    Route::get('appointments/create', fn () => redirect()->route('client.book'))->name('appointments.create');
+});
 
 // Payment Routes
-Route::post('payments', [PaymentController::class, 'store'])->name('payments.store');
+Route::post('payments', [PaymentController::class, 'store'])->middleware(['auth', 'verified', ClientMiddleware::class, 'throttle:6,1'])->name('payments.store');
+Route::post('square/webhook', \App\Http\Controllers\SquareWebhookController::class)->name('square.webhook');
 
 // Program Routes
 // Route::resource('programs', ProgramController::class)->except(['index', 'create', 'show', 'edit']);
@@ -189,14 +163,16 @@ Route::post('payments', [PaymentController::class, 'store'])->name('payments.sto
 // Route::get('programs/{program}/edit', [ProgramController::class, 'edit'])->name('programs.edit');
 
 // Service Routes
-Route::resource('services', ServiceController::class)->except(['index', 'create', 'show', 'edit']);
-Route::get('services', [ServiceController::class, 'index'])->name('services.index');
-Route::get('services/create', [ServiceController::class, 'create'])->name('services.create');
+Route::middleware(['auth', 'verified', WebsiteAdminMiddleware::class])->group(function () {
+    Route::resource('services', ServiceController::class)->only(['store', 'update', 'destroy']);
+    Route::get('services/create', [ServiceController::class, 'create'])->name('public.services.create');
+    Route::get('services/{service}/edit', [ServiceController::class, 'edit'])->name('public.services.edit');
+});
+Route::get('services', [ServiceController::class, 'index'])->name('public.services.index');
 Route::get('services/{service}', [ServiceController::class, 'show'])->name('services.show');
-Route::get('services/{service}/edit', [ServiceController::class, 'edit'])->name('services.edit');
 Route::get('services-details/{service}/edit', [ServiceController::class, 'details'])->name('services.details');
 Route::get('our-services', [ServiceController::class, 'our_services'])->name('services.all');
-Route::post('subscriber', [NewsletterController::class, 'subscribe'])->name('subscribe');
+Route::post('subscriber', [NewsletterController::class, 'subscribe'])->middleware('throttle:6,1')->name('subscribe');
 
 Route::get('blog-details/{service}/details', [BlogController::class, 'details'])->name('blogs.details');
 Route::get('blogs', [BlogController::class, 'all_blogs'])->name('blogs.all');
@@ -204,10 +180,9 @@ Route::get('blogs', [BlogController::class, 'all_blogs'])->name('blogs.all');
 Route::get('program-details/{id}/details', [ProgramController::class, 'details'])->name('programs.details');
 Route::get('programs', [ProgramController::class, 'all_programs'])->name('programs.all');
 
-
 // Booking Routes
 Route::get('/booking', [BookingController::class, 'showBookingForm'])->name('booking.form');
-Route::post('/booking', [BookingController::class, 'bookAsGuest'])->name('book.appointment');
+Route::post('/booking', [BookingController::class, 'bookAsGuest'])->middleware('throttle:6,1')->name('book.appointment');
 Route::get('/booking-success', [BookingController::class, 'bookingSuccessPage'])->name('booking.success');
 
 // Pages route
@@ -223,100 +198,101 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
-Route::middleware(['auth:sanctum','verified',])->group(function () {
-    Route::get('/dashboard',[ DashboardController::class,'dashboard'])->name('dashboard');
-
-    //client routes
-    Route::middleware([ClientMiddleware::class])->prefix('client')->group(function(){
+    // client routes
+    Route::middleware([ClientMiddleware::class])->prefix('client')->group(function () {
         Route::get('/client-dashboard', function () {
-            $bookings = App\Models\Appointment::where('user_id',Auth::user()->id)->get();
-            $payments = App\Models\Payment::where('user_id',Auth::user()->id)->get();
-            return view('client.client-dashboard',compact('bookings','payments'));
+            $bookings = App\Models\Appointment::where('user_id', Auth::user()->id)->get();
+            $payments = App\Models\Payment::where('user_id', Auth::user()->id)->get();
+
+            return view('client.client-dashboard', compact('bookings', 'payments'));
         })->name('client-dashboard');
 
         Route::get('/change-password', function () {
             return view('client.change-password');
-        })->name('client.change-password');
+        })->name('client.change-password.form');
 
         Route::get('/booking', function () {
             return view('client.book-consultation');
         })->name('client.book');
 
         Route::get('/client-bookings', function () {
-            $bookings = App\Models\Appointment::where('user_id',Auth::user()->id)->get();
-            return view('client.appointments',compact('bookings'));
+            $bookings = App\Models\Appointment::where('user_id', Auth::user()->id)->get();
+
+            return view('client.appointments', compact('bookings'));
         })->name('client.bookings');
 
-    Route::post('/change-password',[ DashboardController::class,'changepassword'])->name('client.change-password');
-    Route::get('/get-services/{id}',[ ServiceController::class,'getServices']);
-    Route::get('/get-booking-price/{id}/{productID}',[ ServiceController::class,'bookingPrice']);
-    Route::post('/book-appointment',[ ServiceController::class,'bookAppointment'])->name('book-appointment');
+        Route::post('/change-password', [DashboardController::class, 'changepassword'])->name('client.change-password');
+        Route::get('/get-services/{id}', [ServiceController::class, 'getServices']);
+        Route::get('/get-booking-price/{id}/{productID}', [ServiceController::class, 'bookingPrice']);
+        Route::post('/book-appointment', [ServiceController::class, 'bookAppointment'])->name('book-appointment');
 
     });
 
-    //website admin route
-    Route::middleware([WebsiteAdminMiddleware::class])->prefix('website-admin')->group(function(){
-        Route::get('/dashboard',WebsiteAdminDashbaord::class)->name('websiteadmin.dashboard');
-        Route::get('/services/create',NewServiceComponent::class)->name('services.create');
-        Route::get('/services',WebsiteAdminServiceComponent::class)->name('services.index');
-        Route::get('/services/{id}/edit',EditServiceComponent::class)->name('services.edit');
+    // website admin route
+    Route::middleware([WebsiteAdminMiddleware::class])->prefix('website-admin')->group(function () {
+        Route::get('/dashboard', WebsiteAdminDashbaord::class)->name('websiteadmin.dashboard');
+        Route::get('/services/create', NewServiceComponent::class)->name('services.create');
+        Route::get('/services', WebsiteAdminServiceComponent::class)->name('services.index');
+        Route::get('/services/{id}/edit', EditServiceComponent::class)->name('services.edit');
 
-         Route::get('/programs/create',NewProgramComponent::class)->name('programs.create');
-         //Route::get('/programs',ProgramsComponent::class)->name('programs.index');
-         Route::get('/programs/{id}/edit',EditProgramComponent::class)->name('programs.edit');
-         //Delete Program
-         Route::get('/programs/{id}/delete', [ProgramListComponent::class, 'DeleteProgram'])->name('programs.delete');
+        Route::get('/programs/create', NewProgramComponent::class)->name('programs.create');
+        // Route::get('/programs',ProgramsComponent::class)->name('programs.index');
+        Route::get('/programs/{id}/edit', EditProgramComponent::class)->name('programs.edit');
+        // Delete Program
+        Route::delete('/programs/{id}/delete', [\App\Http\Controllers\ProgramController::class, 'destroy'])->name('programs.delete');
         // Route for creating a new program
         // Route::get('/programs/create', ProgramComponent::class)->name('programs.create');
         // // Route for editing an existing program
         // Route::get('/programs/{id}/edit', ProgramComponent::class)->name('programs.edit')->where('id', '[0-9]+'); // Ensure that ID is a number
         // // Route for displaying all programs
-         Route::get('/programs', ProgramListComponent::class)->name('programs.index');
+        Route::get('/programs', ProgramListComponent::class)->name('programs.index');
 
         // Route::get('/listprogram', ProgramComponent::class)->name('programs.index');
         // Route for displaying a single program
         Route::get('/programs/{id}', ProgramComponent::class)->name('programs.show')->where('id', '[0-9]+');
 
-// Ensure that ID is a number
+        // Ensure that ID is a number
 
-        Route::get('/program-fees/create',NewProgramFeeComponent::class)->name('fees.create');
-        Route::get('/program-fees',ProgramFeesComponent::class)->name('fees.index');
-        Route::get('/program-program/{id}/edit',EditProgramFeeComponent::class)->name('fees.edit');
+        Route::get('/program-fees/create', NewProgramFeeComponent::class)->name('fees.create');
+        Route::get('/program-fees', ProgramFeesComponent::class)->name('fees.index');
+        Route::get('/program-program/{id}/edit', EditProgramFeeComponent::class)->name('fees.edit');
 
-        Route::get('/blogs/create',NewBlogComponent::class)->name('blogs.create');
-        Route::get('/blogs',blogsComponent::class)->name('blogs.index');
-        Route::get('/blogs/{id}/edit',EditBlogComponent::class)->name('blogs.edit');
+        Route::get('/blogs/create', NewBlogComponent::class)->name('blogs.create');
+        Route::get('/blogs', blogsComponent::class)->name('blogs.index');
+        Route::get('/blogs/{id}/edit', EditBlogComponent::class)->name('blogs.edit');
 
-        Route::get('/podcasts/create',CreatePodcastComponent::class)->name('podcasts.create');
-        Route::get('/podcasts',PodcastsComponent::class)->name('podcasts.index');
-        Route::get('/podcasts/{id}/edit',EditProdcastComponent::class)->name('podcasts.edit');
+        Route::get('/podcasts/create', CreatePodcastComponent::class)->name('podcasts.create');
+        Route::get('/podcasts', PodcastsComponent::class)->name('admin.podcasts.index');
+        Route::get('/podcasts/{id}/edit', EditProdcastComponent::class)->name('podcasts.edit');
 
-        Route::get('/products/create',AddProductComponent::class)->name('products.create');
-        Route::get('/products',ManageProductsComponent::class)->name('products.index');
-        Route::get('/products/{id}/edit',EditProductComponent::class)->name('products.edit');
+        Route::get('/products/create', AddProductComponent::class)->name('products.create');
+        Route::get('/products', ManageProductsComponent::class)->name('products.index');
+        Route::get('/products/{id}/edit', EditProductComponent::class)->name('products.edit');
 
-        Route::get('/events/create',NewEventComponent::class)->name('events.create');
-        Route::get('/events',WebsiteAdminEventsComponent::class)->name('events.index');
-        Route::get('/events/{id}/edit',EditEventComponent::class)->name('events.edit');
-        Route::get('/events/{id}/registrations',RegistrationDetails::class)->name('events.registrations');
+        Route::get('/events/create', NewEventComponent::class)->name('events.create');
+        Route::get('/events', WebsiteAdminEventsComponent::class)->name('events.index');
+        Route::get('/events/{id}/edit', EditEventComponent::class)->name('events.edit');
+        Route::get('/events/{id}/registrations', RegistrationDetails::class)->name('events.registrations');
 
-        Route::get('/sponsors/create',NewSponsorComponent::class)->name('sponsors.create');
-        Route::get('/sponsors',SponsorsComponent::class)->name('sponsors.index');
+        Route::get('/sponsors/create', NewSponsorComponent::class)->name('sponsors.create');
+        Route::get('/sponsors', SponsorsComponent::class)->name('sponsors.index');
 
-        Route::get('/newsletter/snd',SendNewsletterComponent::class)->name('newsletter.send');
-        Route::get('/sent-newsletter',SentNewsletterComponent::class)->name('newsletter.sent');
-        Route::get('/newsletter/subscribers',SubscribersComponent::class)->name('newsletter.index');
-        Route::get('/admin-bookings',AppointmentsComponent::class)->name('admin.bookings');
+        Route::get('/newsletter/snd', SendNewsletterComponent::class)->name('newsletter.send');
+        Route::get('/sent-newsletter', SentNewsletterComponent::class)->name('newsletter.sent');
+        Route::get('/newsletter/subscribers', SubscribersComponent::class)->name('newsletter.index');
+        Route::get('/admin-bookings', AppointmentsComponent::class)->name('admin.bookings');
 
-        Route::get('/frequently-asked-question/create',NewFaqComponent::class)->name('faqs.create');
-        Route::get('/frequently-asked-question',FaqsComponent::class)->name('faqs.index');
+        Route::get('/frequently-asked-question/create', NewFaqComponent::class)->name('faqs.create');
+        Route::get('/frequently-asked-question', FaqsComponent::class)->name('faqs.index');
 
-        Route::get('/profile',ProfileComponent::class)->name('profile');
-        Route::get('/change-password',ChangePasswordComponent::class)->name('change-password');
+        Route::get('/profile', ProfileComponent::class)->name('profile');
+        Route::get('/change-password', ChangePasswordComponent::class)->name('change-password');
 
-        Route::get('/team/create',NewTeamComponent::class)->name('teams.create');
-        Route::get('/team',ManageTeamsComponent::class)->name('teams.index');
+        Route::get('/team/create', NewTeamComponent::class)->name('teams.create');
+        Route::get('/team', ManageTeamsComponent::class)->name('teams.index');
     });
 });
 
@@ -384,8 +360,9 @@ Route::middleware(['auth:sanctum','verified',])->group(function () {
 // Route::get('/video-call', function () {
 //     return view('video-call');
 // })->name('video-call');
-Route::get('/terms', function () {     return view('informations.terms');
- })->name('terms');
+Route::get('/terms', function () {
+    return view('informations.terms');
+})->name('terms');
 // Route::get('/social-media', function () {
 //     return view('social-media');
 // })->name('social-media');

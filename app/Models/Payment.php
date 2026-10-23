@@ -17,6 +17,7 @@ class Payment extends Model
         'program_id',
         'amount',
         'payment_status',
+        'transaction_id', 'transaction_status', 'transaction_currency', 'payment_method',
     ];
 
     public function user()
@@ -39,4 +40,3 @@ class Payment extends Model
         return $this->belongsTo(Program::class);
     }
 }
-

@@ -45,11 +45,13 @@
                         <div class="p-4 bg-grey rounded-10px">
                             <x-feedback-alert />
 
-                            <form method="post" class="position-relative z1000" action="{{ route('guest.change-password')}}">
+                            <form method="post" class="position-relative z1000" action="{{ route('password.store')}}">
                                 @csrf
+                                <input type="hidden" name="token" value="{{ $request->route('token') }}">
+                                @error('token')<p class="text-danger">{{ $message }}</p>@enderror
                                 <div class="form-group">
                                     <label>Email Address <span class="text-danger">*</span></label>
-                                    <input type="email" readonly value="{{ $checkToken->email }}" name="email" class="form-control">
+                                    <input type="email" required value="{{ old('email', $request->email) }}" name="email" class="form-control">
                                     @error('email')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror

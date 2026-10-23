@@ -26,14 +26,14 @@
                 @if(count($blogs)>0)
                 @foreach ($blogs as $blog)
                 <div class="col-lg-4 col-md-6 mb10">
-                    <div class="rounded-20px">
+                    <div class="rounded-20px site-image-card h-100">
                         <div class="post-image rounded-10px">
                             <div class="d-tagline">
                                 <span>{{ $blog->blog_tag }}</span>
                             </div>
-                            <img alt="{{ $blog->blog_title }}" src="{{ asset('/guest/images/uploads/' . $blog->image) }}" class="lazy">
+                            <img alt="{{ $blog->blog_title }}" src="{{ asset('/guest/images/uploads/' . $blog->image) }}" class="site-card-image" loading="lazy">
                         </div>
-                        <div class="pt-2 h-100">
+                        <div class="site-card-copy">
                             <h4><a class="text-dark" href="{{ route('blogs.details', $blog->id) }}">{{ $blog->blog_title }}</a></h4>
                             <p class="mb-3">{!! Str::limit(strip_tags($blog->description), 150) !!}</p>
                             <div class="relative bg-grey p-1 px-3 rounded-10px">

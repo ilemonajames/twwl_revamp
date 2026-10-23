@@ -1,6 +1,3 @@
-<?php error_reporting(0); ?>
-
-<body>
     <style>
         #cartquantity{
             position: relative;
@@ -212,7 +209,7 @@
                         </div>
                         <!-- Mobile Toggle Button -->
                         <button class="d-block d-lg-none navbar-toggler ms-auto" type="button" id="mobileMenuToggle"
-                            aria-label="Toggle navigation"
+                            aria-label="Toggle navigation" aria-controls="mobileNavbar" aria-expanded="false"
                             style="border: none; background: transparent;">
                             <span class="navbar-toggler-icon"></span>
                         </button>
@@ -249,7 +246,7 @@
 
                         <!-- Mobile Menu with slide-in effect -->
                         <div class="navbar-collapse d-lg-none" id="mobileNavbar">
-                            <button class="mobile-menu-close" id="mobileMenuClose">&times;</button>
+                            <button type="button" class="mobile-menu-close" id="mobileMenuClose" aria-label="Close navigation">&times;</button>
                             <ul class="navbar-nav">
                                 <li class="nav-item">
                                     <a class="nav-link {{ Request::is('home') ? 'active' : '' }}" href="/">Home</a>
@@ -310,8 +307,6 @@
         </div>
         </header>
         <!-- header close -->
-        <div class="no-bottom no-top" id="content">
-            <div id="top"></div>
             
             <script>
                 document.addEventListener('DOMContentLoaded', function () {
@@ -327,6 +322,9 @@
                         mobileMenu.classList.add('show');
                         overlay.classList.add('show');
                         document.body.classList.add('no-scroll'); // Prevent body scrolling
+                        menuToggle.setAttribute('aria-expanded', 'true');
+                        mobileMenu.removeAttribute('inert');
+                        mobileMenuClose?.focus();
                     });
                     
                     // Close menu function
@@ -334,6 +332,8 @@
                         mobileMenu.classList.remove('show');
                         overlay.classList.remove('show');
                         document.body.classList.remove('no-scroll'); // Re-enable body scrolling
+                        menuToggle.setAttribute('aria-expanded', 'false');
+                        mobileMenu.setAttribute('inert', '');
                     }
                     
                     // Close button event
@@ -345,6 +345,22 @@
                     if (overlay) {
                         overlay.addEventListener('click', closeMenu);
                     }
+                    mobileMenu.setAttribute('inert', '');
+                    document.addEventListener('keydown', function(event) {
+                        if (event.key === 'Escape' && mobileMenu.classList.contains('show')) {
+                            closeMenu();
+                            menuToggle.focus();
+                        }
+                        if (event.key === 'Tab' && mobileMenu.classList.contains('show')) {
+                            const controls = [...mobileMenu.querySelectorAll('a[href], button')].filter(element => element.getClientRects().length);
+                            const first = controls[0], last = controls[controls.length - 1];
+                            if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+                            else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+                        }
+                    });
+                    window.addEventListener('resize', function() {
+                        if (window.innerWidth >= 992) closeMenu();
+                    });
                     
                     // Improved dropdown toggle handling
                     dropdownToggles.forEach(function(toggle) {
@@ -390,4 +406,3 @@
                     });
                 });
             </script>
-        </body>

@@ -50,9 +50,9 @@
                                     @foreach ($bookings as $booking)
                                         <tr>
                                             <td scope="row">{{ $sn = $sn + 1 }}</td>
-                                            <td>{{ $booking->user->surname." ".$booking->user->othernames }}</td>
+                                            <td>{{ $booking->user ? $booking->user->surname.' '.$booking->user->othernames : $booking->name }}</td>
                                             <td>{{ $booking->appointment_date->format('d M, Y')." ".$booking->appointment_time }}</td>
-                                            <td class="desktopView">{{ $booking->program->program_title }}</td>
+                                            <td class="desktopView">{{ $booking->program?->program_title ?? 'Unavailable program' }}</td>
                                             {{-- <td class="desktopView">{{ $booking->service->service_title }}</td> --}}
                                             <td class="desktopView">{{ $booking->status }}</td>
                                             <td>

@@ -18,3 +18,7 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+*.md
+!README.md
+!IMPROVEMENT_PLAN.md
+!docs/DEPLOYMENT.md

@@ -36,17 +36,21 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'phoneno' => ['required', 'string', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'g-recaptcha-response' => ['required']
+            'g-recaptcha-response' => ['required'],
         ]);
-        
+
         $recaptchaResponse = $request->input('g-recaptcha-response');
         $secretKey = env('RECAPTCHA_SECRET_KEY');
-    
-        $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secretKey.'&response='.$recaptchaResponse);
-        $responseData = json_decode($verifyResponse);
-    
-        if(!$responseData->success) {
-            return back()->withErrors(['g-recaptcha-response' => 'Please complete the reCAPTCHA correctly'])->withInput();
+
+        try {
+            $responseData = \Illuminate\Support\Facades\Http::asForm()->connectTimeout(5)->timeout(10)
+                ->post('https://www.google.com/recaptcha/api/siteverify', ['secret' => $secretKey, 'response' => $recaptchaResponse]);
+        } catch (\Throwable $e) {
+            return back()->withErrors(['g-recaptcha-response' => 'Verification is temporarily unavailable. Please try again.'])->withInput($request->except('password', 'password_confirmation'));
+        }
+
+        if (! $responseData->successful() || ! $responseData->json('success')) {
+            return back()->withErrors(['g-recaptcha-response' => 'Please complete the reCAPTCHA correctly'])->withInput($request->except('password', 'password_confirmation'));
         }
 
         $user = User::create([
@@ -54,7 +58,7 @@ class RegisteredUserController extends Controller
             'othernames' => $request->othernames,
             'phoneno' => $request->phoneno,
             'email' => $request->email,
-            'user_type' => "Client",
+            'user_type' => 'Client',
             'status' => 'Active',
             'password' => Hash::make($request->password),
         ]);
@@ -63,6 +67,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME)->with('feedback','Registration Successful');
+        return redirect(RouteServiceProvider::HOME)->with('feedback', 'Registration Successful');
     }
 }

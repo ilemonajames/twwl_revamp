@@ -49,9 +49,10 @@
                                         <td>
                                             <a href="{{ route('programs.edit', $program->id) }}" class="btn btn-primary btn-sm">Edit</a>
                                             {{-- <button wire:click="deleteProgram({{ $program->id }})" class="btn btn-danger btn-sm">Delete</button> --}}
-                                            <a href="{{route('programs.delete', $program->id)}}" class="btn btn-danger btn-sm" wire:loading.attr="disabled">
-                                                Delete
-                                            </a>
+                                            <form method="post" action="{{ route('programs.delete', $program->id) }}" class="d-inline">
+                                                @csrf @method('delete')
+                                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                            </form>
                                             <span wire:loading wire:target="deleteProgram">Processing...</span>
                                             
                                             

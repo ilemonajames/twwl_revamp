@@ -2,169 +2,109 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Service;
-use App\Models\ProgramFee;
-use App\Models\Appointment;
 use App\Models\Faq;
+use App\Models\ProgramFee;
+use App\Models\Service;
+use App\Services\BookingService;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 
 class ServiceController extends Controller
 {
     public function index()
     {
-        $services = Service::all()->sortBy('service_title');
-        return view('services.service', compact('services'));
+        return view('services.service', ['services' => Service::orderBy('service_title')->get()]);
     }
 
-    public function getServices($id){
-        $programFees = ProgramFee::where('program_id',$id)->first();
-        // $services = Service::whereIn('id',$programFees)->get();
-        return json_encode($programFees);
+    public function getServices($id)
+    {
+        return response()->json(ProgramFee::where('program_id', $id)->firstOrFail());
     }
 
-    public function bookingPrice($id){
-        $programFees = ProgramFee::where('program_id',$id)->first();
-        if($programFees!=null){
-            return json_encode($programFees);
-        }else{
-            echo 0;
-        }
+    public function bookingPrice($id)
+    {
+        return $this->getServices($id);
     }
 
-    function getTimeDiff($startTime, $endTime) {
-        $startTime = Carbon::parse($startTime); // Example start time
-        $endTime = Carbon::parse($endTime); // Example end time
-
-        // Calculate the difference in hours
-        $hoursDifference = $startTime->diffInHours($endTime);
-
-        // Check if the difference is greater than or equal to 2 hours
-        if ($hoursDifference >= 2) {
-            return true;
-        } else {
-           return false;
-        }
-    }
-
-    public function bookAppointment(Request $request){
+    public function bookAppointment(Request $request, BookingService $bookings)
+    {
         $data = $request->validate([
-            'program' => ['required'],
-            'ap_date' => ['required'],
-            'ap_time' => ['required'],
-            'comment' => ['required'],
+            'program' => 'required|uuid|exists:programs,id',
+            'ap_date' => 'required|date_format:Y-m-d|after:today',
+            'ap_time' => 'required|date_format:H:i', 'comment' => 'nullable|string|max:2000',
         ]);
+        $bookings->reserve([
+            'program_id' => $data['program'], 'appointment_date' => $data['ap_date'],
+            'appointment_time' => $data['ap_time'], 'comment' => $data['comment'] ?? null,
+        ], $request->user()->id);
 
-        $appointment = null;
-        $getAppoinetments = Appointment::where('appointment_date',$data['ap_date'])->orderby('appointment_time','ASC')->get();
-        foreach($getAppoinetments as $app){
-            $getTimeDiff = $this->getTimeDiff($app->appointment_time,$data['ap_time']);
-            if($getTimeDiff==false){
-                $appointment = $app;
-            }
-        }
-
-        if(strtotime($data['ap_date'])<=strtotime(date('Y-m-d'))){
-            return back()->withInput()->with('errorfeedback','Sorry you cannot book appointment for today or prio to today');
-        }elseif($appointment!=null){
-            return back()->withInput()->with('errorfeedback','Sorry you cannot book appointment today for the selected time as there is an appointment booked for '.$appointment->appointment_time);
-        }else{
-            Appointment::create([
-                'service_id' => "",
-                'program_id' => $data['program'],
-                'appointment_date' => $data['ap_date'],
-                'appointment_time' => $data['ap_time'],
-                'user_id' => Auth::user()->id
-            ]);
-
-             $bookedProgram = ProgramFee::where('program_id',$request->program)->first();
-             return redirect()->to($bookedProgram->payment_link);
-            return back()->with('feedback','Appointment Successfully Booking and awaiting confirmaitn');
-        }
+        return redirect()->route('client.bookings')->with('feedback', 'Appointment requested. Payment is awaiting confirmation.');
     }
 
-    public function details($id){
-        $service = Service::find($id);
-        $services = Service::all();
-        return view('services.service-detials',compact('service','services'));
+    public function details($id)
+    {
+        return view('services.service-detials', ['service' => Service::findOrFail($id), 'services' => Service::all()]);
     }
 
-    public function our_services(){
-        $services = Service::all();
-        return view('services.our-services',compact('services'));
+    public function our_services()
+    {
+        return view('services.our-services', ['services' => Service::all()]);
+    }
+
+    public function show(Service $service)
+    {
+        return view('services.show', ['service' => $service, 'faqs' => Faq::all()]);
     }
 
     public function create()
     {
-        return view('services.create');
-    }
+        $this->authorize('create', Service::class);
 
-    public function store(Request $request)
-    {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'required|string',
-            'price' => 'required|numeric',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
-
-        $imagePath = $request->file('image') ? $request->file('image')->store('services', 'public') : null;
-
-        Service::create([
-            'name' => $request->name,
-            'description' => $request->description,
-            'price' => $request->price,
-            'image' => $imagePath,
-        ]);
-
-        return redirect()->route('services.index')->with('success', 'Service created successfully.');
-    }
-    public function show(Service $service)
-
-    {
-        $faqs = Faq::all();
-        return view('services.show', compact('service', 'faqs' ));
+        return redirect()->route('services.create');
     }
 
     public function edit(Service $service)
     {
-        return view('services.edit', compact('service'));
+        $this->authorize('update', $service);
+
+        return redirect()->route('services.edit', $service);
+    }
+
+    private function fields(Request $request): array
+    {
+        // Retain compatibility with the legacy form while persisting canonical schema fields.
+        $request->merge([
+            'service_title' => $request->input('service_title', $request->input('name')),
+            'service_description' => $request->input('service_description', $request->input('description')),
+        ]);
+
+        return $request->validate([
+            'service_title' => 'required|string|max:255',
+            'service_description' => 'required|string|max:20000',
+            'price' => 'required|numeric|min:0|max:999999.99',
+        ]);
+    }
+
+    public function store(Request $request)
+    {
+        $this->authorize('create', Service::class);
+        Service::create($this->fields($request) + ['service_image' => '']);
+
+        return redirect()->route('services.index')->with('feedback', 'Service created.');
     }
 
     public function update(Request $request, Service $service)
-{
-    $request->validate([
-        'name' => 'required|string|max:255',
-        'description' => 'required|string',
-        'price' => 'required|numeric',
-        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-    ]);
+    {
+        $this->authorize('update', $service);
+        $service->update($this->fields($request));
 
-    if ($request->hasFile('image')) {
-        // Delete the old image if exists
-        if ($service->image) {
-            Storage::disk('public')->delete($service->image);
-        }
-        $imagePath = $request->file('image')->store('services', 'public');
-        $service->image = $imagePath;
+        return redirect()->route('services.index')->with('feedback', 'Service updated.');
     }
-
-    $service->update([
-        'name' => $request->name,
-        'description' => $request->description,
-        'price' => $request->price,
-        'image' => $service->image,
-    ]);
-
-    return redirect()->route('services.index')->with('success', 'Service updated successfully.');
-}
-
 
     public function destroy(Service $service)
     {
-        $service->delete();
-        return redirect()->route('services.index')->with('success', 'Service deleted successfully.');
+        $this->authorize('delete', $service);
+        app(\App\Services\CatalogDeletionService::class)->service($service->id);
+
+        return redirect()->route('services.index')->with('feedback', 'Service deleted.');
     }
 }
