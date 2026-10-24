@@ -15,6 +15,24 @@ class RegistrationTest extends TestCase
         $response = $this->get('/register');
 
         $response->assertStatus(200);
+        $response->assertSee('id="submit-btn">Create account', false);
+    }
+
+    public function test_registration_still_requires_server_side_captcha(): void
+    {
+        $this->post('/register', ['surname' => 'Test', 'othernames' => 'Client', 'email' => 'client@example.com', 'phoneno' => '123456'])
+            ->assertSessionHasErrors('g-recaptcha-response');
+        $this->assertDatabaseCount('users', 0);
+    }
+
+    public function test_captcha_settings_use_configuration(): void
+    {
+        config(['services.recaptcha.site_key' => 'configured-public-key', 'services.recaptcha.secret_key' => 'configured-secret']);
+        $this->get('/register')->assertSee('configured-public-key')->assertDontSee('configured-secret');
+        \Illuminate\Support\Facades\Http::fake(['www.google.com/*' => \Illuminate\Support\Facades\Http::response(['success' => false])]);
+        $this->post('/register', ['surname' => 'Test', 'othernames' => 'Client', 'email' => 'client@example.com', 'phoneno' => '123456', 'g-recaptcha-response' => 'test-token'])
+            ->assertSessionHasErrors('g-recaptcha-response');
+        \Illuminate\Support\Facades\Http::assertSent(fn ($request) => $request['secret'] === 'configured-secret');
     }
 
     public function test_new_users_can_register(): void
@@ -30,7 +48,8 @@ class RegistrationTest extends TestCase
             'password_confirmation' => 'password',
         ]);
 
-        $this->assertAuthenticated();
-        $response->assertRedirect(RouteServiceProvider::HOME);
+        $this->assertGuest();
+        $response->assertRedirect(route('login'));
+        $this->assertDatabaseHas('users', ['email' => 'test@example.com', 'password_setup_required' => true, 'email_verified_at' => null]);
     }
 }

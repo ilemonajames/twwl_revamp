@@ -45,7 +45,22 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array<string, string>
      */
     protected $casts = [
+        'enrolment_required' => 'boolean',
+        'enrolment_selected_at' => 'datetime',
+        'password_setup_required' => 'boolean',
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function preferredService() { return $this->belongsTo(Service::class, 'preferred_service_id'); }
+    public function preferredProgram() { return $this->belongsTo(Program::class, 'preferred_program_id'); }
+
+    public function sendPasswordResetNotification($token): void
+    {
+        if ($this->password_setup_required) {
+            $this->notify(new \App\Notifications\SetUpPassword($token));
+            return;
+        }
+        $this->notify(new \Illuminate\Auth\Notifications\ResetPassword($token));
+    }
 }

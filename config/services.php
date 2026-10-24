@@ -1,6 +1,12 @@
 <?php
 
 return [
+    'contact' => ['recipient' => 'thewaywelove24@gmail.com'],
+    'booking' => ['notification_recipients' => ['booking@thewaywelove.com', 'thewaywelove24@gmail.com']],
+    'recaptcha' => [
+        'site_key' => env('RECAPTCHA_SITE_KEY'),
+        'secret_key' => env('RECAPTCHA_SECRET_KEY'),
+    ],
 
     /*
     |--------------------------------------------------------------------------

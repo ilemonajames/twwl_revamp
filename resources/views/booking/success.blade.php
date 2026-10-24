@@ -6,7 +6,7 @@
     @if($confirmation = session('booking_confirmation'))
         <p>Your requested appointment is {{ $confirmation['date'] }} at {{ $confirmation['time'] }}.</p>
         <p>Amount due: {{ config('services.square.currency', 'USD') }} {{ number_format($confirmation['amount'], 2) }}.</p>
-        <p>Your appointment is awaiting confirmation. Payment has not been collected.</p>
+        <p>Your request has been received. Your appointment date will be confirmed once payment has been received and verified. Payment has not been collected on this form.</p>
     @else
         <p>Please contact us if you need help with an existing appointment request.</p>
     @endif

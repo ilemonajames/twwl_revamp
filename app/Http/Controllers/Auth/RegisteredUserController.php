@@ -4,13 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
 class RegisteredUserController extends Controller
@@ -35,12 +31,11 @@ class RegisteredUserController extends Controller
             'othernames' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'phoneno' => ['required', 'string', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'g-recaptcha-response' => ['required'],
-        ]);
+        ], ['g-recaptcha-response.required' => 'Please complete the reCAPTCHA verification before creating your account.']);
 
         $recaptchaResponse = $request->input('g-recaptcha-response');
-        $secretKey = env('RECAPTCHA_SECRET_KEY');
+        $secretKey = config('services.recaptcha.secret_key');
 
         try {
             $responseData = \Illuminate\Support\Facades\Http::asForm()->connectTimeout(5)->timeout(10)
@@ -60,13 +55,11 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'user_type' => 'Client',
             'status' => 'Active',
-            'password' => Hash::make($request->password),
+            'password' => Hash::make(\Illuminate\Support\Str::random(64)),
         ]);
+        $user->forceFill(['password_setup_required' => true, 'enrolment_required' => true])->save();
+        \Illuminate\Support\Facades\Password::sendResetLink(['email' => $user->email]);
 
-        event(new Registered($user));
-
-        Auth::login($user);
-
-        return redirect(RouteServiceProvider::HOME)->with('feedback', 'Registration Successful');
+        return redirect()->route('login')->with('feedback', 'Account created. Check your email for a link to set your password before signing in. If it does not arrive, use Forgot password to request another link.');
     }
 }

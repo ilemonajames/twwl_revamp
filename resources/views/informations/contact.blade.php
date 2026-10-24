@@ -12,7 +12,7 @@
                 <div class="container relative z-index-1000">
                     <div class="row align-items-center">
                         <div class="col-lg-6">
-                            <h3 class="mb-0">Contact</h3>
+                            <h1 class="mb-0 fs-3">Contact</h1>
                         </div>
 
                         <div class="col-lg-6 text-lg-end">
@@ -55,44 +55,48 @@
                                     <div class="spacer-single"></div>
 
                                     <div class="fw-bold text-dark"><i class="icofont-envelope me-2 id-color-2"></i>Send a Message</div>
-                                  info@thewaywelove.com
+                                  <a href="mailto:thewaywelove24@gmail.com">thewaywelove24@gmail.com</a>
 
                                     <div class="spacer-single"></div>
 
                                     <div class="fw-bold text-dark"><i class="icofont-phone me-2 id-color-2"></i>Call Us Directly</div>
-                                    (804) 721-0983
+                                    <a href="tel:+18047210983">(804) 721-0983</a>
                                 </div>
                             </div>
 
                         </div>
 
                         <div class="col-lg-6">
-                            <div class="p-4">
+                            <div class="card p-4">
                                 
                                     <form name="contactForm"  class="contact-form" method="post"  action="{{ route('sendMessage')}}" id="contact-form">
                                         @csrf
                                     <div class="field-set mb-3">
-                                        <input  type="text" name="name" value="{{ old('name')}}" id="name" class="form-control" placeholder="Your Name" required>
+                                        <label for="name">Your name</label>
+                                        <input type="text" name="name" value="{{ old('name')}}" id="name" class="form-control" autocomplete="name" maxlength="255" required>
                                         @error('name')
                                         <p class="text-danger">{{ $message }}</p>
                                         @enderror
                                     </div>
 
                                     <div class="field-set mb-3">
-                                        <input type="email" name="email" value="{{ old('email')}}"  id="email" class="form-control" placeholder="Your Email" required>
+                                        <label for="email">Email address</label>
+                                        <input type="email" name="email" value="{{ old('email')}}" id="email" class="form-control" autocomplete="email" maxlength="255" required>
                                         @error('email')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror 
                                     </div>
 
                                     <div class="field-set mb-3">
-                                        <input type="text" name="phone" id="phone" class="form-control" placeholder="Your Phone" required>
+                                        <label for="phone">Phone number (optional)</label>
+                                        <input type="tel" name="phone" id="phone" value="{{ old('phone') }}" class="form-control" autocomplete="tel" maxlength="40">
                                     </div>
-                                    @error('email')
+                                    @error('phone')
                                     <p class="text-danger">{{ $message }}</p>
                                     @enderror 
                                     <div class="field-set mb20">
-                                        <textarea rows="4" name="message" value="{{ old('message')}}" id="message" class="form-control" placeholder="Your Message" required></textarea>
+                                        <label for="message">Your message</label>
+                                        <textarea rows="4" name="message" id="message" class="form-control" maxlength="500" required>{{ old('message') }}</textarea>
                                         @error('message')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror 
@@ -101,7 +105,7 @@
                                     
                                     {{-- captcha v2--}}
                                     <div class="form-group mb-3">
-                                        <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
+                                        <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.site_key') }}"></div>
                                         @error('g-recaptcha-response')
                                             <p class="text-danger">{{ $message }}</p>
                                         @enderror
@@ -114,13 +118,13 @@
                                     </div>
 
                                     @if(Session::has('feedback'))
-                                        <div class="alert alert-success mt-3">
+                                        <div class="alert alert-success mt-3" role="status">
                                             {{ Session::get('feedback') }}
                                         </div>
                                     @endif
                                     
                                     @if(Session::has('error'))
-                                        <div class="alert alert-danger mt-3">
+                                        <div class="alert alert-danger mt-3" role="alert">
                                             {{ Session::get('error') }}
                                         </div>
                                     @endif

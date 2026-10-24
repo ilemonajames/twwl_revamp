@@ -20,6 +20,11 @@
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li class="menu-title">Menu</li>
+                <li>
+                    <a href="{{ route('websiteadmin.users') }}" class="waves-effect">
+                        <i class="mdi mdi-account-group"></i><span>Customers &amp; Users</span>
+                    </a>
+                </li>
 
                 <li>
                     <a href="{{ route('dashboard') }}" class="waves-effect">

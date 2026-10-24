@@ -203,6 +203,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     // client routes
     Route::middleware([ClientMiddleware::class])->prefix('client')->group(function () {
+        Route::get('/enrolment', [\App\Http\Controllers\ClientEnrolmentController::class, 'create'])->name('client.enrolment.create');
+        Route::post('/enrolment', [\App\Http\Controllers\ClientEnrolmentController::class, 'store'])->name('client.enrolment.store');
         Route::get('/client-dashboard', function () {
             $bookings = App\Models\Appointment::where('user_id', Auth::user()->id)->get();
             $payments = App\Models\Payment::where('user_id', Auth::user()->id)->get();
@@ -233,6 +235,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     // website admin route
     Route::middleware([WebsiteAdminMiddleware::class])->prefix('website-admin')->group(function () {
+        Route::get('/users', \App\Livewire\WebsiteAdmin\Users\UsersComponent::class)->name('websiteadmin.users');
         Route::get('/dashboard', WebsiteAdminDashbaord::class)->name('websiteadmin.dashboard');
         Route::get('/services/create', NewServiceComponent::class)->name('services.create');
         Route::get('/services', WebsiteAdminServiceComponent::class)->name('services.index');

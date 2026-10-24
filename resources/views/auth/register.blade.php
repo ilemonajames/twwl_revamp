@@ -85,36 +85,18 @@
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="register-password">Password</label>
-                                            <input id="register-password" type="password" name="password" class="form-control" autocomplete="new-password" minlength="8" aria-describedby="register-password-hint" required>
-                                            <small id="register-password-hint">Use at least 8 characters.</small>
-                                            @error('password')
-                                                <p class="text-danger">{{ $message }}</p>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="register-password-confirmation">Confirm password</label>
-                                            <input id="register-password-confirmation" type="password" name="password_confirmation" class="form-control" autocomplete="new-password" required>
-                                            @error('password_confirmation')
-                                                <p class="text-danger">{{ $message }}</p>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
+                                <p>We will email you a secure link to choose your password before your first sign-in.</p>
                                 <!-- Google reCAPTCHA -->
                                 <div class="form-group mt-4">
-                                    <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}" data-callback="enableSubmitButton" data-expired-callback="disableSubmitButton" data-error-callback="disableSubmitButton"></div>
+                                    <p class="mb-2">Complete the verification below, then select Create account.</p>
+                                    <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.site_key') }}" data-error-callback="registrationCaptchaError" data-expired-callback="registrationCaptchaExpired"></div>
+                                    <p id="registration-captcha-status" role="status" aria-live="polite"></p>
                                     @error('g-recaptcha-response')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
                                 <div class="submit-section">
-                                    <button class="btn-main w-100" type="submit" id="submit-btn" disabled>Create account</button>
+                                    <button class="btn-main w-100" type="submit" id="submit-btn">Create account</button>
                                     <p class="site-auth-switch">Already have an account? <a href="{{ route('login')}}">Sign in</a></p>
                                 </div>
                             </form>
@@ -127,12 +109,11 @@
     </section>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script>
-        // Enable submit button once reCAPTCHA is completed
-        function enableSubmitButton() {
-            document.getElementById('submit-btn').disabled = false;
+        function registrationCaptchaError() {
+            document.getElementById('registration-captcha-status').textContent = 'Verification could not load. Please refresh the page or contact our team if it continues.';
         }
-        function disableSubmitButton() {
-            document.getElementById('submit-btn').disabled = true;
+        function registrationCaptchaExpired() {
+            document.getElementById('registration-captcha-status').textContent = 'Verification expired. Please complete it again before submitting.';
         }
     </script>
 

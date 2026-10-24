@@ -18,7 +18,12 @@ class EmailVerificationNotificationController extends Controller
             return redirect()->intended(RouteServiceProvider::HOME);
         }
 
-        $request->user()->sendEmailVerificationNotification();
+        try {
+            $request->user()->sendEmailVerificationNotification();
+        } catch (\Symfony\Component\Mailer\Exception\TransportExceptionInterface $exception) {
+            \Illuminate\Support\Facades\Log::warning('Verification email transport failed.', ['exception_type' => get_class($exception)]);
+            return back()->withErrors(['email' => 'The verification email could not be sent. Please try again later or contact our team.']);
+        }
 
         return back()->with('status', 'verification-link-sent');
     }

@@ -41,10 +41,19 @@ class NewPasswordController extends Controller
         $status = Password::reset(
             $request->only('email', 'password', 'password_confirmation', 'token'),
             function ($user) use ($request) {
+                $settingUp = $user->password_setup_required;
                 $user->forceFill([
                     'password' => Hash::make($request->password),
                     'remember_token' => Str::random(60),
                 ])->save();
+
+                if ($settingUp) {
+                    $user->forceFill(['password_setup_required' => false])->save();
+                    if (! $user->hasVerifiedEmail()) {
+                        $user->markEmailAsVerified();
+                        event(new \Illuminate\Auth\Events\Verified($user));
+                    }
+                }
 
                 event(new PasswordReset($user));
             }

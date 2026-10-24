@@ -48,6 +48,9 @@
                         </div>
                         <div class="card-body">
                             <x-feedback-alert />
+                            @if(session('status'))
+                                <div class="alert alert-success" role="status">{{ session('status') }}</div>
+                            @endif
 
                             <form method="post" class="position-relative z1000" action="{{ route('login')}}">
                                 @csrf

@@ -29,6 +29,10 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        if ($request->user()->user_type === 'Client' && $request->user()->enrolment_required) {
+            return redirect()->route('client.enrolment.create');
+        }
+
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 

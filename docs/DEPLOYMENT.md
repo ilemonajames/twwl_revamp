@@ -43,6 +43,16 @@ The scheduler currently has no new payment-reconciliation task. Keep the existin
 
 ## Payments and booking behavior
 
+### Booking acknowledgement and account setup emails
+
+New registrations also require a one-time service/program interest selection after signing in. Apply `2026_10_23_000002_add_client_enrolment_preferences` before serving this version. Existing users default to no selection requirement; administrators are not included. The choice is persisted on the user as preferred_service_id/preferred_program_id and enrolment_selected_at. It is an interest preference, not a paid enrolment or booking. If the catalog is empty, the selection screen provides a contact link and cannot be completed until catalog entries are available.
+
+Deploy the new `password_setup_required` users migration before serving the updated code. Existing accounts default to false and retain their passwords. New public registrations receive a single-use password-setup link instead of choosing a password on the registration form or receiving a temporary password. They are not signed in until setup is complete. A valid setup token verifies email ownership; normal resets for existing accounts do not change verification or account status. Expired setup links can be replaced through Forgot password.
+
+Booking acknowledgements are queued after the transaction commits for newly created pending/pending-payment appointments, to the guest email or associated client email. They state that the requested date is not confirmed until payment is received and verified. They do not mark payment received or confirm the appointment automatically. Existing records are not emailed retroactively.
+
+Both new notifications use the database queue with three delivery attempts. Configure working SMTP and a public HTTPS APP_URL, run the database queue worker described above, restart workers after deploying, and monitor failed jobs. Queue delays can consume the password token's configured lifetime. Test one registration and one booking with controlled recipients on the deployed server; local tests do not verify SMTP delivery.
+
 - Cart checkout creates an immutable order quote and payment attempt, reprices products from the database, and includes the configured cart tax. Orders and amounts use integer minor units. Tax defaults inherited from the cart package must be checked against the business's intended pricing before release.
 - Appointment pricing is the sum of program, session, and consultation fees. The existing shared-calendar, two-hour duration rule is retained in config/booking.php. Dates use the application timezone.
 - Guest appointment requests remain pending and display the amount due. They do not collect card payments or claim payment was made. Staff can schedule these requests and arrange payment separately.

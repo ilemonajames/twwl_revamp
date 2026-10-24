@@ -16,15 +16,17 @@ class ContactMail extends Mailable
     /**
      * Create a new message instance.
      */
-    public $message;
+    public $contactBody;
     public $name;
     public $email;
+    public $phone;
 
     public function __construct($question)
     {
-        $this->message = $question['message'];
+        $this->contactBody = $question['message'];
         $this->name = $question['name'];
         $this->email = $question['email'];
+        $this->phone = $question['phone'] ?? null;
     }
 
     /**
@@ -33,6 +35,7 @@ class ContactMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
+            replyTo: [new \Illuminate\Mail\Mailables\Address($this->email, $this->name)],
             subject: 'Contact Message',
         );
     }
@@ -45,9 +48,10 @@ class ContactMail extends Mailable
         return new Content(
             markdown: 'emails.ContactMailView',
             with: [
-                'message' => $this->message,
+                'contactBody' => $this->contactBody,
                 'name' => $this->name,
                 'email' => $this->email,
+                'phone' => $this->phone,
             ],
         );
     }

@@ -22,8 +22,9 @@ class ContactController extends Controller
 {
     public function sendMessage(Request $request){
         $data = $request->validate([
-            'name' => ['required','string'],
-            'email' => ['required','email'],
+            'name' => ['required','string','max:255'],
+            'email' => ['required','email','max:255'],
+            'phone' => ['nullable','string','max:40'],
             'message' => ['required','string','max:500'],
             'g-recaptcha-response' => 'required', 
         ]);
@@ -32,36 +33,42 @@ class ContactController extends Controller
             'email' => $data['email'],
             'name' => $data['name'],
             'message' => $data['message'],
+            'phone' => $data['phone'] ?? null,
 
         ];
 
   // Verify reCAPTCHA token with Google(version 2)
-      $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
-        'secret' => env('RECAPTCHA_SECRET_KEY'),
+      try {
+      $response = Http::asForm()->connectTimeout(5)->timeout(10)->post('https://www.google.com/recaptcha/api/siteverify', [
+        'secret' => config('services.recaptcha.secret_key'),
         'response' => $request->input('g-recaptcha-response'),
         'remoteip' => $request->ip(),
     ]);
+      } catch (\Illuminate\Http\Client\ConnectionException $exception) {
+          return back()->withInput($request->only('name', 'email', 'phone', 'message'))
+              ->with('error', 'Verification is temporarily unavailable. Please try again.');
+      }
 
     $responseData = $response->json();
 
-    if (!$responseData['success']) {
+    if (!$response->successful() || !($responseData['success'] ?? false)) {
         \Log::info('Contact form email not sent');
-        return redirect()->back()->with('error', 'reCAPTCHA verification failed. Try again.');
+        return redirect()->back()->withInput($request->only('name', 'email', 'phone', 'message'))->with('error', 'reCAPTCHA verification failed. Try again.');
     }
 
         try{
             // Mail::to("support@maytrustmicrolending.com")->send(new ContactMail($question));
-            Mail::to("thewaywelove24@gmail.com")->send(new ContactMail($question));
+            Mail::to(config('services.contact.recipient'))->send(new ContactMail($question));
             \Log::info('Contact form email sent');
             
         }catch(\Exception $e){
-            \Log::error('Mail sending failed: ' . $e->getMessage());
+            \Log::error('Contact mail sending failed.', ['exception_type' => get_class($e)]);
           //   dd('Email error: ' . $e->getMessage());
-            return redirect()->back()->with('error', 'Failed to send the message. Please try again later.');
+            return redirect()->back()->withInput($request->only('name', 'email', 'phone', 'message'))->with('error', 'Failed to send the message. Please try again later or email thewaywelove24@gmail.com directly.');
             
         }
 
-        return back()->with('feedback','Message Successully Sent');
+        return back()->with('feedback','Your message has been submitted to our team.');
     }
 }
 

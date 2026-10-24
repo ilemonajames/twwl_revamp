@@ -12,6 +12,11 @@ class ClientMiddleware
     {
         abort_unless($request->user()?->status === 'Active' && $request->user()?->user_type === 'Client', 403);
 
+        if ($request->user()->hasVerifiedEmail() && $request->user()->enrolment_required
+            && ! $request->routeIs('client.enrolment.*')) {
+            return redirect()->route('client.enrolment.create');
+        }
+
         return $next($request);
     }
 }
